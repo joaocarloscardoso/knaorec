@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 //set static path to be used for support documents, like css or angular
 app.use(express.static(path.join(__dirname,'public')));
 
+
 //to make variables global place them here 
 app.use(function(req,res,next){
     res.locals.errors = null;
