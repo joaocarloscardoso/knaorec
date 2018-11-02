@@ -60,11 +60,19 @@ app.get('/',function(req,res){
    //res.send('Hello e-gov');
    //res.json(persons);
     res.render('index', {
-        title: 'E-GOV',
+        action: 'home',
         persons: persons
     });
 });
 
+app.get('/open',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+     res.render('index', {
+         action: req.query.action,
+         persons: persons
+     });
+ });
 app.post('/users/add', [
     // email must be an email
     check('email').isEmail().withMessage('Invalid email!'),
