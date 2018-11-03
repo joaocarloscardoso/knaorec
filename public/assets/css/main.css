@@ -2614,6 +2614,10 @@ input, select, textarea {
 	{
 		text-align: left;
 	}
+	.smalltext
+	{
+		font-size: 16px;
+	}
 	.indent {
 		padding-left: 0.5em;
 		text-align: left;
