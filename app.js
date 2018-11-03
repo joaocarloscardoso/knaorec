@@ -60,16 +60,17 @@ app.get('/',function(req,res){
    //res.send('Hello e-gov');
    //res.json(persons);
     res.render('index', {
-        action: 'home',
+        action: 'intro',
         persons: persons
     });
 });
 
-app.get('/open',function(req,res){
+app.get('/:name',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);
      res.render('index', {
-         action: req.query.action,
+         //action: req.query.action,
+         action: req.params.name,
          persons: persons
      });
  });

@@ -6,10 +6,10 @@
 -->
 <html>
 	<head>
-		<title>Active IT Audit Handbook</title>
+		<title><%= action %> Active IT Audit Handbook</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
@@ -17,14 +17,28 @@
 
 		<!-- Main -->
 			<div id="main">
-				<%  if (action == 'home') { %>
-				<% include partials/intro %>
+				<%  if (action == 'intro') { %>
+					<%- include partials/intro -%>
+				<% } %>
+				<%  if (action == 'actions') { %>
+					<%- include partials/actions -%>
+				<% } %>
+				<%  if (action == 'project') { %>
+					<% include partials/project %>
+				<% } %>
+				<%  if (action == 'plugins') { %>
+					<% include partials/plugins %>
+				<% } %>
+				<%  if (action == 'desktop') { %>
+					<% include partials/desktop %>
+				<% } %>
+				<%  if (action == 'contact') { %>
+					<% include partials/contact %>
 				<% } %>
 			</div>
+		<%- include partials/footer -%>
 
-		<% include partials/footer %>
-
-		<% include partials/scripts %>
+		<%- include partials/scripts -%>
 
 	</body>
 </html>

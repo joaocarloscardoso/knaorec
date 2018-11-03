@@ -2609,3 +2609,13 @@ input, select, textarea {
 				}
 
 	}
+/* AITAM */
+	.text
+	{
+		text-align: left;
+	}
+	.indent {
+		padding-left: 0.5em;
+		text-align: left;
+		margin-left: 40px;
+	}
