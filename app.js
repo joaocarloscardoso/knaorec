@@ -60,7 +60,7 @@ app.get('/',function(req,res){
    //res.send('Hello e-gov');
    //res.json(persons);
     res.render('index', {
-        action: 'intro',
+        action: 'home',
         persons: persons
     });
 });
