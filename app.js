@@ -68,12 +68,33 @@ app.get('/',function(req,res){
 app.get('/:name',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);
-     res.render('index', {
-         //action: req.query.action,
-         action: req.params.name,
-         persons: persons
-     });
- });
+    if (req.params.name == 'project') {
+        res.render('project', {
+            //action: req.query.action,
+            action: req.params.name,
+            persons: persons
+        });  
+    }  else if (req.params.name == 'desktop') {
+        res.render('desktop', {
+            //action: req.query.action,
+            action: req.params.name,
+            persons: persons
+        });  
+    } else if (req.params.name == 'newsdesktopv2') {
+        res.render('newsdesktopv2', {
+            //action: req.query.action,
+            action: req.params.name,
+            persons: persons
+        });  
+    } else {
+        res.render('index', {
+            //action: req.query.action,
+            action: req.params.name,
+            persons: persons
+        });   
+    }
+  });
+
 app.post('/users/add', [
     // email must be an email
     check('email').isEmail().withMessage('Invalid email!'),
