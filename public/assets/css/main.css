@@ -3337,3 +3337,16 @@ input, select, textarea {
 			}
 
 	}
+/* AITAM */
+/*errors*/
+.errformtext{
+	font-size: 12px;
+	font-family: 'Courier New', Courier, monospace;
+	color: rgb(252, 4, 4);
+}
+
+/*center div element*/
+.centered{
+	margin: auto;
+	width: 50%;
+}

@@ -6,7 +6,12 @@
 -->
 <html>
 	<% include partials/head %>
+
+	<% if(errors){ %>
+	<body class="is-preload" onload="moveWindow()">
+	<% } else { %>
 	<body class="is-preload">
+	<% } %> 
 		<div id="page-wrapper">
 
 			<!-- Header -->

@@ -3,6 +3,10 @@ var bodyParser = require('body-parser');
 var path = require('path');
 //middleware to validate user controls
 const { check, validationResult } = require('express-validator/check');
+//credentials used in the app
+var credentials = require('./credentials.js');
+//email system
+var emailService = require('./lib/email.js')(credentials);
 
 var app = express();
 
@@ -65,6 +69,15 @@ app.get('/',function(req,res){
     });
 });
 
+app.get('/contactfeedback',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+     res.render('contactfeedback', {
+         action: 'home',
+         persons: persons
+     });
+ });
+
 app.get('/:name',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);
@@ -86,7 +99,7 @@ app.get('/:name',function(req,res){
             action: req.params.name,
             persons: persons
         });  
-    } else {
+     } else {
         res.render('index', {
             //action: req.query.action,
             action: req.params.name,
@@ -95,30 +108,41 @@ app.get('/:name',function(req,res){
     }
   });
 
-app.post('/users/add', [
+app.post('/contactus', [
     // email must be an email
     check('email').isEmail().withMessage('Invalid email!'),
     // first and last names must be at least 3 chars long
-    check('first_name').isLength({ min: 3 }).withMessage('First Name must be at least 3 chars long!'),
-    check('last_name').isLength({ min: 3 }).withMessage('Last Name must be at least 3 chars long!')
+    check('name').isLength({ min: 3 }).withMessage('Name must be at least 3 chars long!'),
+    check('message').isLength({ min: 3 }).withMessage('Message must be at least 3 chars long!')
   ], (req, res) => {
+    // Get content
+    var newMessage = {
+        name: req.body.name,
+        message: req.body.message,
+        email: req.body.email
+    };
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         //return res.status(422).json({ errors: errors.array() });
-        res.render('index', {
-            title: 'E-GOV',
-            persons: persons,
+       res.render('index', {
+            action: '#contact',
+            message: newMessage,
             errors: errors.array()
         });
     }
     else {
-        var newPerson = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email
-        };
-        console.log(newPerson);
+        res.render('templates/mailcontact', 
+            { layout: null, message: newMessage }, function(err,html){
+                if( err ) console.log('error in email template');
+
+                emailService.send(credentials.AITAMmail,
+                    'Information request from AITAM website',
+                    html);
+            }
+        );        
+        res.redirect(303,'contactfeedback')
+        console.log(newMessage);
     }
   });
 /*
