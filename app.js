@@ -103,6 +103,7 @@ app.get('/:name',function(req,res){
         });  
     } else if (req.params.name == 'catalogplugins') {
         var LastDate = pluginsService.getMostRecentFileName();
+        pluginsService.getListOfPlugins();
         res.render('catalogplugins', {
             //action: req.query.action,
             action: req.params.name,
