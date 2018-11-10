@@ -3350,3 +3350,30 @@ input, select, textarea {
 	margin: auto;
 	width: 50%;
 }
+
+/*table styles*/
+#catplugins {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#catplugins td, #catplugins th {
+    border: 1px solid #1f1f1f;
+	padding: 8px;
+	font-size: 12px;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+#catplugins tr:nth-child(even){background-color: #f2f2f2;}
+
+#catplugins tr:hover {background-color: #ddd;}
+
+#catplugins th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+	background-color: #1f1f1f;
+	color: rgb(255,255,255);
+	text-align: left;
+	border: #1f1f1f;
+}

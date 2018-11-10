@@ -7,6 +7,8 @@ const { check, validationResult } = require('express-validator/check');
 var credentials = require('./credentials.js');
 //email system
 var emailService = require('./lib/email.js')(credentials);
+//plugins stats and catalogue
+var pluginsService = require('./lib/catplugins.js')(credentials.PlugInsPath);
 
 var app = express();
 
@@ -98,6 +100,13 @@ app.get('/:name',function(req,res){
             //action: req.query.action,
             action: req.params.name,
             persons: persons
+        });  
+    } else if (req.params.name == 'catalogplugins') {
+        var LastDate = pluginsService.getMostRecentFileName();
+        res.render('catalogplugins', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate
         });  
      } else {
         res.render('index', {

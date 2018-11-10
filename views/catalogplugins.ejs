@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <!-- based on no-side bar template -->
+    <% include partials/head %>
+    <body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<% include partials/header %>
+
+			<!-- Main -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div id="content">
+
+							<!-- Content -->
+
+								<article>
+									<header>
+										<h2>Plug-ins catalogue</h2>
+										<% include partials/pluginstats %>
+									</header>
+
+									<p>
+										<table id='catplugins'>
+											<thead>
+												<% include partials/pluginrheader %>
+											</thead>    
+											<tbody>
+												<% include partials/pluginrow %>
+											</tbody>
+										</table>
+                                    </p>
+                                </article>
+
+						</div>
+					</div>
+				</section>
+
+			<!-- Footer -->
+			<% include partials/footer %>
+
+		</div>
+
+		<!-- Scripts -->
+		<%- include partials/scripts -%>
+
+	</body>
+</html>

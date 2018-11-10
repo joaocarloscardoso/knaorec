@@ -1,0 +1,1963 @@
+<PlugIn id="E-GOV" >
+	<About descriptionfile="EGovernmentDescription.docx">
+		<version id="1.0" name="main"/>
+		<title>
+			<tx l="eng" name="E-Government &amp; Other Web Services Roll Out"/>
+			<tx l="pol" name="E-administracja - publikacja web-serwisów"/>
+		</title>
+		<WorkingLanguage wl="eng pol"/>
+	</About>
+	<Domain nr="01">
+		<title>
+			<tx l="eng" name="IT Governance"/>
+		</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="Mechanism"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Risk Assessment and Compliance Mechanism"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Risk Assessment and Compliance Mechanism">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether the entity has an adequate mechanism to ensure compliance."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>How does the organization ensure that it has an adequate and working compliance mechanism to ensure all policies and procedures are being followed?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Most likely, a certain agency is assigned to set or regulate the direction of ICT use in Government. Look for oversight or other criteria in your SAI."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Organizational policies &amp; procedures
+(Security, SDLC, Training, etc)
+Organization Chart
+Quality Assurance Plan
+Reports from compliance teams or groups
+Steering Committee Minutes
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="
+Select a sample of policies and organizational procedures to assess compliance.
+
+Interview management to determine who is responsible for ensuring compliance to the (audit selected) policies and associated procedures.
+Interview team or group responsible for compliance of above to determine how they accomplish their duties.
+
+Review reports from various compliance groups to see what they found, what actions they have taken and reported to management.
+
+Review steering committee minutes to see if high level
+
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+	<Domain nr="02">
+		<title>
+			<tx l="eng" name="IT Operations"/>
+		</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="Capacity Management"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Ensuring Capacity Meets Service Needs"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Ensuring Capacity Meets Service Needs">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether the IT organization is ensuring that the system capacity and performance meets current and future business needs."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Does the IT organization collect and review system performance data on a real time/periodic basis for better alignment with business needs?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency policy on capacity monitoring, user satisfaction, stakeholder approval of metrics, etc"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Reports, action items, help desk response time, and other metrics.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Use Compliance issue in SLA matrix. Pay special attention to all elements having impact on capacity, i.e. compare actual capacity metrics to the SLA requirements, etc.
+
+Interview IT Personnel to see how parameters are established and or reviewed when needed with appropriate business / mission users."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="02">
+			<title>
+				<tx l="eng" name="Problem and Incident Management"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Effectiveness of Problem and Incident Management Procedures"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Effectiveness of Problem and Incident Management Procedures">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To evaluate the effectiveness of organization’s problem and incident management policies and procedures."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>AHow effective is the response to incidents. Does the incidence response strategy result in effective response to incidents?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency policy on Incident Management, IT Operations SLA."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Incident response action items, forms logs, etc.
+Periodic security awareness training
+Incident handling procedures – guidelines for prioritizing incidents
+Case reports and action taken.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Check if an incident response/handling priority is assigned to each asset or service.
+
+Verify whether procedures provide for the capture and analysis of volatile50 and static data in a timely manner.
+
+Verify whether the response team periodically makes users aware of policies and procedures regarding appropriate use of networks, systems, external media and applications.
+
+Review documents to find whether post-incident activities such as refresher training has been given to user groups to avoid costly recurrence of significant incidents.
+
+Look for whether source of incident was identified. Look for action taken. (Procedure change, reprimand, training, etc.).
+
+Check whether the incident response team records all resolved incidents
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Monitoring"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Monitoring">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether the IT organization is ensuring that the system capacity and performance meets current and future business needs."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Monitoring - Does the IT organization collect and review system performance data on a real time/periodic basis for better alignment with business needs?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Best practices by sys/network administrators like performance base lining, collection of traffic and configuration information, system resource availability, observe traffic stats and trends, what-if analyses, use of tools to pinpoint causes of performance deterioration"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Reports, action items, help desk response time, and other metrics.
+
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Use Compliance issue in SLA matrix. Pay special attention to all elements having impact on capacity, i.e. compare actual capacity metrics to the SLA requirements etc."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Analyze And tune"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Analyze And tune">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether the IT organization is ensuring that the system capacity and performance meets current and future business needs"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Analyze &amp; tune - Is the performance data analyzed and tuned for efficiency gains and avoidance of capacity constraints? If needed has the IT organization planned for and acquired additional resources to meet business needs? Does the IT organization hire, train, or contract for staff as the business needs change?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Parameters set in the agreement/operation guide; best practices in performance tuning ( memory, optimization of network response time, OS, I/O; efficient design of database schema, scheduling tasks according to priority and resource requirement, upgrade or tuning procedures set up to handle capacity issues on both a reactive and long-term basis)."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Reports, actions, status reports, performance metric graphs,
+
+Minutes of meeting at the apex IT organization level.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review the reports that the IT Organization generates daily or at other chosen time frame, look to see if they generate and analyze trend data, identify bottlenecks to look for action items, exception reporting for capacity issues. Compare to SLA requirements.
+
+Compare reports/trend patterns to verify procedural actions taken in response to the reports.
+
+Review minutes of meetings and find whether IT staffing issues, capacity problems and any additional resource needs are discussed and highlighted at the right time.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="03">
+			<title>
+				<tx l="eng" name="Service Management"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Monitoring of IT Operations"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Monitoring of IT Operations">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether the IT organization is actively monitoring IT operations against agreed-to Service Level Agreement or contract."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>What Key Parameters and baseline service metrics are covered by the SLA between the business and the IT organization?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="SLA or other well established IT Operational parameters in your country or agency. Rather than internal SLA, focus should be put on SLA between the e-government owner and its stakeholders"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Entity’s SLA between business owners and IT organization.
+
+Help desk responsibilities
+
+Service reports generated
+
+User/ application response time.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review the SLA to find whether it contains appropriate elements – detailed and measurable service level objectives, systems and services covered, quality of
+service (QoS), services not covered, application level support and troubleshooting, system availability, help desk hours, response and resolution time dependent on severity classification of a problem, throughput, maintenance schedules etc.
+
+Check whether data back-up and recovery practices are consistent with the entity’s BCP standards.
+
+Check if the Business Process Owners have signed on the agreement.
+
+Interview sample of users to understand the level of awareness
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+	<Domain nr="03">
+		<title>
+			<tx l="eng" name="Development and Acquisition"/>
+		</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="Project Management &amp; Control"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Identification of Users"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Identification of Users">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether the entity has an adequate mechanism to ensure compliance"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>How does the organisation ensure that it has an adequate and working compliance mechanism to ensure all policies and procedures are being followed?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Most likely, a certain agency is assigned to set or regulate the direction of ICT use in Government. 
+Auditors need to make sure that any e-government initiative being audited is adhere to the applied regulation.
+"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Organisational policies &amp; procedures
+(Security, SDLC, Training, etc)
+Organisation Chart
+Quality Assurance Plan
+Reports from compliance teams or groups
+Steering Committee Minutes
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Select a sample of policies and organisational procedures to assess compliance.
+
+Interview management to determine who is responsible for ensuring compliance to the (audit selected) policies and associated procedures.
+Interview team or group responsible for compliance of above to determine how they accomplish their duties.
+
+Review reports from various compliance groups to see what they found, what actions they have taken and reported to management.
+
+Review steering committee minutes to see if high level compliance issues are discussed at this or at other meetings.
+
+Interview author(s) to determine reason for update to existing policies or procedures.
+
+Review past non-compliance issues and resolutions.
+
+Review training or other dissemination mechanisms (email, memo, notice) to see if non-compliance issues were addressed.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="02">
+			<title>
+				<tx l="eng" name="Requirements Development &amp; Management"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Configuration Management"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Configuration Management">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess how the organization manages configurations of work products related to development and acquisition."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>What policy does the organization use for configuration management and are they being followed?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Configuration Management Policy &amp; Procedures.
+					Make sure that e-government or web services being audited is conform to applied configuration standard"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Configuration management policy or procedures or equivalent."/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review the configuration management policy for adequacy by looking for (as an example):
+
+Scope of policy and mandate
+Definition of roles and responsibilities
+
+Required resources and tools
+Linkage to procedures
+
+Rules to deal with non-compliance.
+
+Interview personnel responsible for configuration management if there is no policy to assess how they ensure that their duties are uniformly carried out for the organization.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Identification of Requirements for  IT"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Identification of Requirements for  IT">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess how the organization identifies, prioritizes and manages their requirements for IT systems."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>How does the organization identify user requirements for IT Systems?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Obtain an understanding of how the agency develop requirements for the e-government implementation"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Requirements’ management plan or procedure
+Sample user submitted requirements
+Sample initial review
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review the requirements’ management plan or procedures to ensure users, stakeholders, or other relevant users are involved in identifying requirements.
+
+In a major functionality enhancement development, user consultation and prototype development can be implemented in parallel. The information interchange between the business process owners and vendor/ IT organization needs to be looked into.
+
+Review sample requirements to ensure that there is an initial review, and that similar or duplicate requirements are grouped.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Prioritization of Requirements for  IT"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Prioritization of Requirements for  IT">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess how the organization identifies, prioritizes and manages their requirements for IT systems."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>How does the organization analyze, prioritize, and manage user requirements?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency policy on requirements collection, analysis and prioritization"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="List of requirements
+Review, approval, and priority noted on requirements or requirements matrix.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review requirements to determine that they include author, date, priority, etc.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="04" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Management &amp; Control of Approved IT Projects"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Management &amp; Control of Approved IT Projects">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess how the organization manages and controls the development or acquisition of approved IT projects"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>How does the organization plan for the development or acquisition of IT projects?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency policy on IT project management, processes and or procedures for the conduct of reviews, meetings, cost estimates, tracking, action items, etc"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Project management plan or equivalent
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Compare plan and activities to policy and or other procedures on how to manage the project. Select some sample activities, e.g., conduct of reviews, stakeholder involvement, approvals, etc. and ensure they take place at the appropriate times and stages along the project life cycle.
+
+Review the requirements’ management plan or equivalent to ensure that it contains the project description, scope, cost, schedule, risks, management structure and that it identifies stakeholders (internal or external).
+
+Review the plan to ensure that it has been approved by senior management and incorporates comments by stakeholder.
+
+Review the project’s organizational chart to determine the roles of individuals who are responsible for quality assurance or testing, development, and installation of the system on organizations IT infrastructure, support group, etc.
+
+For acquisition projects, ensure that the plan or equivalent list of those who will be responsible for oversight of the contractor exists and review approvals given by responsible persons.
+
+Interview project managers to determine which SDLC method is being used for the development of the project.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="05" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Quality Assurance &amp; Testing"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Project Management &amp; Control">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess how the organization ensures that IT projects under development or acquisition meet their quality goals."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Assess how the organization ensures that IT projects under development or acquisition meet their quality goals.</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency QA Policy for IT Projects, Agency Testing Policy and Methodology, Agency Software Development Plan, Agency Contractor / Contract Management Plan, Policy."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Test plan
+
+Test schedule
+
+Test results
+
+Accept or reject criteria
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review test plans.
+
+Compare project cost and schedule baselines with project status reports to assess deviations, if any.
+
+Interview project manager/review reports to determine whether appropriate corrective action was taken for major deviations.
+
+Interview project management team and review minutes of meetings with contractor to assess the frequency and effectiveness of monitoring the outsourced project activities.
+
+Review contractor SLA or contract to ensure that they are following the terms of the contract, for example look for contractors conducting periodic reviews, providing status reports, tracking action items, conducting risk management activities in accordance to the contract. 
+
+Interview contract officer at the organization to determine how it manages the contractor if SLAs are not available.
+
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+	<Domain nr="04">
+		<title>
+			<tx l="eng" name="Outsourcing"/>
+		</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="Data Rights"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Data Rights Identification"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Data Rights Identification">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="TTo assess whether the organization’s data protection requirements are identified, and that they are part of the contractual requirements."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Are the data protection and access rights built into the service contract?  Is the data defined appropriately to cover the transaction data as well as the programs/ software supporting the data, as the case may be? Is there a mechanism to ensure that the data protection and security requirements as per the Service Level Agreement are being adopted and implemented by the service provider?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Laws governing data rights if data is given to vendor, security, control, transfer, etc."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="
+Organization’s Data Protection and access rights requirements
+
+Definition of data (for protection and access rights) Contract with the service provider
+
+List of data access records from the service provider 
+
+Reports of third party audits or self-audits with recommendations and follow up on them Monitoring reports
+
+Correspondence with the service provider on the subject 
+
+Incident handling reports Non-disclosure agreement with the outsourced agency
+
+List of information disclosed by the outsourced agency to third party / unrelated party(s)
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="
+Document review on adequacy of data protection and access rights requirements/ definition of data.
+
+Document review of the contract with service provider to check for incorporation of Data Protection and access rights requirements.
+Document review of third party/ self-audit reports.
+
+Document review of the monitoring reports, correspondence and incident handling reports to assess the follow-up activities by the organization.
+
+Review of the non-disclosure agreement to verify that all relevant information is covered.
+
+Verify if the disclosure of information by outsourced agency is authorized.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="02">
+			<title>
+				<tx l="eng" name="Security"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Security Requirements and Monitoring"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Security Requirements and Monitoring">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether the security requirements are addressed in outsourcing and being complied with."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Have the security requirements been identified by the organisation with respect to outsourcing? Is there a mechanism ensuring that the security requirements of the organisation are addressed by the service provider? Does the organisation have a mechanism to monitor compliance to security requirements by the service provider?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Requirements for contractors and vendors"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Organization security policy
+
+Outsourcing Contract
+
+Service Level Agreement
+
+Inventory of data, application software and hardware with the service provider
+
+Inventory of back up data files and
+application software with the service
+provider
+
+Access control logs of the data files, application software as well as hardware at the outsourced location
+
+Security plan for the back-up site and
+disaster recovery site
+
+Monitoring reports with respect to
+security issues
+
+Correspondence between organization and service provider with respect to security issues.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Document review to assess that the security requirements have been identified by the organization and built into the outsourcing contract or SLA.
+
+Verify if the organization has the inventory of data files, application software.
+
+Verify that the organization monitors/ is aware that status of data files, application software and hardware are preserved during the back up and data recovery process carried out by the outsourced agency.
+
+Verify if the organization has assurance on authorization of any change in data, application software and hardware by the outsourced agency.
+
+Verify if the organization has an assurance on the access to the data, application software and hardware at the outsourced location through study of access logs (physical and logical).
+
+Verify if the organization has assurance on security mechanisms put in place by the service provider.
+
+Verify if the organization receives regular reports and acts on the information in the monitoring reports.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="03">
+			<title>
+				<tx l="eng" name="Service Level Agreement"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="SLA Development and Enforcement"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="SLA Development and Enforcement">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether the agency has developed the Service Level Agreement detailing all its requirements and is actively monitoring the vendor against the agreement."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Is a service level agreement agreed to between the organization and the service provider? Is the service level agreement detailed enough to identify all roles and responsibilities between the organization and the service provider? Is the service level agreement implemented diligently? Does the organization have a mechanism to monitor the implementation of the service level agreement? Is there a mechanism available to address exceptions to the service level agreement?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Established SLA with vendor, review and approval of SLA content. SLA enforcement policy/procedures at agency."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Service level agreement or contract
+
+Technical and other requirements
+(list of services that will be performed by the vendor)
+
+List of responsibilities of organization and vendor
+
+Baselines for the services that will be measured, measurement period, duration, location, and reporting timelines (defect rates, response time, help desk staffing hours, etc.)
+
+Periodic vendor performance status reports.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Document review to assess that all user requirements are translated to service level requirements.
+
+Document review to assess that the roles and responsibilities of the organization and the service provider are clearly identified and delineated.
+
+Document review to assess that the parameters for performance levels are clearly identified and included in the service level agreement.
+
+Document review to assess that the service level monitoring mechanism is established and agreed to between the organization and service provider.
+
+Review vendors status reports to assess that the parameters in the SLA are being reported on by the contractor and reviewed by appropriate personnel within the organization.
+
+Assessment of compliance to SLA technical parameters and baselines.
+
+Verify the action taken by the organization for deviations from service level agreement.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="04">
+			<title>
+				<tx l="eng" name="Vendor or Contract Monitoring"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Vendor or Contract Monitoring"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Vendor or Contract Monitoring">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether the organization is managing the contractor or vendor and takes appropriate action when performance or quality deviates from established baselines."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Is there a contract with the service provider? Are Service Levels identified and agreed through a Service Level Agreement? Is there a monitoring arrangement (for services) with the service provider? Are the service levels ensured through this arrangement? Is appropriate action taken when service level agreement provisions are not met?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency policy and procedures on vendor or contractor monitoring and oversight, agency policy on IT project management if same as contractor management, etc. SLA, contract with vendor/contractor."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="
+Contract/ Service Level Agreement
+Approved schedules, baselines, cost and other technical parameters that define the product or service being acquired or outsourced
+
+Monitoring documents/ reports / meeting minutes of reviews conducted, action items, direction to vendor (task orders, statement of work, etc.)
+
+Impact assessment of deviations
+
+Action items or direction to vendor
+
+Action taken reports on deviations from service levels."/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Document review to assess if a service level agreement has been established.
+
+Review of monitoring reports submitted by the contractor to ensure that they contain elements that are in the contract or SLA (cost, schedule, performance, risk, status, issues, and status of past action items or tasks).
+
+Review of monitoring reports to identify service deficiency/ deviation and assessment of impact due to the deficiencies/ deviations.
+
+Review of notices and action-taken reports for action taken to be commensurate with impact on business and contractual provisions.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+	<Domain nr="05">
+		<title>
+			<tx l="eng" name="Information Security"/>
+		</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="Access Control"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Ensuring Authorized Access"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Ensuring Authorized Access">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To ensure that only authorised users have access to relevant information"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Access policy - Does the organisation have clear and efficient policy on access?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy, Policy on Access Control and Authorized Use of IT Resources"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Access Policy and procedures
+
+List of users
+
+Access control list/ matrix.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Analyze Access Policy and procedures to ensure that employee duties and areas of responsibility are separated in order to reduce opportunities for unauthorized
+access and privilege approval.
+
+Validation Test: Operating effectiveness of authorization of user access to the LAN (not separate testing of user access to applications should be done in conjunction with application reviews).
+
+Select a sample of user and system accounts to determine existence (access control software maybe used) of the following:
+
+clearly defined requested role and/or privileges mapped to job functions.
+business justification for access.
+data owner and management authorization (i.e. signatures/ written approvals).
+Business/risk justification and management approval for non-standard requests.
+Access requested is commensurate with job function/role and required segregation of duties.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Granting and Revoking Access"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Access Control">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="How effective are procedures for granting and revoking access to IT Resources"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Privileges management - Is process for granting and revoking access control to employees and contractors safe and effective?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy, Access Granting and Revoking Policy and Procedures"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Access control procedures
+
+Sample of employees’ transfers and terminations
+
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Check procedures to determine how often the various accesses and privileges that employees or users have in the organisation are reviewed.
+
+Check how the privileges that are granted to an employee are confirmed
+(Examples include asking the supervisor, area manager, group, etc.)
+
+Interview sample of users and check instructions to verify how the users are informed about their responsibility for protecting sensitive information or assets when the access is granted to them.
+
+Determine whether the organisation’s security practices require users and system processes to be uniquely identifiable and systems to be configured to enforce
+authentication before access is granted, and that such control mechanisms are utilised for controlling logical access across all users, system processes and IT
+resources.
+
+Analyse other than password privileges, e.g. how it is checked that a user does indeed have sufficient access and privileges to the requested resource? (Examples
+include access from secure location, hardware tokens or fingerprint readers, etc.)
+
+Validation Test 1: Operating effectiveness of transfers and terminations:
+
+Obtain from HR a sample of employee transfers and terminations and, through review of system account profiles and/or CAATs (e.g. ACL, IDEA) determine if access has been appropriately altered and/or revoked in a timely manner.
+
+Validation Test 2: Password management:
+
+Verify that the quality requirements for passwords are defined and enforced by the network management system and/or operating systems based on local
+requirements/ organisation policy or best practice.
+
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="02">
+			<title>
+				<tx l="eng" name="Communications and Operations Management"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Configuration Control"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Configuration Control">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To ensure IT applications and other configuration items are under appropriate control"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Are the IT resource settings/ applications under appropriate configuration control?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Configuration Management Policy and Procedures"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Policy and procedures referring to configuration matters in operations area
+
+Configuration lists/ library.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review role matrices to determine who is responsible for administering the configuration, and what the scope of the configuration control in operations is.
+
+Check how it is registered, controlled and updated.
+
+Verify if any problems occurred in the past because of configuration discrepancies.
+If so, interview managers to check what procedures have been implemented to configuration changes
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Securing Internal and External Communnications"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Securing Internal and External Communnications">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To ensure that internal and external communication is secure"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Policy and procedures - Are policy and procedures adequate for safe and efficient internal and external communication?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy and Procedures"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Formal and written policy for communications and IT operations
+
+Documentations of operational procedures
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Check whether the policies and procedures of the organisation embrace communication with citizens, mass media, and external organisations.
+
+Verify how the organisation documents its operating procedures and makes them available to all users. Interview a sample set of users at different levels to examine
+whether the procedures for data handling are well known by employees.
+
+Check how often the communication and data handling procedures are reviewed and updated.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Securing Network Communications"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Securing Network Communications">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To ensure that internal and external communication is secure."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>How does the organisation manage and control information in the network?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy and Procedures, Network protocols and procedures"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Information restriction policy
+
+Network Admin Logs/Registers
+
+Results of the logs analysis
+
+User Acceptance Test Report
+
+Service Level Agreement(s)
+
+Information available to the public or found in the web pages.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Check what tools are used for network monitoring and analysis. verify whether users and IT systems of the audited organisation are protected against spam.
+
+Check whether Intrusion Detection System configurations and logs are analysed by appropriate personnel to ensure security of information from hacking attacks and malware intrusions. Verify whether the attacks (failed and effective ones) are analyzed and reported.
+
+Check the statistics of spam, hacking and malware attacks.
+
+Inquire how the organisation provides secure transmission of transactions passing over public networks. Eg. Circulating/ notifying operating procedures to users for
+e-commerce/ online transactions.
+Review policies to verify whether data transmission outside the organisation requires an encrypted format prior to transmission.
+
+Inquire whether information security policies have been implemented in
+accordance to the sensitivity classification of organisation’s data (e.g., confidential, sensitive).
+Through enquiry determine whether the client utilises cryptography for sensitive information processing.
+If so, conduct a validation testing.
+Control Validation Testing Procedures
+Validation Test 1: Operating effectiveness of cryptographic controls:
+Determine:
+•	the existence of processes for the key management life cycle.
+•	key destruction.
+•	segregation of duties for the authorised key custodians.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="03">
+			<title>
+				<tx l="eng" name="Risk Assessment"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Confidentiality"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Confidentiality Requirements and Implementation">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Confidentiality Requirements are identified and enforced"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Confidentiality - Has the organization confidentiality requirements or non-disclosure agreements that appropriately reflect the need for protecting information? Do the policies secure information in the organization’s relation with external parties?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy and Procedures, Agency Confidentiality requirements "/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="External and internal regulations concerning confidential and classified
+information.
+
+Eg, Non-disclosure clauses for employees.
+
+Contractual arrangements with external parties 
+
+Information security policy
+
+IT Security Plan.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="
+Check procedural measures taken by the organization to comply with the confidentiality requirements.
+Where access to confidentiality breach cases are restricted to special law procedures and specialized agencies only, base your opinion on their reports and recommendations to the organization’s management – if available.
+
+Review contractual arrangements with external parties or contractors. Do they involve granting and invoking access, processing, communicating or managing organizational information assets?
+
+Check whether the contractual terms and obligations define the security restrictions and obligations that control how contractors will use organization’s assets and access information systems and services.
+
+Check whether any information security breaches were committed by contractors.
+
+Check management action on such breaches.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Risk Identification and Mitigation Policy"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Risk Identification and Mitigation">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To ensure that all risks associated with information security have been identified and an appropriate risk mitigation strategy is put in place."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>To ensure that all risks associated with information security have been identified and an appropriate risk mitigation strategy is put in place.</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy and Procedures"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="DDocumented Risk Assessments
+
+Risk register
+
+Incident handling reports.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review documents to check if the risk assessment performed by the audited organization was based on sufficiently comprehensive information. Check whether data and reports were obtained from the organization’s incident management system. (Support your analysis with results of Analysis Methods of IT Operations focused on Incident Management system, esp. if the information security incident handling forms a system separated from a general incident management system.)
+
+Validation Test 1: Security audit trails: Determine if security audit trails capture user identification (ID), type of event, data and time, success or failure indication, origination of event, and the identity or the name of the affected object
+
+Interview relevant personnel to verify whether there is a standard re-assessment of risk whenever the organization plans to roll out new information systems, upgrades, and new versions.
+Check the risk assessment design for completeness, relevancy, timeliness and measurability.
+Check if consequences of infrastructure inoperability is considered while assigning
+risk categories. Verify documents to see if a business impact analysis is done for the consequences of critical information becoming unavailable, corrupted, inappropriately compromised or lost.
+
+Review incidence response reports and earlier risk documents/ registers to examine whether the risk assessment methodology has been effective in the past.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Risk Mitigation"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Risk Mitigation">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Are Identified risks being mitigated as per policy?"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Mitigation - Are significant risks mitigated in effective and efficient way?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy and Procedures, Agency Risk Management Policy"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Problem/incident handling reports
+
+Periodic activity reports
+
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review incident handling reports and check whether appropriate procedures were in place to prevent, detect and control security risks identified in the risk assessment document.
+
+In organizations that do not follow a well-defined risk assessment mechanism, determine what compensatory control exist. Analyze if any serious security incidents occurred in relation to risks that might have been mitigated better with a properly working risk assessment mechanism, vis-à-vis existing compensatory controls.
+
+Take into account that problem/incident reports may be incomplete in some cases. Nevertheless, important events may be reflected directly or indirectly in other documents, as e.g. annual activity reports or other periodic reports.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+	<Domain nr="06">
+		<title>
+			<tx l="eng" name="BCP-DRP"/>
+		</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="BCP-DRP"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="BCP-DRP Policy"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="BCP-DRP Policy">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether there is an effective business continuity policy in the organisation."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Does the organisation have a contingency plan and policy for business continuity?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="BCP and DRP Policy, Approvals, Modifications, etc."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Business Continuity Policy Document
+
+IT Policy Document
+
+Approval process for adoption of business policy objectives
+
+Correspondence and minutes of meetings related to business continuity
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Document review for assessing that the policy is consistent with the organization’s overall IT policies.
+
+Document review to assess that the policy addresses requirements of business continuity by defining organization’s contingency objectives, organizational framework and responsibilities for contingency planning.
+
+Review or interview personnel to determine how often the policy is updated if conditions change.
+
+Review policy to determine who approved it and when was it last distributed / interview a sample of business users to assess if the policy has been sufficiently communicated within the organization."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="BCP-DRP Testing"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="BCP-DRP Testing">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether the business continuity disaster recovery procedures have been tested."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Has the organization tested its BC and DR procedures, and what changes (if any) have been made as a result of the test?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="BCP DRP Testing Policy"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="BC and DR procedures and Test procedures
+
+List of items for which business continuity/disaster recovery plan has to be tested 
+
+Frequency of testing of business continuity
+plan and disaster recovery plan
+
+List of tests conducted
+
+List of test criteria like RTOs and RPOs etc
+
+List of testing methods employed
+
+Test results and actions taken or test
+Recommendations
+
+Follow up action on test results.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="
+Document review to assess whether all relevant items are covered for testing.
+
+Document review to assess whether the tests are conducted are right intervals, in time.
+
+Document review to assess that the tests were conducted against
+identified criteria.
+
+Document review to assess that the tests were conducted using
+appropriate testing methods.
+
+Document review to assess that the recommendations are conveyed to appropriate authorities for follow-up.
+
+Document review to assess that the test recommendations are
+adequately followed up and the business continuity plan or the
+disaster recovery plan are adequately updated.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="DRP Plan Implementation"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Disaster Recovery Plan Implementation">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether the Business Continuity Plan includes back-up and recovery plans for hardware, data, application software and data center (recovery) and has been suitably implemented?"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Back-up Procedures - Have the data and program back-up procedures been devised and implemented effectively?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="DRP Plan and Procedures"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Procedures for the hardware, data, application software
+
+Back-up logs/ Version logs
+
+Roles and responsibilities for back-up
+
+List of storage locations and periodicity
+
+Retention schedule
+
+Security arrangement for back-up site
+
+Disaster logs
+
+Roles and responsibilities for  recovery activities
+
+Training records of responsible personnel Impact assessment of
+Disasters 
+
+Report on disaster recovery activities.
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Document review to assess that the back-up plan includes all critical hardware, data, application software.
+
+Document review to assess that detailed back-up procedures have been devised.
+
+Document review to assess that the back-up plan is adequately implemented.
+
+Analysis of logs to assess the back-up is taken at determined timelines and are retained for the specified time period.
+
+Verify that the right version of back up is available. 
+
+Document review to assess the adequacy of back-up location and the mode of transport of back up files etc. to the back-up location.
+
+Verify that the security, logical or physical is adequate for the back-up site.
+
+Verify that the back-up files can be used for recovery.
+
+Document review to assess that back-up procedures are implemented minimising loss of time and resources.
+Document review to assess that detailed recovery procedure has been devised and includes resetting of system parameters, installation of patches, establishing the configuration settings, availability of the system documentation and operating procedures, reinstallation of application and system software, availability of most recent backup, and testing of system.
+
+Document review to assess that recovery procedures are implemented minimising loss of time and resources.
+
+Document review/ Interview staff to assess that the relevant staff have been trained on the back-up and recovery procedures.
+
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+	<Domain nr="07">
+		<title>
+			<tx l="eng" name="Application Controls"/>
+		</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="Input"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Data Entry Authorization"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Data Entry Authorization">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Only authorized personnel allowed to enter data into the application"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>How data entry authorisation into the application is being managed?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Access control procedures, audit trail procedures, roles and responsibilities of users"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Legal and external compliance requirements
+
+Business requirements and rules 
+
+User manuals
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="
+Inquire whether and confirm that the design of the system provides for the use of preapproved authorisation lists. Verify, through inspection of authorisation lists, that authorisation levels are properly defined for each group of transactions. Assess whether authorisation rules for data input, editing, acceptance, rejection
+and override for major classes of transactions are well designed and documented.
+
+Observe that authorisation levels are properly applied running the application in a testing environment. Verify, through the use of CAATs or embedded audit modules, that the authorisation records present in the database are compliant to the
+authorisation rules defined.
+
+Determine if a separation of duties (SOD) table exists, and review for adequate separation of key duties/ job functions and permitted transactions, then, look into list of users and user-specific access privileges. Assess whether segregation of duties ensures that the person keying the data is not also responsible for verification
+of document. Verify the adoption of compensating controls in cases which SOD was not feasible."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Error Handling"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Error Handling">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Error Handling Is Part of the application"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Does the application have adequate procedures for error handling?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Application user manual, procedures for error handling and remediation / updates"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Error types and messages
+
+Log review procedures
+
+Policies and procedures for dealing with rejected data 
+
+Suspense file review procedures
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Discuss the application’s error and exception handling with the developer and/or administrator. Inquire whether and confirm that policies and procedures exist for
+handling transactions that fail edit and validation checks.
+
+Verify whether the system provides error messages for every type of error (field level or transaction level) not meeting the edit validation.
+
+Verify how the application behaves if data is rejected by the input controls.
+Check whether the data items are recorded or if they are automatically written in a suspense file. Check if the automated suspense file includes codes indicating error types, date and time of entry and identify the person entering data. Evaluate
+if there are procedures for reviewing and correcting data in the suspense file before processing it again. 
+Assess whether an escalation procedure is in place when error rates are too high and corrective action is taken.
+
+Ask managers about the existence of procedures for periodically reviewing the log. Verify whether the procedures include the initiation of corrective measures. Obtain 1 evidence – either documental or digital – that the log is being periodically reviewed.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Souce Data Management"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Source Data Management">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="How effective are the  management of source  data and relevant documents and paper trail?"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Is management of source documents, data collection and entry adequate?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Data and Document Retention Policy and Procedures"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="
+Classes of source documents
+
+Entity’s criteria for timeliness, completeness and accuracy of source
+
+Documents Data preparation
+
+Procedures Data interfaces with other
+Applications 
+
+Document retention policies
+
+System flow diagrams
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Inspect and observe creation and documentation of data preparation procedures, and inquire whether and confirm that procedures are understood and the correct source media are used.
+
+Assess whether the Data Processing group (DP) or equivalent group maintains a log of all the user departments’ source documents received and their final disposal. 
+
+Verify the existence of a system of reconciliation of record counts with
+user department groups.
+
+Verify that all source documents include standard components, contain proper documentation (e.g., timeliness, predetermined input codes, default values) and are authorised by management.
+
+Inspect whether critical source documents are pre-numbered and how out-ofsequence numbers are identified and taken into account. Identify and review out-of-sequence numbers, gaps and duplicates using automated tools (CAATs).
+
+Verify if there is assignment of unique and sequential numbers to each transaction preventing duplication.
+
+Enquire responsible personnel about retention policies. Verify how these policies are ensured. A sample of system records might be checked against its source documents.
+
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="04" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Valid Data"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Valid Data">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether valid data is being entered into the application by authorised personnel."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Validation of inputs - Does the application have adequate input validation controls?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Application manual or data entry procedures for various applications (financial, mission, personnel, etc.)"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Business requirements and rules
+
+Data input types
+
+Legal and external compliance requirements
+
+Structure of data interfaces with other applications 
+
+System flow diagrams
+
+User manuals
+
+Validation rules
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Analyse business rules, requirements, application documentation and inquire business process owners to determine which validation rules should be assured
+in the business process being assessed. Check if these validation rules were proper designed and documented. Verify whether the validation controls for data input are being enforced: observing application users into real action; running the application in a testing environment and testing different interfaces for data entry; and analysing data records stored in the database through the use of CAATs.
+Obtain functional description for each class of input and design information on transaction data entry. Inspect the functionality and design for the presence of timely and complete checks and error messages. If possible, observe transaction data entry.
+
+Assess whether validation criteria and parameters on input data match business
+rules and enforce rejection of unmatched input types. In case of online processing
+systems, verify that invalid data is rejected or edited on entry and test the logic checks/calculation checks performed. Database operatives (such as *, =, or, select) should be disallowed as valid input, as they can be used to disrupt or retrieve information from the database.
+
+Inquire managers about whether validation criteria and parameters on input data are periodically reviewed, confirmed and updated in a timely, appropriate and authorised manner. Assurance could be obtained through documentation review, code analysis or interviews.
+
+Inquire and check documentation in order to verify the possibility of overriding input data control validations and controls. Verify if the override actions are being
+properly logged and reviewed for appropriateness. Check whether authority to override is restricted to only supervisory staff and to a limited number of situations. Inspect error corrections, entry overrides and other documents to verify that the procedures are followed.
+
+Determine which interfaces exist with the application. These interfaces could be in the form of real-time data transmission or periodic transmission of data files via batch processes. Review system flow diagrams and system code, and interview
+the application developers or administrator to obtain information on interfaces and controls over them. E.g.: Control totals from interface transmissions. E.g., Hash
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="02">
+			<title>
+				<tx l="eng" name="Processing"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Data Integrity and Reliability"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Data Integrity and Reliability">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="To assess whether the application ensures data integrity, validity and reliability throughout the transaction processing cycle"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Do the application controls ensure the integrity and completeness of its transactions?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Application manual, business logic, user needs, applicable mission rules"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="
+Application design documentation
+
+Business rules and requirements
+
+Out-of-balance reports 
+
+Reconciliations
+
+Report review procedures Suspense files
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="IAssess whether the application has adequate validity checks in place to ensure processing integrity. Inspect the functionality and design for the presence of sequence and duplication errors, referential integrity checks, control, and hash totals.
+
+Inspect reconciliations and other documents to verify whether input counts are coherent with output counts to ensure completeness of data processing. Trace transactions through the process to verify that reconciliations effectively determine
+whether file totals match or the out-of-balance condition is reported. Inquire whether control files are used to record transaction counts and monetary values, and that the values are compared after posting.
+
+Verify that reports are generated identifying out-of-balance conditions and that the reports are reviewed, approved and distributed to the appropriate personnel.
+
+Take a sample of data input transactions. Use appropriate automated analysis and
+search tools to identify cases where errors were identified erroneously and cases where errors were not detected.
+
+Inquire whether and confirm that utilities are used, where possible, to automatically maintain the integrity of data during unexpected interruptions in data processing.
+
+Inspect the audit trail and other documents, plans, policies and procedures to verify that system capabilities are effectively designed to automatically maintain data integrity.
+
+Inspect the functional description and design information on transaction data entry to verify whether transactions failing validation routines are posted to suspense
+files. Verify that suspense files are correctly and consistently produced and that users are informed of transactions posted to suspense accounts. For a sample of  transaction systems, verify that suspense accounts and suspense files for transactions failing validation routines contain only recent errors. Confirm that older failing transactions have been appropriately remediated
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="03">
+			<title>
+				<tx l="eng" name="Output"/>
+			</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Application Security"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Application Security">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether application’s information is properly secured against misuse."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Do the traceability mechanisms of the application are sufficient for its purpose?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Agency Security Policy, Data Protection manual, access control logs, etc."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Audit trail structure and documentation
+
+Override policies
+
+Review procedures
+
+System flowcharts
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="
+Obtain documentation and assess the design, implementation, access and review of audit trails. Inspect the audit trail structure and other documents to verify that the audit trail is designed effectively. Inquire who can disable or delete the audit trails.
+
+Inspect the audit trail, other documents, plans, policies and procedures to verify that adjustments, overrides and high-value transactions are designed effectively to be promptly reviewed in detail.
+
+Inspect the audit trail, transactions (or batches), reviews and other documents; trace transactions through the process and, where possible, use automated evidence collection, including sample data, embedded audit modules or CAATs,
+to verify that periodic review and maintenance of the audit trail effectively detects unusual activity and supervisor reviews are effective.
+
+Inquire how the access to the audit trail is restricted. Examine access rights and access logs to the audit trail files. Verify whether only restrict and authorised personnel have access to the audit trail. Assess if the audit trail is protected against privileged modifications.
+
+Verify, where possible, using automated evidence collection, if unique identifiers are being assigned to each transaction.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Completness and Accuracy of Output Data"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Completness and Accuracy of Output Data">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether application assures that output information is complete and accurate before further use and that it is properly protected."/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Does the application have controls to ensure completeness and accuracy of its output?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Format of reports and other output data, content, user acceptance or changes to output data"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Completeness and accuracy controls
+
+Methods for balancing and reconciliation
+
+List of electronic outputs/reports
+
+Sample of electronic output
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="
+Obtain a list of all electronic outputs that are reused in end-user applications.
+
+Verify that the electronic output is tested for completeness and accuracy before the output is reused and reprocessed.
+
+Examine the balancing and reconciliation of output as established by documented
+methods.
+
+Select a representative sample of electronic output, and trace selected documents through the process to ensure that completeness and accuracy are verified before
+other operations are performed.
+
+Re-perform completeness and accuracy tests to validate that they are effective.
+
+Examine if each output product contains processing program name or number; title or description; processing period covered; user name and location; date and time prepared; and security classification.
+
+Select a representative sample of output reports, and test the reasonableness and accuracy of the output. Verify that potential errors are reported and centrally logged.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Output Data Completness"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Output Data Completness">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess whether application assures that output information is complete and accurate before further use and that it is properly protected"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Does the application have controls to ensure completeness and accuracy of its output?</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Application user manual, data protection requirements and procedures, sample reports, user acceptance and change requests for automated reports and data."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Completeness and accuracy controls
+
+Methods for balancing and reconciliation
+
+List of electronic outputs/reports
+
+Sample of electronic output
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Obtain a list of all electronic outputs that are reused in end-user applications.
+
+Verify that the electronic output is tested for completeness and accuracy before the output is reused and reprocessed.
+
+Examine the balancing and reconciliation of output as established by documented
+methods.
+
+Select a representative sample of electronic output, and trace selected documents through the process to ensure that completeness and accuracy are verified before
+other operations are performed.
+
+Re-perform completeness and accuracy tests to validate that they are effective.
+
+Examine if each output product contains processing program name or number; title or description; processing period covered; user name and location; date and time prepared; and security classification.
+
+Select a representative sample of output reports, and test the reasonableness and accuracy of the output. Verify that potential errors are reported and centrally logged.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="04" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Output"/>
+				</title><Narrative><narr l="eng"><ak></ak></narr></Narrative>
+				<Matrix id="Output Data Protection">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Are out data protected for unauthorized use or dissemination"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Is the output data properly protected!</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Data protection policy and procedures, access control logs, report distribution policy, training records on data security"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Output handling and retention procedures
+
+Information classification
+policies
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Review output handling and retention procedures for privacy and security. Assess whether procedures have been defined that require the logging of potential errors and their resolution prior to distribution of the reports. Examine the system of
+reconciliation of output batch control totals with input batch control totals before release of reports establishing data integrity.
+
+Check if there are documented procedures for labeling sensitive application output and, where required, sending sensitive output to special access-controlled output devices. Review the distribution methods of sensitive information and verify that the mechanisms correctly enforce pre-established access rights.
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+</PlugIn>
