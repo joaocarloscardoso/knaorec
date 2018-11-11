@@ -27,6 +27,7 @@
 									</header>
 
 									<p>
+										<% if(catalog.length > 0) { %>
 										<table id='catplugins'>
 											<thead>
 												<% include partials/pluginrheader %>
@@ -35,6 +36,9 @@
 												<% include partials/pluginrow %>
 											</tbody>
 										</table>
+										<% } else { %>
+										<p>No Plug-Ins available!</p>
+										<% } %>
                                     </p>
                                 </article>
 

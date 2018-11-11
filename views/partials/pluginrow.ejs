@@ -1,11 +1,17 @@
+<% catalog.forEach(function(item) { %>
 <tr>
-    <td scope="row">1</td>
-    <td><a target="_blank" href="/public/plugins/land.xml">File1</a></td>
-    <td>Ref1</td>
-    <td>Description1</td>
-    <td>Not Available</td>
-    <td>Version1</td>
-    <td>en, pl</td>
-    <td>Date1</td>
-    <td>300 kb</td>
+    <td scope="row"><%= item.RowId %></td>
+    <td><a target="_blank" href="<%= downloadurl %><%= item.File %>"><%= item.File %></a></td>
+    <td><%= item.Reference %></td>
+    <td><%= item.Description %></td>
+    <% if (item.Support == "") { %>
+        <td>(not available)</td>
+    <% } else { %>
+        <td><%= item.Support %></td>
+    <% } %>
+    <td><%= item.Version %></td>
+    <td><%= item.Language %></td>
+    <td><%= item.Date %></td>
+    <td><%= item.Size %></td>
 </tr>
+<% }) %>

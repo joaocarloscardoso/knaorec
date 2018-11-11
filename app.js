@@ -80,6 +80,10 @@ app.get('/contactfeedback',function(req,res){
      });
  });
 
+ app.get(('/' + credentials.urlpaths.plugins + ':name'),function(req,res){
+    //download xml file
+});
+
 app.get('/:name',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);
@@ -103,11 +107,14 @@ app.get('/:name',function(req,res){
         });  
     } else if (req.params.name == 'catalogplugins') {
         var LastDate = pluginsService.getMostRecentFileName();
-        pluginsService.getListOfPlugins();
+        var PluginsCatalog = pluginsService.getListOfPlugins();
+        //console.log(PluginsCatalog.length)
         res.render('catalogplugins', {
             //action: req.query.action,
             action: req.params.name,
-            lastupdate: LastDate
+            lastupdate: LastDate,
+            catalog: PluginsCatalog,
+            downloadurl: credentials.urlpaths.plugins
         });  
      } else {
         res.render('index', {
