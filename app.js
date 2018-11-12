@@ -82,6 +82,10 @@ app.get('/contactfeedback',function(req,res){
 
  app.get(('/' + credentials.urlpaths.plugins + ':name'),function(req,res){
     //download xml file
+     var file = __dirname + '/' + credentials.urlpaths.plugins + req.params.name
+     var file = file.replace("/","\\");
+     console.log(file);
+     res.download(file); // Set disposition and send it.
 });
 
 app.get('/:name',function(req,res){
