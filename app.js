@@ -11,8 +11,25 @@ var emailService = require('./lib/email.js')(credentials);
 var pluginsService = require('./lib/catplugins.js')(credentials.PlugInsPath);
 //logging system
 var log = require('./lib/log.js');
+//generation of uuid
+const uuid = require('uuid/v4');
+//session handling and store
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 
 var app = express();
+
+// add and configure session middleware
+app.use(session({
+    genid: (req) => {
+      //console.log('Inside the session middleware')
+      //log.info(req.sessionID);
+       return uuid(); // use UUIDs for session IDs
+    },
+    secret: credentials.cookieSecret,
+    resave: false,
+    saveUninitialized: true
+  }));
 
 /*
 //middleware should positioned before router
@@ -65,8 +82,10 @@ var persons = [
 ];
 
 app.get('/',function(req,res){
-   //res.send('Hello e-gov');
-   //res.json(persons);
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    //const uniqueId = uuid();
+    log.info('Session created received the id:' + req.sessionID);
     res.render('index', {
         action: 'home',
         persons: persons
