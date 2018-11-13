@@ -9,6 +9,8 @@ var credentials = require('./credentials.js');
 var emailService = require('./lib/email.js')(credentials);
 //plugins stats and catalogue
 var pluginsService = require('./lib/catplugins.js')(credentials.PlugInsPath);
+//logging system
+var log = require('./lib/log.js');
 
 var app = express();
 
@@ -82,10 +84,11 @@ app.get('/contactfeedback',function(req,res){
 
  app.get(('/' + credentials.urlpaths.plugins + ':name'),function(req,res){
     //download xml file
-     var file = __dirname + '/' + credentials.urlpaths.plugins + req.params.name
-     var file = file.replace("/","\\");
-     console.log(file);
-     res.download(file); // Set disposition and send it.
+    var file = __dirname + '/' + credentials.urlpaths.plugins + req.params.name
+    var file = file.replace("/","\\");
+    console.log(file);
+    res.download(file); // Set disposition and send it.
+    log.info('plug-in download: ' + file);
 });
 
 app.get('/:name',function(req,res){
@@ -163,7 +166,7 @@ app.post('/contactus', [
             }
         );        
         res.redirect(303,'contactfeedback')
-        console.log(newMessage);
+        //console.log(newMessage);
     }
   });
 /*
@@ -180,6 +183,7 @@ app.post('/users/add',function(req,res){
 */
 
 app.use(function(req,res,next){
+    log.warn('404 - Not Found')
     res.type('text/html');
     res.status(404);
     res.render('404');
@@ -187,6 +191,7 @@ app.use(function(req,res,next){
 });
 
 app.use(function(req,res,next){
+    log.warn('500 - Server Error')
     res.type('text/html');
     res.status(500);
     res.render('500');
