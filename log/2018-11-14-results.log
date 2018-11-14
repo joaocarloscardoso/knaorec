@@ -1,0 +1,11 @@
+{"message":"Session created received the id:895f6958-4df6-4e3c-a7be-635f76566f56","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 20:24:06"}
+{"message":"plug-in download: C:\\develop\\nodejs\\projects\\aitam\\public/plugins/LandRegistry.xml","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 20:24:18"}
+{"message":"plug-in download: C:\\develop\\nodejs\\projects\\aitam\\public/plugins/EGovernment.xml","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 20:45:15"}
+{"message":"Session created received the id:f9e56d7f-6c99-4199-bab7-2b27baea1381","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 20:45:29"}
+{"message":"Login attempt: joao.ccardoso@gmail.com","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 21:00:27"}
+{"message":"Session created received the id:fc8bace5-c58c-4ab5-baa9-ed582fac7bea","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 21:09:20"}
+{"message":"Session created received the id:8113b37d-ca1d-4c7d-8feb-34bd9a12171f","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 21:30:50"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 21:31:28"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 21:31:28"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"password\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 21:31:28"}
+{"message":"Session created received the id:f5d1b478-4fbc-4436-accd-681b765872b5","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-14 22:02:14"}
