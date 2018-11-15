@@ -1,0 +1,16 @@
+{"message":"Session created received the id:d9269a3e-a6f0-4970-b8f3-66455651b05d","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 20:15:53"}
+{"message":"Session created received the id:f09997a3-fd0b-4c42-b339-d0e114878caf","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 20:16:28"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 20:16:42"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 20:16:42"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"password\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 20:16:42"}
+{"message":"Session created received the id:f09997a3-fd0b-4c42-b339-d0e114878caf","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 20:17:04"}
+{"message":"Session created received the id:92f36eba-035a-4512-9a81-599cc7751caa","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 20:43:08"}
+{"message":"Session created received the id:7173891e-615f-4f0b-bb35-f837082205ad","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:00:47"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:01:14"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:01:14"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"password\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:01:14"}
+{"message":"Session created received the id:05bf93b0-9548-4c98-8e6e-cdcfc056de01","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:15:41"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:16:10"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:16:23"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:16:23"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-15 21:16:23"}
