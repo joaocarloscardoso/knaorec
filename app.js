@@ -24,6 +24,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const axios = require('axios');
 //module to hash passwords
 const bcrypt = require('bcrypt-nodejs');
+//file uploads
+var formidable = require('formidable');
+var fs = require("fs");
 
 // configure passport.js to use the local strategy
 passport.use(new LocalStrategy(
@@ -161,13 +164,26 @@ app.get('/tool', (req, res) => {
     //console.log('Inside GET /authrequired callback');
     //console.log(`User authenticated? ${req.isAuthenticated()}`);
     if(req.isAuthenticated()) {
-      res.send('you hit the authentication endpoint\n');
+        //console.log('userid2file1: ' + req.session.passport.user);
+        //console.log('sessionid2file2: ' + req.sessionID);
+        res.redirect('/toolindex');
     } else {
-      res.redirect('/login');
+        res.redirect('/login');
     }
 });
   
-  
+app.get('/toolindex', (req, res) => {
+    //console.log('Inside GET /authrequired callback');
+    //console.log(`User authenticated? ${req.isAuthenticated()}`);
+    if(req.isAuthenticated()) {
+        res.render('toolindex', {
+            action: 'tool',
+            persons: persons
+        });
+    } else {
+        res.redirect('/login');
+    }
+});  
 
 app.get('/contactfeedback',function(req,res){
     //res.send('Hello e-gov');
@@ -264,6 +280,39 @@ app.post('/contactus', [
         //console.log(newMessage);
     }
   });
+
+app.post('/tooleditaudit', function(req, res){
+    var form = new formidable.IncomingForm();
+    form.uploadDir = path.join(__dirname,'work');
+    
+    form.on('fileBegin', function(field, file) {
+        //rename the incoming file to the file's name
+        file.path = form.uploadDir + '/' + req.sessionID + '.xml';
+    });   
+
+    form.parse(req, function(err, fields, files){
+    if(err) { 
+        log.warn('Error loading file from user ' + req.session.passport.user +'!');
+        return res.render('toolindex', {
+            action: 'tool',
+            persons: persons
+        });
+    }
+    log.info(`User (` +  req.session.passport.user + `) uploaded a file: ${JSON.stringify(files)}`);
+    res.redirect(303, '/thank-you');
+    });
+    /*
+    form.on('error', function(err) {
+        console.log("an error has occured with form upload");
+        console.log(err);
+        request.resume();
+    });
+    form.on('aborted', function(err) {
+        console.log("user aborted upload");
+    });
+    */
+});  
+
 /*
 app.post('/users/add',function(req,res){
     var newPerson = {
@@ -278,7 +327,7 @@ app.post('/users/add',function(req,res){
 */
 
 app.use(function(req,res,next){
-    log.warn('404 - Not Found')
+    log.warn('404 - Not Found');
     res.type('text/html');
     res.status(404);
     res.render('404');
@@ -286,7 +335,7 @@ app.use(function(req,res,next){
 });
 
 app.use(function(req,res,next){
-    log.warn('500 - Server Error')
+    log.warn('500 - Server Error');
     res.type('text/html');
     res.status(500);
     res.render('500');

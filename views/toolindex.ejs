@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <!-- based on no-side bar template -->
+    <% include partials/head %>
+    <body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<% include partials/header %>
+
+			<!-- Main -->
+            <div class="container">
+                <section class="col-6 col-12-narrower">
+					<div class="container">
+						<div id="content">
+							<!-- Content -->
+                            <article>
+                                <header>
+                                    <h2></h2>
+                                    <h2>Start here</h2>
+                                    <p>Choose action to take</p>
+                                </header>
+                                <form method="POST" action="/toolnewaudit">
+                                    <div class="row gtr-50">
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" class="button alt" value="Create New Audit...   " /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                                <hr>
+                                <br/>
+                                <form method="POST" enctype="multipart/form-data" action="/tooleditaudit">
+                                    <div class="row gtr-50">
+                                        <div class="col-6 col-12-mobilep">
+                                            <label for="file-upload" class="custom-file-upload">
+                                                <i class="fa fa-cloud-upload"></i> Search File
+                                            </label>
+                                            <input name="file-upload" id="file-upload" type="file" required accept=".xml"/>
+                                        </div>
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" class="button alt" value="Load and Edit Audit..." /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </article>
+						</div>
+					</div>
+				</section>
+            </div>
+			<!-- Footer -->
+			<% include partials/footer %>
+
+		</div>
+
+		<!-- Scripts -->
+		<%- include partials/scripts -%>
+
+	</body>
+</html>

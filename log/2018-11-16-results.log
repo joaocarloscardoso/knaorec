@@ -1,0 +1,33 @@
+{"message":"Session created received the id:436c26c9-7099-4ef2-ac6c-ec981006b0e2","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:22:13"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:22:29"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:22:29"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:22:29"}
+{"message":"id2file: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:22:29"}
+{"message":"Session created received the id:1af11b9e-e062-4d90-8c70-70901c53fc64","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:24:43"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:24:59"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:24:59"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:24:59"}
+{"message":"id2file: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:24:59"}
+{"message":"id: 1af11b9e-e062-4d90-8c70-70901c53fc64","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:24:59"}
+{"message":"Session created received the id:26cc1221-bef3-44ea-89ec-7ab7e4632a4f","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:26:39"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:26:54"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:26:54"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:26:54"}
+{"message":"id2file1: 2f24vvg","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:26:54"}
+{"message":"id2file2: 26cc1221-bef3-44ea-89ec-7ab7e4632a4f","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:26:54"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:38:17"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:38:17"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:38:17"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:39:45"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:39:45"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 20:39:45"}
+{"message":"Session created received the id:2daa276b-bc3e-4403-82ca-805b1ab0d478","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 21:27:49"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 21:28:08"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 21:28:08"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 21:28:08"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 21:35:31"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 21:35:31"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 21:35:31"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 23:39:58"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 23:39:58"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-11-16 23:39:58"}
