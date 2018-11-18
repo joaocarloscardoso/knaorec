@@ -313,6 +313,16 @@ app.post('/tooleditaudit', function(req, res){
     */
 });  
 
+app.post('/toolnewaudit', function(req, res){
+    var NewAuditFile = path.join(__dirname,'work');
+    NewAuditFile = NewAuditFile + '/' + req.sessionID + '.xml';
+
+    //Create new audit file
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    InitialAudit.CreateInitialAuditXML();
+    res.redirect(303, '/thank-you');
+ });  
+
 /*
 app.post('/users/add',function(req,res){
     var newPerson = {
