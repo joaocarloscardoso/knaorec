@@ -291,15 +291,23 @@ app.post('/tooleditaudit', function(req, res){
     });   
 
     form.parse(req, function(err, fields, files){
-    if(err) { 
-        log.warn('Error loading file from user ' + req.session.passport.user +'!');
-        return res.render('toolindex', {
-            action: 'tool',
+        if(err) { 
+            log.warn('Error loading file from user ' + req.session.passport.user +'!');
+            return res.render('toolindex', {
+                action: 'tool',
+                persons: persons
+            });
+        }
+        log.info(`User (` +  req.session.passport.user + `) uploaded a file: ${JSON.stringify(files)}`);
+        //res.redirect(303, '/thank-you');
+        var CheckedAuditFile = path.join(__dirname,'work');
+        CheckedAuditFile = CheckedAuditFile + '/' + req.sessionID + '.xml';
+        return res.render('toolwork', {
+            action: 'audit',
+            operation: 'audit_creation',
+            msg: 'Load completed successfuly!',
             persons: persons
         });
-    }
-    log.info(`User (` +  req.session.passport.user + `) uploaded a file: ${JSON.stringify(files)}`);
-    res.redirect(303, '/thank-you');
     });
     /*
     form.on('error', function(err) {
@@ -320,7 +328,13 @@ app.post('/toolnewaudit', function(req, res){
     //Create new audit file
     var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
     InitialAudit.CreateInitialAuditXML();
-    res.redirect(303, '/thank-you');
+    //res.redirect(303, '/thank-you');
+    return res.render('toolwork', {
+        action: 'audit',
+        operation: 'audit_creation',
+        msg: 'New audit created successfuly!',
+        persons: persons
+    });
  });  
 
 /*
