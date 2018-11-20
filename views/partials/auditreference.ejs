@@ -1,0 +1,53 @@
+<section id="contact" class="col-6 col-12-narrower">
+    <header>
+        <h2></h2>
+        <h2>Audit Reference</h2>
+        <p></p>
+    </header>
+    <% if(errors){ %>
+    <div class="col-12" id="err_auditreference">
+        <p>
+            <% errors.forEach(function(error){ %>
+                <span class="errformtext">* <%= error.msg %></span><br/>
+            <% }) %>    
+        </p>
+    </div>
+    <% } %>
+    <form method="POST" action="/toolwork/reference">
+        <div class="row gtr-50">
+            <div class="col-12">
+                <% if(errors){ %>
+                    <input type="text" name="auditid" id="auditid" placeholder="Audit ID" value="<%= message.auditid %>" />
+                <% } else { %>
+                    <input type="text" name="auditid" id="auditid" placeholder="Audit ID" />
+                <% } %> 
+            </div>
+            <div class="col-12">
+                <% if(errors){ %>
+                    <input type="text" name="title" id="title" placeholder="Audit title" value="<%= message.title %>" />
+                <% } else { %>
+                    <input type="text" name="title" id="title" placeholder="Audit title" />
+                <% } %>
+            </div>
+            <div class="col-12">
+                <% if(errors){ %>
+                    <textarea name="background" id="background" placeholder="Audit background" rows="5"><%= message.background %></textarea>
+                <% } else { %>
+                    <textarea name="background" id="background" placeholder="Audit background" rows="5"></textarea>
+                <% } %>
+           </div>
+           <div class="col-12">
+            <% if(errors){ %>
+                <textarea name="scope" id="scope" placeholder="Audit scope" rows="5"><%= message.scope %></textarea>
+            <% } else { %>
+                <textarea name="scope" id="scope" placeholder="Audit scope" rows="5"></textarea>
+            <% } %>
+       </div>
+       <div class="col-12">
+                <ul class="actions">
+                    <li><input type="submit" class="button alt" value="Save" /></li>
+                </ul>
+            </div>
+          </div>
+    </form>
+</section>
