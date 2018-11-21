@@ -3339,6 +3339,13 @@ input, select, textarea {
 	}
 /* AITAM */
 /*errors*/
+.successformtext{
+	font-size: 12px;
+	font-family: 'Courier New', Courier, monospace;
+	color: rgb(84, 161, 20);
+}
+
+/*save successful notification*/
 .errformtext{
 	font-size: 12px;
 	font-family: 'Courier New', Courier, monospace;

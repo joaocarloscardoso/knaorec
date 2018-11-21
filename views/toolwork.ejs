@@ -22,8 +22,10 @@
                             <article>
                                 <%  if (operation == 'audit_creation') { %>
                                     <% include partials/auditcreation %>
+                                <% } else if (operation == 'audit_reference') { %>
+                                    <% include partials/auditreference %>
                                 <% } %>
-                           </article>
+                          </article>
 						</div>
 					</div>
 				</section>

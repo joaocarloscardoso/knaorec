@@ -185,6 +185,32 @@ app.get('/toolindex', (req, res) => {
     }
 });  
 
+app.get('/toolauditreference',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = path.join(__dirname,'work');
+    NewAuditFile = NewAuditFile + '/' + req.sessionID + '.xml';
+
+    //Create new audit file
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    if (status) {
+        var AuditReference = InitialAudit.GetAuditReference(NewAuditFile);
+        console.log(AuditReference);
+        res.render('toolwork', {
+            action: 'audit',
+            operation: 'audit_reference',
+            AuditReference: AuditReference,
+            msg: ''
+         });
+    } else {
+        res.render('login', {
+            action: 'login',
+            persons: persons
+        });
+    }
+});
+
 app.get('/contactfeedback',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);
@@ -279,7 +305,7 @@ app.post('/contactus', [
         res.redirect(303,'contactfeedback')
         //console.log(newMessage);
     }
-  });
+});
 
 app.post('/tooleditaudit', function(req, res){
     var form = new formidable.IncomingForm();
@@ -335,7 +361,48 @@ app.post('/toolnewaudit', function(req, res){
         msg: 'New audit created successfuly!',
         persons: persons
     });
- });  
+});  
+
+app.post('/toolauditreference', [
+    check('auditid').isLength({ min: 2 }).withMessage('Audit ID must be at least 2 chars long!'),
+    check('title').isLength({ min: 3 }).withMessage('Audit Title must be at least 3 chars long!')
+  ], (req, res) => {
+    // Get content
+    var AuditReference = {
+        AuditId: req.body.auditid,
+        Title: req.body.title,
+        Background: req.body.background,
+        Scope: req.body.scope
+    };
+
+    var AuditFile = path.join(__dirname,'work');
+    AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+
+    // Finds the validation errors in this request and wraps them in an object with handy functions
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        //return res.status(422).json({ errors: errors.array() });
+        res.render('toolwork', {
+            action: 'audit',
+            operation: 'audit_reference',
+            AuditReference: AuditReference,
+            errors: errors.array(),
+            msg: ''
+         });
+    }
+    else {
+        //Save reference on audit file
+        var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
+        InitialAudit.SetAuditReference(AuditFile,AuditReference)
+
+        res.render('toolwork', {
+            action: 'audit',
+            operation: 'audit_reference',
+            AuditReference: AuditReference,
+            msg: 'New audit created successfuly!'
+         });
+    }
+});
 
 /*
 app.post('/users/add',function(req,res){

@@ -4,6 +4,13 @@
         <h2>Audit Reference</h2>
         <p></p>
     </header>
+    <% if(msg != ''){ %>
+        <div class="col-12" id="save_auditreference">
+            <p>
+                <span class="successformtext"><%= msg %></span><br/>
+            </p>
+        </div>
+    <% } %>    
     <% if(errors){ %>
     <div class="col-12" id="err_auditreference">
         <p>
@@ -13,37 +20,21 @@
         </p>
     </div>
     <% } %>
-    <form method="POST" action="/toolwork/reference">
+    <form method="POST" action="/toolauditreference">
         <div class="row gtr-50">
             <div class="col-12">
-                <% if(errors){ %>
-                    <input type="text" name="auditid" id="auditid" placeholder="Audit ID" value="<%= message.auditid %>" />
-                <% } else { %>
-                    <input type="text" name="auditid" id="auditid" placeholder="Audit ID" />
-                <% } %> 
+                <input type="text" name="auditid" id="auditid" placeholder="Audit ID" value="<%= AuditReference.AuditId %>" />
             </div>
             <div class="col-12">
-                <% if(errors){ %>
-                    <input type="text" name="title" id="title" placeholder="Audit title" value="<%= message.title %>" />
-                <% } else { %>
-                    <input type="text" name="title" id="title" placeholder="Audit title" />
-                <% } %>
+                <input type="text" name="title" id="title" placeholder="Audit title" value="<%= AuditReference.Title %>" />
             </div>
             <div class="col-12">
-                <% if(errors){ %>
-                    <textarea name="background" id="background" placeholder="Audit background" rows="5"><%= message.background %></textarea>
-                <% } else { %>
-                    <textarea name="background" id="background" placeholder="Audit background" rows="5"></textarea>
-                <% } %>
-           </div>
-           <div class="col-12">
-            <% if(errors){ %>
-                <textarea name="scope" id="scope" placeholder="Audit scope" rows="5"><%= message.scope %></textarea>
-            <% } else { %>
-                <textarea name="scope" id="scope" placeholder="Audit scope" rows="5"></textarea>
-            <% } %>
-       </div>
-       <div class="col-12">
+                <textarea name="background" id="background" placeholder="Audit background" rows="5"><%= AuditReference.Background %></textarea>
+            </div>
+            <div class="col-12">
+                <textarea name="scope" id="scope" placeholder="Audit scope" rows="5"><%= AuditReference.Scope %></textarea>
+            </div>
+            <div class="col-12">
                 <ul class="actions">
                     <li><input type="submit" class="button alt" value="Save" /></li>
                 </ul>
