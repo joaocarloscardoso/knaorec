@@ -91,6 +91,7 @@ app.use(function(req,res,next){
     next();
 });
 
+/*
 var persons = [
     {
         id: 1,
@@ -111,6 +112,7 @@ var persons = [
         email: 'sarapalin@gmail.com'
     }
 ];
+*/
 
 // add and configure session middleware
 app.use(session({
@@ -131,17 +133,28 @@ app.get('/',function(req,res){
     //res.json(persons);
     //const uniqueId = uuid();
     log.info('Session created received the id:' + req.sessionID);
+    var AuditFile = path.join(__dirname,'work');
+    AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
     res.render('index', {
         action: 'home',
-        persons: persons
+        audit: status
+        //persons: persons
     });
 });
 
 // create the login get and post routes  
 app.get('/login',function(req,res){
+    var AuditFile = path.join(__dirname,'work');
+    AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
     res.render('login', {
         action: 'login',
-        persons: persons
+        audit: status
     });
 });
 
@@ -173,12 +186,17 @@ app.get('/tool', (req, res) => {
 });
   
 app.get('/toolindex', (req, res) => {
+    var AuditFile = path.join(__dirname,'work');
+    AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
     //console.log('Inside GET /authrequired callback');
     //console.log(`User authenticated? ${req.isAuthenticated()}`);
     if(req.isAuthenticated()) {
         res.render('toolindex', {
             action: 'tool',
-            persons: persons
+	        audit: status
         });
     } else {
         res.redirect('/login');
@@ -190,10 +208,9 @@ app.get('/toolauditreference',function(req,res){
     //res.json(persons);
     var NewAuditFile = path.join(__dirname,'work');
     NewAuditFile = NewAuditFile + '/' + req.sessionID + '.xml';
-
-    //Create new audit file
     var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
     if (status) {
         var AuditReference = InitialAudit.GetAuditReference(NewAuditFile);
         console.log(AuditReference);
@@ -201,23 +218,30 @@ app.get('/toolauditreference',function(req,res){
             action: 'audit',
             operation: 'audit_reference',
             AuditReference: AuditReference,
-            msg: ''
+            msg: '',
+	        audit: status
          });
     } else {
         res.render('login', {
             action: 'login',
-            persons: persons
+            //persons: persons,
+            audit: status
         });
     }
 });
 
 app.get('/contactfeedback',function(req,res){
+    var AuditFile = path.join(__dirname,'work');
+    AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
     //res.send('Hello e-gov');
     //res.json(persons);
      res.render('contactfeedback', {
          action: 'home',
-         persons: persons
-     });
+         audit: status
+        });
 });
 
  app.get(('/' + credentials.urlpaths.plugins + ':name'),function(req,res){
@@ -229,25 +253,30 @@ app.get('/contactfeedback',function(req,res){
 });
 
 app.get('/:name',function(req,res){
+    var AuditFile = path.join(__dirname,'work');
+    AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
     //res.send('Hello e-gov');
     //res.json(persons);
     if (req.params.name == 'project') {
         res.render('project', {
             //action: req.query.action,
             action: req.params.name,
-            persons: persons
+            audit: status
         });  
     }  else if (req.params.name == 'desktop') {
         res.render('desktop', {
             //action: req.query.action,
             action: req.params.name,
-            persons: persons
+	        audit: status
         });  
     } else if (req.params.name == 'newsdesktopv2') {
         res.render('newsdesktopv2', {
             //action: req.query.action,
             action: req.params.name,
-            persons: persons
+	        audit: status
         });  
     } else if (req.params.name == 'catalogplugins') {
         var LastDate = pluginsService.getMostRecentFileName();
@@ -258,13 +287,14 @@ app.get('/:name',function(req,res){
             action: req.params.name,
             lastupdate: LastDate,
             catalog: PluginsCatalog,
-            downloadurl: credentials.urlpaths.plugins
+            downloadurl: credentials.urlpaths.plugins,
+	        audit: status
         });  
      } else {
         res.render('index', {
             //action: req.query.action,
             action: req.params.name,
-            persons: persons
+	        audit: status
         });   
     }
   });
@@ -276,6 +306,11 @@ app.post('/contactus', [
     check('name').isLength({ min: 3 }).withMessage('Name must be at least 3 chars long!'),
     check('message').isLength({ min: 3 }).withMessage('Message must be at least 3 chars long!')
   ], (req, res) => {
+    var AuditFile = path.join(__dirname,'work');
+    AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
     // Get content
     var newMessage = {
         name: req.body.name,
@@ -289,7 +324,8 @@ app.post('/contactus', [
        res.render('index', {
             action: '#contact',
             message: newMessage,
-            errors: errors.array()
+            errors: errors.array(),
+	        audit: status
         });
     }
     else {
@@ -317,22 +353,28 @@ app.post('/tooleditaudit', function(req, res){
     });   
 
     form.parse(req, function(err, fields, files){
+        var AuditFile = path.join(__dirname,'work');
+        AuditFile = AuditFile + '/' + req.sessionID + '.xml';
+        var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+        var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
         if(err) { 
             log.warn('Error loading file from user ' + req.session.passport.user +'!');
             return res.render('toolindex', {
                 action: 'tool',
-                persons: persons
+                audit: status
             });
         }
         log.info(`User (` +  req.session.passport.user + `) uploaded a file: ${JSON.stringify(files)}`);
         //res.redirect(303, '/thank-you');
-        var CheckedAuditFile = path.join(__dirname,'work');
-        CheckedAuditFile = CheckedAuditFile + '/' + req.sessionID + '.xml';
+        //var CheckedAuditFile = path.join(__dirname,'work');
+        //CheckedAuditFile = CheckedAuditFile + '/' + req.sessionID + '.xml';
+ 
         return res.render('toolwork', {
             action: 'audit',
             operation: 'audit_creation',
             msg: 'Load completed successfuly!',
-            persons: persons
+	        audit: status
         });
     });
     /*
@@ -359,7 +401,7 @@ app.post('/toolnewaudit', function(req, res){
         action: 'audit',
         operation: 'audit_creation',
         msg: 'New audit created successfuly!',
-        persons: persons
+        audit: true
     });
 });  
 
@@ -387,7 +429,8 @@ app.post('/toolauditreference', [
             operation: 'audit_reference',
             AuditReference: AuditReference,
             errors: errors.array(),
-            msg: ''
+            msg: '',
+            audit: true
          });
     }
     else {
@@ -399,7 +442,8 @@ app.post('/toolauditreference', [
             action: 'audit',
             operation: 'audit_reference',
             AuditReference: AuditReference,
-            msg: 'New audit created successfuly!'
+            msg: 'New audit created successfuly!',
+            audit: true
          });
     }
 });
