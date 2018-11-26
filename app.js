@@ -135,8 +135,8 @@ app.get('/',function(req,res){
     log.info('Session created received the id:' + req.sessionID);
     var AuditFile = path.join(__dirname,'work');
     AuditFile = AuditFile + '/' + req.sessionID + '.xml';
-    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
-    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
 
     res.render('index', {
         action: 'home',
@@ -149,8 +149,8 @@ app.get('/',function(req,res){
 app.get('/login',function(req,res){
     var AuditFile = path.join(__dirname,'work');
     AuditFile = AuditFile + '/' + req.sessionID + '.xml';
-    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
-    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
 
     res.render('login', {
         action: 'login',
@@ -188,8 +188,8 @@ app.get('/tool', (req, res) => {
 app.get('/toolindex', (req, res) => {
     var AuditFile = path.join(__dirname,'work');
     AuditFile = AuditFile + '/' + req.sessionID + '.xml';
-    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
-    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
 
     //console.log('Inside GET /authrequired callback');
     //console.log(`User authenticated? ${req.isAuthenticated()}`);
@@ -218,6 +218,7 @@ app.get('/toolauditreference',function(req,res){
             action: 'audit',
             operation: 'audit_reference',
             AuditReference: AuditReference,
+            AuditErrors: '',
             msg: '',
 	        audit: status
          });
@@ -255,8 +256,8 @@ app.get('/contactfeedback',function(req,res){
 app.get('/:name',function(req,res){
     var AuditFile = path.join(__dirname,'work');
     AuditFile = AuditFile + '/' + req.sessionID + '.xml';
-    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
-    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
 
     //res.send('Hello e-gov');
     //res.json(persons);
@@ -308,8 +309,8 @@ app.post('/contactus', [
   ], (req, res) => {
     var AuditFile = path.join(__dirname,'work');
     AuditFile = AuditFile + '/' + req.sessionID + '.xml';
-    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
-    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
 
     // Get content
     var newMessage = {
@@ -355,8 +356,8 @@ app.post('/tooleditaudit', function(req, res){
     form.parse(req, function(err, fields, files){
         var AuditFile = path.join(__dirname,'work');
         AuditFile = AuditFile + '/' + req.sessionID + '.xml';
-        var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
-        var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+        var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
+        var status = InitialAudit.VerifyAuditFile(AuditFile);
 
         if(err) { 
             log.warn('Error loading file from user ' + req.session.passport.user +'!');
@@ -428,7 +429,7 @@ app.post('/toolauditreference', [
             action: 'audit',
             operation: 'audit_reference',
             AuditReference: AuditReference,
-            errors: errors.array(),
+            AuditErrors: errors.array(),
             msg: '',
             audit: true
          });
@@ -442,7 +443,8 @@ app.post('/toolauditreference', [
             action: 'audit',
             operation: 'audit_reference',
             AuditReference: AuditReference,
-            msg: 'New audit created successfuly!',
+            AuditErrors: '',
+            msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
             audit: true
          });
     }

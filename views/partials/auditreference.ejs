@@ -11,10 +11,10 @@
             </p>
         </div>
     <% } %>    
-    <% if(errors){ %>
+    <% if(AuditErrors){ %>
     <div class="col-12" id="err_auditreference">
         <p>
-            <% errors.forEach(function(error){ %>
+            <% AuditErrors.forEach(function(error){ %>
                 <span class="errformtext">* <%= error.msg %></span><br/>
             <% }) %>    
         </p>

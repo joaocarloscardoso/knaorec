@@ -1,7 +1,7 @@
-<Audit><About id="033" descriptionfile=""><version id="1.0" name=""/><title><tx l="eng" name="Usability of public digital services directed at businesses" rem=""/></title><WorkingLanguage wl="eng"/></About><Background><ak>This report concerns the usability of e-government services as seen from a business perspective. Today it is not possible to run a business in Denmark without using digital services. For instance, all businesses must have a digital mailbox (Digital Post) and VAT can only be
+<Audit><About id="qq033" descriptionfile=""><version id="1.0" name=""/><title><tx l="eng" name="qqUsability of public digital services directed at businesses" rem=""/></title><WorkingLanguage wl="eng"/></About><Background><ak>qqThis report concerns the usability of e-government services as seen from a business perspective. Today it is not possible to run a business in Denmark without using digital services. For instance, all businesses must have a digital mailbox (Digital Post) and VAT can only be
 reported online.
 If the digital services are not user-friendly, businesses will waste time and money searching for the right websites and entering the required data correctly, or they will be forced to buy professional assistance. At worst, the businesses risk making errors in their reports and applications.
-Inadequate usability may have the consequence that the authorities offering the service have to invest resources in providing assisted online support and correcting errors and deficiencies in reports, applications, etc. that could have been prevented.</ak></Background><Scope><ak>Usability of the digital services based on the users’ perceptions of the services, and also whether relevant digital services are interlinked in a user-friendly way and helping the users reach their goals.</ak></Scope><Preassessment>
+Inadequate usability may have the consequence that the authorities offering the service have to invest resources in providing assisted online support and correcting errors and deficiencies in reports, applications, etc. that could have been prevented.</ak></Background><Scope><ak>qqUsability of the digital services based on the users’ perceptions of the services, and also whether relevant digital services are interlinked in a user-friendly way and helping the users reach their goals.</ak></Scope><Preassessment>
 		<About id="PreactIS">
 			<version id="20180418" name="main"/>
 			<title>
@@ -6922,7 +6922,7 @@ Verifikoni, nëse është e mundur, duke përdorur mbledhje automatike të evide
 						<tx l="eng" name="Application data properly protected"/>
 						<tx l="alb" name="Të dhënat e aplikacionit të mbrojtura siç duhet"/>
 					</title>
-					<Narrative><narr l="eng"><ak></ak></narr></Narrative>
+					<Narrative><narr l="eng"><ak/></narr></Narrative>
 					<Matrix id="Application Security">
 						<Objectives>
 							<obj>
