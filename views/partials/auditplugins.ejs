@@ -1,0 +1,38 @@
+<section id="contact" class="col-6 col-12-narrower">
+    <header>
+        <h2></h2>
+        <h2>Plug-ins available to use in audit</h2>
+        <p></p>
+    </header>
+    <% if(msg != ''){ %>
+        <div class="col-12" id="save_auditreference">
+            <p>
+                <span class="successformtext"><%= msg %></span><br/>
+            </p>
+        </div>
+    <% } %>    
+   <form method="POST" action="/toolauditplugins">
+        <div class="row gtr-50">
+            <p>
+                <% if(catalog.length > 0) { %>
+                <table id='catplugins'>
+                    <thead>
+                        <% include ./auditpluginheader %>
+                    </thead>    
+                    <tbody>
+                        <% include ./auditpluginrow %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                <p>No Plug-Ins available!</p>
+                <% } %>
+            </p>
+            <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="toolauditplugins" class="button">Reload List</a></li>
+                        <li><input type="submit" class="button alt" value="Save" /></li>
+                    </ul>
+                </div>
+            </div>
+    </form>
+</section>

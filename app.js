@@ -231,6 +231,33 @@ app.get('/toolauditreference',function(req,res){
     }
 });
 
+app.get('/toolauditplugins',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = path.join(__dirname,'work');
+    NewAuditFile = NewAuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var PluginsCatalog = pluginsService.getPluginsForAudit(NewAuditFile);
+        res.render('toolwork', {
+            action: 'audit',
+            operation: 'audit_plugins',
+            AuditErrors: '',
+            catalog: PluginsCatalog,
+            msg: '',
+	        audit: status
+         });
+    } else {
+        res.render('login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }
+});
+
 app.get('/contactfeedback',function(req,res){
     var AuditFile = path.join(__dirname,'work');
     AuditFile = AuditFile + '/' + req.sessionID + '.xml';

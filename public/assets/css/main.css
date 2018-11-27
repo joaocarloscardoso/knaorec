@@ -65,7 +65,8 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-input, select, textarea {
+input, textarea {
+/*input, select, textarea {*/
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
@@ -3405,3 +3406,8 @@ hr {
 	border-width: 1px;
 	color: rgb(38,38,38);
 } 
+
+.custom-select {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 12px;
+}

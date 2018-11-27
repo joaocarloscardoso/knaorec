@@ -24,7 +24,9 @@
                                     <% include partials/auditcreation %>
                                 <% } else if (operation == 'audit_reference') { %>
                                     <% include partials/auditreference %>
-                                <% } %>
+								<% } else if (operation == 'audit_plugins') { %>
+									<% include partials/auditplugins %>
+								<% } %>
                           </article>
 						</div>
 					</div>

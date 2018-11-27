@@ -1,0 +1,20 @@
+    <% catalog.forEach(function(item) { %>
+        <tr>
+            <td><%= item.Reference %></td>
+            <td>
+                <select class="custom-select" name="#<%= item.Reference %>" id="#<%= item.Reference %>" size="1" autofocus>
+                    <% if (item.Selected == "Yes") { %>
+                        <option value="Yes" selected>Yes</option>
+                        <option value="No">No</option>
+                    <% } else { %>
+                        <option value="Yes">Yes</option>
+                        <option value="No" selected>No</option>
+                    <% } %>                
+               </select> 
+            </td>
+            <td><%= item.Description %></td>
+            <td><%= item.Version %></td>
+            <td><%= item.File %></td>
+        </tr>
+    <% }) %>
+        
