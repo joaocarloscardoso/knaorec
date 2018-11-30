@@ -473,8 +473,49 @@ app.post('/toolauditreference', [
             AuditErrors: '',
             msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
             audit: true
-         });
+        });
     }
+});
+
+app.post('/toolauditplugins', function(req, res){
+    var NewAuditFile = path.join(__dirname,'work');
+    NewAuditFile = NewAuditFile + '/' + req.sessionID + '.xml';
+    var InitialAudit = require('./lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    
+    if (status) {
+        //check if req.body is filled
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+            log.warn('Object req.body missing on tool audit plugins');
+        } else {
+            var totalCtrl = req.body.rows_count;
+            var PlugIns2Audit = '';
+            for ( var i = 1; i <= totalCtrl; i ++) {
+                if (req.body['#' + i.toString() + 'Include'] == 'Yes'){
+                    PlugIns2Audit = PlugIns2Audit + req.body['#' + i.toString() + 'Reference'] + '|' + req.body['#' + i.toString() + 'File'] + '#'
+                }
+            }
+            //save plugins selected for audit
+            var status = pluginsService.setPluginsForAudit(PlugIns2Audit, NewAuditFile);
+
+            //reload plugins list and present save status
+            var PluginsCatalog = pluginsService.getPluginsForAudit(NewAuditFile);
+            res.render('toolwork', {
+                action: 'audit',
+                operation: 'audit_plugins',
+                AuditErrors: '',
+                catalog: PluginsCatalog,
+                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+                audit: status
+            });
+        }
+    } else {
+        res.render('login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }    
 });
 
 /*

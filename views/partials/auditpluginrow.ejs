@@ -1,8 +1,11 @@
     <% catalog.forEach(function(item) { %>
         <tr>
-            <td><%= item.Reference %></td>
             <td>
-                <select class="custom-select" name="#<%= item.Reference %>" id="#<%= item.Reference %>" size="1" autofocus>
+                <%= item.Reference %>
+                <input type="hidden" id="<%= item.RowId %>Reference" name="<%= item.RowId %>Reference" value="<%= item.Reference %>"/>
+            </td>
+            <td>
+                <select class="custom-select" name="<%= item.RowId %>Include" id="<%= item.RowId %>Include" size="1" autofocus>
                     <% if (item.Selected == "Yes") { %>
                         <option value="Yes" selected>Yes</option>
                         <option value="No">No</option>
@@ -12,9 +15,18 @@
                     <% } %>                
                </select> 
             </td>
-            <td><%= item.Description %></td>
-            <td><%= item.Version %></td>
-            <td><%= item.File %></td>
+            <td>
+                <%= item.Description %>
+                <input type="hidden" id="<%= item.RowId %>Description" name="<%= item.RowId %>Description" value="<%= item.Description %>"/>
+            </td>
+            <td>
+                <%= item.Version %>
+                <input type="hidden" id="<%= item.RowId %>Version" name="<%= item.RowId %>Version" value="<%= item.Version %>"/>
+            </td>
+            <td>
+                <%= item.File %>
+                <input type="hidden" id="<%= item.RowId %>RefereFilence" name="<%= item.RowId %>File" value="<%= item.File %>"/>
+            </td>
         </tr>
     <% }) %>
         

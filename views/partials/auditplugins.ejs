@@ -15,22 +15,25 @@
         <div class="row gtr-50">
             <p>
                 <% if(catalog.length > 0) { %>
-                <table id='catplugins'>
-                    <thead>
-                        <% include ./auditpluginheader %>
-                    </thead>    
-                    <tbody>
-                        <% include ./auditpluginrow %>
-                    </tbody>
-                </table>
+                    <table id='catplugins'>
+                        <thead>
+                            <% include ./auditpluginheader %>
+                        </thead>    
+                        <tbody>
+                            <% include ./auditpluginrow %>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="rows_count" id="rows_count"value="<%= catalog.length %>"/> 
                 <% } else { %>
-                <p>No Plug-Ins available!</p>
+                    <p>No Plug-Ins available!</p>
                 <% } %>
             </p>
             <div class="col-12">
                     <ul class="actions">
                         <li><a href="toolauditplugins" class="button">Reload List</a></li>
-                        <li><input type="submit" class="button alt" value="Save" /></li>
+                        <% if(catalog.length > 0) { %>
+                            <li><input type="submit" class="button alt" value="Save" /></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
