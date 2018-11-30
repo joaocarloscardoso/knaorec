@@ -39,3 +39,15 @@
             </div>
     </form>
 </section>
+<!-- javascript is placed in the body sction -->
+<script>
+    //it takes two parameters: the select control id as well the image control id associated in order to to change display
+    function showInclude(elem, ctrlImg){
+        if(elem.value == 'Yes') {
+            //try: "inline-block"
+            document.getElementById(ctrlImg).style.display = "inline-block"; //opposite: "none"
+        } else {
+            document.getElementById(ctrlImg).style.display = "none"; //opposite: "none"
+        }
+    }
+</script>
