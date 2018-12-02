@@ -6,12 +6,12 @@
 -->
 <html>
     <!-- based on no-side bar template -->
-    <% include partials/head %>
+    <% include ../partials/head %>
     <body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<% include partials/header %>
+			<% include ../partials/header %>
 
 			<!-- Main -->
 				<section class="wrapper style1">
@@ -23,17 +23,17 @@
 								<article>
 									<header>
 										<h2>Plug-ins catalogue</h2>
-										<% include partials/pluginstats %>
+										<% include ../partials/pluginstats %>
 									</header>
 
 									<p>
 										<% if(catalog.length > 0) { %>
 										<table id='catplugins'>
 											<thead>
-												<% include partials/pluginrheader %>
+												<% include ../partials/pluginrheader %>
 											</thead>    
 											<tbody>
-												<% include partials/pluginrow %>
+												<% include ../partials/pluginrow %>
 											</tbody>
 										</table>
 										<% } else { %>
@@ -47,12 +47,12 @@
 				</section>
 
 			<!-- Footer -->
-			<% include partials/footer %>
+			<% include ../partials/footer %>
 
 		</div>
 
 		<!-- Scripts -->
-		<%- include partials/scripts -%>
+		<%- include ../partials/scripts -%>
 
 	</body>
 </html>

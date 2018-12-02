@@ -7,13 +7,13 @@
                     <% } else { %>
                         <li>
                     <% } %>
-                    <a href="home">Home</a></li>
+                    <a href="/index">Home</a></li>
                     <%  if (audit) { %>
                     <li>
                         <a href="#">The audit</a>
                         <ul>
-                            <li><a href="toolauditreference">Reference</a></li>
-                            <li><a href="toolauditplugins">Plug-ins</a></li>
+                            <li><a href="/toolaudit/toolauditreference">Reference</a></li>
+                            <li><a href="/toolaudit/toolauditplugins">Plug-ins</a></li>
                             <li><a href="#">Preliminary activities</a></li>
                             <li><a href="#">Plan</a></li>
                             <li><a href="#">Statistics</a></li>
@@ -28,13 +28,13 @@
                     <% } else { %>
                         <li>
                     <% } %>
-                    <a href="tool">Tool</a></li>
+                    <a href="/portal/tool">Tool</a></li>
                     <%  if (action == 'project') { %>
                         <li class="current">
                     <% } else { %>
                         <li>
                     <% } %>
-                    <a href="project">Project</a></li>
+                    <a href="/portal/project">Project</a></li>
                     <li><a href="#contact">Get In Touch</a></li>
                  </ul>
             </nav>

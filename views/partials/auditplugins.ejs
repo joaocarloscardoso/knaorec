@@ -11,7 +11,7 @@
             </p>
         </div>
     <% } %>    
-   <form method="POST" action="/toolauditplugins">
+   <form method="POST" action="/toolaudit/toolauditplugins">
         <div class="row gtr-50">
             <p>
                 <% if(catalog.length > 0) { %>
@@ -30,7 +30,7 @@
             </p>
             <div class="col-12">
                     <ul class="actions">
-                        <li><a href="toolauditplugins" class="button">Reload List</a></li>
+                        <li><a href="/toolaudit/toolauditplugins" class="button">Reload List</a></li>
                         <% if(catalog.length > 0) { %>
                             <li><input type="submit" class="button alt" value="Save" /></li>
                         <% } %>

@@ -6,12 +6,12 @@
 -->
 <html>
     <!-- based on no-side bar template -->
-    <% include partials/head %>
+    <% include ../partials/head %>
     <body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<% include partials/header %>
+			<% include ../partials/header %>
 
 			<!-- Main -->
             <div class="container">
@@ -25,7 +25,7 @@
                                     <h2>Start here</h2>
                                     <p>Choose action to take</p>
                                 </header>
-                                <form method="POST" action="/toolnewaudit">
+                                <form method="POST" action="/toolaudit/toolnewaudit">
                                     <div class="row gtr-50">
                                         <div class="col-12">
                                             <ul class="actions">
@@ -36,7 +36,7 @@
                                 </form>
                                 <hr>
                                 <br/>
-                                <form method="POST" enctype="multipart/form-data" action="/tooleditaudit">
+                                <form method="POST" enctype="multipart/form-data" action="/toolaudit/tooleditaudit">
                                     <div class="row gtr-50">
                                         <div class="col-6 col-12-mobilep">
                                             <label for="file-upload" class="custom-file-upload">
@@ -57,12 +57,12 @@
 				</section>
             </div>
 			<!-- Footer -->
-			<% include partials/footer %>
+			<% include ../partials/footer %>
 
 		</div>
 
 		<!-- Scripts -->
-		<%- include partials/scripts -%>
+		<%- include ../partials/scripts -%>
 
 	</body>
 </html>
