@@ -128,7 +128,7 @@ app.get('/index',function(req,res){
     });
 });
   
-app.get(('/' + credentials.urlpaths.plugins + ':name'),function(req,res){
+app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
     //download xml file
     var file = __dirname + '/' + credentials.urlpaths.plugins + req.params.name
     var file = file.replace("/","\\");
