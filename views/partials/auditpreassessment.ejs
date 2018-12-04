@@ -1,0 +1,30 @@
+<section id="contact" class="col-6 col-12-narrower">
+    <header>
+        <h2></h2>
+        <h2>Preliminary Activities and planning (start) the audit:</h2>
+        <p></p>
+    </header>
+   <form>
+        <div class="row gtr-50">
+            <p>
+                <% if(preassesscatalog.length > 0) { %>
+                    <table id='catplugins'>
+                        <thead>
+                            <% include ./auditpreassessheader %>
+                        </thead>    
+                        <tbody>
+                            <% include ./auditpreassessrow %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p>No pre-assessment issues available!</p>
+                <% } %>
+            </p>
+            <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="/preassessaudit/auditpreassessment" class="button">Reload List</a></li>
+                   </ul>
+                </div>
+            </div>
+    </form>
+</section>

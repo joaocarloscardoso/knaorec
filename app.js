@@ -32,6 +32,8 @@ var fs = require("fs");
 var PortalRouter =require('./routers/portal.js');
 var LoginRouter =require('./routers/login.js');
 var ToolAuditRouter =require('./routers/toolaudit.js');
+var PreassessmentRouter =require('./routers/preassessaudit.js');
+
 
 // configure passport.js to use the local strategy
 passport.use(new LocalStrategy(
@@ -139,6 +141,7 @@ app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
 app.use('/portal', PortalRouter);
 app.use('/login', LoginRouter);
 app.use('/toolaudit', ToolAuditRouter);
+app.use('/preassessaudit', PreassessmentRouter);
 
 app.use(function(req,res,next){
     log.warn('404 - Not Found');

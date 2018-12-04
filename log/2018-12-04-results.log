@@ -138,3 +138,53 @@
 {"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 01:20:48"}
 {"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 01:20:48"}
 {"message":"New audit file created:C:\\develop\\nodejs\\projects\\aitam\\work\\04610229-baa6-4372-9fae-8a9f062c5481.xml","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 01:20:49"}
+{"message":"Session created received the id:920f56ab-1817-4c4a-92ba-61145115353d","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:49:10"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:49:16"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:49:16"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:49:16"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\920f56ab-1817-4c4a-92ba-61145115353d.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T22:49:24.386Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:49:24"}
+{"message":"Session created received the id:9e34ec76-f519-483e-a733-e0bc09be4365","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:52:47"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:52:52"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:52:52"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:52:52"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\9e34ec76-f519-483e-a733-e0bc09be4365.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T22:52:58.109Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:52:58"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:54:59"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:54:59"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:54:59"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\6ea74af0-1150-4557-9532-1447006403a3.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T22:55:06.494Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:55:06"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:56:04"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:56:04"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:56:04"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\b76a71e2-2ae5-45d6-94f3-fb67ae09661e.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T22:56:12.632Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:56:12"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:57:06"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:57:06"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:57:06"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\b0d16f8e-cdac-4d48-8421-5981d7f818e6.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T22:57:15.638Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:57:15"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:58:07"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:58:07"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:58:07"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\a4426d3c-393b-416b-9a19-28470af0f5dd.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T22:58:19.779Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:58:19"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:59:24"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:59:24"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:59:24"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\688b55c3-54a9-4387-a162-9cd2c0e35d9c.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T22:59:30.912Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 22:59:30"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:19:54"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:19:54"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:19:54"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\c8aaa41b-8303-4f1a-8c7a-304e252bbd16.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T23:20:00.810Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:20:00"}
+{"message":"Session created received the id:c11628cf-dd54-4c28-af4e-da860e6fb249","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:21:24"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:21:29"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:21:29"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:21:29"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\c11628cf-dd54-4c28-af4e-da860e6fb249.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T23:21:36.771Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:21:36"}
+{"message":"Session created received the id:5e538255-ba48-47e2-8262-8100baf3c72e","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:23:42"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:23:47"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:23:47"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:23:47"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\5e538255-ba48-47e2-8262-8100baf3c72e.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T23:23:53.786Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:23:53"}
+{"message":"Session created received the id:7c1a239c-7e88-45d4-91d0-ecc3d3f04376","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:25:53"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:25:58"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:25:58"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:25:58"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\7c1a239c-7e88-45d4-91d0-ecc3d3f04376.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T23:26:04.771Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:26:04"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":442895,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\7c1a239c-7e88-45d4-91d0-ecc3d3f04376.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-04T23:32:53.612Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-04 23:32:53"}
