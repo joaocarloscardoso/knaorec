@@ -1,0 +1,73 @@
+<section id="contact" class="col-6 col-12-narrower">
+    <header>
+        <h2></h2>
+        <h2>Domains, areas and issues</h2>
+        <p></p>
+    </header>
+    <% if(msg != ''){ %>
+        <div class="col-12" id="save_auditplan">
+            <p>
+                <span class="successformtext"><%= msg %></span><br/>
+            </p>
+        </div>
+    <% } %>    
+   <form method="POST" action="/planaudit/auditplanning">
+        <div class="row gtr-50">
+            <p>
+                <% if(plancatalog.length > 0) { %>
+                    <table id='tablecatalog'>
+                        <thead>
+                            <% include ./auditplanheader %>
+                        </thead>    
+                        <tbody>
+                            <% include ./auditplanrow %>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="rows_count" id="rows_count"value="<%= plancatalog.length %>"/> 
+                <% } else { %>
+                    <p>No Domains, areas and issues available!</p>
+                <% } %>
+            </p>
+            <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="/planaudit/auditplanning" class="button">Reload List</a></li>
+                        <% if(plancatalog.length > 0) { %>
+                            <li><a href="/planaudit/syncauditplanning" class="button">Sync with pre-assessment</a></li>
+                            <li><a href="/planaudit/auditprogramme" class="button">Audit programme</a></li>
+                            <li><input type="submit" class="button alt" value="Save" /></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+    </form>
+</section>
+<!-- javascript is placed in the body section -->
+<script>
+    //it takes two parameters: the select control id as well the image control id associated in order to to change display
+    function showInclude(elem, ctrlImg){
+        if(elem.value == 'Yes') {
+            //try: "inline-block"
+            document.getElementById(ctrlImg).style.display = "inline-block"; //opposite: "none"
+        } else {
+            document.getElementById(ctrlImg).style.display = "none"; //opposite: "none"
+        }
+    }
+    //it takes two parameters: the select control id as well the image control id associated in order to to change display
+    function showRisk(elem, ctrlIndex){
+		var ctrlImgMedium='rmedium' + ctrlIndex.toString();
+		var ctrlImgHigh='rhigh' + ctrlIndex.toString();
+        if(elem.value == '3') {
+            document.getElementById(ctrlImgHigh).style.display = "inline-block"; 
+            document.getElementById(ctrlImgMedium).style.display = "none"; 
+
+            document.getElementById(ctrlIndex.toString() + "Image").style.display = "inline-block"; 
+            document.getElementById(ctrlIndex.toString() + "Include").value = "Yes";             
+        } else if(elem.value == '2') {
+            document.getElementById(ctrlImgMedium).style.display = "inline-block"; 
+            document.getElementById(ctrlImgHigh).style.display = "none"; 
+        } else {
+            document.getElementById(ctrlImgMedium).style.display = "none"; 
+            document.getElementById(ctrlImgHigh).style.display = "none"; 
+        }
+    }
+</script>

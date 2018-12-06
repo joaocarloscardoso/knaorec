@@ -52,7 +52,7 @@ tooleaudit.get('/toolauditreference',function(req,res){
 	        audit: status
          });
     } else {
-        res.render('/login/login', {
+        res.render('login/login', {
             action: 'login',
             //persons: persons,
             audit: status
@@ -79,7 +79,7 @@ tooleaudit.get('/toolauditplugins',function(req,res){
 	        audit: status
          });
     } else {
-        res.render('/login/login', {
+        res.render('login/login', {
             action: 'login',
             //persons: persons,
             audit: status
@@ -227,7 +227,7 @@ tooleaudit.post('/toolauditplugins', function(req, res){
             });
         }
     } else {
-        res.render('/login/login', {
+        res.render('login/login', {
             action: 'login',
             //persons: persons,
             audit: status

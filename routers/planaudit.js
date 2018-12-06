@@ -7,7 +7,7 @@ const { check, validationResult } = require('express-validator/check');
 //credentials used in the app
 var credentials = require('../credentials.js');
 //plugins stats and catalogue
-var PreAssessment = require('../lib/preassessment.js');
+var Planning = require('../lib/planning.js');
 //logging system
 var log = require('../lib/log.js');
 
@@ -27,9 +27,9 @@ const bcrypt = require('bcrypt-nodejs');
 var formidable = require('formidable');
 var fs = require("fs");
 
-var preassessaudit = express.Router();
+var planaudit = express.Router();
 
-preassessaudit.get('/auditpreassessment',function(req,res){
+planaudit.get('/auditplanning',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);
     var NewAuditFile = credentials.WorkSetPath;
@@ -38,12 +38,12 @@ preassessaudit.get('/auditpreassessment',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     if (status) {
-        var preassesscatalog = PreAssessment.LoadPreAssessment(NewAuditFile);
+        var plancatalog = Planning.LoadPlanning(NewAuditFile);
         res.render('toolaudit/toolwork', {
             action: 'audit',
-            operation: 'audit_preassess',
+            operation: 'audit_plan',
             AuditErrors: '',
-            preassesscatalog: preassesscatalog,
+            plancatalog: plancatalog,
             msg: '',
 	        audit: status
          });
@@ -56,4 +56,4 @@ preassessaudit.get('/auditpreassessment',function(req,res){
     }
 });
 
-module.exports = preassessaudit;
+module.exports = planaudit;

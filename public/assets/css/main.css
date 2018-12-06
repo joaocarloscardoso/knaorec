@@ -3360,24 +3360,24 @@ input, textarea {
 }
 
 /*table styles*/
-#catplugins {
+#tablecatalog {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#catplugins td, #catplugins th {
+#tablecatalog td, #tablecatalog th {
     border: 1px solid #1f1f1f;
 	padding: 8px;
 	font-size: 12px;
 	font-family: 'Courier New', Courier, monospace;
 }
 
-#catplugins tr:nth-child(even){background-color: #f2f2f2;}
+#tablecatalog tr:nth-child(even){background-color: #f2f2f2;}
 
-#catplugins tr:hover {background-color: #ddd;}
+#tablecatalog tr:hover {background-color: #ddd;}
 
-#catplugins th {
+#tablecatalog th {
     padding-top: 12px;
     padding-bottom: 12px;
 	background-color: #1f1f1f;

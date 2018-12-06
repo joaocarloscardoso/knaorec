@@ -33,6 +33,7 @@ var PortalRouter =require('./routers/portal.js');
 var LoginRouter =require('./routers/login.js');
 var ToolAuditRouter =require('./routers/toolaudit.js');
 var PreassessmentRouter =require('./routers/preassessaudit.js');
+var PlanRouter =require('./routers/planaudit.js');
 
 
 // configure passport.js to use the local strategy
@@ -129,7 +130,7 @@ app.get('/index',function(req,res){
         //persons: persons
     });
 });
-  
+
 app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
     //download xml file
     var file = __dirname + '/' + credentials.urlpaths.plugins + req.params.name
@@ -142,6 +143,7 @@ app.use('/portal', PortalRouter);
 app.use('/login', LoginRouter);
 app.use('/toolaudit', ToolAuditRouter);
 app.use('/preassessaudit', PreassessmentRouter);
+app.use('/planaudit', PlanRouter);
 
 app.use(function(req,res,next){
     log.warn('404 - Not Found');
