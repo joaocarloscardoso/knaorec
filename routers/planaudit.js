@@ -56,4 +56,45 @@ planaudit.get('/auditplanning',function(req,res){
     }
 });
 
+planaudit.post('/auditplanning', function(req, res){
+    //old: path.join(__dirname,'work')
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    
+    if (status) {
+        //check if req.body is filled
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+            log.warn('Object req.body missing on tool audit plugins');
+        } else {
+            var totalCtrl = req.body.rows_count;
+            var Catalog = [];
+            for ( var i = 1; i <= totalCtrl; i ++) {
+                if (req.body['#' + i.toString() + 'Include'] == 'Yes'){
+                   // PlugIns2Audit = PlugIns2Audit + req.body['#' + i.toString() + 'Reference'] + '|' + req.body['#' + i.toString() + 'File'] + '#'
+                }
+            }
+            //save plugins selected for audit
+            var status = Planning.SavePlanning(NewAuditFile, Catalog);
+
+            var plancatalog = Planning.LoadPlanning(NewAuditFile);
+            res.render('toolaudit/toolwork', {
+                action: 'audit',
+                operation: 'audit_plan',
+                AuditErrors: '',
+                plancatalog: plancatalog,
+                msg: '',
+                audit: status
+             });
+        }
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }    
+});
+
 module.exports = planaudit;

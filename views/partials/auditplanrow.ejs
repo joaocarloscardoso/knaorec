@@ -1,5 +1,5 @@
 <% plancatalog.forEach(function(item) { %>
-    <tr>
+    <tr id="<%= item.RowId %>Row" style="display: table-row;">
         <td>
             <%= item.Domain %>
             <input type="hidden" id="<%= item.RowId %>Domain" name="<%= item.RowId %>Domain" value="<%= item.DomainId %>"/>

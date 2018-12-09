@@ -42,7 +42,7 @@ tooleaudit.get('/toolauditreference',function(req,res){
 
     if (status) {
         var AuditReference = InitialAudit.GetAuditReference(NewAuditFile);
-        console.log(AuditReference);
+        //console.log(AuditReference);
         res.render('toolaudit/toolwork', {
             action: 'audit',
             operation: 'audit_reference',

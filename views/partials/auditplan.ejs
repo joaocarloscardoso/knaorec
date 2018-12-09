@@ -15,6 +15,7 @@
         <div class="row gtr-50">
             <p>
                 <% if(plancatalog.length > 0) { %>
+                    <p>Filter by <a href="#" onclick="filterRisk('3'); return false;">high risk</a>, <a href="#" onclick="filterRisk('2'); return false;">medium/high risk</a>, <a href="#" onclick="filterInclude(); return false;">include in audit</a>, <a href="#" onclick="showAllRows(); return false;">all issues</a></p>
                     <table id='tablecatalog'>
                         <thead>
                             <% include ./auditplanheader %>
@@ -23,7 +24,7 @@
                             <% include ./auditplanrow %>
                         </tbody>
                     </table>
-                    <input type="hidden" name="rows_count" id="rows_count"value="<%= plancatalog.length %>"/> 
+                    <input type="hidden" name="rows_count" id="rows_count" value="<%= plancatalog.length %>"/> 
                 <% } else { %>
                     <p>No Domains, areas and issues available!</p>
                 <% } %>
@@ -68,6 +69,32 @@
         } else {
             document.getElementById(ctrlImgMedium).style.display = "none"; 
             document.getElementById(ctrlImgHigh).style.display = "none"; 
+        }
+    }
+    function filterRisk(Weight){
+        var TotalRows=<%= plancatalog.length %>;
+        for (var j=1; j<=TotalRows; j++) {
+            if (document.getElementById('#' + j.toString() +'Risk').value >= Weight) {
+                document.getElementById('#' + j.toString() +'Row').style.display ="table-row";
+            } else {
+                document.getElementById('#' + j.toString() +'Row').style.display ="none";
+            }
+        }
+    }
+    function filterInclude(){
+        var TotalRows=<%= plancatalog.length %>;
+        for (var j=1; j<=TotalRows; j++) {
+            if (document.getElementById('#' + j.toString() +'Include').value == 'Yes') {
+                document.getElementById('#' + j.toString() +'Row').style.display ="table-row";
+            } else {
+                document.getElementById('#' + j.toString() +'Row').style.display ="none";
+            }
+        }
+    }
+    function showAllRows(){
+        var TotalRows=<%= plancatalog.length %>;
+        for (var j=1; j<=TotalRows; j++) {
+            document.getElementById('#' + j.toString() +'Row').style.display ="table-row";
         }
     }
 </script>
