@@ -71,9 +71,16 @@ planaudit.post('/auditplanning', function(req, res){
             var totalCtrl = req.body.rows_count;
             var Catalog = [];
             for ( var i = 1; i <= totalCtrl; i ++) {
-                if (req.body['#' + i.toString() + 'Include'] == 'Yes'){
-                   // PlugIns2Audit = PlugIns2Audit + req.body['#' + i.toString() + 'Reference'] + '|' + req.body['#' + i.toString() + 'File'] + '#'
-                }
+                var NewEntry = {
+                    PluginId: req.body['#' + i.toString() + 'Plugin'],
+                    DomainId: req.body['#' + i.toString() + 'Domain'],
+                    AreaId: req.body['#' + i.toString() + 'Area'],
+                    IssueId: req.body['#' + i.toString() + 'Issue'],
+                    Risk: req.body['#' + i.toString() + 'Risk'],
+                    Selected: req.body['#' + i.toString() + 'Include'],
+                    Remarks: req.body['#' + i.toString() + 'Remarks']
+                };
+                Catalog.push(NewEntry);
             }
             //save plugins selected for audit
             var status = Planning.SavePlanning(NewAuditFile, Catalog);
@@ -84,7 +91,7 @@ planaudit.post('/auditplanning', function(req, res){
                 operation: 'audit_plan',
                 AuditErrors: '',
                 plancatalog: plancatalog,
-                msg: '',
+                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
                 audit: status
              });
         }
@@ -95,6 +102,34 @@ planaudit.post('/auditplanning', function(req, res){
             audit: status
         });
     }    
+});
+
+planaudit.get('/syncauditplanning',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var status = Planning.SyncPreAssessmentWithRiskAnalysis(NewAuditFile);
+        var plancatalog = Planning.LoadPlanning(NewAuditFile);
+        res.render('toolaudit/toolwork', {
+            action: 'audit',
+            operation: 'audit_plan',
+            AuditErrors: '',
+            plancatalog: plancatalog,
+            msg: 'Sync with A2.02 matrix (“02 Understanding the IT-systems”) completed!',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }
 });
 
 module.exports = planaudit;
