@@ -1,16 +1,16 @@
 <% plancatalog.forEach(function(item) { %>
     <tr id="<%= item.RowId %>Row" style="display: table-row;">
         <td>
-            <%= item.Domain %>
+            <span data-tooltip-right="<%= item.DomainTip %>"><%= item.Domain %></span>
             <input type="hidden" id="<%= item.RowId %>Domain" name="<%= item.RowId %>Domain" value="<%= item.DomainId %>"/>
             <input type="hidden" id="<%= item.RowId %>Plugin" name="<%= item.RowId %>Plugin" value="<%= item.PluginId %>"/>
         </td>
         <td>
-            <%= item.Area %>
+            <span data-tooltip-right="<%= item.AreaTip %>"><%= item.Area %></span>
             <input type="hidden" id="<%= item.RowId %>Area" name="<%= item.RowId %>Area" value="<%= item.AreaId %>"/>
         </td>
         <td>
-            <a href="/auditMatrixes/planMatrix?plugin=<%= item.PluginId %>&domain=<%= item.DomainId %>area=<%= item.AreaId %>&issue=<%= item.IssueId %>"><%= item.Issue %></a>
+            <a href="/auditMatrixes/planMatrix?plugin=<%= item.PluginId %>&domain=<%= item.DomainId %>area=<%= item.AreaId %>&issue=<%= item.IssueId %>" data-tooltip-bottom="<%= item.IssueTip %>"><%= item.Issue %></a>
             <input type="hidden" id="<%= item.RowId %>Issue" name="<%= item.RowId %>Issue" value="<%= item.IssueId %>"/>
         </td>
         <td>
