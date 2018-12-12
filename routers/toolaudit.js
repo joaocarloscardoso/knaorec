@@ -87,6 +87,33 @@ tooleaudit.get('/toolauditplugins',function(req,res){
     }
 });
 
+tooleaudit.get('/auditstatistics',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        //var PluginsCatalog = pluginsService.getPluginsForAudit(NewAuditFile);
+        res.render('toolaudit/toolwork', {
+            action: 'audit',
+            operation: 'audit_stats',
+            AuditErrors: '',
+            catalog: '',
+            msg: '',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }
+});
+
 tooleaudit.post('/tooleditaudit', function(req, res){
     var form = new formidable.IncomingForm();
     form.uploadDir = credentials.WorkSetPath;
