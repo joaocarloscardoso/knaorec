@@ -3,3 +3,12 @@
 {"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 18:57:36"}
 {"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 18:57:36"}
 {"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":453230,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\18ade19a-a63e-4fc9-a296-204aab49a66c.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-13T18:57:44.713Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 18:57:44"}
+{"message":"Session created received the id:a7ea9f9b-0132-4f78-af9e-8e3ebda79989","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 19:52:13"}
+{"message":"Session created received the id:a7ea9f9b-0132-4f78-af9e-8e3ebda79989","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 19:52:34"}
+{"message":"Session created received the id:a7ea9f9b-0132-4f78-af9e-8e3ebda79989","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 19:52:52"}
+{"message":"plug-in download: C:\\develop\\nodejs\\projects\\aitam\\public/plugins/EGovernment.xml","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 19:52:59"}
+{"message":"Session created received the id:a7ea9f9b-0132-4f78-af9e-8e3ebda79989","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 19:53:41"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 22:37:01"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 22:37:01"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 22:37:01"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":453230,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\85603b09-f97c-4e94-b1c5-a02aeaee0148.xml\",\"name\":\"BiljanaB.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-13T22:37:09.183Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-13 22:37:09"}
