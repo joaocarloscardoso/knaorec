@@ -10,6 +10,8 @@ var credentials = require('../credentials.js');
 var emailService = require('../lib/email.js')(credentials);
 //plugins stats and catalogue
 var pluginsService = require('../lib/catplugins.js')(credentials.PlugInsPath);
+// statistics service
+var statisticsService = require('../lib/statistics.js');
 //logging system
 var log = require('../lib/log.js');
 
@@ -96,12 +98,28 @@ tooleaudit.get('/auditstatistics',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     if (status) {
-        //var PluginsCatalog = pluginsService.getPluginsForAudit(NewAuditFile);
+        var GeneralDomainCatalog = statisticsService.GeneralDomainCharacterization(NewAuditFile);
+        var GeneralRiskCatalog = statisticsService.GeneralRiskCharacterization(NewAuditFile);
+        var Domain01Catalog = statisticsService.SpecificDomainCharacterization(NewAuditFile, '01');
+        var Domain02Catalog = statisticsService.SpecificDomainCharacterization(NewAuditFile, '02');
+        var Domain03Catalog = statisticsService.SpecificDomainCharacterization(NewAuditFile, '03');
+        var Domain04Catalog = statisticsService.SpecificDomainCharacterization(NewAuditFile, '04');
+        var Domain05Catalog = statisticsService.SpecificDomainCharacterization(NewAuditFile, '05');
+        var Domain06Catalog = statisticsService.SpecificDomainCharacterization(NewAuditFile, '06');
+        var Domain07Catalog = statisticsService.SpecificDomainCharacterization(NewAuditFile, '07');
         res.render('toolaudit/toolwork', {
             action: 'audit',
             operation: 'audit_stats',
             AuditErrors: '',
-            catalog: '',
+            GeneralDomainCatalog: GeneralDomainCatalog,
+            GeneralRiskCatalog: GeneralRiskCatalog,
+            Domain01Catalog: Domain01Catalog,
+            Domain02Catalog: Domain02Catalog,
+            Domain03Catalog: Domain03Catalog,
+            Domain04Catalog: Domain04Catalog,
+            Domain05Catalog: Domain05Catalog,
+            Domain06Catalog: Domain06Catalog,
+            Domain07Catalog: Domain07Catalog,
             msg: '',
 	        audit: status
          });

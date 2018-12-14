@@ -2,18 +2,21 @@
 <canvas id="chartjs-DC04" class="chartjs" width="undefined" height="undefined"></canvas>
 <script>new Chart(document.getElementById("chartjs-DC04"),
     {"type":"radar",
-    "data":{"labels":["01 IT Governance",
-    "02 IT Operations",
-    "03 Development and Acquisition",
-    "04 Outsourcing",
-    "05 Information Security",
-    "06 BCP-DRP",
-    "07 Application Controls"
+    "data":{"labels":[ 
+    <% let i = 0 %>
+    <% Domain04Catalog.labels.split("|").forEach(function(item) { -%>
+        <% if (i == 0 ) { %>
+            "<%= item %>"
+        <% } else { %>
+            ,"<%= item %>"
+        <% } %>
+        <% i++ %>
+    <% }) -%>
     ],
     "datasets":[
         {
             "label":"Weight Number",
-            "data":[65,59,90,81,56,55,40],
+            "data":[<%= Domain04Catalog.wNumber %>],
             "fill":true,
             "backgroundColor":"rgba(255, 99, 132, 0.2)",
             "borderColor":"rgb(255, 99, 132)",
@@ -24,7 +27,7 @@
         },
         {
             "label":"Weight Importance",
-            "data":[28,48,40,19,96,27,100],
+            "data":[<%= Domain04Catalog.wImportance %>],
             "fill":true,
             "backgroundColor":"rgba(54, 162, 235, 0.2)",
             "borderColor":"rgb(54, 162, 235)",
