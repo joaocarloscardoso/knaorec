@@ -3,3 +3,8 @@
 {"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 12:48:12"}
 {"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 12:48:12"}
 {"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":453245,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\c442f1b3-d88a-4757-97f1-11905c7b7df6.xml\",\"name\":\"test_site2.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-15T12:48:21.513Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 12:48:21"}
+{"message":"Session created received the id:2c147b14-54a6-4eb1-98ef-22e4ebf51aba","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 23:14:08"}
+{"message":"req.user: undefined","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 23:14:14"}
+{"message":"Session id started: {\"user\":\"2f24vvg\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 23:14:14"}
+{"message":"User logged in: {\"id\":\"2f24vvg\",\"email\":\"test@test.com\",\"password\":\"$2a$10$A2g6pbxxhLA9MNYRJ0rnzOf/7Ara76B0KcRdjzUcsIBIclRuas/fG\"}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 23:14:14"}
+{"message":"User (2f24vvg) uploaded a file: {\"file-upload\":{\"size\":453613,\"path\":\"C:\\\\develop\\\\nodejs\\\\projects\\\\aitam\\\\work\\\\2c147b14-54a6-4eb1-98ef-22e4ebf51aba.xml\",\"name\":\"test_site2.xml\",\"type\":\"text/xml\",\"mtime\":\"2018-12-15T23:14:22.743Z\"}}","level":"\u001b[34minfo\u001b[39m","timestamp":"2018-12-15 23:14:22"}
