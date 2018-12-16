@@ -99,4 +99,32 @@ findingaudit.post('/auditfindings', function(req, res){
     }    
 });
 
+findingaudit.get('/deleteauditfinding/:findingId',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var status = Findings.DeleteFinding(NewAuditFile, req.params.findingId);
+        var findingscatalog = Findings.LoadFindings(NewAuditFile);
+        res.render('toolaudit/toolwork', {
+            action: 'audit',
+            operation: 'audit_findings',
+            AuditErrors: '',
+            findingcatalog: findingscatalog,
+            msg: 'Selected finding deleted!',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }
+});
+
 module.exports = findingaudit;
