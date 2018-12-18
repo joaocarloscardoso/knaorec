@@ -1,0 +1,80 @@
+<section id="contact" class="col-6 col-12-narrower">
+        <header>
+            <h2></h2>
+            <h2><%= Matrix.FindingId %></h2>
+            <p><%= Matrix.Domain %></p>
+            <p><%= Matrix.Area %></p>
+        </header>
+        <% if(msg != ''){ %>
+            <div class="col-12" id="save_auditmatrix">
+                <p>
+                    <span class="successformtext"><%= msg %></span><br/>
+                </p>
+            </div>
+        <% } %>    
+        <% if(AuditErrors){ %>
+        <div class="col-12" id="err_auditmatrix">
+            <p>
+                <% AuditErrors.forEach(function(error){ %>
+                    <span class="errformtext">* <%= error.msg %></span><br/>
+                <% }) %>    
+            </p>
+        </div>
+        <% } %>
+        <form method="POST" action="/auditMatrices/findingMatrix">
+            <div class="row gtr-50">
+                <div class="col-12">
+                    Source<br/>
+                    <select class="custom-select" name="source" id="source" size="1" autofocus>
+                    </select>
+                    <input type="hidden" id="findingid" name="findingid" value="<%= Matrix.FindingId %>"/>
+                </div>
+                <div class="col-12">
+                    Domain<br/>
+                    <select class="custom-select" name="domain" id="domain" size="1" autofocus>
+                    </select>
+                </div>
+                <div class="col-12">
+                    Area<br/>
+                    <select class="custom-select" name="area" id="area" size="1" autofocus>
+                    </select>
+                </div>
+                <div class="col-12">
+                    Issue<br/>
+                    <select class="custom-select" name="issue" id="issue" size="1" autofocus>
+                    </select>
+                </div>
+                <div class="col-12">
+                    Cause<br/>
+                    <textarea name="cause" id="cause" placeholder="Cause" rows="6"><%= Matrix.Cause %></textarea>
+                </div>
+                <div class="col-12">
+                    Result<br/>
+                    <textarea name="result" id="result" placeholder="Result" rows="6"><%= Matrix.Result %></textarea>
+                </div>
+                <div class="col-12">
+                    Description<br/>
+                    <textarea name="description" id="description" placeholder="Description" rows="6"><%= Matrix.Description %></textarea>
+                </div>
+                <div class="col-12">
+                    Recommendation<br/>
+                    <textarea name="recommendation" id="recommendation" placeholder="Recommendation" rows="6"><%= Matrix.Recommendation %></textarea>
+                </div>
+                <div class="col-12">
+                    Reference to Legal Act<br/>
+                    <textarea name="legalact" id="legalact" placeholder="Reference to Legal Act" rows="2"><%= Matrix.Legalact %></textarea>
+                </div>
+                <div class="col-12">
+                    Reference to the report<br/>
+                    <textarea name="report" id="report" placeholder="Reference to the report" rows="2"><%= Matrix.Report %></textarea>
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="/findingaudit/auditfindings" class="button">Close</a></li>
+                        <li><input type="submit" class="button alt" value="Save" /></li>
+                    </ul>
+                </div>
+              </div>
+        </form>
+    </section>
+    

@@ -35,7 +35,7 @@ var ToolAuditRouter =require('./routers/toolaudit.js');
 var PreassessmentRouter =require('./routers/preassessaudit.js');
 var PlanRouter =require('./routers/planaudit.js');
 var FindingsRouter =require('./routers/findingaudit.js');
-
+var MatrixRouter = require('./routers/matricesaudit.js');
 
 // configure passport.js to use the local strategy
 passport.use(new LocalStrategy(
@@ -146,6 +146,7 @@ app.use('/toolaudit', ToolAuditRouter);
 app.use('/preassessaudit', PreassessmentRouter);
 app.use('/planaudit', PlanRouter);
 app.use('/findingaudit', FindingsRouter);
+app.use('/auditMatrices', MatrixRouter);
 
 app.use(function(req,res,next){
     log.warn('404 - Not Found');

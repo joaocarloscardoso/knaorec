@@ -1,7 +1,7 @@
 <section id="contact" class="col-6 col-12-narrower">
     <header>
         <h2></h2>
-        <h2><%= Matrix.Issue %></h2>
+        <h2><%= Matrix.Issue %> (<%= Matrix.PluginId %>)</h2>
         <p><%= Matrix.Domain %></p>
         <p><%= Matrix.Area %></p>
     </header>
@@ -24,24 +24,31 @@
     <form method="POST" action="/auditMatrices/planMatrix">
         <div class="row gtr-50">
             <div class="col-12">
+                Objectives<br/>
                 <textarea name="objectives" id="objectives" placeholder="Objectives" rows="2"><%= Matrix.Objectives %></textarea>
+                <input type="hidden" id="plugin" name="plugin" value="<%= Matrix.PluginId %>"/>
                 <input type="hidden" id="domain" name="domain" value="<%= Matrix.DomainId %>"/>
                 <input type="hidden" id="area" name="area" value="<%= Matrix.AreaId %>"/>
                 <input type="hidden" id="issue" name="issue" value="<%= Matrix.IssueId %>"/>
             </div>
             <div class="col-12">
+                Criteria<br/>
                 <textarea name="criteria" id="criteria" placeholder="Criteria" rows="4"><%= Matrix.Criteria %></textarea>
             </div>
             <div class="col-12">
+                Information required<br/>
                 <textarea name="inforequired" id="inforequired" placeholder="Information required" rows="6"><%= Matrix.Inforequired %></textarea>
             </div>
             <div class="col-12">
+                Method of analysis<br/>
                 <textarea name="method" id="method" placeholder="Method of analysis" rows="6"><%= Matrix.Method %></textarea>
             </div>
             <div class="col-12">
+                Found previously<br/>
                 <textarea name="foundpreviously" id="foundpreviously" placeholder="Found previously" rows="4"><%= Matrix.Found %></textarea>
             </div>
             <div class="col-12">
+                Conclusion<br/>
                 <textarea name="conclusion" id="conclusion" placeholder="Conclusion" rows="4"><%= Matrix.Conclusion %></textarea>
             </div>
             <div class="col-12">

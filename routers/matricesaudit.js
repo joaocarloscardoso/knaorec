@@ -29,7 +29,7 @@ var fs = require("fs");
 
 var matricesaudit = express.Router();
 
-matricesaudit.get('/auditplanning',function(req,res){
+matricesaudit.get('/planMatrix',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);
     var NewAuditFile = credentials.WorkSetPath;
@@ -38,8 +38,8 @@ matricesaudit.get('/auditplanning',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     if (status) {
-        var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, DomainId, AreaId, IssueId);
-        res.render('toolaudit/toolwork', {
+        var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
+        res.render('toolaudit/supportmatrix', {
             action: 'audit',
             operation: 'plan_matrix',
             AuditErrors: '',
@@ -56,5 +56,31 @@ matricesaudit.get('/auditplanning',function(req,res){
     }
 });
 
+matricesaudit.get('/findingMatrix',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var FindingMatrix = Matrices.LoadFindingMatrix(NewAuditFile, req.query.id);
+        res.render('toolaudit/supportmatrix', {
+            action: 'audit',
+            operation: 'finding_matrix',
+            AuditErrors: '',
+            Matrix: FindingMatrix,
+            msg: '',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }
+});
 
 module.exports = matricesaudit;
