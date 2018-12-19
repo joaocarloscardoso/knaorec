@@ -2,8 +2,6 @@
         <header>
             <h2></h2>
             <h2><%= Matrix.FindingId %></h2>
-            <p><%= Matrix.Domain %></p>
-            <p><%= Matrix.Area %></p>
         </header>
         <% if(msg != ''){ %>
             <div class="col-12" id="save_auditmatrix">
@@ -25,23 +23,39 @@
             <div class="row gtr-50">
                 <div class="col-12">
                     Source<br/>
-                    <select class="custom-select" name="source" id="source" size="1" autofocus>
-                    </select>
+                    <select name="source" id="source" size="1" autofocus>
+                        <% Matrix.Sources.split("|").forEach(function(item) { -%>
+                            <% if (Matrix.Source === item) { %>
+                                <option value="<%= item %>" selected><%= item %></option>
+                            <% } else { %>
+                                <option value="<%= item %>"><%= item %></option>
+                            <% } %>       
+                        <% }) -%>         
+                        </select>
                     <input type="hidden" id="findingid" name="findingid" value="<%= Matrix.FindingId %>"/>
                 </div>
                 <div class="col-12">
                     Domain<br/>
-                    <select class="custom-select" name="domain" id="domain" size="1" autofocus>
+                    <select name="domain" id="domain" size="1" autofocus>
+                        <% Matrix.Domains.split("|").forEach(function(item) { -%>
+                            <% if (Matrix.Domain == item) { %>
+                                <option value="<%= item %>" selected><%= item %></option>
+                            <% } else { %>
+                                <option value="<%= item %>"><%= item %></option>
+                            <% } %>       
+                        <% }) -%>         
                     </select>
                 </div>
                 <div class="col-12">
                     Area<br/>
-                    <select class="custom-select" name="area" id="area" size="1" autofocus>
+                    <select name="area" id="area" size="1" autofocus>
+                        <option value="<%= Matrix.Area %>" selected><%= Matrix.Area %></option>
                     </select>
                 </div>
                 <div class="col-12">
                     Issue<br/>
-                    <select class="custom-select" name="issue" id="issue" size="1" autofocus>
+                    <select name="issue" id="issue" size="1" autofocus>
+                        <option value="<%= Matrix.Issue %>" selected><%= Matrix.Issue %></option>
                     </select>
                 </div>
                 <div class="col-12">
@@ -62,11 +76,11 @@
                 </div>
                 <div class="col-12">
                     Reference to Legal Act<br/>
-                    <textarea name="legalact" id="legalact" placeholder="Reference to Legal Act" rows="2"><%= Matrix.Legalact %></textarea>
+                    <textarea name="legalact" id="legalact" placeholder="Reference to Legal Act" rows="2"><%= Matrix.LegalAct %></textarea>
                 </div>
                 <div class="col-12">
                     Reference to the report<br/>
-                    <textarea name="report" id="report" placeholder="Reference to the report" rows="2"><%= Matrix.Report %></textarea>
+                    <textarea name="report" id="report" placeholder="Reference to the report" rows="2"><%= Matrix.ReportReference %></textarea>
                 </div>
                 <div class="col-12">
                     <ul class="actions">
