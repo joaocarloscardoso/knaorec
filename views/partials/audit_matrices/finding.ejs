@@ -38,10 +38,11 @@
                     Domain<br/>
                     <select name="domain" id="domain" size="1" autofocus>
                         <% Matrix.Domains.split("|").forEach(function(item) { -%>
-                            <% if (Matrix.Domain == item) { %>
-                                <option value="<%= item %>" selected><%= item %></option>
+                            <% subitem = item.split("#") %>
+                            <% if (Matrix.Domain == subitem[0]) { %>
+                                <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
                             <% } else { %>
-                                <option value="<%= item %>"><%= item %></option>
+                                <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
                             <% } %>       
                         <% }) -%>         
                     </select>
@@ -49,14 +50,28 @@
                 <div class="col-12">
                     Area<br/>
                     <select name="area" id="area" size="1" autofocus>
-                        <option value="<%= Matrix.Area %>" selected><%= Matrix.Area %></option>
+                        <% Matrix.Areas.split("|").forEach(function(item) { -%>
+                            <% subitem = item.split("#") %>
+                            <% if (Matrix.Area == subitem[0]) { %>
+                                <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
+                            <% } else { %>
+                                <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
+                            <% } %>       
+                        <% }) -%>         
                     </select>
                 </div>
                 <div class="col-12">
                     Issue<br/>
                     <select name="issue" id="issue" size="1" autofocus>
-                        <option value="<%= Matrix.Issue %>" selected><%= Matrix.Issue %></option>
-                    </select>
+                        <% Matrix.Issues.split("|").forEach(function(item) { -%>
+                            <% subitem = item.split("#") %>
+                            <% if (Matrix.Issue == subitem[0]) { %>
+                                <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
+                            <% } else { %>
+                                <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
+                            <% } %>       
+                        <% }) -%>         
+                     </select>
                 </div>
                 <div class="col-12">
                     Cause<br/>
