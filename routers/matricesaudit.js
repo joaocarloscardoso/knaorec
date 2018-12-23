@@ -83,4 +83,31 @@ matricesaudit.get('/findingMatrix',function(req,res){
     }
 });
 
+matricesaudit.get('/preassessMatrix',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var preassessMatrix = Matrices.LoadPreAssessMatrix(NewAuditFile, req.query.area, req.query.issue);
+        res.render('toolaudit/supportmatrix', {
+            action: 'audit',
+            operation: 'preassess_matrix',
+            AuditErrors: '',
+            Matrix: preassessMatrix,
+            msg: '',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }
+});
+
 module.exports = matricesaudit;
