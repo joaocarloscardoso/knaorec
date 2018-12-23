@@ -23,7 +23,7 @@
             <div class="row gtr-50">
                 <div class="col-12">
                     Source<br/>
-                    <select name="source" id="source" size="1" autofocus>
+                    <select name="source" id="source" size="1" autofocus onchange="RedoDomains()">
                         <% Matrix.Sources.split("|").forEach(function(item) { -%>
                             <% if (Matrix.Source === item) { %>
                                 <option value="<%= item %>" selected><%= item %></option>
@@ -36,27 +36,31 @@
                 </div>
                 <div class="col-12">
                     Domain<br/>
-                    <select name="domain" id="domain" size="1" autofocus>
+                    <select name="domain" id="domain" size="1" autofocus onchange="RedoAreas()">
                         <% Matrix.Domains.split("|").forEach(function(item) { -%>
                             <% subitem = item.split("#") %>
-                            <% if (Matrix.Domain == subitem[0]) { %>
-                                <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
-                            <% } else { %>
-                                <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
-                            <% } %>       
+                            <% if (subitem[0].indexOf(Matrix.Source) > -1) { %>
+                                <% if (Matrix.Domain == subitem[0]) { %>
+                                    <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
+                                <% } else { %>
+                                    <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
+                                <% } %>  
+                            <% } %>      
                         <% }) -%>         
                     </select>
                 </div>
                 <div class="col-12">
                     Area<br/>
-                    <select name="area" id="area" size="1" autofocus>
+                    <select name="area" id="area" size="1" autofocus onchange="RedoIssues()">
                         <% Matrix.Areas.split("|").forEach(function(item) { -%>
                             <% subitem = item.split("#") %>
-                            <% if (Matrix.Area == subitem[0]) { %>
-                                <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
-                            <% } else { %>
-                                <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
-                            <% } %>       
+                            <% if (subitem[0].indexOf(Matrix.Domain) > -1) { %>
+                                <% if (Matrix.Area == subitem[0]) { %>
+                                    <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
+                                <% } else { %>
+                                    <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
+                                <% } %>       
+                            <% } %>
                         <% }) -%>         
                     </select>
                 </div>
@@ -65,11 +69,13 @@
                     <select name="issue" id="issue" size="1" autofocus>
                         <% Matrix.Issues.split("|").forEach(function(item) { -%>
                             <% subitem = item.split("#") %>
-                            <% if (Matrix.Issue == subitem[0]) { %>
-                                <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
-                            <% } else { %>
-                                <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
-                            <% } %>       
+                            <% if (subitem[0].indexOf(Matrix.Area) > -1) { %>
+                                <% if (Matrix.Issue == subitem[0]) { %>
+                                    <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>
+                                <% } else { %>
+                                    <option value="<%= subitem[0] %>"><%= subitem[1] %></option>
+                                <% } %>
+                            <% } %>
                         <% }) -%>         
                      </select>
                 </div>
@@ -106,4 +112,85 @@
               </div>
         </form>
     </section>
-    
+<!-- javascript is placed in the body section -->
+<script>
+        var Domains=[
+            <% let i=0 %>
+            <% Matrix.Domains.split("|").forEach(function(item) { -%>
+                <% if (i==0) { %>
+                    "<%= item %>"
+                <% } else { %>
+                    ,"<%= item %>"
+                <% } %>
+                <% i++ %>
+             <% }) -%>             
+        ];
+        var Areas=[
+            <% i=0 %>
+            <% Matrix.Areas.split("|").forEach(function(item) { -%>
+                <% if (i==0) { %>
+                    "<%= item %>"
+                <% } else { %>
+                    ,"<%= item %>"
+                <% } %>
+                <% i++ %>
+             <% }) -%>             
+        ];        
+        var Issues=[
+            <% i=0 %>
+            <% Matrix.Issues.split("|").forEach(function(item) { -%>
+                <% if (i==0) { %>
+                    "<%= item %>"
+                <% } else { %>
+                    ,"<%= item %>"
+                <% } %>
+                <% i++ %>
+             <% }) -%>             
+        ];
+
+    function RedoDomains(){
+        document.getElementById("domain").innerHTML = "<option></option>";
+        document.getElementById("area").innerHTML = "<option></option>";
+        document.getElementById("issue").innerHTML = "<option></option>";
+        //redo domain dropdown
+        var selOptions = "";
+        for (var j=0; j<Domains.length; j++) {
+            var items = Domains[j].split("#");
+            if (items[0].indexOf(document.getElementById("source").value) > -1){
+                selOptions += "<option value='" + items[0]+ "'>" + items[1] + "</option>";
+            }
+        }
+        document.getElementById("domain").innerHTML = selOptions;
+        RedoAreas();
+        RedoIssues();
+    }
+
+    function RedoAreas(){
+        document.getElementById("area").innerHTML = "<option></option>";
+        document.getElementById("issue").innerHTML = "<option></option>";    
+        //redo area dropdown
+        var selOptions = "";
+        for (var j=0; j<Areas.length; j++) {
+            var items = Areas[j].split("#");
+            if (items[0].indexOf(document.getElementById("domain").value) > -1){
+                selOptions += "<option value='" + items[0]+ "'>" + items[1] + "</option>";
+            }
+        }
+        document.getElementById("area").innerHTML = selOptions;
+        RedoIssues();
+    }
+
+    function RedoIssues(){
+        document.getElementById("issue").innerHTML = "<option></option>";            
+        //redo issue dropdown
+        var selOptions = "";
+        for (var j=0; j<Issues.length; j++) {
+            var items = Issues[j].split("#");
+            if (items[0].indexOf(document.getElementById("area").value) > -1){
+                selOptions += "<option value='" + items[0]+ "'>" + items[1] + "</option>";
+            }
+        }
+        document.getElementById("issue").innerHTML = selOptions;
+    }
+
+    </script>    
