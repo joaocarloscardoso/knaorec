@@ -1,7 +1,7 @@
 <section id="contact" class="col-6 col-12-narrower">
     <header>
         <h2></h2>
-        <h2><%= Matrix.Issue %></h2>
+        <h2><%= Matrix.IssueId %> - <%= Matrix.Issue %></h2>
     </header>
     <% if(msg != ''){ %>
         <div class="col-12" id="save_auditmatrix">
@@ -20,6 +20,37 @@
     </div>
     <% } %>
     <form method="POST" action="/auditMatrices/preassessMatrix">
+        <% let i=1 %>
+        <% Matrix.Sections.forEach(function(Section){ %>
+            <hr/>
+            <div class="row gtr-50">
+                <header>
+                    <h1><%= Section.SectionId %> <%= Section.SectionName %></h1>
+                </header>
+                <% Section.Elements.forEach(function(Element){ %>
+                    <div class="col-12">
+                            <%= Element.ElementId %> <%= Element.ElementName %><br/>
+                            <% if (Element.Type === "text") { %>
+                                <textarea name="txt<%= i %>" id="txt<%= i %>" placeholder="<%= Element.ElementName %>" rows="3"><%= Element.Value %></textarea>
+                            <% } %>
+                            <% if (Element.Type === "list") { %>
+                                <select name="sel<%= i %>" id="sel<%= i %>" size="1" autofocus>
+                                <% Element.Values.split("|").forEach(function(item) { -%>
+                                    <% if (Element.Value === item) { %>
+                                        <option value="<%= item %>" selected><%= item %></option>
+                                    <% } else { %>
+                                        <option value="<%= item %>"><%= item %></option>
+                                    <% } %>       
+                                <% }) -%>         
+                                </select>
+                            <% } %>
+                        </div>
+                    <% i++ %>
+                <% }) %>
+                <p></p>
+            </div>
+        <% }) %>
+        <input type="hidden" name="rows_count" id="rows_count" value="<%= (i-1) %>"/>
         <div class="row gtr-50">
             <div class="col-12">
                 <ul class="actions">
