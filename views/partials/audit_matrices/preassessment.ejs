@@ -29,22 +29,25 @@
                 </header>
                 <% Section.Elements.forEach(function(Element){ %>
                     <div class="col-12">
-                            <%= Element.ElementId %> <%= Element.ElementName %><br/>
-                            <% if (Element.Type === "text") { %>
-                                <textarea name="txt<%= i %>" id="txt<%= i %>" placeholder="<%= Element.ElementName %>" rows="3"><%= Element.Value %></textarea>
-                            <% } %>
-                            <% if (Element.Type === "list") { %>
-                                <select name="sel<%= i %>" id="sel<%= i %>" size="1" autofocus>
-                                <% Element.Values.split("|").forEach(function(item) { -%>
-                                    <% if (Element.Value === item) { %>
-                                        <option value="<%= item %>" selected><%= item %></option>
-                                    <% } else { %>
-                                        <option value="<%= item %>"><%= item %></option>
-                                    <% } %>       
-                                <% }) -%>         
-                                </select>
-                            <% } %>
-                        </div>
+                        <%= Element.ElementId %> <%= Element.ElementName %><br/>
+                        <% if (Element.Type === "text") { %>
+                            <textarea name="txt<%= i %>" id="txt<%= i %>" placeholder="<%= Element.ElementName %>" rows="3"><%= Element.Value %></textarea>
+                            <input type="hidden" name="el<%= i %>" id="el<%= i %>" value="txt"/>
+                        <% } %>
+                        <% if (Element.Type === "list") { %>
+                            <select name="sel<%= i %>" id="sel<%= i %>" size="1" autofocus>
+                            <% Element.Values.split("|").forEach(function(item) { -%>
+                                <% if (Element.Value === item) { %>
+                                    <option value="<%= item %>" selected><%= item %></option>
+                                <% } else { %>
+                                    <option value="<%= item %>"><%= item %></option>
+                                <% } %>       
+                            <% }) -%>         
+                            </select>
+                            <input type="hidden" name="el<%= i %>" id="el<%= i %>" value="sel"/>
+                        <% } %>
+                        <input type="hidden" name="ref<%= i %>" id="ref<%= i %>" value="<%= Element.RefId %>"/>
+                    </div>
                     <% i++ %>
                 <% }) %>
                 <p></p>
