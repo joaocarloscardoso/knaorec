@@ -110,4 +110,154 @@ matricesaudit.get('/preassessMatrix',function(req,res){
     }
 });
 
+matricesaudit.post('/preassessMatrix', function(req, res){
+    //old: path.join(__dirname,'work')
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    
+    if (status) {
+        //check if req.body is filled
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+            log.warn('Object req.body missing on tool audit matrix');
+        } else {
+            /*
+            var totalCtrl = req.body.rows_count;
+            var Catalog = [];
+            for ( var i = 1; i <= totalCtrl; i ++) {
+                var NewEntry = {
+                    PluginId: req.body['#' + i.toString() + 'Plugin'],
+                    DomainId: req.body['#' + i.toString() + 'Domain'],
+                    AreaId: req.body['#' + i.toString() + 'Area'],
+                    IssueId: req.body['#' + i.toString() + 'Issue'],
+                    Risk: req.body['#' + i.toString() + 'Risk'],
+                    Selected: req.body['#' + i.toString() + 'Include'],
+                    Remarks: req.body['#' + i.toString() + 'Remarks']
+                };
+                Catalog.push(NewEntry);
+            }
+            //save plugins selected for audit
+            var status = Planning.SavePlanning(NewAuditFile, Catalog);
+
+            var plancatalog = Planning.LoadPlanning(NewAuditFile);
+            res.render('toolaudit/toolwork', {
+                action: 'audit',
+                operation: 'audit_plan',
+                AuditErrors: '',
+                plancatalog: plancatalog,
+                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+                audit: status
+             });
+            */
+        }
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }    
+});
+
+matricesaudit.post('/planMatrix', function(req, res){
+    //old: path.join(__dirname,'work')
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    
+    if (status) {
+        //check if req.body is filled
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+            log.warn('Object req.body missing on tool audit matrix');
+        } else {
+            /*
+            var totalCtrl = req.body.rows_count;
+            var Catalog = [];
+            for ( var i = 1; i <= totalCtrl; i ++) {
+                var NewEntry = {
+                    PluginId: req.body['#' + i.toString() + 'Plugin'],
+                    DomainId: req.body['#' + i.toString() + 'Domain'],
+                    AreaId: req.body['#' + i.toString() + 'Area'],
+                    IssueId: req.body['#' + i.toString() + 'Issue'],
+                    Risk: req.body['#' + i.toString() + 'Risk'],
+                    Selected: req.body['#' + i.toString() + 'Include'],
+                    Remarks: req.body['#' + i.toString() + 'Remarks']
+                };
+                Catalog.push(NewEntry);
+            }
+            //save plugins selected for audit
+            var status = Planning.SavePlanning(NewAuditFile, Catalog);
+
+            var plancatalog = Planning.LoadPlanning(NewAuditFile);
+            res.render('toolaudit/toolwork', {
+                action: 'audit',
+                operation: 'audit_plan',
+                AuditErrors: '',
+                plancatalog: plancatalog,
+                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+                audit: status
+             });
+            */
+        }
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }    
+});
+
+matricesaudit.post('/findingMatrix', function(req, res){
+    //old: path.join(__dirname,'work')
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    
+    if (status) {
+        //check if req.body is filled
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+            log.warn('Object req.body missing on tool audit matrix');
+        } else {
+            /*
+            var totalCtrl = req.body.rows_count;
+            var Catalog = [];
+            for ( var i = 1; i <= totalCtrl; i ++) {
+                var NewEntry = {
+                    PluginId: req.body['#' + i.toString() + 'Plugin'],
+                    DomainId: req.body['#' + i.toString() + 'Domain'],
+                    AreaId: req.body['#' + i.toString() + 'Area'],
+                    IssueId: req.body['#' + i.toString() + 'Issue'],
+                    Risk: req.body['#' + i.toString() + 'Risk'],
+                    Selected: req.body['#' + i.toString() + 'Include'],
+                    Remarks: req.body['#' + i.toString() + 'Remarks']
+                };
+                Catalog.push(NewEntry);
+            }
+            //save plugins selected for audit
+            var status = Planning.SavePlanning(NewAuditFile, Catalog);
+
+            var plancatalog = Planning.LoadPlanning(NewAuditFile);
+            res.render('toolaudit/toolwork', {
+                action: 'audit',
+                operation: 'audit_plan',
+                AuditErrors: '',
+                plancatalog: plancatalog,
+                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+                audit: status
+             });
+            */
+        }
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            audit: status
+        });
+    }    
+});
+
 module.exports = matricesaudit;
