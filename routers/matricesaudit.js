@@ -172,34 +172,20 @@ matricesaudit.post('/planMatrix', function(req, res){
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
             log.warn('Object req.body missing on tool audit matrix');
         } else {
-            /*
-            var totalCtrl = req.body.rows_count;
-            var Catalog = [];
-            for ( var i = 1; i <= totalCtrl; i ++) {
-                var NewEntry = {
-                    PluginId: req.body['#' + i.toString() + 'Plugin'],
-                    DomainId: req.body['#' + i.toString() + 'Domain'],
-                    AreaId: req.body['#' + i.toString() + 'Area'],
-                    IssueId: req.body['#' + i.toString() + 'Issue'],
-                    Risk: req.body['#' + i.toString() + 'Risk'],
-                    Selected: req.body['#' + i.toString() + 'Include'],
-                    Remarks: req.body['#' + i.toString() + 'Remarks']
-                };
-                Catalog.push(NewEntry);
-            }
+            var Catalog = {
+                PluginId: req.body.plugin,
+                DomainId: req.body.domain,
+                AreaId: req.body.area,
+                IssueId: req.body.issue,
+                Objectives: req.body.objectives,
+                Criteria: req.body.criteria,
+                Inforequired: req.body.inforequired,
+                Method: req.body.method,
+                Found: req.body.foundpreviously,
+                Conclusion: req.body.conclusion
+            };
             //save plugins selected for audit
-            var status = Planning.SavePlanning(NewAuditFile, Catalog);
-
-            var plancatalog = Planning.LoadPlanning(NewAuditFile);
-            res.render('toolaudit/toolwork', {
-                action: 'audit',
-                operation: 'audit_plan',
-                AuditErrors: '',
-                plancatalog: plancatalog,
-                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
-                audit: status
-             });
-            */
+            var status = Matrices.SaveFindingMatrix(NewAuditFile, Catalog);
         }
     } else {
         res.render('login/login', {
@@ -222,34 +208,21 @@ matricesaudit.post('/findingMatrix', function(req, res){
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
             log.warn('Object req.body missing on tool audit matrix');
         } else {
-            /*
-            var totalCtrl = req.body.rows_count;
-            var Catalog = [];
-            for ( var i = 1; i <= totalCtrl; i ++) {
-                var NewEntry = {
-                    PluginId: req.body['#' + i.toString() + 'Plugin'],
-                    DomainId: req.body['#' + i.toString() + 'Domain'],
-                    AreaId: req.body['#' + i.toString() + 'Area'],
-                    IssueId: req.body['#' + i.toString() + 'Issue'],
-                    Risk: req.body['#' + i.toString() + 'Risk'],
-                    Selected: req.body['#' + i.toString() + 'Include'],
-                    Remarks: req.body['#' + i.toString() + 'Remarks']
-                };
-                Catalog.push(NewEntry);
-            }
+            var Catalog = {
+                FindingId: req.body.findingid,
+                Source: req.body.source,
+                Domain: req.body.domain,
+                Area: req.body.area,
+                Issue: req.body.issue,
+                Cause: req.body.cause,
+                Result: req.body.result,
+                Description: req.body.description,
+                Recommendation: req.body.recommendation,
+                LegalAct: req.body.legalact,
+                ReportReference: req.body.report
+            };
             //save plugins selected for audit
-            var status = Planning.SavePlanning(NewAuditFile, Catalog);
-
-            var plancatalog = Planning.LoadPlanning(NewAuditFile);
-            res.render('toolaudit/toolwork', {
-                action: 'audit',
-                operation: 'audit_plan',
-                AuditErrors: '',
-                plancatalog: plancatalog,
-                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
-                audit: status
-             });
-            */
+            var status = Matrices.SaveFindingMatrix(NewAuditFile, Catalog);
         }
     } else {
         res.render('login/login', {
