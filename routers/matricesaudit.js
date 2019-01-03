@@ -185,7 +185,16 @@ matricesaudit.post('/planMatrix', function(req, res){
                 Conclusion: req.body.conclusion
             };
             //save plugins selected for audit
-            var status = Matrices.SaveFindingMatrix(NewAuditFile, Catalog);
+            var status = Matrices.SavePlanMatrix(NewAuditFile, Catalog);
+            var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, Catalog.PluginId, Catalog.DomainId, Catalog.AreaId, Catalog.IssueId);
+            res.render('toolaudit/supportmatrix', {
+                action: 'audit',
+                operation: 'plan_matrix',
+                AuditErrors: '',
+                Matrix: PlanMatrix,
+                msg: '',
+                audit: status
+             });
         }
     } else {
         res.render('login/login', {
@@ -208,12 +217,13 @@ matricesaudit.post('/findingMatrix', function(req, res){
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
             log.warn('Object req.body missing on tool audit matrix');
         } else {
+            var vItems = req.body.issue.split("_");
             var Catalog = {
                 FindingId: req.body.findingid,
                 Source: req.body.source,
-                Domain: req.body.domain,
-                Area: req.body.area,
-                Issue: req.body.issue,
+                Domain: vItems[1],
+                Area: vItems[2],
+                Issue: vItems[3],
                 Cause: req.body.cause,
                 Result: req.body.result,
                 Description: req.body.description,
@@ -222,7 +232,18 @@ matricesaudit.post('/findingMatrix', function(req, res){
                 ReportReference: req.body.report
             };
             //save plugins selected for audit
-            var status = Matrices.SaveFindingMatrix(NewAuditFile, Catalog);
+            var RefId = Matrices.SaveFindingMatrix(NewAuditFile, Catalog);
+            if (RefId.substring(0, 1) == 'F') {
+                var FindingMatrix = Matrices.LoadFindingMatrix(NewAuditFile, RefId);
+                res.render('toolaudit/supportmatrix', {
+                    action: 'audit',
+                    operation: 'finding_matrix',
+                    AuditErrors: '',
+                    Matrix: FindingMatrix,
+                    msg: '',
+                    audit: 'true'
+                 });                    
+            }
         }
     } else {
         res.render('login/login', {
