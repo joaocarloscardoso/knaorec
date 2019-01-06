@@ -122,34 +122,37 @@ matricesaudit.post('/preassessMatrix', function(req, res){
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
             log.warn('Object req.body missing on tool audit matrix');
         } else {
-            /*
+            var AreaId = req.body['areaid'];
+            var IssueId = req.body['issueid'];
             var totalCtrl = req.body.rows_count;
             var Catalog = [];
-            for ( var i = 1; i <= totalCtrl; i ++) {
+            var vType = '';
+            for ( var i = 1; i <= totalCtrl; i++) {
+                vType = '';
+                var vRef = req.body['ref' + i.toString()];
+                if (vRef.indexOf("|")== -1){
+                    vType = 'Element';
+                } else {
+                    vType = 'IElement';
+                }
+                var ctrlType = req.body['el' + i.toString()];
                 var NewEntry = {
-                    PluginId: req.body['#' + i.toString() + 'Plugin'],
-                    DomainId: req.body['#' + i.toString() + 'Domain'],
-                    AreaId: req.body['#' + i.toString() + 'Area'],
-                    IssueId: req.body['#' + i.toString() + 'Issue'],
-                    Risk: req.body['#' + i.toString() + 'Risk'],
-                    Selected: req.body['#' + i.toString() + 'Include'],
-                    Remarks: req.body['#' + i.toString() + 'Remarks']
+                    Reference: vRef,
+                    Type: vType,
+                    Value: req.body[ctrlType + i.toString()]
                 };
                 Catalog.push(NewEntry);
             }
-            //save plugins selected for audit
-            var status = Planning.SavePlanning(NewAuditFile, Catalog);
-
-            var plancatalog = Planning.LoadPlanning(NewAuditFile);
-            res.render('toolaudit/toolwork', {
+            var status = Matrices.SavePreAssessMatrix(NewAuditFile, Catalog, AreaId, IssueId);
+            var preassessMatrix = Matrices.LoadPreAssessMatrix(NewAuditFile, AreaId, IssueId);
+            res.render('toolaudit/supportmatrix', {
                 action: 'audit',
-                operation: 'audit_plan',
+                operation: 'preassess_matrix',
                 AuditErrors: '',
-                plancatalog: plancatalog,
-                msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+                Matrix: preassessMatrix,
+                msg: '',
                 audit: status
-             });
-            */
+            });
         }
     } else {
         res.render('login/login', {
