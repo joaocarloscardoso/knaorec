@@ -41,6 +41,7 @@ login.get('/login',function(req,res){
 
     res.render('login/login', {
         action: 'login',
+        auditfile: '',
         audit: status
     });
 });

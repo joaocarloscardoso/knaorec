@@ -55,6 +55,7 @@ portal.get('/toolindex', (req, res) => {
     if(req.isAuthenticated()) {
         res.render('portal/toolindex', {
             action: 'tool',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
         });
     } else {
@@ -72,6 +73,7 @@ portal.get('/contactfeedback',function(req,res){
     //res.json(persons);
      res.render('portal/contactfeedback', {
          action: 'home',
+         auditfile: 'work/' + req.sessionID + '.xml',
          audit: status
         });
 });
@@ -85,6 +87,7 @@ portal.get('/project',function(req,res){
     res.render('./portal/project', {
         //action: req.query.action,
         action: req.params.name,
+        auditfile: 'work/' + req.sessionID + '.xml',
         audit: status
     });  
 });
@@ -98,6 +101,7 @@ portal.get('/desktop',function(req,res){
     res.render('portal/desktop', {
         //action: req.query.action,
         action: req.params.name,
+        auditfile: 'work/' + req.sessionID + '.xml',
         audit: status
     });  
 });
@@ -111,6 +115,7 @@ portal.get('/newsdesktopv2',function(req,res){
     res.render('portal/newsdesktopv2', {
         //action: req.query.action,
         action: req.params.name,
+        auditfile: 'work/' + req.sessionID + '.xml',
         audit: status
     });  
 });
@@ -130,6 +135,7 @@ portal.get('/catalogplugins',function(req,res){
             lastupdate: LastDate,
             catalog: PluginsCatalog,
             downloadurl: credentials.urlpaths.plugins,
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
         });  
 });
@@ -160,6 +166,7 @@ portal.post('/contactus', [
             action: '#contact',
             message: newMessage,
             errors: errors.array(),
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
         });
     }

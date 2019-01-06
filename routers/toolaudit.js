@@ -51,12 +51,14 @@ tooleaudit.get('/toolauditreference',function(req,res){
             AuditReference: AuditReference,
             AuditErrors: '',
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }
@@ -78,12 +80,14 @@ tooleaudit.get('/toolauditplugins',function(req,res){
             AuditErrors: '',
             catalog: PluginsCatalog,
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }
@@ -121,12 +125,14 @@ tooleaudit.get('/auditstatistics',function(req,res){
             Domain06Catalog: Domain06Catalog,
             Domain07Catalog: Domain07Catalog,
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }
@@ -151,6 +157,7 @@ tooleaudit.post('/tooleditaudit', function(req, res){
             log.warn('Error loading file from user ' + req.session.passport.user +'!');
             return res.render('/portal/toolindex', {
                 action: 'tool',
+                auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
             });
         }
@@ -163,6 +170,7 @@ tooleaudit.post('/tooleditaudit', function(req, res){
             action: 'audit',
             operation: 'audit_creation',
             msg: 'Load completed successfuly!',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
         });
     });
@@ -190,6 +198,7 @@ tooleaudit.post('/toolnewaudit', function(req, res){
         action: 'audit',
         operation: 'audit_creation',
         msg: 'New audit created successfuly!',
+        auditfile: 'work/' + req.sessionID + '.xml',
         audit: true
     });
 });  
@@ -219,6 +228,7 @@ tooleaudit.post('/toolauditreference', [
             AuditReference: AuditReference,
             AuditErrors: errors.array(),
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
             audit: true
          });
     }
@@ -233,6 +243,7 @@ tooleaudit.post('/toolauditreference', [
             AuditReference: AuditReference,
             AuditErrors: '',
             msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+            auditfile: 'work/' + req.sessionID + '.xml',
             audit: true
         });
     }
@@ -268,6 +279,7 @@ tooleaudit.post('/toolauditplugins', function(req, res){
                 AuditErrors: '',
                 catalog: PluginsCatalog,
                 msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+                auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
             });
         }
@@ -275,6 +287,7 @@ tooleaudit.post('/toolauditplugins', function(req, res){
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }    

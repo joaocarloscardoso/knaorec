@@ -45,6 +45,7 @@ preassessaudit.get('/auditpreassessment',function(req,res){
             AuditErrors: '',
             preassesscatalog: preassesscatalog,
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {

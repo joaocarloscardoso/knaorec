@@ -45,12 +45,14 @@ matricesaudit.get('/planMatrix',function(req,res){
             AuditErrors: '',
             Matrix: PlanMatrix,
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }
@@ -72,12 +74,14 @@ matricesaudit.get('/findingMatrix',function(req,res){
             AuditErrors: '',
             Matrix: FindingMatrix,
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }
@@ -99,12 +103,14 @@ matricesaudit.get('/preassessMatrix',function(req,res){
             AuditErrors: '',
             Matrix: preassessMatrix,
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }
@@ -151,6 +157,7 @@ matricesaudit.post('/preassessMatrix', function(req, res){
                 AuditErrors: '',
                 Matrix: preassessMatrix,
                 msg: '',
+                auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
             });
         }
@@ -158,6 +165,7 @@ matricesaudit.post('/preassessMatrix', function(req, res){
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }    
@@ -196,6 +204,7 @@ matricesaudit.post('/planMatrix', function(req, res){
                 AuditErrors: '',
                 Matrix: PlanMatrix,
                 msg: '',
+                auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
              });
         }
@@ -203,6 +212,7 @@ matricesaudit.post('/planMatrix', function(req, res){
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }    
@@ -244,6 +254,7 @@ matricesaudit.post('/findingMatrix', function(req, res){
                     AuditErrors: '',
                     Matrix: FindingMatrix,
                     msg: '',
+                    auditfile: 'work/' + req.sessionID + '.xml',
                     audit: 'true'
                  });                    
             }
@@ -252,6 +263,7 @@ matricesaudit.post('/findingMatrix', function(req, res){
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }    

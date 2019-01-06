@@ -113,6 +113,7 @@ app.get('/',function(req,res){
 
     res.render('index', {
         action: 'home',
+        auditfile: AuditFile,
         audit: status
         //persons: persons
     });
@@ -127,6 +128,7 @@ app.get('/index',function(req,res){
 
     res.render('index', {
         action: 'home',
+        auditfile: AuditFile,
         audit: status
         //persons: persons
     });
@@ -138,6 +140,14 @@ app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
     var file = file.replace("/","\\");
     res.download(file); // Set disposition and send it.
     log.info('plug-in download: ' + file);
+});
+
+app.get(('/toolaudit/work/' + ':name'),function(req,res){
+    //download xml file
+    var file = credentials.WorkSetPath + req.params.name
+    var file = file.replace("/","\\");
+    res.download(file); // Set disposition and send it.
+    log.info('audit file download: ' + file);
 });
 
 app.use('/portal', PortalRouter);

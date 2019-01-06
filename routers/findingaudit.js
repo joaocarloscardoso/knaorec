@@ -45,12 +45,14 @@ findingaudit.get('/auditfindings',function(req,res){
             AuditErrors: '',
             findingcatalog: findingscatalog,
             msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }
@@ -87,6 +89,7 @@ findingaudit.post('/auditfindings', function(req, res){
                 AuditErrors: '',
                 findingcatalog: findingscatalog,
                 msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
+                auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
              });
         }
@@ -94,6 +97,7 @@ findingaudit.post('/auditfindings', function(req, res){
         res.render('login/login', {
             action: 'login',
             //persons: persons,
+            auditfile: '',
             audit: status
         });
     }    
@@ -116,11 +120,13 @@ findingaudit.get('/deleteauditfinding/:findingId',function(req,res){
             AuditErrors: '',
             findingcatalog: findingscatalog,
             msg: 'Selected finding deleted!',
+            auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
     } else {
         res.render('login/login', {
             action: 'login',
+            auditfile: '',
             //persons: persons,
             audit: status
         });
