@@ -27,6 +27,26 @@ const bcrypt = require('bcrypt-nodejs');
 //file uploads
 var formidable = require('formidable');
 var fs = require("fs");
+//garbage collector / file cleaner
+var FileCleaner = require('cron-file-cleaner').FileCleaner;
+
+var fileWatcher = new FileCleaner(credentials.WorkSetPath, (48 * 3600000),  '* */15 * * * *', {
+    start: true
+});
+
+fileWatcher.on('start', function(info){
+    log.info('garbage collector started on path: ' + info.path);
+});
+
+fileWatcher.on('delete', function(file){
+    log.info('garbage collector deleted  ' + file.name + ' on folder: ' + file.folder  + ', path: ' +file.path); 
+});
+   
+fileWatcher.on('error', function(err){
+    log.info('garbage collector error:  ' + err);
+});
+
+fileWatcher.start();
 
 //routers declaration
 var PortalRouter =require('./routers/portal.js');
@@ -142,6 +162,28 @@ app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
     log.info('plug-in download: ' + file);
 });
 
+
+app.get(('/work/delete'),function(req,res){
+    //download xml file
+    var vfile = credentials.WorkSetPath;
+    vfile = vfile + req.sessionID + '.xml'
+    vfile = vfile.replace("/","\\");
+
+    fs.unlink(vfile, (err) => {
+        if (err) throw err;
+        log.info('working audit file closed and deleted : ' + vfile);
+    });
+    if(req.isAuthenticated()) {
+        res.render('portal/toolindex', {
+            action: 'tool',
+            auditfile: '',
+	        audit: ''
+        });
+    } else {
+        res.redirect('/login/login');
+    }
+});
+
 app.get(('/toolaudit/work/' + ':name'),function(req,res){
     //download xml file
     var file = credentials.WorkSetPath + req.params.name
@@ -149,6 +191,7 @@ app.get(('/toolaudit/work/' + ':name'),function(req,res){
     res.download(file); // Set disposition and send it.
     log.info('audit file download: ' + file);
 });
+
 
 app.use('/portal', PortalRouter);
 app.use('/login', LoginRouter);

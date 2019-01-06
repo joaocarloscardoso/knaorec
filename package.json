@@ -11,6 +11,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "chart.js": "^2.7.3",
+    "cron-file-cleaner": "^1.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
