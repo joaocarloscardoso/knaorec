@@ -56,6 +56,7 @@ var PreassessmentRouter =require('./routers/preassessaudit.js');
 var PlanRouter =require('./routers/planaudit.js');
 var FindingsRouter =require('./routers/findingaudit.js');
 var MatrixRouter = require('./routers/matricesaudit.js');
+var DocsRouter = require('./routers/generatedocs.js');
 
 // configure passport.js to use the local strategy
 passport.use(new LocalStrategy(
@@ -192,6 +193,13 @@ app.get(('/toolaudit/work/' + ':name'),function(req,res){
     log.info('audit file download: ' + file);
 });
 
+app.get(('/document/work/' + ':name'),function(req,res){
+    //download xml file
+    var file = credentials.WorkSetPath + req.params.name
+    var file = file.replace("/","\\");
+    res.download(file); // Set disposition and send it.
+});
+
 
 app.use('/portal', PortalRouter);
 app.use('/login', LoginRouter);
@@ -200,6 +208,7 @@ app.use('/preassessaudit', PreassessmentRouter);
 app.use('/planaudit', PlanRouter);
 app.use('/findingaudit', FindingsRouter);
 app.use('/auditMatrices', MatrixRouter);
+app.use('/generatedocs', DocsRouter);
 
 app.use(function(req,res,next){
     log.warn('404 - Not Found');
