@@ -40,17 +40,48 @@ generatedocs.get('/docplanMatrix',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     var NewDocFile = credentials.WorkSetPath;
-    NewDocFile = NewDocFile + 'plan_' + req.sessionID + '.odt';
+    NewDocFile = NewDocFile + req.sessionID + '.odt';
 
     if (status) {
         var data = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
         carbone.render('./public/templates/PlanMatrix.odt', data, function(err, result){
             if (err) {
-              return log.info('document generation error:  ' +err);
+              return log.info('document (plan matrix) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
-            res.redirect('/document/work/' + 'plan_' + req.sessionID + '.odt');
+            res.redirect('/document/work/' + req.sessionID + '.odt');
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
+generatedocs.get('/docfindingMatrix',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    var NewDocFile = credentials.WorkSetPath;
+    NewDocFile = NewDocFile + req.sessionID + '.odt';
+
+    if (status) {
+        var data = Matrices.LoadFindingMatrix(NewAuditFile, req.query.id);
+        carbone.render('./public/templates/FindingMatrix.odt', data, function(err, result){
+            if (err) {
+              return log.info('document (finding matrix) generation error:  ' +err);
+            }
+            // write the result
+            fs.writeFileSync(NewDocFile, result);
+            res.redirect('/document/work/' + req.sessionID + '.odt');
         });
     } else {
         res.render('login/login', {

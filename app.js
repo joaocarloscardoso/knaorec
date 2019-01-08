@@ -174,6 +174,14 @@ app.get(('/work/delete'),function(req,res){
         if (err) throw err;
         log.info('working audit file closed and deleted : ' + vfile);
     });
+    var vDocfile = credentials.WorkSetPath;
+    vDocfile = vDocfile + req.sessionID + '.odt'
+    vDocfile = vDocfile.replace("/","\\");
+
+    fs.unlink(vDocfile, (err) => {
+        if (err) throw err;
+        log.info('document audit file closed and deleted : ' + vDocfile);
+    });
     if(req.isAuthenticated()) {
         res.render('portal/toolindex', {
             action: 'tool',

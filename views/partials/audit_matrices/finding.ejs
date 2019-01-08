@@ -105,6 +105,9 @@
                 </div>
                 <div class="col-12">
                     <ul class="actions">
+                        <% if (Matrix.FindingId != "(New)") { %>
+                            <li><a href="/generatedocs/docfindingMatrix?id=<%= Matrix.FindingId %>" class="button">Generate document</a></li>
+                        <% } %>
                         <li><a href="/findingaudit/auditfindings" class="button">Close</a></li>
                         <li><input type="submit" class="button alt" value="Save" /></li>
                     </ul>
