@@ -11,6 +11,10 @@ var Matrices = require('../lib/matrices.js');
 //logging system
 var log = require('../lib/log.js');
 
+//nlp
+//var nlp = require('../lib/nlp.js');
+
+
 //generation of uuid
 const uuid = require('uuid/v4');
 //session handling and store
@@ -38,6 +42,11 @@ matricesaudit.get('/planMatrix',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     if (status) {
+        //test
+        //var CrawlerFile = credentials.WorkSetPath;
+        //CrawlerFile = CrawlerFile + req.sessionID + '.src';
+        //var vFile = nlp.LoadCrawler(NewAuditFile, CrawlerFile);
+        //end test
         var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
         res.render('toolaudit/supportmatrix', {
             action: 'audit',
