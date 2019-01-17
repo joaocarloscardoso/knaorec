@@ -12,7 +12,7 @@ var Matrices = require('../lib/matrices.js');
 var log = require('../lib/log.js');
 
 //nlp
-//var nlp = require('../lib/nlp.js');
+var nlp = require('../lib/nlp.js');
 
 
 //generation of uuid
@@ -43,9 +43,12 @@ matricesaudit.get('/planMatrix',function(req,res){
 
     if (status) {
         //test
-        //var CrawlerFile = credentials.WorkSetPath;
-        //CrawlerFile = CrawlerFile + req.sessionID + '.src';
-        //var vFile = nlp.LoadCrawler(NewAuditFile, CrawlerFile);
+        var CrawlerFile = credentials.WorkSetPath;
+        CrawlerFile = CrawlerFile + req.sessionID + '.src';
+        var TokenizerFile = credentials.WorkSetPath;
+        TokenizerFile = TokenizerFile + req.sessionID + '.tkn';
+        var vFile = nlp.LoadCrawler(NewAuditFile, CrawlerFile);
+        nlp.LoadNLPProcessing(CrawlerFile,TokenizerFile);
         //end test
         var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
         res.render('toolaudit/supportmatrix', {
