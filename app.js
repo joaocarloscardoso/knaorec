@@ -30,6 +30,9 @@ var fs = require("fs");
 //garbage collector / file cleaner
 var FileCleaner = require('cron-file-cleaner').FileCleaner;
 
+//graphdb access
+var graphdb = require('./lib/graphdb.js');
+
 var fileWatcher = new FileCleaner(credentials.WorkSetPath, (48 * 3600000),  '* */15 * * * *', {
     start: true
 });
@@ -235,5 +238,6 @@ app.use(function(req,res,next){
 });
 
 app.listen(3000,function(){
+    graphdb.CreateDictionary();
     console.log('Server started on port 3000...');
 })
