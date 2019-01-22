@@ -42,14 +42,16 @@ matricesaudit.get('/planMatrix',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     if (status) {
-        //test
+        //nlp_test
         var CrawlerFile = credentials.WorkSetPath;
         CrawlerFile = CrawlerFile + req.sessionID + '.src';
         var TokenizerFile = credentials.WorkSetPath;
         TokenizerFile = TokenizerFile + req.sessionID + '.tkn';
+        var VectorFile = credentials.WorkSetPath;
+        VectorFile = VectorFile + req.sessionID + '.vec';
         var vFile = nlp.LoadCrawler(NewAuditFile, CrawlerFile);
-        nlp.LoadNLPProcessing(CrawlerFile,TokenizerFile);
-        //end test
+        nlp.LoadNLPProcessing(CrawlerFile,TokenizerFile, VectorFile);
+        //end nlp_test
         var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
         res.render('toolaudit/supportmatrix', {
             action: 'audit',

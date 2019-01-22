@@ -1,5 +1,5 @@
 AITAM web version
-2018-12-03
+2019-01-21
 Important Change on credentials.js. New structure:
 
 module.exports = {
@@ -8,7 +8,12 @@ module.exports = {
         user: '',
         password: '',
     },
-    AITAMmail: '',
+    neo4j: {
+        uri:'',
+        user: '',
+        password: ''
+    },
+     AITAMmail: '',
     PlugInsPath: '',
     LogFilesPath: '',
     CoreSetPath: '',
