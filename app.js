@@ -180,7 +180,7 @@ app.get(('/work/delete'),function(req,res){
         log.info('working audit file closed and deleted : ' + vfile);
     });
     var vDocfile = credentials.WorkSetPath;
-    vDocfile = vDocfile + req.sessionID + '.odt'
+    vDocfile = vDocfile + req.sessionID + '.' + credentials.ReportFormat
     vDocfile = vDocfile.replace("/","\\");
 
     fs.unlink(vDocfile, (err) => {

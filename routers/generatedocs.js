@@ -41,17 +41,17 @@ generatedocs.get('/docplanMatrix',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     var NewDocFile = credentials.WorkSetPath;
-    NewDocFile = NewDocFile + req.sessionID + '.odt';
+    NewDocFile = NewDocFile + req.sessionID + '.' + credentials.ReportFormat;
 
     if (status) {
         var data = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
-        carbone.render('./public/templates/PlanMatrix.odt', data, function(err, result){
+        carbone.render('./public/templates/PlanMatrix.' + credentials.ReportFormat, data, function(err, result){
             if (err) {
               return log.info('document (plan matrix) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
-            res.redirect('/document/work/' + req.sessionID + '.odt');
+            res.redirect('/document/work/' + req.sessionID + '.' + credentials.ReportFormat);
         });
     } else {
         res.render('login/login', {
@@ -72,17 +72,17 @@ generatedocs.get('/docpreassessMatrix',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     var NewDocFile = credentials.WorkSetPath;
-    NewDocFile = NewDocFile + req.sessionID + '.odt';
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
 
     if (status) {
         var data = Matrices.LoadPreAssessMatrix(NewAuditFile, req.query.area, req.query.issue);
-        carbone.render('./public/templates/PreAssessMatrix.odt', data, function(err, result){
+        carbone.render('./public/templates/PreAssessMatrix.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
               return log.info('document (preassessment matrix) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
-            res.redirect('/document/work/' + req.sessionID + '.odt');
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
         });
     } else {
         res.render('login/login', {
@@ -103,17 +103,17 @@ generatedocs.get('/docfindingMatrix',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     var NewDocFile = credentials.WorkSetPath;
-    NewDocFile = NewDocFile + req.sessionID + '.odt';
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
 
     if (status) {
         var data = Matrices.LoadFindingMatrix(NewAuditFile, req.query.id);
-        carbone.render('./public/templates/FindingMatrix.odt', data, function(err, result){
+        carbone.render('./public/templates/FindingMatrix.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
               return log.info('document (finding matrix) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
-            res.redirect('/document/work/' + req.sessionID + '.odt');
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
         });
     } else {
         res.render('login/login', {
@@ -134,17 +134,17 @@ generatedocs.get('/docauditprogramme',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     var NewDocFile = credentials.WorkSetPath;
-    NewDocFile = NewDocFile + req.sessionID + '.odt';
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
 
     if (status) {
         var data = Docs.LoadAuditProgramme(NewAuditFile);
-        carbone.render('./public/templates/AuditProgramme.odt', data, function(err, result){
+        carbone.render('./public/templates/AuditProgramme.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
               return log.info('document (Audit Programme) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
-            res.redirect('/document/work/' + req.sessionID + '.odt');
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
         });
     } else {
         res.render('login/login', {
@@ -165,17 +165,17 @@ generatedocs.get('/docexecutivesummary',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     var NewDocFile = credentials.WorkSetPath;
-    NewDocFile = NewDocFile + req.sessionID + '.odt';
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
 
     if (status) {
         var data = Docs.LoadExecutiveSummary(NewAuditFile);
-        carbone.render('./public/templates/AuditExecutiveSummary.odt', data, function(err, result){
+        carbone.render('./public/templates/AuditExecutiveSummary.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
               return log.info('document (Executive Summary) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
-            res.redirect('/document/work/' + req.sessionID + '.odt');
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
         });
     } else {
         res.render('login/login', {
