@@ -13,12 +13,13 @@ module.exports = {
         user: '',
         password: ''
     },
-     AITAMmail: '',
+    AITAMmail: '',
     PlugInsPath: '',
     LogFilesPath: '',
     CoreSetPath: '',
     WorkSetPath: '',
     WorkLang: 'eng',
+    ReportFormat: 'odt',
     urlpaths: {
         plugins: '',
     }

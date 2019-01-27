@@ -70,5 +70,39 @@ analyticsaudit.get('/Recommendations',function(req,res){
     }
 });
 
+analyticsaudit.post('/Recommendations',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var VectorFile = credentials.WorkSetPath;
+        VectorFile = VectorFile + req.sessionID + '.vec';
+        var CypherQuery = nlp.GetCypherQuery(VectorFile);
+
+        res.render('toolaudit/analyticsvis', {
+            action: 'audit',
+            operation: 'recommendationvis',
+            AuditErrors: '',
+            ServerUrl: credentials.neo4j.uri,
+            ServerUser: credentials.neo4j.user,
+            ServerPassword: credentials.neo4j.password,
+            InitialCypher: CypherQuery,
+            msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
 
 module.exports = analyticsaudit;
