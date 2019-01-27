@@ -23,19 +23,75 @@
                 server_user: "<%= ServerUser %>",
                 server_password: "<%= ServerPassword %>",
                 labels: {
-                    "Troll": {
-                        caption: "user_key",
-                        size: "pagerank",
-                        community: "community"
+                    "Audit": {
+                        
+                    },
+                    "Country": {
+                        "caption": "Name"
+                    },
+                    "Function": {
+                        "caption": "Definition"
+                    },
+                    "Goal": {
+                        "caption": "Definition"
+                    },
+                    "Impact": {
+                        "caption": "Definition"
+                    },
+                    "Observation": {
+                        "caption": "Definition"
+                    },
+                    "Process": {
+                        "caption": "Definition"
+                    },
+                    "Requirement": {
+                        "caption": "Definition"
+                    },
+                    "Topics": {
+                        "caption": "Definition"
+                    },
+                    "ActivityDomain": {
+                        "caption": "Definition"
+                    },
+                    "Risk_Case": {
+                        "caption": "Definition"
                     }
                 },
                 relationships: {
-                    "RETWEETS": {
-                        caption: false,
-                        thickness: "count"
+                    "PRODUCED": {
+                        "thickness": "1",
+                        "caption": true
+                    },
+                    "PERFORM": {
+                        "thickness": "1",
+                        "caption": true
+                    },
+                    "ACHIEVE": {
+                        "thickness": "1",
+                        "caption": true
+                    },
+                    "DETERMINE": {
+                        "thickness": "1",
+                        "caption": true
+                    },
+                    "EVALUATE": {
+                        "thickness": "1",
+                        "caption": true
+                    },
+                    "COVER": {
+                        "thickness": "1",
+                        "caption": true,
+                    },
+                    "ADDRESS": {
+                        "thickness": "1",
+                        "caption": true
+                    },
+                    "IDENTIFIED": {
+                        "thickness": "1",
+                        "caption": true
                     }
                 },
-                initial_cypher: "<%= InitialCypher %>"
+                initial_cypher: "<%- InitialCypher %>"
             }
             var viz = new NeoVis.default(config);
             viz.render();
