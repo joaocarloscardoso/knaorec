@@ -82,6 +82,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
         var VectorFile = credentials.WorkSetPath;
         VectorFile = VectorFile + req.sessionID + '.vec';
         var CypherQuery = nlp.GetCypherQuery(VectorFile);
+        var ListOfRecommendations = nlp.GetTableQuery(VectorFile);
 
         res.render('toolaudit/analyticsvis', {
             action: 'audit',
@@ -91,6 +92,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
             ServerUser: credentials.neo4j.user,
             ServerPassword: credentials.neo4j.password,
             InitialCypher: CypherQuery,
+            DataTable: ListOfRecommendations,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
