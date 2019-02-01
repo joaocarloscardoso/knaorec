@@ -29,6 +29,10 @@ const bcrypt = require('bcrypt-nodejs');
 var formidable = require('formidable');
 var fs = require("fs");
 
+const neo4j = require('neo4j-driver').v1;
+
+const driver = neo4j.driver(credentials.neo4j.uri, neo4j.auth.basic(credentials.neo4j.user,credentials.neo4j.password));
+
 var analyticsaudit = express.Router();
 
 analyticsaudit.get('/Recommendations',function(req,res){
@@ -81,22 +85,57 @@ analyticsaudit.post('/Recommendations',function(req,res){
     if (status) {
         var VectorFile = credentials.WorkSetPath;
         VectorFile = VectorFile + req.sessionID + '.vec';
-        var CypherQuery = nlp.GetCypherQuery(VectorFile);
-        var ListOfRecommendations = nlp.GetTableQuery(VectorFile);
+        //var CypherQuery = nlp.GetCypherQuery(VectorFile);
+        var CypherTableQuery = nlp.GetTableQuery(VectorFile);
 
-        res.render('toolaudit/analyticsvis', {
-            action: 'audit',
-            operation: 'recommendationvis',
-            AuditErrors: '',
-            ServerUrl: credentials.neo4j.uri,
-            ServerUser: credentials.neo4j.user,
-            ServerPassword: credentials.neo4j.password,
-            InitialCypher: CypherQuery,
-            DataTable: ListOfRecommendations,
-            msg: '',
-            auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
-         });
+        const session = driver.session();
+
+        session
+            .run(CypherTableQuery)
+            .then(result => {
+                var NodeResults = [];
+                result.records.forEach(function(record){
+                    //create object to featurize collection (unique audits, with urls and relations)
+                    //order them by number of relations desc
+                    //var UniqueNodes = [];
+                    if (NodeResults.some( Node => Node.Id === record._fields[1].identity.low)) {
+                        NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Number = NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Number + 1;
+                        NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Relation = NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Relation + '; ' + record._fields[0].properties.Definition;
+                    } else {
+                        //nodeid= nodeid.replace('Integer { "low: ','').replace(', high: 0 }','');
+                        var objElement = {
+                            Id: record._fields[1].identity.low,
+                            Relation:record._fields[0].properties.Definition,
+                            Name: record._fields[1].properties.Title,
+                            Url: record._fields[1].properties.URL,
+                            Author: record._fields[1].properties.Author,
+                            Year: record._fields[1].properties.Year,
+                            Number:1
+                        };
+                        // console.log(objElement);
+                        NodeResults.push(objElement);
+                    }
+                });
+                console.log(NodeResults.sort(nlp.sort_by('Number', true, parseFloat)));
+                var CypherQuery = nlp.GetCypherQuery(VectorFile);
+                res.render('toolaudit/analyticsvis', {
+                    action: 'audit',
+                    operation: 'recommendationvis',
+                    AuditErrors: '',
+                    ServerUrl: credentials.neo4j.uri,
+                    ServerUser: credentials.neo4j.user,
+                    ServerPassword: credentials.neo4j.password,
+                    InitialCypher: CypherQuery,
+                    DataTable: NodeResults,
+                    msg: '',
+                    auditfile: 'work/' + req.sessionID + '.xml',
+                    audit: status
+                 });        
+                session.close();  
+            })
+            .catch(error => {
+                log.warn('Graph db error: ' + error);
+            });    
     } else {
         res.render('login/login', {
             action: 'login',

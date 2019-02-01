@@ -114,13 +114,25 @@
                                 <section id="contact" class="col-6 col-12-narrower">
                                     <header>
                                         <h2></h2>
-                                        <h2>Recommendations for the audit (visualization)</h2>
+                                        <h2>Recommendations for the audit (graph)</h2>
                                         <p></p>
                                     </header>
                                     <div class="container">
                                         <div id="viz"></div>
                                     </div>
-                                </section>
+                                    <p></p>
+                                    <% if(DataTable.length > 0) { %>
+                                        Recommendations for the audit (text)
+                                        <table id='tablecatalog'>
+                                            <thead>
+                                                <% include ../partials/audit_analytics/recauditheader %>
+                                            </thead>    
+                                            <tbody>
+                                                <% include ../partials/audit_analytics/recauditrow %>
+                                            </tbody>
+                                        </table>
+                                    <% } %>
+                                    </section>
                             </article>
 						</div>
 					</div>

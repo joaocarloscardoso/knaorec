@@ -1,0 +1,338 @@
+PI - Usability of public digital services directed at businesses
+Usability of e-government services from a business perspective - If the digital services are not user-friendly, businesses will waste time and money searching for the right websites and entering the required data correctly, or they will be forced to buy professional assistance. At worst, the businesses risk making errors in their reports and applications.
+Usability of e-government for non-professional users.
+Not relevant
+Assess whether the organization leadership effectively direct, evaluate and monitor IT use in the organization in order to fulfill the organization’s mission.
+How does the leadership direct and monitor the performance of business and IT objectives on a periodic basis?.
+Assess whether the organization leadership effectively direct, evaluate and monitor IT use in the organization in order to fulfill the organization’s mission.
+Confirm whether there is an IT strategy in place, including the IT plan and the processes for the strategy’s development, approval, and implementation and maintenance which is aligned with the organization’s strategies and objectives. The risks and resources while accomplishing IT objectives are effectively managed.
+To assess whether the IT organization is actively monitoring IT operations against agreed to internal Service Level Agreement or contract.
+Assess whether the IT organization is ensuring that the system capacity and performance meets current and future business needs.
+To evaluate the effectiveness of organization’s problem and incident management policies and procedures.
+Assess whether the entity has implemented a standardized procedure for controlling all changes to the core IT systems and applications.
+Assess how the organization ensures that IT projects under development or acquisition meet their quality goals.
+Assess how the organization ensures that solicitation activities(set of tasks like firming up the need document, framing RFP, evaluating proposals, conducting pre-bid clarifications, designing and floating tender, evaluation, etc leading up to the award contract) are conducted in accordance with their adopted solicitation plan or procedure.
+Assess how the organization manages configurations of work products related to development and acquisition.
+To assess whether the agency has developed the service level agreement.
+To assess whether the security requirements are addressed in outsourcing and being complied to.
+To assess whether the Business Continuity Plan includes backup and recovery plans for hardware, data, application software and data centre (recovery) and has been suitably implemented?.
+To assess whether the business continuity disaster recovery procedures have been tested.
+to assess whether valid data is being entered into the application by authorized personnel.
+How does the organization identify and approve business and IT requirements?.
+The organization has a plan on how they identify emerging business or IT needs and the Steering Committee approving requirements has sufficient information to make their decisions.
+Performance measures are established and the steering or equivalent high level committee conducts periodic reviews and meetings and takes appropriate action, or there is a reporting system to management that informs them of the status of key performance measures.
+Organizations should manage their IT projects and investments in manner that maximizes benefits and considers elements such as risk, capabilities, needs, and prioritization among competing investments.
+An organizational level IT strategic plan exists, it translates business objectives into IT goals and requirements, addresses the needed IT resources to support the business, it is reviewed and updated periodically.
+SLA Best practices – allocation of responsibilities between the business process owners and the IT support group, documented network management business objectives, service offerings and metrics, definition for problem types, help desk responsibilities.
+Achievement of performance metrics that are aligned to business needs and goals.
+IT governance – track and monitor strategy implementation in terms of measurable metrics.
+Best practices by sys/network administrators like performance base lining, collection of traffic and configuration information, system resource availability, observe traffic stats and trends, what-if analyses, use of tools to pinpoint causes of performance deterioration.
+Incidents response best practices , NIST guidelines, as laid down in SLA.
+Incidents response best practices(COBIT 5 DSS domain, , ITIL on Service support).
+...
+The organization conducts test on IT systems and based on the results accepts or rejects the system.
+The organization uses objective and published criteria for vendor selection for each.
+Configuration management activities are conducted according to the organizational policy or procedure.
+The service level agreement is the basis for monitoring and controlling the contractor or vendor against technical and other requirements.
+The organizations pertinent security requirements are levied on the contractor as appropriate.
+Criticality of applications and functions as per Business Impact Assessment. Determined periodicity of backups. Documented backup and recovery plans.
+The organization should test their documented BCP and DRP procedures via drills or mock ups to ensure that they work in an actual conditions. Personnel involved in ensuring continuity should be aware of their roles.
+The data preparation procedures are documented and understood by users; there is appropriate logging and records of the source documents received until their disposal; there is assignment of unique and sequential numbers to each transaction; original source documents are retained for the time required by legal standards or policies.
+Requirements management process.
+Steering committee minutes.
+Steering committee charter and operating principles including approval and reject thresholds.
+List of approved and rejected requirement.
+Performance measures for business and IT.
+Periodic reports about project status.
+Minutes from periodic reviews.
+List of action items and their status.
+Investment management plan and procedures
+
+Portfolio of IT projects 
+
+Sample cost benefit
+analysis reports
+
+List of approved and rejected or deferred projects
+
+Project status reports for approved projects
+
+Sample post project evaluation reports
+.
+IT Strategic Plan, or equivalent document
+
+Meeting minutes from IT and Organizations Steering committee meetings
+.
+Entity’s internal SLA between business owners and IT organization.
+
+Help desk responsibilities
+
+Service reports generated
+
+User/ application response time t
+.
+Help desk reports, Minutes of meetings between business stakeholders and IT organization,
+
+Agenda items for SLA review cycles 
+Incentive and penalty clauses (especially important if IT support services are outsourced
+.
+Internal SLA, or other form of agreement
+
+IT operational parameters – processing resource availability, average system login time, % downtime, average system response time, etc
+.
+Reports, action items, help desk response time, and other metrics.
+
+.
+Information Required
+
+Incident response policy and plan, Charter of the incident response
+team, composition and expertise
+
+SLA
+
+Incident response awareness training, upgrade strategy for skill sets of IRT staff
+
+List of logging tools and applications used for network monitoring and usage
+s
+
+.
+Incident response action items, forms logs, etc.
+Periodic security awareness training, Incident handling procedures-
+guidelines for prioritizing incidents
+
+Case reports and action taken
+s
+.
+Emergency change control procedures
+
+Documentation of emergency changes that have been made during the audited period
+
+.
+Test plan 
+
+Test schedule 
+
+Test results
+
+Accept or reject criteria
+
+.
+Vendor selection criteria
+
+Vendors scoring matrix or equivalent.
+.
+Configuration management policy or procedures or equivalent.
+Service level agreement or contract
+
+Technical and other requirements (list of services that will be performed by the vendor,)
+List of responsibilities of organization and vendor Baselines for the services that will be measured, measurement period, duration, location, and reporting timelines (defect rates, response time, help desk staffing hours, etc.)
+
+Periodic vendor performance status reports
+.
+Organization security policy Outsourcing Contract Service Level Agreement
+Inventory of data, application software and hardware with the service provider
+
+Inventory of back up data files and application software with the service provider
+
+Access control logs of the data files, application software as well as hardware at the outsourced location
+
+Security plan for the back up site and disaster recovery site
+Monitoring reports with respect to security issues Correspondence between organization and service
+provider with respect to security issues
+.
+Information Required
+
+Back up plans and procedures for the hardware, data, application software
+
+Back up logs/ Version logs
+
+Roles and responsibilities for back up List of storage locations and periodicity Retention schedule
+
+Security arrangement for back up site Disaster logs
+
+Roles and responsibilities for recovery activities 
+
+Training records of responsible personnel 
+
+Impact assessment of disasters
+
+Report on disaster recovery activities
+.
+BC and DR procedures & Test procedures
+List of items for which business continuity/ disaster
+recovery plan has to be tested
+Frequency of testing of business continuity plan and
+disaster recovery plan
+List of tests conducted
+List of test criteria like RTOs and RPOs etc
+List of testing methods employed
+Test results & actions taken or test recommendations
+Follow up action on test results
+.
+Classes of source documents
+
+Entity’s criteria for timeliness, completeness and accuracy of source documents
+
+Data preparation procedures
+
+Data interfaces with other applications
+
+Document retention policies
+
+System flow diagrams
+.
+Review of documents to ensure that new business requirements are identified and analyzed according to the organization’s requirements management process.
+Review of approved or rejected requirements to ensure that these are in accordance with accepted operating principles.
+Interview management or others responsible for approving projects to ensure that they take into account the IT organizations capabilities, skills, resources, and training, and the ability of the users to utilize the new tools and methods or procedures.
+Review sample management decision or memos to ensure that they are clear, well substantiated, free from ambiguity.
+Review performance measures to ensure that they cover both business and IT systems.
+Review project status reports (or other documentation that has the status of the project (meeting minutes, emails, etc.)) to ensure that it contains cost, schedule and performance indicators and variations from plan.
+.
+Interview management to determine the organization’s investment management procedures.
+Review portfolio to assess whether projects have been prioritized according to approved criteria.
+Review status reports to see they provide cost and schedule tracking
+Review cost benefits analysis reports to assess that they are complete, reflect actual conditions and do not overstate the benefits or understate cost or schedule (utilize specialist services of economists or cost experts as needed).
+In case of projects in trouble, determine whether their methodology was suitably fitted to type of project and properly applied and whether QA has been involved during the life cycle
+Interview management to determine whether any projects have been terminated due to underachieving benefits or performance.
+Interview management to determine how the organization makes decisions on building vs. acquiring (buying) solutions (for example, based on capability, skills, cost, risk, etc.).
+.
+Review of document
+Interview business owners to determine if their needs are met by the IT organization Review periodic IT Committee and Organizational Steering Committee meeting minutes to ensure that business owners are represented and that strategic IT decisions are made at the Steering Committee level.
+
+Review the IT Strategy or interview management to determine resources requirements and how they are determined and approved, who approves appropriate acquisition of tools and other resources (staff, contractors, skill via training, etc).
+.
+Review the SLA to find whether it contains appropriate elements – detailed and measurable service level objectives, systems and services covered, quality of service (QoS), services not covered, application level support and troubleshooting, system availability, help desk hours, response and resolution time dependent on severity classification of a problem, throughput, maintenance schedules etc.
+
+Check whether data backup and recovery practices are consistent with the entity’s BCP standards.
+
+Check if the Business Process Owners have signed on the agreement. Interview sample of users to understand the awareness.
+.
+Interview a sample of business users (at various levels) or conduct a satisfaction survey about the Quality of services by the help desk and IT support group.
+
+Review help desk reports to check whether a significant proportion of critical service issues were prevented before reported by users.
+
+Check whether the resolution time for reported issues were less than the parameters set in the SLA.
+
+Check whether SLA parameters were being reviewed by management periodically and examine QoS issues
+.
+Review the agreement or operating guidance that the IT group is using. Ensure that it is has been reviewed and signed by the relevant business users or senior executive management.
+
+Compare performance baseline parameters (viz. network resource availability, host response time) set by IT organization with the Operating guidance set by Business process owners to verify that the IT organization follows the operating guidance
+.
+Use Compliance issue in SLA matrix. Pay special attention to all elements having impact on capacity, i.e. compare actual capacity metrics to the SLA requirements etc.
+Look at whether the team has a charter to investigate incidents,
+
+Look for expertise in networks, operating systems, and security in the team members and how they conduct their work.
+
+Review the service desk procedures to check whether escalation procedures are laid down for incidents that cannot be resolved immediately in accordance to risk categories defined in the SLA
+
+Review what actions have been taken in response to past incidents.
+
+Review case report(s) to check whether appropriate personnel were involved in investigating incidents.
+
+Check what incident management tools are being used – are they relevant for the organization’s needs?
+
+Verify whether the organization has established logging standards and procedures to ensure that adequate information is collected by logs and security software and that the data is reviewed regularly.
+.
+Analysis Method(s)
+
+Check if an incident response/handling priority is assigned to each asset or service.
+
+Verify whether procedures provide for the capture and analysis of volatile   and static data in a timely manner.
+
+Verify whether the response team periodically makes users aware of policies and procedures regarding appropriate use of networks, systems, external media and applications.
+
+Review documents to find whether post-incident activities like refresher training have been given to user groups to avoid costly recurrence of significant incidents.
+
+Look for whether source of incident was identified. Look for action taken. (Procedure change, reprimand, training, etc.).
+
+Check whether the incident response team records all resolved incidents in detail and review the information for possible update in the knowledge base.
+
+
+.
+Review the change management procedures to identify whether it contains a dedicated section and set of procedures to control emergency changes to the system.
+
+Ask for an example of an emergency change. Compare against documented procedure. Look for what testing was done prior to introduction into production environment. If documented procedure does not exist, ask how they know what to do and who approves such changes.
+
+Examine whether emergency changes are approved by an appropriate member of the management before moving into production.
+
+.
+Review test plans.
+
+Compare project cost and schedule baselines with project status reports to assess deviations, if any.
+
+Interview project manager / review reports to determine whether appropriate corrective action was taken for major deviations.
+
+Interview project management team and review minutes of meetings with contractor to assess the frequency and effectiveness of monitoring the outsourced project activities.
+
+Review contractor SLA or contract to ensure that they are following the terms of the contract, for example look for contractors conducting periodic reviews, providing status reports, tracking action items, conducting risk management activities in accordance to the contract. Interview contract officer at the organizations to determine how they manage the contractor if SLAs are not available
+.
+Review the vendor selection criteria to ensure that it reflects the intent of the solicitation (for example, on a software contract, vendor selection should not include parameters not critical to the organization).
+
+Interview key stakeholders to assess if they agree with the selection criteria.
+
+Review vendor scoring matrix or equivalent to confirm it is consistent with the selection criteria.
+.
+Review the configuration management policy for adequacy by looking for (as an example):
+•	Scope of policy and mandate
+•	Definition of roles and responsibilities Required resources and tools
+•	Linkage to procedures
+•	Rules to deal with non compliance
+Interview personnel responsible for configuration management if there is no policy to assess how they ensure that their duties are uniformly carried out for the organization
+.
+Document Review to assess that all user requirements are translated to services level requirements.
+Document review to assess that the roles and responsibilities of the organization and the service provider are clearly identified and delineated.
+Document review to assess that the parameters for performance levels are clearly identified and included in the service level agreement.
+Document review to assess that the service level monitoring mechanism is established and agreed to between the organization and service provider.
+Review vendors status reports to assess that the parameters in the SLA are being reported on by the contractor and reviewed by appropriate personnel within the organization.
+Assessment of compliance to SLA technical parameters and baselines.
+Verify the action taken by the organization for deviations from service level agreement.
+Review of action by organization on additional costs/ escalation of costs by service provider..
+.
+Document review to assess that the security requirements have been identified by the organization and built into the outsourcing contract or SLA.
+
+Verify if the organization has the inventory of data files, application software.
+
+Verify that the organization monitors/ is aware that status of data files, application software and hardware are preserved during the back up and data recovery process carried out by the outsourced agency.
+
+Verify if the organization has assurance on authorization of any change in data, application software and hardware by the outsourced agency.
+
+Verify if the organization has an assurance on the access to the data, application software and hardware at the outsourced location through study of access logs (physical and logical).
+
+Verify if the organization has assurance on security mechanisms put in place by the service provider.
+
+Verify if the organization receives regular reports and acts on the information in the monitoring reports.
+.
+Document review to assess that the back up plan includes all critical hardware, data, application software.
+Document reviews to assess that detailed back up procedures have been devised.
+Document review to assess that the backup plan is adequately implemented.
+Analysis of logs to assess the backup is taken at determined timelines and is retained for the specified time period.
+Verify that the right version of back up is available. Document review to assess the adequacy of back up location and the mode of transport of back up files etc to the back up location.
+Verify that the security, logical or physical is adequate for the backup site.
+Verify that the backup files can be used for recovery Document review to assess that back up procedures are
+implemented minimizing loss of time and resources.
+Document review to assess that detailed recovery procedure has been devised and includes resetting of system parameters, installation of patches, establishing the configuration settings, availability of the system documentation and operating procedures, reinstallation of application and system software, availability of most recent backup, testing of system.
+Document review to assess that recovery procedures are implemented minimizing loss of time and resources
+Document review to assess that the relevant staff has been trained on the backup and recovery procedures.
+.
+Document review to assess whether all relevant items are covered for testing.
+Document review to assess whether the tests are conducted at right intervals, in time.
+Document review to assess that the tests were conducted against identified criteria.
+Document review to assess that the tests were conducted using appropriate testing methods.
+Document review to assess that the recommendations are conveyed to appropriate authorities for follow up.
+Document review to assess that the test recommendations are adequately followed up and the business continuity plan or the disaster recovery plan are adequately updated..
+.
+Inspect and observe creation and documentation of data preparation procedures, and inquire whether and confirm that procedures are understood and the correct source media are used.
+
+Assess whether the Data Processing group (DP) or equivalent group maintains a log of all the user departments’ source documents received and their final disposal. Verify the existence of a system of reconciliation of record counts with user department groups.
+
+Verify that all source documents include standard components, contain proper documentation (e.g., timeliness, predetermined input codes, default values) and are authorized by management.
+
+Inspect whether critical source documents are pre-numbered and how out-of-sequence numbers are identified and taken into account. Identify and review out-of-sequence numbers, gaps and duplicates using automated tools (CAATs). Verify if there is assignment of unique and sequential numbers to each transaction preventing duplication.
+
+Enquire responsible personnel about retention policies. Verify how these policies are ensured. A sample of system records might be checked against its source documents..
+.
+Finding Description
+Auditor’s recommendation
+Finding Description F20181215-125508
+Auditor’s recommendation F20181215-125508
