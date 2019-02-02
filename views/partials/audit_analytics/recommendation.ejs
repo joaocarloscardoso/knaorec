@@ -15,32 +15,25 @@
             </p>
         </div>
     <% } %>    
-   <form method="POST" action="/analytics/Recommendations">
+    <% if(Matrix.length > 0) { %>
+        Most relevant terms discovered and analyzed using Term Frequency-Inverse Document Frequency (TF-IDF) mechanism<br/>
+        <div class="col-4 col-12-narrower" style="width: 600px; height: 400px;">
+            <% include ./recommendationchart %>
+        </div>
+    <% } %>
+    <form method="POST" action="/analytics/Recommendations">
         <div class="row gtr-50">
-            <p>
                 <% if(Matrix.length > 0) { %>
-                    <div class="col-12">
+                     <div class="col-12">
                         <ul class="actions">
                             <% if(Matrix.length > 0) { %>
                                 <li><input type="submit" class="button alt" value="Get recommendations" /></li>
                             <% } %>
                         </ul>
                     </div>
-                    <p></p>
-                    (The ten most relevant terms discovered and used in similarity analysis are presented)<br/>
-                    <table id='tablecatalog'>
-                        <thead>
-                            <% include ./recommendationheader %>
-                        </thead>    
-                        <tbody>
-                            <% include ./recommendationrow %>
-                        </tbody>
-                    </table>
-                    <input type="hidden" name="rows_count" id="rows_count" value="<%= Matrix.length %>"/> 
                 <% } else { %>
                     <p>No terms discovered for analysis!</p>
                 <% } %>
-            </p>
-        </div>
+         </div>
     </form>
 </section>

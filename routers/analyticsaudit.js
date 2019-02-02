@@ -116,7 +116,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
                         NodeResults.push(objElement);
                     }
                 });
-                console.log(NodeResults.sort(nlp.sort_by('Number', true, parseFloat)));
+                //console.log(NodeResults.sort(nlp.sort_by('Number', true, parseFloat)));
                 var CypherQuery = nlp.GetCypherQuery(VectorFile);
                 res.render('toolaudit/analyticsvis', {
                     action: 'audit',
@@ -126,7 +126,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
                     ServerUser: credentials.neo4j.user,
                     ServerPassword: credentials.neo4j.password,
                     InitialCypher: CypherQuery,
-                    DataTable: NodeResults,
+                    DataTable: NodeResults.sort(nlp.sort_by('Number', true, parseFloat)),
                     msg: '',
                     auditfile: 'work/' + req.sessionID + '.xml',
                     audit: status
