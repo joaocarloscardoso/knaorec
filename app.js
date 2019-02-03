@@ -179,14 +179,19 @@ app.get(('/work/delete'),function(req,res){
         if (err) throw err;
         log.info('working audit file closed and deleted : ' + vfile);
     });
+ 
     var vDocfile = credentials.WorkSetPath;
     vDocfile = vDocfile + req.sessionID + '.' + credentials.ReportFormat
-    vDocfile = vDocfile.replace("/","\\");
+    var InitialAudit = require('./lib/initialaudit.js')(vDocfile);
+    var status = InitialAudit.VerifyAuditFile(vDocfile);
+    if (status) {
+        vDocfile = vDocfile.replace("/","\\");
 
-    fs.unlink(vDocfile, (err) => {
-        if (err) throw err;
-        log.info('document audit file closed and deleted : ' + vDocfile);
-    });
+        fs.unlink(vDocfile, (err) => {
+            if (err) throw err;
+            log.info('document audit file closed and deleted : ' + vDocfile);
+        });
+    };
     if(req.isAuthenticated()) {
         res.render('portal/toolindex', {
             action: 'tool',
@@ -201,18 +206,29 @@ app.get(('/work/delete'),function(req,res){
 app.get(('/toolaudit/work/' + ':name'),function(req,res){
     //download xml file
     var file = credentials.WorkSetPath + req.params.name
-    var file = file.replace("/","\\");
-    res.download(file); // Set disposition and send it.
-    log.info('audit file download: ' + file);
+    var InitialAudit = require('./lib/initialaudit.js')(file);
+    var status = InitialAudit.VerifyAuditFile(file);
+    if (status) {
+        var file = file.replace("/","\\");
+        res.download(file); // Set disposition and send it.
+        log.info('audit file download: ' + file);
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }    
 });
 
 app.get(('/document/work/' + ':name'),function(req,res){
     //download xml file
-    var file = credentials.WorkSetPath + req.params.name
+   var file = credentials.WorkSetPath + req.params.name
+    var status = InitialAudit.VerifyAuditFile(file);
     var file = file.replace("/","\\");
     res.download(file); // Set disposition and send it.
 });
-
 
 app.use('/portal', PortalRouter);
 app.use('/login', LoginRouter);

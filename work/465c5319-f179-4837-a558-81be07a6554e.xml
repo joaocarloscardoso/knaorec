@@ -7,9 +7,11 @@
 		<WorkingLanguage wl="eng"/>
 	</About>
 	<Background>
-		<ak>Usability of e-government services from a business perspective - If the digital services are not user-friendly, businesses will waste time and money searching for the right websites and entering the required data correctly, or they will be forced to buy professional assistance. At worst, the businesses risk making errors in their reports and applications.</ak></Background>
+		<ak>Usability of e-government services from a business perspective - If the digital services are not user-friendly, businesses will waste time and money searching for the right websites and entering the required data correctly, or they will be forced to buy professional assistance. At worst, the businesses risk making errors in their reports and applications.</ak>
+	</Background>
 	<Scope>
-		<ak>Usability of e-government for non-professional users.</ak></Scope>
+		<ak>Usability of e-government for non-professional users.</ak>
+	</Scope>
 	<Preassessment>
 		<About id="PreactIS">
 			<version id="20180418" name="main"/>
@@ -8280,6 +8282,11 @@ The report may be accompanied with internal documents containing list of meaning
 			<cts source="AITAM" domain="01 IT Governance" area="02 IT Strategy and Planning" issue="02 Risk management"/>
 			<quote type="description">Finding Description F20181215-125508</quote>
 			<quote type="recommendation">Auditor’s recommendation F20181215-125508</quote>
+		</Case>
+		<Case nr="F20190203-203146" nm="Cause data" eff="Resulta data" act="ref1/2019" doc="Paragraph 1" Include="Yes">
+			<cts source="AITAM" domain="04 Outsourcing" area="04 Data Rights" issue="01 Data Rights"/>
+			<quote type="description">Description Data</quote>
+			<quote type="recommendation">Recommendation data</quote>
 		</Case>
 	</Cases>
 </Audit>

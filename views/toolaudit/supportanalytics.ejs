@@ -23,6 +23,8 @@
                             <article>
                                 <%  if (operation == 'recommendation') { %>
                                     <% include ../partials/audit_analytics/recommendation %>
+								<% } else if (operation == 'preassess_matrix') { %>
+									<% include ../partials/audit_analytics/finding %>
 								<% } %>
 						</article>
 						</div>
