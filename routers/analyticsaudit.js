@@ -35,6 +35,42 @@ const driver = neo4j.driver(credentials.neo4j.uri, neo4j.auth.basic(credentials.
 
 var analyticsaudit = express.Router();
 
+analyticsaudit.get('/Findings',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var GeneralDomainCatalog = Findings.FindingsForGeneralDomainsAnalysis(NewAuditFile);
+        res.render('toolaudit/supportanalytics', {
+            action: 'audit',
+            operation: 'findings',
+            AuditErrors: '',
+            GeneralDomainCatalog: GeneralDomainCatalog,
+            /*Domain01Catalog: Domain01Catalog,
+            Domain02Catalog: Domain02Catalog,
+            Domain03Catalog: Domain03Catalog,
+            Domain04Catalog: Domain04Catalog,
+            Domain05Catalog: Domain05Catalog,
+            Domain06Catalog: Domain06Catalog,
+            Domain07Catalog: Domain07Catalog,*/
+            msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
 analyticsaudit.get('/Recommendations',function(req,res){
     //res.send('Hello e-gov');
     //res.json(persons);

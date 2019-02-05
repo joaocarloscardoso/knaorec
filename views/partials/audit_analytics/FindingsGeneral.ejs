@@ -1,0 +1,80 @@
+<h1>General Domain Characterization</h1>
+<canvas id="chartjs-DC" class="chartjs" width="undefined" height="undefined"></canvas>
+<script>new Chart(document.getElementById("chartjs-DC"),
+    {"type":"horizontalBar",
+    "data":{"labels":["01 IT Governance",
+    "02 IT Operations",
+    "03 Development and Acquisition",
+    "04 Outsourcing",
+    "05 Information Security",
+    "06 BCP-DRP",
+    "07 Application Controls"
+    ],
+    "datasets":[
+        {
+            "label":"Number of Findings",
+            "data":[<%= GeneralDomainCatalog.wNumber %>],
+            "fill":false,
+            "backgroundColor":[
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(75, 192, 192, 0.2)"
+            ],
+            "borderColor":[
+                "rgb(75, 192, 192)",
+                "rgb(75, 192, 192)",
+                "rgb(75, 192, 192)",
+                "rgb(75, 192, 192)",
+                "rgb(75, 192, 192)",
+                "rgb(75, 192, 192)",
+                "rgb(75, 192, 192)"
+            ],
+            "borderWidth":1
+        },
+        {
+            "label":"Findings Relevant",
+            "data":[<%= GeneralDomainCatalog.wRelevant %>],
+            "fill":false,
+            "backgroundColor":[
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+            ],
+            "borderColor":[
+                "rgb(255, 205, 86)",
+                "rgb(255, 205, 86)",
+                "rgb(255, 205, 86)",
+                "rgb(255, 205, 86)",
+                "rgb(255, 205, 86)",
+                "rgb(255, 205, 86)",
+                "rgb(255, 205, 86)",
+            ],
+            "borderWidth":1
+        }
+        /*,
+        {
+            "type": "line",
+            "label":"Threshold",
+            "data":[<%= GeneralDomainCatalog.wTreshold %>],
+            "fill":false,
+            "borderColor":"rgb(255, 99, 132)",
+            "borderWidth": 2,
+            "lineTension":0.1
+        }*/
+    ]},
+    "options":{
+            "scales":
+                {
+                    "xAxes":[{"ticks":{"beginAtZero":true,"stepSize": 1}}]
+                }
+    }
+    });
+</script>

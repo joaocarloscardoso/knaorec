@@ -39,7 +39,7 @@ findingaudit.get('/auditfindings',function(req,res){
 
     if (status) {
         var findingscatalog = Findings.LoadFindings(NewAuditFile);
-        var teste = Findings.LoadFindingsAnalysis(NewAuditFile);
+        var teste = Findings.FindingsForGeneralDomainsAnalysis(NewAuditFile);
         res.render('toolaudit/toolwork', {
             action: 'audit',
             operation: 'audit_findings',
