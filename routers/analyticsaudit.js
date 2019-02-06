@@ -45,18 +45,32 @@ analyticsaudit.get('/Findings',function(req,res){
 
     if (status) {
         var GeneralDomainCatalog = Findings.FindingsForGeneralDomainsAnalysis(NewAuditFile);
+        var Domain01Catalog = Findings.FindingsForSpecificDomainsAnalysis(NewAuditFile, '01');
+        console.log('d01');
+        var Domain02Catalog = Findings.FindingsForSpecificDomainsAnalysis(NewAuditFile, '02');
+        console.log('d02');
+        var Domain03Catalog = Findings.FindingsForSpecificDomainsAnalysis(NewAuditFile, '03');
+        console.log('d03');
+        var Domain04Catalog = Findings.FindingsForSpecificDomainsAnalysis(NewAuditFile, '04');
+        console.log('d04');
+        var Domain05Catalog = Findings.FindingsForSpecificDomainsAnalysis(NewAuditFile, '05');
+        console.log('d05');
+        var Domain06Catalog = Findings.FindingsForSpecificDomainsAnalysis(NewAuditFile, '06');
+        console.log('d06');
+        var Domain07Catalog = Findings.FindingsForSpecificDomainsAnalysis(NewAuditFile, '07');
+        console.log('d07');
         res.render('toolaudit/supportanalytics', {
             action: 'audit',
             operation: 'findings',
             AuditErrors: '',
             GeneralDomainCatalog: GeneralDomainCatalog,
-            /*Domain01Catalog: Domain01Catalog,
+            Domain01Catalog: Domain01Catalog,
             Domain02Catalog: Domain02Catalog,
             Domain03Catalog: Domain03Catalog,
             Domain04Catalog: Domain04Catalog,
             Domain05Catalog: Domain05Catalog,
             Domain06Catalog: Domain06Catalog,
-            Domain07Catalog: Domain07Catalog,*/
+            Domain07Catalog: Domain07Catalog,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
