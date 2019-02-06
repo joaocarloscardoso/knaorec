@@ -203,9 +203,9 @@ app.get(('/work/delete'),function(req,res){
     }
 });
 
-app.get(('/toolaudit/work/' + ':name'),function(req,res){
+app.get(('/toolaudit/work/download'),function(req,res){
     //download xml file
-    var file = credentials.WorkSetPath + req.params.name
+    var file = credentials.WorkSetPath + req.sessionID + '.xml'
     var InitialAudit = require('./lib/initialaudit.js')(file);
     var status = InitialAudit.VerifyAuditFile(file);
     if (status) {
