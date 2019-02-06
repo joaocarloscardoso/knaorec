@@ -2,13 +2,16 @@
 <canvas id="chartjs-DC" class="chartjs" width="undefined" height="undefined"></canvas>
 <script>new Chart(document.getElementById("chartjs-DC"),
     {"type":"horizontalBar",
-    "data":{"labels":["01 IT Governance",
-    "02 IT Operations",
-    "03 Development and Acquisition",
-    "04 Outsourcing",
-    "05 Information Security",
-    "06 BCP-DRP",
-    "07 Application Controls"
+    "data":{"labels":[
+        <% let i=1 %>
+        <% GeneralDomainCatalog.wLabels.split("|").forEach(function(item) { %>
+            <% if (i == 1) { -%>
+                "<%= item %>"
+            <% } else { %>
+                ,"<%= item %>"
+            <% } %>
+            <% i++ %>
+        <% }) %>
     ],
     "datasets":[
         {
@@ -40,22 +43,22 @@
             "data":[<%= GeneralDomainCatalog.wRelevant %>],
             "fill":false,
             "backgroundColor":[
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
-                "rgba(255, 205, 86, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
             ],
             "borderColor":[
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
-                "rgb(255, 205, 86)",
+                "rgb(255, 99, 132)",
+                "rgb(255, 99, 132)",
+                "rgb(255, 99, 132)",
+                "rgb(255, 99, 132)",
+                "rgb(255, 99, 132)",
+                "rgb(255, 99, 132)",
+                "rgb(255, 99, 132)",
             ],
             "borderWidth":1
         }
