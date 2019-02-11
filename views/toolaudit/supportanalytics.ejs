@@ -25,6 +25,10 @@
                                     <% include ../partials/audit_analytics/recommendation %>
 								<% } else if (operation == 'findings') { %>
 									<% include ../partials/audit_analytics/findings %>
+								<% } else if (operation == 'sentimentfindings') { %>
+									<% include ../partials/audit_analytics/sentimentdocument %>
+								<% } else if (operation == 'sentimentfindingsdetailed') { %>
+									<% include ../partials/audit_analytics/sentimentfinding %>
 								<% } %>
 						</article>
 						</div>

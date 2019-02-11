@@ -196,4 +196,69 @@ analyticsaudit.post('/Recommendations',function(req,res){
     }
 });
 
+analyticsaudit.get('/SentimentFindings',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var SentimentFile = credentials.WorkSetPath;
+        SentimentFile = SentimentFile + req.sessionID + '.sent';
+        Vector = nlp.NLPSentimentFindings(NewAuditFile, SentimentFile);
+        
+        res.render('toolaudit/supportanalytics', {
+            action: 'audit',
+            operation: 'sentimentfindings',
+            AuditErrors: '',
+            Matrix: Vector,
+            msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
+analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var SentimentFile = credentials.WorkSetPath;
+        SentimentFile = SentimentFile + req.sessionID + '.sent';
+        Vector = nlp.NLPSentimentFindingsDetailed(SentimentFile, req.query.id);
+        
+        res.render('toolaudit/supportanalytics', {
+            action: 'audit',
+            operation: 'sentimentfindingsdetailed',
+            AuditErrors: '',
+            Matrix: Vector,
+            FindingId: req.query.id,
+            msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
+	        audit: status
+         });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
 module.exports = analyticsaudit;
