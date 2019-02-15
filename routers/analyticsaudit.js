@@ -148,23 +148,28 @@ analyticsaudit.post('/Recommendations',function(req,res){
                     //create object to featurize collection (unique audits, with urls and relations)
                     //order them by number of relations desc
                     //var UniqueNodes = [];
-                    if (NodeResults.some( Node => Node.Id === record._fields[1].identity.low)) {
+                    /*if (NodeResults.some( Node => Node.Id === record._fields[1].identity.low)) {
                         NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Number = NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Number + 1;
                         NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Relation = NodeResults.find( Node => Node.Id === record._fields[1].identity.low).Relation + '; ' + record._fields[0].properties.Definition;
-                    } else {
+                    } else {*/
                         //nodeid= nodeid.replace('Integer { "low: ','').replace(', high: 0 }','');
+                        var vRelation='';
+                        for (i=0; i < record._fields[1].length; i++)
+                        {
+                            vRelation = vRelation + record._fields[1][i].properties.Definition + '; ';
+                        }
                         var objElement = {
-                            Id: record._fields[1].identity.low,
-                            Relation:record._fields[0].properties.Definition,
-                            Name: record._fields[1].properties.Title,
-                            Url: record._fields[1].properties.URL,
-                            Author: record._fields[1].properties.Author,
-                            Year: record._fields[1].properties.Year,
+                            Id: record._fields[0].identity.low,
+                            Relation: vRelation,
+                            Name: record._fields[0].properties.Title,
+                            Url: record._fields[0].properties.URL,
+                            Author: record._fields[0].properties.Author,
+                            Year: record._fields[0].properties.Year,
                             Number:1
                         };
                         // console.log(objElement);
                         NodeResults.push(objElement);
-                    }
+                    //}
                 });
                 //console.log(NodeResults.sort(nlp.sort_by('Number', true, parseFloat)));
                 var CypherQuery = nlp.GetCypherQuery(VectorFile);
