@@ -224,7 +224,8 @@ app.get(('/toolaudit/work/download'),function(req,res){
 
 app.get(('/document/work/' + ':name'),function(req,res){
     //download xml file
-   var file = credentials.WorkSetPath + req.params.name
+    var file = credentials.WorkSetPath + req.params.name
+    var InitialAudit = require('./lib/initialaudit.js')(file);
     var status = InitialAudit.VerifyAuditFile(file);
     var file = file.replace("/","\\");
     res.download(file); // Set disposition and send it.
