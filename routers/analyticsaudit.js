@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 //middleware to validate user controls
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('../credentials.js');
 //plugins stats and catalogue
