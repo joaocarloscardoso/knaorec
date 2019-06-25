@@ -177,7 +177,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
                     action: 'audit',
                     operation: 'recommendationvis',
                     AuditErrors: '',
-                    ServerUrl: credentials.neo4j.uri,
+                    ServerUrl: credentials.neo4j.uriExternal,
                     ServerUser: credentials.neo4j.user,
                     ServerPassword: credentials.neo4j.password,
                     InitialCypher: CypherQuery,
