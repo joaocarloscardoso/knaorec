@@ -132,6 +132,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/',function(req,res){
+    graphdb.CreateDictionary();
     log.info('Session created received the id:' + req.sessionID);
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
@@ -147,6 +148,7 @@ app.get('/',function(req,res){
 });
 
 app.get('/index',function(req,res){
+    graphdb.CreateDictionary();
     log.info('Session created received the id:' + req.sessionID);
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
