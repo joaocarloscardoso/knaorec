@@ -53,7 +53,7 @@
                     Area<br/>
                     <select name="area" id="area" size="1" autofocus onchange="RedoIssues()">
                         <% Matrix.Areas.split("|").forEach(function(item) { -%>
-                            <% subitem = item.split("#") %>
+                            <% subitem = item.split("#") %>                    
                             <% if (subitem[0].indexOf(Matrix.Domain) > -1) { %>
                                 <% if (Matrix.Area == subitem[0]) { %>
                                     <option value="<%= subitem[0] %>" selected><%= subitem[1] %></option>

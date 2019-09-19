@@ -109,6 +109,8 @@ health |ActivityDomain|0
 law enforcement   |ActivityDomain|0
 public order and safety   |ActivityDomain|0
 general public services |ActivityDomain|0
+geodata|ActivityDomain|0
+energy|ActivityDomain|0
 planning|Process|0
 implementation|Process|0
 review-audit|Process|0
@@ -222,3 +224,9 @@ research infrastructure|Topics|0
 data protection|Topics|0
 management of innovation|Topics|0
 repayments|Topics|0
+relocation of government jobs|Topics|0
+ICT infractructure|Topics|0
+internal audit|Topics|0
+state-owned companies|Topics|0
+costs reporting|Topics|0
+acquiring an IT system|Topics|0
