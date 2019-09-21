@@ -13,6 +13,18 @@
     <% } %>    
    <form method="POST" action="/findingaudit/auditfindings">
         <div class="row gtr-50">
+            <% if(findingcatalog.length > 6) { %>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><a href="/findingaudit/auditfindings" class="button">Reload List</a></li>
+                        <li><a href="/auditMatrices/findingMatrix?id=New" class="button">Create finding</a></li>
+                        <% if(findingcatalog.length > 0) { %>
+                            <li><a href="/generatedocs/docexecutivesummary" class="button">Executive summary</a></li>
+                            <li><input type="submit" class="button alt" value="Save" /></li>
+                        <% } %>
+                    </ul>
+                </div>        
+            <% } %>
             <p>
                 <% if(findingcatalog.length > 0) { %>
                     <p>Use hyperlink on ID to visualize/edit the finding</p>
@@ -30,16 +42,16 @@
                 <% } %>
             </p>
             <div class="col-12">
-                    <ul class="actions">
-                        <li><a href="/findingaudit/auditfindings" class="button">Reload List</a></li>
-                        <li><a href="/auditMatrices/findingMatrix?id=New" class="button">Create finding</a></li>
-                        <% if(findingcatalog.length > 0) { %>
-                            <li><a href="/generatedocs/docexecutivesummary" class="button">Executive summary</a></li>
-                            <li><input type="submit" class="button alt" value="Save" /></li>
-                        <% } %>
-                    </ul>
-                </div>
+                <ul class="actions">
+                    <li><a href="/findingaudit/auditfindings" class="button">Reload List</a></li>
+                    <li><a href="/auditMatrices/findingMatrix?id=New" class="button">Create finding</a></li>
+                    <% if(findingcatalog.length > 0) { %>
+                        <li><a href="/generatedocs/docexecutivesummary" class="button">Executive summary</a></li>
+                        <li><input type="submit" class="button alt" value="Save" /></li>
+                    <% } %>
+                </ul>
             </div>
+        </div>
     </form>
 </section>
 <!-- javascript is placed in the body section -->

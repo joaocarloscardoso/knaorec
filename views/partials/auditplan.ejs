@@ -13,6 +13,17 @@
     <% } %>    
    <form method="POST" action="/planaudit/auditplanning">
         <div class="row gtr-50">
+            <div class="col-12">
+                <ul class="actions">
+                    <li><a href="/planaudit/auditplanning" class="button">Reload List</a></li>
+                    <% if(plancatalog.length > 0) { %>
+                        <li><a href="/planaudit/syncauditplanning" class="button" data-tooltip="This functionality relies on the previous use of A2.02 matrix (02 Understanding the IT-systems)">Sync with pre-assessment</a></li>
+                        <li><a href="/generatedocs/docauditprogramme" class="button">Audit programme</a></li>
+                        <li><a href="/generatedocs/docplanList" class="button" data-tooltip="This functionality generates a word porcessing document containing the planning list">Generate document</a></li>
+                        <li><input type="submit" class="button alt" value="Save" /></li>
+                    <% } %>
+                </ul>
+            </div>
             <p>
                 <% if(plancatalog.length > 0) { %>
                     <p>Filter by <a href="#" onclick="filterRisk('3'); return false;">high risk</a>, <a href="#" onclick="filterRisk('2'); return false;">medium/high risk</a>, <a href="#" onclick="filterInclude(); return false;">include in audit</a>, <a href="#" onclick="showAllRows(); return false;">all issues</a></p>
@@ -30,16 +41,17 @@
                 <% } %>
             </p>
             <div class="col-12">
-                    <ul class="actions">
-                        <li><a href="/planaudit/auditplanning" class="button">Reload List</a></li>
-                        <% if(plancatalog.length > 0) { %>
-                            <li><a href="/planaudit/syncauditplanning" class="button" data-tooltip="This functionality relies on the previous use of A2.02 matrix (02 Understanding the IT-systems)">Sync with pre-assessment</a></li>
-                            <li><a href="/generatedocs/docauditprogramme" class="button">Audit programme</a></li>
-                            <li><input type="submit" class="button alt" value="Save" /></li>
-                        <% } %>
-                    </ul>
-                </div>
+                <ul class="actions">
+                    <li><a href="/planaudit/auditplanning" class="button">Reload List</a></li>
+                    <% if(plancatalog.length > 0) { %>
+                        <li><a href="/planaudit/syncauditplanning" class="button" data-tooltip="This functionality relies on the previous use of A2.02 matrix (02 Understanding the IT-systems)">Sync with pre-assessment</a></li>
+                        <li><a href="/generatedocs/docauditprogramme" class="button">Audit programme</a></li>
+                        <li><a href="/generatedocs/docplanList" class="button" data-tooltip="This functionality generates a word porcessing document containing the planning list">Generate document</a></li>
+                        <li><input type="submit" class="button alt" value="Save" /></li>
+                    <% } %>
+                </ul>
             </div>
+        </div>
     </form>
 </section>
 <!-- javascript is placed in the body section -->
