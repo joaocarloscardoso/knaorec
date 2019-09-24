@@ -82,8 +82,10 @@ findingaudit.post('/auditfindings', function(req, res){
             }
             //save plugins selected for audit
             var status = Findings.SaveFindings(NewAuditFile, Catalog);
-
             var findingscatalog = Findings.LoadFindings(NewAuditFile);
+            //Issue #52: Automatic save/download on conclusion of key activities
+            res.redirect('/toolaudit/work/download');
+            //
             res.render('toolaudit/toolwork', {
                 action: 'audit',
                 operation: 'audit_findings',

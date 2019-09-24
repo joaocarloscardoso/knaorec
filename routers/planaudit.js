@@ -86,8 +86,10 @@ planaudit.post('/auditplanning', function(req, res){
             }
             //save plugins selected for audit
             var status = Planning.SavePlanning(NewAuditFile, Catalog);
-
             var plancatalog = Planning.LoadPlanning(NewAuditFile);
+            //Issue #52: Automatic save/download on conclusion of key activities
+            res.redirect('/toolaudit/work/download');
+            //
             res.render('toolaudit/toolwork', {
                 action: 'audit',
                 operation: 'audit_plan',

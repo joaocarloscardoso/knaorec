@@ -236,6 +236,9 @@ tooleaudit.post('/toolauditreference', [
         //Save reference on audit file
         var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
         InitialAudit.SetAuditReference(AuditFile,AuditReference)
+        //Issue #52: Automatic save/download on conclusion of key activities
+        res.redirect('/toolaudit/work/download');
+        //
 
         res.render('toolaudit/toolwork', {
             action: 'audit',

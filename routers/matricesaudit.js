@@ -151,6 +151,9 @@ matricesaudit.post('/preassessMatrix', function(req, res){
             }
             var status = Matrices.SavePreAssessMatrix(NewAuditFile, Catalog, AreaId, IssueId);
             var preassessMatrix = Matrices.LoadPreAssessMatrix(NewAuditFile, AreaId, IssueId);
+            //Issue #52: Automatic save/download on conclusion of key activities
+            res.redirect('/toolaudit/work/download');
+            //
             res.render('toolaudit/supportmatrix', {
                 action: 'audit',
                 operation: 'preassess_matrix',
@@ -198,6 +201,9 @@ matricesaudit.post('/planMatrix', function(req, res){
             //save plugins selected for audit
             var status = Matrices.SavePlanMatrix(NewAuditFile, Catalog);
             var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, Catalog.PluginId, Catalog.DomainId, Catalog.AreaId, Catalog.IssueId);
+            //Issue #52: Automatic save/download on conclusion of key activities
+            res.redirect('/toolaudit/work/download');
+            //
             res.render('toolaudit/supportmatrix', {
                 action: 'audit',
                 operation: 'plan_matrix',
@@ -246,6 +252,9 @@ matricesaudit.post('/findingMatrix', function(req, res){
             };
             //save plugins selected for audit
             var RefId = Matrices.SaveFindingMatrix(NewAuditFile, Catalog);
+            //Issue #52: Automatic save/download on conclusion of key activities
+            res.redirect('/toolaudit/work/download');
+            //
             if (RefId.substring(0, 1) == 'F') {
                 var FindingMatrix = Matrices.LoadFindingMatrix(NewAuditFile, RefId);
                 res.render('toolaudit/supportmatrix', {
