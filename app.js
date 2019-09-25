@@ -172,7 +172,7 @@ app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
 });
 
 
-app.get(('/work/delete'),function(req,res){
+app.post(('/work/delete'),function(req,res){
     //download xml file
     var vfile = credentials.WorkSetPath;
     vfile = vfile + req.sessionID + '.xml'
@@ -224,6 +224,29 @@ app.get(('/toolaudit/work/download'),function(req,res){
         });
     }    
 });
+
+app.get(('/toolaudit/work/onclose'),function(req,res){
+    //download xml file
+    var file = credentials.WorkSetPath + req.sessionID + '.xml'
+    var InitialAudit = require('./lib/initialaudit.js')(file);
+    var status = InitialAudit.VerifyAuditFile(file);
+    if (status) {
+        res.render('./portal/onclose', {
+            action: 'home',
+            auditfile: 'work/' + req.sessionID + '.xml',
+            audit: status
+            //persons: persons
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }    
+});
+
 
 app.get(('/document/work/' + ':name'),function(req,res){
     //download xml file

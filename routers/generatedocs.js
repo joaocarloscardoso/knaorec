@@ -219,5 +219,35 @@ generatedocs.get('/docplanList',function(req,res){
     }
 });
 
+generatedocs.get('/docmatriceslist',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    var NewDocFile = credentials.WorkSetPath;
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
+
+    if (status) {
+        var data = Docs.LoadMatricesCollection(NewAuditFile);
+        carbone.render('./public/templates/PlanMatrixCollection.'+ credentials.ReportFormat, data, function(err, result){
+            if (err) {
+              return log.info('document (Collection of Planning Matrices) generation error:  ' +err);
+            }
+            // write the result
+            fs.writeFileSync(NewDocFile, result);
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
 
 module.exports = generatedocs;
