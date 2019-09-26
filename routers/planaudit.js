@@ -90,6 +90,7 @@ planaudit.post('/auditplanning', function(req, res){
             //Issue #52: Automatic save/download on conclusion of key activities
             res.redirect('/toolaudit/work/download');
             //
+            /*due to: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
             res.render('toolaudit/toolwork', {
                 action: 'audit',
                 operation: 'audit_plan',
@@ -98,7 +99,7 @@ planaudit.post('/auditplanning', function(req, res){
                 msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
-             });
+             });*/
         }
     } else {
         res.render('login/login', {

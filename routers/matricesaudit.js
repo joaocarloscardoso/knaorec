@@ -154,6 +154,7 @@ matricesaudit.post('/preassessMatrix', function(req, res){
             //Issue #52: Automatic save/download on conclusion of key activities
             res.redirect('/toolaudit/work/download');
             //
+            /*due to: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
             res.render('toolaudit/supportmatrix', {
                 action: 'audit',
                 operation: 'preassess_matrix',
@@ -162,7 +163,7 @@ matricesaudit.post('/preassessMatrix', function(req, res){
                 msg: '',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
-            });
+            });*/
         }
     } else {
         res.render('login/login', {
@@ -204,6 +205,7 @@ matricesaudit.post('/planMatrix', function(req, res){
             //Issue #52: Automatic save/download on conclusion of key activities
             res.redirect('/toolaudit/work/download');
             //
+            /*due to: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
             res.render('toolaudit/supportmatrix', {
                 action: 'audit',
                 operation: 'plan_matrix',
@@ -212,7 +214,7 @@ matricesaudit.post('/planMatrix', function(req, res){
                 msg: '',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
-             });
+             });*/
         }
     } else {
         res.render('login/login', {
@@ -253,19 +255,21 @@ matricesaudit.post('/findingMatrix', function(req, res){
             //save plugins selected for audit
             var RefId = Matrices.SaveFindingMatrix(NewAuditFile, Catalog);
             //Issue #52: Automatic save/download on conclusion of key activities
-            res.redirect('/toolaudit/work/download');
-            //
-            if (RefId.substring(0, 1) == 'F') {
-                var FindingMatrix = Matrices.LoadFindingMatrix(NewAuditFile, RefId);
-                res.render('toolaudit/supportmatrix', {
-                    action: 'audit',
-                    operation: 'finding_matrix',
-                    AuditErrors: '',
-                    Matrix: FindingMatrix,
-                    msg: '',
-                    auditfile: 'work/' + req.sessionID + '.xml',
-                    audit: 'true'
-                 });                    
+            if (req.body.findingid == '(New)'){
+                if (RefId.substring(0, 1) == 'F') {
+                    var FindingMatrix = Matrices.LoadFindingMatrix(NewAuditFile, RefId);
+                    res.render('toolaudit/supportmatrix', {
+                        action: 'audit',
+                        operation: 'finding_matrix',
+                        AuditErrors: '',
+                        Matrix: FindingMatrix,
+                        msg: '',
+                        auditfile: 'work/' + req.sessionID + '.xml',
+                        audit: 'true'
+                    });                    
+                }
+            }else{
+                res.redirect('/toolaudit/work/download')
             }
         }
     } else {

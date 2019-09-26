@@ -28,7 +28,7 @@
 							<tx l="eng" name="Criteria: ISSAI 5300.8 and 16. -  The IT audit team is composed of members that collectively have the competence to perform the IT Audit."/>
 							<tx l="alb" name="Kriteret: ISSAI 5300.8 dhe 16. - Ekipi i auditimit te TI-se përbëhet nga anëtarë që së bashku kanë kompetenca për të kryer auditimin e TI-së."/></title>
 						<val>
-							<tx l="eng" name="aa"/>
+							<tx l="eng" name=""/>
 							<tx l="alb" name="Kriteret: ISSAI 5300.8 dhe 16. - Ekipi i auditimit te TI-se përbëhet nga anëtarë që së bashku kanë kompetenca për të kryer auditimin e TI-së."/></val>
 					</paElement>
 				</paSection>
@@ -556,7 +556,7 @@ organization in order to fulfill the organization’s mission.</ak>
 				<Matrix id="Business Needs Identification, Direction &amp; Monitoring">
 					<Objectives>
 						<obj>
-							<tx l="eng" name="Assess whether the organization leadership effectively direct, evaluate and monitor IT use in the organization in order to fulfill the organization’s mission."/>
+							<tx l="eng" name="aaAssess whether the organization leadership effectively direct, evaluate and monitor IT use in the organization in order to fulfill the organization’s mission."/>
 							<tx l="pol" name="Ocenić, czy Organizacja skutecznie realizuje, ocenia i monitoruje wykorzystanie technologii informacyjnych w organizacji w celu wypełnienia swojej misji"/>
 							<tx l="alb" name="Vlerësimi nëse menaxhimi i organizatës drejton, vlerëson dhe monitoron efektivisht përdorimin e IT në organizatë, me qëllim përmbushjen e misionit të organizatës."/>
 						</obj>
@@ -564,7 +564,7 @@ organization in order to fulfill the organization’s mission.</ak>
 					<AuditIssue>Defining IT requirements</AuditIssue>
 					<Criteria>
 						<cri>
-							<tx l="eng" name="How does the organization identify and approve business and IT requirements?"/>
+							<tx l="eng" name="How does the organization identify and approve business and IT requirements?The organization has a plan on how they identify emerging business or IT needs and the Steering Committee approving requirements has sufficient information to make their decisions."/>
 							<tx l="pol" name="Jak organizacja określa i zatwierdza wymogi biznesowe i informatyczne?"/>
 							<tx l="alb" name="Organizata ka një plan sesi të identifikojë kërkesat e reja të biznesit ose nevojat e IT dhe Komiteti i Drejtimit, i cili aprovon kërkesat, ka informacion të mjaftueshëm për vendimarrje."/>
 						</cri>
@@ -575,7 +575,7 @@ organization in order to fulfill the organization’s mission.</ak>
 					</Criteria>
 					<InformationRequired>
 						<inf>
-							<tx l="eng" name="Requirements management process"/>
+							<tx l="eng" name="Requirements management processSteering committee minutesSteering committee charter and operating principles including approval and reject thresholds.List of approved and rejected requirement."/>
 							<tx l="pol" name="Proces zarządzania wymaganiami"/>
 							<tx l="alb" name="Proçesi i menaxhimit të kërkesave
 
@@ -601,7 +601,7 @@ Listë me kërkesat e aprovuara dhe të refuzuara
 					</InformationRequired>
 					<AnalysisMethod>
 						<anm>
-							<tx l="eng" name="Review of documents to ensure that new business requirements are identified and analyzed according to the organization’s requirements management process."/>
+							<tx l="eng" name="Review of documents to ensure that new business requirements are identified and analyzed according to the organization’s requirements management process.Review of approved or rejected requirements to ensure that these are in accordance with accepted operating principles.Interview management or others responsible for approving projects to ensure that they take into account the IT organizations capabilities, skills, resources, and training, and the ability of the users to utilize the new tools and methods or procedures."/>
 							<tx l="pol" name="Przegląd dokumentów w celu upewnienia się, że określono i dokonano analizy nowych wymogów biznesowych zgodnie z procesem zarządzania wymogami w organizacji."/>
 							<tx l="alb" name="Rishikim i dokumentave për tu siguruar që kërkesat e reja të biznesit janë identifikuar dhe analizuar në përputhje me proçesin e menaxhimit të kërkesave të organizatës.
 
@@ -801,7 +801,7 @@ Intervistimi i menaxhmit për të përcaktuar nëse organizata merr vendime mbi 
 					<ak>The IT Strategy represents the mutual alignment between IT strategy and business strategic objectives. The IT strategic objectives should consider the current and future needs of the business, the current IT capacity to deliver services and the requirement of resources.</ak>
 				</narr>
 			</Narrative>
-			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+			<Issue nr="01" RiskWeight="1" Include="Yes" Remarks="">
 				<title>
 					<tx l="eng" name="Quality of IT strategy"/>
 					<tx l="alb" name="Konfirmimi nëse ekziston një strategji IT, e cila përfshin plan IT dhe proçeset për zhvillimin, aprovimin, dhe zbatimin dhe mirëmbajtjen e strategjisë, e cila është e lidhur me strategjinë dhe objektivat e organizatës. Risqet dhe burimet gjatë përmbushjes së objektivave të IT janë të menaxhuara efektivisht."/>
@@ -1713,7 +1713,7 @@ Krahasimi i parametrave bazë të performancës (gadishmëria e burimeve në rrj
 					</Conclusion>
 				</Matrix>
 			</Issue>
-			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+			<Issue nr="03" RiskWeight="3" Include="Yes" Remarks="">
 				<title>
 					<tx l="eng" name="Analyze And tune"/>
 					<tx l="alb" name="Analiza dhe rakordimi"/>
@@ -7436,4 +7436,4 @@ detajet e zbatimit"/>
 		</Area>
 	</Domain>
 </ActiveITAuditDomains>
-<PlugIns/><Cases/></Audit>
+<PlugIns/><Cases><Case nr="F20190924-211856" nm="aa" eff="aa" act="aa" doc="aa" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190924-211901" nm="aa" eff="aa" act="aa" doc="aa" Include="No"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190926-192142" nm="teste" eff="teste" act="teste" doc="teste" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">teste</quote><quote type="recommendation">teste</quote></Case><Case nr="F20190926-192646" nm="ff" eff="ff" act="ff" doc="ff" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">ff</quote><quote type="recommendation">ff</quote></Case><Case nr="F20190926-194938" nm="qq" eff="qq" act="qq" doc="qq" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">qq</quote><quote type="recommendation">qq</quote></Case><Case nr="F20190926-195238" nm="12" eff="12" act="12" doc="12" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">12</quote><quote type="recommendation">12</quote></Case><Case nr="F20190926-200428" nm="q" eff="q" act="q" doc="q" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">q</quote><quote type="recommendation">q</quote></Case><Case nr="F20190926-202342" nm="z" eff="z" act="z" doc="z" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">z</quote><quote type="recommendation">z</quote></Case><Case nr="F20190926-202449" nm="t" eff="t" act="t" doc="t" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">t</quote><quote type="recommendation">t</quote></Case><Case nr="F20190926-202703" nm="cv" eff="xcv" act="xcv" doc="xcvc" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">vcx</quote><quote type="recommendation">xcv</quote></Case></Cases></Audit>

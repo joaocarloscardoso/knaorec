@@ -1,4 +1,4 @@
-<Audit><About id="aa1" descriptionfile=""><version id="1.0" name=""/><title><tx l="eng" name="TEST title" rem=""/></title><WorkingLanguage wl="eng"/></About><Background><ak>tes</ak></Background><Scope><ak>tes</ak></Scope><Preassessment>
+<Audit><About id="aa1aa" descriptionfile=""><version id="1.0" name=""/><title><tx l="eng" name="TEST title" rem=""/></title><WorkingLanguage wl="eng"/></About><Background><ak>tes</ak></Background><Scope><ak>tes</ak></Scope><Preassessment>
 	<About id="PreactIS">
 		<version id="20180418" name="main"/>
 		<title>
@@ -801,7 +801,7 @@ Intervistimi i menaxhmit për të përcaktuar nëse organizata merr vendime mbi 
 					<ak>The IT Strategy represents the mutual alignment between IT strategy and business strategic objectives. The IT strategic objectives should consider the current and future needs of the business, the current IT capacity to deliver services and the requirement of resources.</ak>
 				</narr>
 			</Narrative>
-			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+			<Issue nr="01" RiskWeight="1" Include="Yes" Remarks="">
 				<title>
 					<tx l="eng" name="Quality of IT strategy"/>
 					<tx l="alb" name="Konfirmimi nëse ekziston një strategji IT, e cila përfshin plan IT dhe proçeset për zhvillimin, aprovimin, dhe zbatimin dhe mirëmbajtjen e strategjisë, e cila është e lidhur me strategjinë dhe objektivat e organizatës. Risqet dhe burimet gjatë përmbushjes së objektivave të IT janë të menaxhuara efektivisht."/>
@@ -1713,7 +1713,7 @@ Krahasimi i parametrave bazë të performancës (gadishmëria e burimeve në rrj
 					</Conclusion>
 				</Matrix>
 			</Issue>
-			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+			<Issue nr="03" RiskWeight="3" Include="Yes" Remarks="">
 				<title>
 					<tx l="eng" name="Analyze And tune"/>
 					<tx l="alb" name="Analiza dhe rakordimi"/>
@@ -7436,4 +7436,4 @@ detajet e zbatimit"/>
 		</Area>
 	</Domain>
 </ActiveITAuditDomains>
-<PlugIns/><Cases><Case nr="F20190924-211856" nm="aa" eff="aa" act="aa" doc="aa" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190924-211901" nm="aa" eff="aa" act="aa" doc="aa" Include="No"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case></Cases></Audit>
+<PlugIns/><Cases><Case nr="F20190924-211856" nm="aa" eff="aa" act="aa" doc="aa" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190924-211901" nm="aa" eff="aa" act="aa" doc="aa" Include="No"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190926-192142" nm="teste" eff="teste" act="teste" doc="teste" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">teste</quote><quote type="recommendation">teste</quote></Case><Case nr="F20190926-192646" nm="ff" eff="ff" act="ff" doc="ff" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">ff</quote><quote type="recommendation">ff</quote></Case><Case nr="F20190926-194938" nm="qq" eff="qq" act="qq" doc="qq" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">qq</quote><quote type="recommendation">qq</quote></Case><Case nr="F20190926-195238" nm="12" eff="12" act="12" doc="12" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">12</quote><quote type="recommendation">12</quote></Case></Cases></Audit>
