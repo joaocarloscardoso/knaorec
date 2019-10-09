@@ -1,4 +1,4 @@
-<Audit><About id="aa1aa" descriptionfile=""><version id="1.0" name=""/><title><tx l="eng" name="TEST title" rem=""/></title><WorkingLanguage wl="eng"/></About><Background><ak>tes</ak></Background><Scope><ak>tes</ak></Scope><Preassessment>
+<Audit><About id="aa1bb" descriptionfile=""><version id="1.0" name=""/><title><tx l="eng" name="TEST title" rem=""/></title><WorkingLanguage wl="eng"/></About><Background><ak>tes</ak></Background><Scope><ak>tes</ak></Scope><Preassessment>
 	<About id="PreactIS">
 		<version id="20180418" name="main"/>
 		<title>
@@ -7374,7 +7374,7 @@ Verifikoni, nëse është e mundur, duke përdorur mbledhje automatike të evide
 					</Conclusion>
 				</Matrix>
 			</Issue>
-			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+			<Issue nr="02" RiskWeight="3" Include="Yes" Remarks="">
 				<title>
 					<tx l="eng" name="Application data properly protected"/>
 					<tx l="alb" name="Të dhënat e aplikacionit të mbrojtura siç duhet"/>
@@ -7436,4 +7436,437 @@ detajet e zbatimit"/>
 		</Area>
 	</Domain>
 </ActiveITAuditDomains>
-<PlugIns/><Cases><Case nr="F20190924-211856" nm="aa" eff="aa" act="aa" doc="aa" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190924-211901" nm="aa" eff="aa" act="aa" doc="aa" Include="No"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190926-192142" nm="teste" eff="teste" act="teste" doc="teste" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">teste</quote><quote type="recommendation">teste</quote></Case><Case nr="F20190926-192646" nm="ff" eff="ff" act="ff" doc="ff" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">ff</quote><quote type="recommendation">ff</quote></Case></Cases></Audit>
+<PlugIns><PlugIn id="UPGRADEFINANCIAL">
+	<About>
+		<version id="1.0" name="main"/>
+		<title>
+			<tx l="eng" name="Upgrade of Financial Management IT System"/>
+			<tx l="pol" name="Aktualizacja systemu finansowo-księgowego"/>
+		</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+		<WorkingLanguage wl="eng pol"/>
+	</About>
+	<Domain nr="03">
+		<title>
+			<tx l="eng" name="Development and Acquisition"/>
+		</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+		<Area nr="01">
+			<title>
+				<tx l="eng" name="Upgrade Preparations"/>
+			</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Analysis and concept"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Upgrade - Preparations">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess if the preparations were performed in a way that ensured minimum risk and maximum efficiency of the upgrade operation"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Analysis and concept</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="clear concept of what should be upgraded, what is critical and what is optional"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Documented concept and analysis documentation
+Minutes of management meetings"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="It is of utmost importance to have a clear concept of what should be upgraded, in which scope and at what cost. The concept should be supported by an reliable analysis of needs and possibilities. Weak concept may result in additional yet unnecessary tasks, time and money waste at later phases of the project with. Sometimes those cause failure of the upgrade, which goals cannot be reached just because resources were spent on additional activities.
+
+Effective IT Strategy can reflect general ability of organisations for prioritising goals and provide necessary instruments to reach them. Looking for a methodical support you can use IT Audit Handbook part on IT Governance – IT Strategy and planning and content of matrix on Business Needs Identification, Direction and Monitoring and on IT Strategy."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Pre-upgrade risk assessment"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Upgrade - Preparations">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess if the preparations were performed in a way that ensured minimum risk and maximum efficiency of the upgrade operation"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Pre-upgrade risk assessment</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="organisation and documentation of the risk assessment, its follow-up in terms of planning, resources and responsibilities"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Documentation of risk analysis
+
+Minutes of the risk assessment meetings
+
+Comments of staff and management on risks taken into account
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Use IT Audit Handbook part on IT Governance – Internal Control. Exemplary audit matrix for Risk Assessment and Compliance Mechanisms can be helpful.
+
+Check out if the risk analysis was performed and treated in pragmatic or rather purely formal way. Be sure, was it a part of the broader risk analysis (e.g. encompassing whole organisation, IT, procurement), or a standalone analysis related to the coming upgrade. Was it performed by a team of experts experienced in upgrades? Where risks escalated to appropriate levels of management?
+
+Apart from typical risks referred to IT systems upgrades, were specific conditions taken into account: why the organisation needs the upgrade, is it urgent or important, what if this particular upgrade was postponed or not implemented at all? 
+
+Organisation’s managements tend to treat upgrades as purely technical operations. Problems with low profile of the whole operation, insufficient resourcing and unclear accountability can steam from this point."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="03" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Planning"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Upgrade - Preparations">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess if the preparations were performed in a way that ensured minimum risk and maximum efficiency of the upgrade operation"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Planning</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Scope, level of detail and flexibility of the planning"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Planning documents
+
+Information on role and responsibility of management and experts
+
+BDP and DRP documentation
+
+Technical documentation
+
+User documentation
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="If possible, find relation between the upgrade planning and the Organisation’s IT Strategy. Use especially IT Audit Handbook sections:
+-	IT Governance – IT Strategy and Planning
+-	Development and Acquisition – Requirements Development and Management
+
+You can also find helpful the content of exemplary matrices for: 
+-	Business Needs Identification, Direction and Monitoring 
+-	IT Strategy
+-	Requirements Developmentand Management
+-	Business Continuity Policy
+-	Business Impact Assessment
+-	Disaster Recovery Plan
+
+Pay special attention if the plans have the adequate scope, realistic timetable of the upgrade phases, which should contain controls to assess the progress and security. Was possibility of the upgrade’s fail foreseen? Would the recovery of the system and Business Continuity be possible then?
+Necessary resources and responsibilities should be clearly stated. Were both the IT team and core activity team (e.g. Finance or HR) involved in the upgrade planning? Were all interested parties informed about the planned upgrade?
+Technical documentation of the system will be usually changed after the upgrade and the administration team will often have to deal with new parameters or function. Their training should be planned then in a proper time.
+
+The user documentation should be modified if necessary and the Help Desk function should be included in the upgrade operation planning. Was the Help Desk team planned to be trained, and then able to deal with post-upgrade issues if signalled by users?
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="04" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Resources"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Upgrade - Preparations">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess if the preparations were performed in a way that ensured minimum risk and maximum efficiency of the upgrade operation"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Resources</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="The organization has a plan on how they identify emerging business or IT needs and the Steering Committee approving requirements has sufficient information to make their decisions."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Documents, which present the staff responsible for the upgrade (project documents, minutes, job descriptions).
+
+Staff trainings strategy"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Use IT Audit Handbook part on IT Governance – People and resources and the audit matrix on People and Resources.
+
+In case of problems occurring at later stages, check if the staff assigned to the upgrade tasks was sufficient in number, competencies and responsibilities. Was the task fed back as effectively and fair managed?"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="05" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Provider of the upgrade"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Upgrade - Preparations">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="Assess if the preparations were performed in a way that ensured minimum risk and maximum efficiency of the upgrade operation"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Provider of the upgrade (external experts)</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="Effective and efficient use of support provided by external experts"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Meeting minutes and correspondence between the organisation and the expertize providers"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Use IT Audit Handbook part on Development and Acquisition Solicitation and all chapter on Outsourcing.
+
+Review the following audit matrices:
+-	D&amp;A Solicitation
+-	Outsourcing Policy
+-	Outsourcing  Solicitation
+-	Vendor or Contractor Monitoring
+-	Overseas Service Provider 
+-	Retaining Business Knowledge/ Ownership of business process
+-	Cost control and management
+-	Back-up and disaster recovery for outsourced services
+
+It is difficult to imagine a complex system to be upgraded without any external help. The preparations to the upgrade are then a good test for the real strategies the audited organisation applies to IT investment and outsourcing. It can sometimes happen, that an IT system, which was successfully purchased and installed several years earlier, now does not appear to have a sufficiently developed market of experts.
+
+Contract with the upgrade provider should meet all needed requirements, including warranties and indemnities and rules to identify responsibility for potential incidents and problems occurring as a result of the upgrade.
+
+On the other hand, the external experts should find in the organisation strong enough in-house experts team to make the organisation profiting from the cooperation. 
+
+Consequences can be financial (e.g. related to vendor dependence) or operational – if the upgrade is conducted with insufficient expertise."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="02">
+			<title>
+				<tx l="eng" name="Upgrade Implementation"/>
+			</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Provider of the upgrade"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Upgrade - Implementation">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="The upgrade operation should be executed successfully by supplying the System with new version of software and/or hardware, and without any damage or modification to significant data"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Operation of upgrade</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="the upgrade executed in line with plans, results analysed, the whole operation properly documented"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Minutes of the upgrade operation
+
+Review of results
+
+All other documentation related to the upgrade operation
+
+"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="The documentation should be analysed with special attention to gaps and exceptions. In case of any doubts ,contact the staff and/or external experts who took part in the upgrade operation.
+
+Where the results registered, analysed and compared to the planned parameters? If the results differed from the plans, were any ad hoc corrections executed? Were the issues occurring during the upgrade managed effectively?
+
+In IT Audit Handbook read: IT Operations - Service Level Agreement and Outsourcing – Service Level Agreement.
+
+Review the following exemplary audit matrices:
+IT Operations - Service Management,
+Outsourcing – Service Level Agreement
+"/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Information security"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Upgrade - Implementation">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="The upgrade operation should be executed successfully by supplying the System with new version of software and/or hardware, and without any damage or modification to significant data"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Information security</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="The organization has a plan on how they identify emerging business or IT needs and the Steering Committee approving requirements has sufficient information to make their decisions."/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Two reports reflecting the system’s data: pre-upgrade and post-upgrade
+
+List of all discrepancies
+
+Approval or disapproval of the discrepancies"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="The content of the both data reports depends on nature of the upgraded system. For instance, if it is accounting system you will need at least a list of accounts with balances for the time before the upgrade started and a second list with the same accounts for the time the upgrade was completed.
+
+Check when the reports were prepared and who prepared them. They should be a part of the Upgrade acceptance documentation. If they are prepared for the audit purposes, be present at the process of retrieving them from the system.
+
+Compare the two sets of data – if necessary with help of CAATs. If some discrepancies occurred – they should have be documented directly after the upgrade execution and their causes should have been explained by the upgrade provider. A list of all discrepancies and plan of corrections should be prepared by the provider and approved by the key client (e.g. in case of the Accounting system the Organisation’s main Accountant).
+
+Use IT Audit Handbook part on Application Controls – Output to assess the traceability (Application Security matrix) of any doubtful records.  IT Audit Handbook on Information Security and related audit matrices can be helpful to review policy, organization, access, environment and other fields that may be relevant in case of the audited upgrade."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+		<Area nr="03">
+			<title>
+				<tx l="eng" name="Post-Upgrade Review"/>
+			</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+			<Issue nr="01" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Incidents and problems"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Post-Upgrade Review">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="The upgrade operation should be reviewed and analysed in terms of cost-effectiveness, security and IT Strategy"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Incidents and problems</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="All issues registered and treated appropriately depending on weight of matter and risks"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Minutes of the upgrade operation
+
+Incidents/problems register
+
+Signals from users"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="Many incidents and problems will usually be noticed after the upgrade operation, when administrators and users perform their tasks with support of the modified system. They can also emerge after the upgrade because some of the functionalities or system parameters changed and the users or administrators were not trained effectively.
+
+Use IT Audit Handbook part on IT Operations – Problem and Incident Management and IT Operations – Change Management. The audit matrices under the same titles can be helpful too.
+
+The incidents which emerged in relation to the upgrade should have been registered and solved or if their scale is larger, classified as problems and escalated to the change management process.
+
+The list of problems should be discussed with the upgrade provider, who should prepare solutions agenda. The key client should accept this approach. In case of lack of agreement in this regard, legal steps should be taken by the Organisation to receive compensation.
+
+If the upgrade was unsuccessful, were the data restored and functions of the system restarted? In case of the most serious problems the Business Continuity may be at risk. The organisation’s approach to the BCP/DRP, like policies, structures, trainings may then have vital significance. The audit matrices on Organisation of Business Continuity Function, Security may be helpful.."/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+			<Issue nr="02" RiskWeight="1" Include="No" Remarks="">
+				<title>
+					<tx l="eng" name="Upgrade report"/>
+				</title><Narrative><narr l="eng"><ak/></narr></Narrative>
+				<Matrix id="Post-Upgrade Review">
+					<Objectives>
+						<obj>
+							<tx l="eng" name="The upgrade operation should be reviewed and analysed in terms of cost-effectiveness, security and IT Strategy"/>
+						</obj>
+					</Objectives>
+					<AuditIssue>Upgrade report</AuditIssue>
+					<Criteria>
+						<cri>
+							<tx l="eng" name="the upgrade should be reliably reported and formally documented"/>
+						</cri>
+					</Criteria>
+					<InformationRequired>
+						<inf>
+							<tx l="eng" name="Upgrade report
+
+Documents related to lessons learnt and recommendations"/>
+						</inf>
+					</InformationRequired>
+					<AnalysisMethod>
+						<anm>
+							<tx l="eng" name="The report should be analysed with special attention concerned to its completeness and reliability – especially in case when the data comparison (see above) results in list of discrepancies.
+
+This should be a formal document clearly stating that the key client accepts work done by the provider as a whole or in an unambiguously defined scope. All interested parties should sign the document or provide their opinion in other way. 
+
+Pay special attention to financial part compared to calendar and parameters reached.
+
+The report may be accompanied with internal documents containing list of meaningful lessons learnt, issues to be solved, recommendations and follow-up instructions. For instance, complexity and cost of the operation, interoperability issues, or availability of external experts can influence the Organization IT investment strategy. "/>
+						</anm>
+					</AnalysisMethod>
+					<foundPreviously><fp><tx l="eng" name="To be developed"/><tx l="pol" name="Do rozwinięcia"/></fp></foundPreviously><Conclusion>
+						<clu>
+							<tx l="eng" name="To be filled in by auditor"/>
+						</clu>
+					</Conclusion>
+				</Matrix>
+			</Issue>
+		</Area>
+	</Domain>
+</PlugIn></PlugIns><Cases><Case nr="F20190924-211856" nm="aad" eff="aad" act="aa" doc="aa" Include="Yes"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190924-211901" nm="aa" eff="aa" act="aa" doc="aa" Include="No"><cts source="AITAM" domain="01 IT Governance" area="01 Business Needs Identification, Direction and Monitoring" issue="01 Defining IT requirements"/><quote type="description">aa</quote><quote type="recommendation">aa</quote></Case><Case nr="F20190926-192142" nm="teste" eff="teste" act="teste" doc="teste" Include="Yes"><cts source="AITAM" domain="07 Application Controls" area="04 Application security controls" issue="02 Application data properly protected"/><quote type="description">teste</quote><quote type="recommendation">teste</quote></Case><Case nr="F20190926-212036" nm="aa" eff="aa" act="aa" doc="aa" Include="Yes"><cts source="AITAM" domain="02 IT Operations" area="02 Capacity Management" issue="03 Analyze And tune"/><quote type="description">aa</quote><quote type="recommendation">aaa</quote></Case></Cases></Audit>

@@ -1,19 +1,53 @@
 <section id="contact" class="col-6 col-12-narrower">
-    <header>
-        <h2></h2>
-        <h2>Findings in audit</h2>
-        <p></p>
-    </header>
-    <% if(msg != ''){ %>
-        <div class="col-12" id="save_auditfindings">
-            <p>
-                <span class="successformtext"><%= msg %></span><br/>
-            </p>
-        </div>
-    <% } %>    
-   <form method="POST" action="/findingaudit/auditfindings">
-        <div class="row gtr-50">
-            <% if(findingcatalog.length > 6) { %>
+        <header>
+            <h2></h2>
+            <h2>Findings in audit</h2>
+            <p></p>
+        </header>
+        <% if(msg != ''){ %>
+            <div class="col-12" id="save_auditfindings">
+                <p>
+                    <span class="successformtext"><%= msg %></span><br/>
+                </p>
+            </div>
+        <% } %>    
+       <form method="POST" action="/findingaudit/auditfindings">
+            <div class="row gtr-50">
+                <% if(findingcatalog.length > 6) { %>
+                    <div class="col-12">
+                        <ul class="actions">
+                            <li><a href="/findingaudit/auditfindings" class="button">Reload List</a></li>
+                            <li><a href="/auditMatrices/findingMatrix?id=New" class="button">Create finding</a></li>
+                            <% if(findingcatalog.length > 0) { %>
+                                <li><input type="submit" class="button alt" value="Save" /></li>
+                            <% } %>
+                        </ul>
+                    </div>        
+                <% } %>
+                <p>
+                    <% if(findingcatalog.length > 0) { %>
+                        <p>Use hyperlink on ID to visualize/edit the finding
+                            <% if(findingcatalog.length > 6) { %>
+                                <br/>&nbsp;<br/>
+                                <a style="border-style: none;" href="/generatedocs/docexecutivesummary" data-tooltip="This functionality generates a word porcessing document containing the Executive summary"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary</a>    
+                            <% } %>
+                        </p>
+                        <table id='tablecatalog'>
+                            <thead>
+                                <% include ./auditfindingsheader %>
+                            </thead>    
+                            <tbody>
+                                <% include ./auditfindingsrow %>
+                            </tbody>
+                        </table>
+                        <input type="hidden" name="rows_count" id="rows_count" value="<%= findingcatalog.length %>"/> 
+                        <p>
+                            <a style="border-style: none;" href="/generatedocs/docexecutivesummary" data-tooltip="This functionality generates a word porcessing document containing the Executive summary"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary</a>    
+                        </p>
+                    <% } else { %>
+                        <p>No findings available!</p>
+                    <% } %>
+                </p>
                 <div class="col-12">
                     <ul class="actions">
                         <li><a href="/findingaudit/auditfindings" class="button">Reload List</a></li>
@@ -22,53 +56,20 @@
                             <li><input type="submit" class="button alt" value="Save" /></li>
                         <% } %>
                     </ul>
-                </div>        
-            <% } %>
-            <p>
-                <% if(findingcatalog.length > 0) { %>
-                    <p>Use hyperlink on ID to visualize/edit the finding
-                        <% if(findingcatalog.length > 6) { %>
-                            <br/>&nbsp;<br/>
-                            <a style="border-style: none;" href="/generatedocs/docexecutivesummary" data-tooltip="This functionality generates a word porcessing document containing the Executive summary"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary</a>    
-                        <% } %>
-                    </p>
-                    <table id='tablecatalog'>
-                        <thead>
-                            <% include ./auditfindingsheader %>
-                        </thead>    
-                        <tbody>
-                            <% include ./auditfindingsrow %>
-                        </tbody>
-                    </table>
-                    <input type="hidden" name="rows_count" id="rows_count" value="<%= findingcatalog.length %>"/> 
-                    <p>
-                        <a style="border-style: none;" href="/generatedocs/docexecutivesummary" data-tooltip="This functionality generates a word porcessing document containing the Executive summary"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary</a>    
-                    </p>
-                <% } else { %>
-                    <p>No findings available!</p>
-                <% } %>
-            </p>
-            <div class="col-12">
-                <ul class="actions">
-                    <li><a href="/findingaudit/auditfindings" class="button">Reload List</a></li>
-                    <li><a href="/auditMatrices/findingMatrix?id=New" class="button">Create finding</a></li>
-                    <% if(findingcatalog.length > 0) { %>
-                        <li><input type="submit" class="button alt" value="Save" /></li>
-                    <% } %>
-                </ul>
+                </div>
             </div>
-        </div>
-    </form>
-</section>
-<!-- javascript is placed in the body section -->
-<script>
-    //it takes two parameters: the select control id as well the image control id associated in order to to change display
-    function showInclude(elem, ctrlImg){
-        if(elem.value == 'Yes') {
-            //try: "inline-block"
-            document.getElementById(ctrlImg).style.display = "inline-block"; //opposite: "none"
-        } else {
-            document.getElementById(ctrlImg).style.display = "none"; //opposite: "none"
+        </form>
+    </section>
+    <!-- javascript is placed in the body section -->
+    <script>
+        //it takes two parameters: the select control id as well the image control id associated in order to to change display
+        function showInclude(elem, ctrlImg){
+            if(elem.value == 'Yes') {
+                //try: "inline-block"
+                document.getElementById(ctrlImg).style.display = "inline-block"; //opposite: "none"
+            } else {
+                document.getElementById(ctrlImg).style.display = "none"; //opposite: "none"
+            }
         }
-    }
-</script>
+    </script>
+    
