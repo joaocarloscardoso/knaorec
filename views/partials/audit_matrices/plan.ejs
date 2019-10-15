@@ -24,6 +24,13 @@
     <form method="POST" action="/auditMatrices/planMatrix">
         <div class="row gtr-50">
             <div class="col-12">
+                <ul class="actions">
+                    <li><a href="/generatedocs/docplanMatrix?plugin=<%= Matrix.PluginId %>&domain=<%= Matrix.DomainId %>&area=<%= Matrix.AreaId %>&issue=<%= Matrix.IssueId %>" class="button">Generate document</a></li>
+                    <li><a href="/planaudit/auditplanning" class="button">Close</a></li>
+                    <li><input type="submit" class="button alt" value="Save" /></li>
+                </ul>
+            </div>
+            <div class="col-12">
                 Objectives<br/>
                 <textarea name="objectives" id="objectives" placeholder="Objectives" rows="2"><%= Matrix.Objectives %></textarea>
                 <input type="hidden" id="plugin" name="plugin" value="<%= Matrix.PluginId %>"/>
@@ -58,6 +65,6 @@
                     <li><input type="submit" class="button alt" value="Save" /></li>
                 </ul>
             </div>
-          </div>
+        </div>
     </form>
 </section>
