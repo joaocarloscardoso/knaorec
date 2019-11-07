@@ -32,13 +32,38 @@
             }
         </style>
     </head>
-    <body class="ppt-body">
+    <body class="ppt-body"  style="background-color:white;">
+        <div id="head">
+            <span ><a href="http://egov-eu.tcontas.pt/solr/reports/browse"><img src="http://egov-eu.tcontas.pt/solr/img/egov-banner.jpg" id="logo"/></a></span>
+        </div>
+
+        <div id="tabs">
+            <div class="tabs-bar" >
+                <span></span>
+                    <a class="a_white" href="http://egov-eu.tcontas.pt/solr/reports/browse">
+                    Reports Search</a>
+                </span>
+                <span class="tab">
+                    <a class="a_white" href="http://egov-eu.tcontas.pt/solr/georeports/browse?&queryOpts=group&group=true&rows=250&group.limit=6&group.field=author_geo">
+                    Reports Spatial Search</a>
+                </span>
+                <span class="tab">
+                    <a class="a_white" href="http://egov-eu.tcontas.pt/solr/riskreports/browse?">
+                    Risk-cases Search</a>
+                </span>
+                <span class="tab selected">
+                        Risk-cases Graph Traversal
+                </span>
+            </div>
+        </div>
+         <p></p>   
+
         <section class="ppt-section-main" style="height: 900px">
             <div class="notice-bar">
             <!--<div class="ppt-section-header">-->
-                <span class="ppt-header-span">CUBE visual (graph) discovery</span>
+                <span class="ppt-header-span" style="color: rgb(40, 169, 229);;"><b>CUBE visual (graph) discovery</b></span>
             </div>
-            <div class="code-bar">
+            <div class="code-bar" style="color:black;">
                 Tips: Right click on a node to retrieve the relations. Use left click to expand and select a value. Right click
                 can also be used to remove a selection.
             </div>
@@ -55,7 +80,7 @@
                 </div>
             </nav>            
             <!-- By default the graph is generated on the HTML element with ID "popoto-graph" -->
-            <div id="popoto-graph" class="ppt-div-graph">
+            <div id="popoto-graph" class="ppt-div-graph" style="background-color:white;">
                 <!-- Graph is generated here -->
             </div>            
             <!--<div id="popoto-cypher" class="ppt-container-cypher center-align">

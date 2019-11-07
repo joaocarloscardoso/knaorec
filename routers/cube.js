@@ -32,8 +32,9 @@ var fs = require("fs");
 
 var cube = express.Router();
 
-cube.get('/visualsearch', (req, res) => {
-       res.redirect('/visualsearch/kgraph');
+cube.get('/kgraph', (req, res) => {
+       res.render('./cube/kgraph', {
+       });
 });
 
 module.exports = cube;

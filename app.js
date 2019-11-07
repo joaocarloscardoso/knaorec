@@ -62,7 +62,7 @@ var FindingsRouter =require('./routers/findingaudit.js');
 var MatrixRouter = require('./routers/matricesaudit.js');
 var DocsRouter = require('./routers/generatedocs.js');
 var AnalyticsRouter = require('./routers/analyticsaudit.js');
-
+var CubeRouter = require('./routers/cube.js');
 
 // configure passport.js to use the local strategy
 passport.use(new LocalStrategy(
@@ -266,6 +266,8 @@ app.use('/findingaudit', FindingsRouter);
 app.use('/auditMatrices', MatrixRouter);
 app.use('/generatedocs', DocsRouter);
 app.use('/analytics', AnalyticsRouter);
+app.use('/cube', CubeRouter);
+
 
 app.use(function(req,res,next){
     log.warn('404 - Not Found');
