@@ -11,6 +11,7 @@
         </td>
         <td>
             <a href="/auditMatrices/planMatrix?plugin=<%= item.PluginId %>&domain=<%= item.DomainId %>&area=<%= item.AreaId %>&issue=<%= item.IssueId %>" data-tooltip-bottom="<%= item.IssueTip %>"><%= item.Issue %></a>
+            <br/>Related findings found: <%= item.Findings %>
             <input type="hidden" id="<%= item.RowId %>Issue" name="<%= item.RowId %>Issue" value="<%= item.IssueId %>"/>
         </td>
         <td>
@@ -56,8 +57,9 @@
                 <img id="<%= item.RowId %>Image" src="../images/include-16b.png" alt="" style="vertical-align: text-bottom; display: none;"/>
             <% } %>                
         </td>
-        <td>
-            <input type="text" id="<%= item.RowId %>Remarks" name="<%= item.RowId %>Remarks" value="<%= item.Remarks %>"/>
+        <td> 
+            <textarea id="<%= item.RowId %>Remarks" name="<%= item.RowId %>Remarks" rows="2"><%= item.Remarks %></textarea>
+            <!--<input type="text" id="<%= item.RowId %>Remarks" name="<%= item.RowId %>Remarks" value="<%= item.Remarks %>"/>-->
         </td>
     </tr>
 <% }) %>
