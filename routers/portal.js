@@ -128,13 +128,16 @@ portal.get('/catalogplugins',function(req,res){
 
         var LastDate = pluginsService.getMostRecentFileName();
         var PluginsCatalog = pluginsService.getListOfPlugins();
+        var AuditTemplatesCatalog = pluginsService.getListOfAuditTemplates(credentials.AuditTemplatesPath);
         //console.log(PluginsCatalog.length)
         res.render('portal/catalogplugins', {
             //action: req.query.action,
             action: req.params.name,
             lastupdate: LastDate,
             catalog: PluginsCatalog,
+            audittemplates: AuditTemplatesCatalog,
             downloadurl: credentials.urlpaths.plugins,
+            downloadurlTemplates: credentials.urlpaths.audittemplates,
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
         });  

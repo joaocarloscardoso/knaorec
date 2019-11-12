@@ -171,6 +171,13 @@ app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
     log.info('plug-in download: ' + file);
 });
 
+app.get(('/portal/' + credentials.urlpaths.audittemplates + ':name'),function(req,res){
+    //download xml file
+    var file = __dirname + '/' + credentials.urlpaths.audittemplates + req.params.name
+    var file = file.replace("/","\\");
+    res.download(file); // Set disposition and send it.
+    log.info('plug-in download: ' + file);
+});
 
 app.post(('/work/delete'),function(req,res){
     //download xml file
