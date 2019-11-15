@@ -200,7 +200,7 @@ generatedocs.get('/docplanList',function(req,res){
     NewDocFile = NewDocFile + req.sessionID + '.' + credentials.ReportFormat;
 
     if (status) {
-        var data = Planning.LoadPlanning2Doc(NewAuditFile);
+        var data = Planning.LoadPlanning2Doc(NewAuditFile, req.query.op);
         carbone.render('./public/templates/PlanList.' + credentials.ReportFormat, data, function(err, result){
             if (err) {
               return log.info('document (plan list) generation error:  ' +err);
