@@ -1,0 +1,213 @@
+<section id="contact" class="col-6 col-12-narrower">
+    <header>
+        <h2></h2>
+        <h2><%= Matrix.RecId %></h2>
+    </header>
+    <% if(msg != ''){ %>
+        <div class="col-12" id="save_auditmatrix">
+            <p>
+                <span class="successformtext"><%= msg %></span><br/>
+            </p>
+        </div>
+    <% } %>    
+    <% if(AuditErrors){ %>
+    <div class="col-12" id="err_auditmatrix">
+        <p>
+            <% AuditErrors.forEach(function(error){ %>
+                <span class="errformtext">* <%= error.msg %></span><br/>
+            <% }) %>    
+        </p>
+    </div>
+    <% } %>
+    <form method="POST" action="/auditMatrices/recMatrix">
+        <div class="row gtr-50">
+            <div class="col-12">
+                <ul class="actions">
+                    <% if (Matrix.RecId != "(New)") { %>
+                        <li><a href="/generatedocs/docrecMatrix?id=<%= Matrix.RecId %>" class="button">Generate document</a></li>
+                    <% } %>
+                    <li><a href="/auditrec/auditrecs" class="button">Close</a></li>
+                    <li><input type="submit" class="button alt" value="Save" /></li>
+                </ul>
+            </div>
+            <div class="col-12">
+                Description<br/>
+                <textarea name="description" id="description" autofocus placeholder="Recommendation description" rows="10">
+                    <%= Matrix.Description %>
+                </textarea>
+                <input type="hidden" id="recid" name="recid" value="<%= Matrix.RecId %>"/>
+            </div>
+            <div class="col-12">
+                Priority<br/>
+                <select name="priority" id="priority" size="1">
+                    <% Matrix.Priorities.split("|").forEach(function(item) { -%>
+                        <% if (Matrix.Priority === item) { %>
+                            <option value="<%= item %>" selected><%= item %></option>
+                        <% } else { %>
+                            <option value="<%= item %>"><%= item %></option>
+                        <% } %>       
+                    <% }) -%>         
+                </select>
+            </div>
+            <div class="col-12">
+                Risk characterization<br/>
+                <select name="risk" id="risk" size="1" data-tooltip-right="(Most relevant category of) Risk faced by organizations directly and indirectly as a result of non-implementation of audit recommendations">
+                    <% Matrix.Risks.split("|").forEach(function(item) { -%>
+                        <% if (Matrix.Risk === item) { %>
+                            <option value="<%= item %>" selected><%= item %></option>
+                        <% } else { %>
+                            <option value="<%= item %>"><%= item %></option>
+                        <% } %>       
+                    <% }) -%>         
+                </select>
+            </div>
+            <div class="col-12">
+                Risk evaluation<br/>
+                <select name="riskevaluation" id="riskevaluation" size="1">
+                    <% Matrix.RisksEvaluation.split("|").forEach(function(item) { -%>
+                        <% if (Matrix.Riskevaluation === item) { %>
+                            <option value="<%= item %>" selected><%= item %></option>
+                        <% } else { %>
+                            <option value="<%= item %>"><%= item %></option>
+                        <% } %>       
+                    <% }) -%>         
+                </select>
+            </div>
+            <div class="col-12">
+                Accepted<br/>
+                <select name="accepted" id="accepted" size="1" data-tooltip-right="Recommendation accepted by the auditee">
+                    <% if (Matrix.Accepted == "Yes") { %>
+                        <option value="Yes" selected>Yes</option>
+                        <option value="No" >No</option>
+                    <% } else { %>
+                        <option value="Yes">Yes</option>
+                        <option value="No" selected>No</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-12">
+                Action plan<br/>
+                <textarea name="actionplan" id="actionplan" placeholder="Action/remedial plan proposed" rows="4">
+                    <%= Matrix.Actionplan %>
+                </textarea>
+            </div>
+            <div class="col-12">
+                Timeline<br/>
+                <textarea name="timeline" id="timeline" placeholder="Timeline planned to implement the action/remedial plan proposed" rows="1">
+                    <%= Matrix.Timeline %>
+                </textarea>
+            </div>
+            <div class="col-12">
+                Desired outcome<br/>
+                <textarea name="outcome" id="outcome" placeholder="Description of the outcome desired by the implementation of the recommendation" rows="2">
+                    <%= Matrix.Outcome %>
+                </textarea>
+            </div>
+            <div class="col-12">
+                Responsible<br/>
+                <textarea name="responsible" id="responsible" placeholder="Identify and direct recommendation to those who have responsibility and authority to act on them" rows="1">
+                    <%= Matrix.Responsible %>
+                </textarea>
+            </div>
+            <div class="col-12">
+                    Related reported findings<br/>
+                    <div id="gridfindings" style="width: 100%; height: 200px;"></div>
+            </div>
+            <div class="col-12">
+                    Monitoring and follow-up activities<br/>
+                    <div id="gridmonitoring" style="width: 100%; height: 300px;"></div>
+            </div>
+            <div class="col-12">
+                <ul class="actions">
+                    <% if (Matrix.RecId != "(New)") { %>
+                        <li><a href="/generatedocs/docrecMatrix?id=<%= Matrix.RecId %>" class="button">Generate document</a></li>
+                    <% } %>
+                    <li><a href="/auditrec/auditrecs" class="button">Close</a></li>
+                    <li><input type="submit" class="button alt" value="Save" /></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</section>
+<!-- javascript is placed in the body section -->
+<script type="text/javascript">
+    var RelFindings = [
+        { id: 'R20191016-100449', text: 'R20191016-100449' },
+        { id: 'R20191019-100333', text: 'R20191019-100333' }
+    ];
+    var Status = [
+        { id: 'Not initiated', text: 'Not initiated' },
+        { id: 'Cancelled', text: 'Cancelled' },
+        { id: 'Deferred', text: 'Deferred' },
+        { id: 'Identified', text: 'Identified' },
+        { id: 'In progress', text: 'In progress' },
+        { id: 'Implemented', text: 'Implemented' },
+    ];
+
+    $(function () {
+        $('#gridfindings').w2grid({ 
+            name: 'gridfindings', 
+            show: { 
+                toolbar: true,
+                footer: true,
+                lineNumbers: true,
+                toolbarSave: true
+            },
+            columns: [                
+                { field: 'findingid', caption: 'Findig Id', size: '50%', sortable: true, resizable: true, 
+                    editable: { type: 'combo', items: RelFindings, filter: false } 
+                }
+            ],
+            toolbar: {
+                items: [
+                    { id: 'add', type: 'button', caption: 'Add Record', icon: 'w2ui-icon-plus' }
+                ],
+                onClick: function (event) {
+                    if (event.target == 'add') {
+                        w2ui['gridfindings'].add({ recid: w2ui['gridfindings'].records.length + 1 });
+                    }
+                }
+            },
+            records: [
+                { findingid: 'R20191019-100333', editable: false }
+            ]
+        });    
+
+        $('#gridmonitoring').w2grid({ 
+            name: 'gridmonitoring', 
+            show: { 
+                toolbar: true,
+                footer: true,
+                lineNumbers: true,
+                toolbarSave: true
+            },
+            columns: [                
+                { field: 'date', caption: 'date', size: '90px', sortable: true, resizable: true, render: 'date', style: 'text-align: center',
+                    editable: { type: 'date' } 
+                },
+                { field: 'status', caption: 'Status', size: '120px', sortable: true, resizable: true, 
+                    editable: { type: 'combo', items: Status, filter: false } 
+                },
+                { field: 'note', caption: 'Track notes', size: '50%', sortable: true, resizable: true, 
+                    editable: { type: 'text' }
+                }
+            ],
+            toolbar: {
+                items: [
+                    { id: 'add', type: 'button', caption: 'Add Record', icon: 'w2ui-icon-plus' }
+                ],
+                onClick: function (event) {
+                    if (event.target == 'add') {
+                        w2ui['gridmonitoring'].add({ recid: w2ui['gridmonitoring'].records.length + 1 });
+                    }
+                }
+            },
+            records: [
+                { date: '2019-01-01', status:'In progress', note:'1st track notes taken during monitoring and follow up activities'},
+                { date: '2019-06-01', status:'In progress', note:'2nd track notes taken during monitoring and follow up activities'},
+                { date: '2019-10-31', status:'Implemented', note:'Last track notes taken during monitoring and follow up activities'}
+            ]
+        });    
+    });
+
+</script>    

@@ -1,0 +1,28 @@
+<% reccatalog.forEach(function(item) { %>
+    <tr id="<%= item.RowId %>Row" style="display: table-row;">
+        <td>
+            <a href="/auditrec/deleteauditrec/<%= item.Id %>">Delete...</a>
+        </td>
+        <td>
+            <a href="/auditMatrices/recMatrix?id=<%= item.Id %>""><%= item.Id %></a>
+            <input type="hidden" id="<%= item.RowId %>Id" name="<%= item.RowId %>Id" value="<%= item.Id %>"/>
+        </td>
+        <td>
+            <span><%= item.Description %></span>
+        </td>
+        <td>
+            <span><%= item.Priority %></span>
+        </td>
+        <td>
+            <span><%= item.Risk %></span><br/>
+            <span>(<%= item.Riskevaluation %>)</span>
+        </td>
+        <td>
+            <span><%= item.Timeline %></span>
+        </td>
+        <td>
+            <span data-tooltip-right="Current status is collected from last assessment, otherwise the value (not yet accessed) is displayed!"><%= item.Status %></span>
+        </td>
+    </tr>
+<% }) %>
+    
