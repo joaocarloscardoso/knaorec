@@ -48,7 +48,7 @@ findingaudit.get('/auditfindings',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -95,7 +95,7 @@ findingaudit.post('/auditfindings', function(req, res){
                 msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
-             });*/
+            });*/
         }
     } else {
         res.render('login/login', {
@@ -126,7 +126,7 @@ findingaudit.get('/deleteauditfinding/:findingId',function(req,res){
             msg: 'Selected finding deleted!',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',

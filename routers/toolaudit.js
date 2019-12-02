@@ -82,7 +82,7 @@ tooleaudit.get('/toolauditplugins',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -127,7 +127,7 @@ tooleaudit.get('/auditstatistics',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -230,7 +230,7 @@ tooleaudit.post('/toolauditreference', [
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: true
-         });
+        });
     }
     else {
         //Save reference on audit file
