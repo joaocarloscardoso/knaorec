@@ -10,10 +10,10 @@
                 <% if(preassesscatalog.length > 0) { %>
                     <table id='tablecatalog'>
                         <thead>
-                            <% include ./auditpreassessheader %>
+                            <%- include('./auditpreassessheader'); %>
                         </thead>    
                         <tbody>
-                            <% include ./auditpreassessrow %>
+                            <%- include('./auditpreassessrow'); %>
                         </tbody>
                     </table>
                 <% } else { %>

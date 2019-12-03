@@ -18,7 +18,7 @@
     <% if(Matrix.length > 0) { %>
         Most relevant terms discovered and analyzed using Term Frequency-Inverse Document Frequency (TF-IDF) mechanism<br/>
         <div class="col-4 col-12-narrower" style="width: 600px; height: 400px;">
-            <% include ./recommendationchart %>
+            <%- include('./recommendationchart'); %>
         </div>
     <% } %>
     <form method="POST" action="/analytics/Recommendations">

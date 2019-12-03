@@ -18,14 +18,14 @@
         <div class="col-4 col-12-narrower" style="width: 600px; height: 100%;">
             <table style=" border-collapse: separate; border-spacing: 8px;">
                 <thead>
-                    <% include ./sentimentdocumentheader %>
+                    <%- include('./sentimentdocumentheader'); %>
                 </thead>    
                 <tbody>
-                    <% include ./sentimentdocumentrow %>
+                    <%- include('./sentimentdocumentrow'); %>
                 </tbody>
             </table>
             <p></p>
-            <% include ./sentimentrange %>
+            <%- include('./sentimentrange'); %>
         </div>
     <% } else { %>
         <p>No findings with descriptions filled were discovered yet for analysis!</p>

@@ -6,13 +6,13 @@
 -->
 <html>
     <!-- based on no-side bar template -->
-    <% include ../partials/head %>
+    <%- include('../partials/head'); %>
 	<script src="/assets/js/Chart.js"></script>
 	<body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<% include ../partials/header %>
+			<%- include('../partials/header'); %>
 
 			<!-- Main -->
             <div class="container">
@@ -22,13 +22,13 @@
 							<!-- Content -->
                             <article>
                                 <%  if (operation == 'recommendation') { %>
-                                    <% include ../partials/audit_analytics/recommendation %>
+                                    <%- include('../partials/audit_analytics/recommendation'); %>
 								<% } else if (operation == 'findings') { %>
-									<% include ../partials/audit_analytics/findings %>
+									<%- include('../partials/audit_analytics/findings'); %>
 								<% } else if (operation == 'sentimentfindings') { %>
-									<% include ../partials/audit_analytics/sentimentdocument %>
+									<%- include('../partials/audit_analytics/sentimentdocument'); %>
 								<% } else if (operation == 'sentimentfindingsdetailed') { %>
-									<% include ../partials/audit_analytics/sentimentfinding %>
+									<%- include('../partials/audit_analytics/sentimentfinding'); %>
 								<% } %>
 						</article>
 						</div>
@@ -36,12 +36,12 @@
 				</section>
             </div>
 			<!-- Footer -->
-			<% include ../partials/footer %>
+			<%- include('../partials/footer'); %>
 
 		</div>
 
 		<!-- Scripts -->
-		<%- include ../partials/scripts -%>
+		<%- include('../partials/scripts'); -%>
 
 	</body>
 </html>

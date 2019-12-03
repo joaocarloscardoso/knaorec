@@ -6,12 +6,12 @@
 -->
 <html>
     <!-- based on no-side bar template -->
-    <% include ../partials/head %>
+    <%- include('../partials/head'); %>
     <body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<% include ../partials/header %>
+			<%- include('../partials/header'); %>
 
 			<!-- Main -->
             <div class="container">
@@ -21,11 +21,11 @@
 							<!-- Content -->
                             <article>
                                 <%  if (operation == 'plan_matrix') { %>
-                                    <% include ../partials/audit_matrices/plan %>
+                                    <%- include('../partials/audit_matrices/plan'); %>
                                 <% } else if (operation == 'preassess_matrix') { %>
-                                    <% include ../partials/audit_matrices/preassessment %>
+                                    <%- include('../partials/audit_matrices/preassessment'); %>
                                 <% } else if (operation == 'finding_matrix') { %>
-                                    <% include ../partials/audit_matrices/finding %>
+                                    <%- include('../partials/audit_matrices/finding'); %>
 								<% } %>
 						</article>
 						</div>
@@ -33,12 +33,12 @@
 				</section>
             </div>
 			<!-- Footer -->
-			<% include ../partials/footer %>
+			<%- include('../partials/footer'); %>
 
 		</div>
 
 		<!-- Scripts -->
-		<%- include ../partials/scripts -%>
+		<%- include('../partials/scripts'); -%>
 
 	</body>
 </html>

@@ -34,10 +34,10 @@
                     </p>
                     <table id='tablecatalog'>
                         <thead>
-                            <% include ./auditrecheader %>
+                            <%- include('./auditrecheader'); %>
                         </thead>    
                         <tbody>
-                            <% include ./auditrecrow %>
+                            <%- include('./auditrecrow'); %>
                         </tbody>
                     </table>
                     <input type="hidden" name="rows_count" id="rows_count" value="<%= reccatalog.length %>"/> 

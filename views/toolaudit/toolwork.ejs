@@ -6,12 +6,12 @@
 -->
 <html>
     <!-- based on no-side bar template -->
-    <% include ../partials/head %>
+    <%- include('../partials/head'); %>
     <body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<% include ../partials/header %>
+			<%- include('../partials/header'); %>
 
 			<!-- Main -->
             <div class="container">
@@ -21,21 +21,21 @@
 							<!-- Content -->
                             <article>
                                 <%  if (operation == 'audit_creation') { %>
-                                    <% include ../partials/auditcreation %>
+                                    <%- include('../partials/auditcreation'); %>
                                 <% } else if (operation == 'audit_reference') { %>
-                                    <% include ../partials/auditreference %>
+                                    <%- include('../partials/auditreference'); %>
 								<% } else if (operation == 'audit_plugins') { %>
-									<% include ../partials/auditplugins %>
+									<%- include('../partials/auditplugins'); %>
 								<% } else if (operation == 'audit_preassess') { %>
-									<% include ../partials/auditpreassessment %>
+									<%- include('../partials/auditpreassessment'); %>
 								<% } else if (operation == 'audit_plan') { %>
-									<% include ../partials/auditplan %>
+									<%- include('../partials/auditplan'); %>
 								<% } else if (operation == 'audit_stats') { %>
-									<% include ../partials/auditstatistics %>
+									<%- include('../partials/auditstatistics'); %>
 								<% } else if (operation == 'audit_findings') { %>
-									<% include ../partials/auditfindings %>
+									<%- include('../partials/auditfindings'); %>
 								<% } else if (operation == 'audit_recommendations') { %>
-									<% include ../partials/auditrec %>
+									<%- include('../partials/auditrec'); %>
 								<% } %>
 						</article>
 						</div>
@@ -43,12 +43,12 @@
 				</section>
             </div>
 			<!-- Footer -->
-			<% include ../partials/footer %>
+			<%- include('../partials/footer'); %>
 
 		</div>
 
 		<!-- Scripts -->
-		<%- include ../partials/scripts -%>
+		<%- include('../partials/scripts'); -%>
 
 	</body>
 </html>

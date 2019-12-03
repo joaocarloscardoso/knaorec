@@ -6,7 +6,7 @@
 -->
 <html>
     <!-- based on no-side bar template -->
-    <% include ../partials/head %>
+    <%- include('../partials/head'); %>
 
     <style type="text/css">
         #viz {
@@ -102,7 +102,7 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<% include ../partials/header %>
+			<%- include('../partials/header'); %>
 
 			<!-- Main -->
             <div class="container">
@@ -125,10 +125,10 @@
                                         Hits for the audit (text)
                                         <table id='tablecatalog'>
                                             <thead>
-                                                <% include ../partials/audit_analytics/recauditheader %>
+                                                <%- include('../partials/audit_analytics/recauditheader'); %>
                                             </thead>    
                                             <tbody>
-                                                <% include ../partials/audit_analytics/recauditrow %>
+                                                <%- include('../partials/audit_analytics/recauditrow'); %>
                                             </tbody>
                                         </table>
                                     <% } %>
@@ -139,12 +139,12 @@
 				</section>
             </div>
 			<!-- Footer -->
-			<% include ../partials/footer %>
+			<%- include('../partials/footer'); %>
 
 		</div>
 
 		<!-- Scripts -->
-		<%- include ../partials/scripts -%>
+		<%- include('../partials/scripts'); -%>
 
 	</body>
 </html>

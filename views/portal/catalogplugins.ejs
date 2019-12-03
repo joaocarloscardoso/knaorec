@@ -6,12 +6,12 @@
 -->
 <html>
     <!-- based on no-side bar template -->
-    <% include ../partials/head %>
+    <%- include('../partials/head'); %>
     <body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-			<% include ../partials/header %>
+			<%- include('../partials/header'); %>
 
 			<!-- Main -->
 				<section class="wrapper style1">
@@ -23,7 +23,7 @@
 								<article>
 									<header>
 										<h2>Plug-ins catalogue</h2>
-										<% include ../partials/pluginstats %>
+										<%- include('../partials/pluginstats'); %>
 										<p>
 											A plug-in (or extension) is a component that adds a specific feature to the “core” Handbook,
 											therefore creating abilities which extend or customize the tool.
@@ -40,10 +40,10 @@
 										<% if(catalog.length > 0) { %>
 										<table id='tablecatalog'>
 											<thead>
-												<% include ../partials/pluginrheader %>
+												<%- include('../partials/pluginrheader'); %>
 											</thead>    
 											<tbody>
-												<% include ../partials/pluginrow %>
+												<%- include('../partials/pluginrow'); %>
 											</tbody>
 										</table>
 										<% } else { %>
@@ -70,10 +70,10 @@
 										<% if(audittemplates.length > 0) { %>
 										<table id='tablecatalog'>
 											<thead>
-												<% include ../partials/audtempheader %>
+												<%- include('../partials/audtempheader'); %>
 											</thead>    
 											<tbody>
-												<% include ../partials/audtemprow %>
+												<%- include('../partials/audtemprow'); %>
 											</tbody>
 										</table>
 										<% } else { %>
@@ -89,12 +89,12 @@
 				</section>
 
 			<!-- Footer -->
-			<% include ../partials/footer %>
+			<%- include('../partials/footer'); %>
 
 		</div>
 
 		<!-- Scripts -->
-		<%- include ../partials/scripts -%>
+		<%- include('../partials/scripts'); -%>
 
 	</body>
 </html>

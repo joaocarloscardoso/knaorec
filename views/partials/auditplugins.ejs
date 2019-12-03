@@ -17,10 +17,10 @@
                 <% if(catalog.length > 0) { %>
                     <table id='tablecatalog'>
                         <thead>
-                            <% include ./auditpluginheader %>
+                            <%- include('./auditpluginheader'); %>
                         </thead>    
                         <tbody>
-                            <% include ./auditpluginrow %>
+                            <%- include('./auditpluginrow'); %>
                         </tbody>
                     </table>
                     <input type="hidden" name="rows_count" id="rows_count" value="<%= catalog.length %>"/> 

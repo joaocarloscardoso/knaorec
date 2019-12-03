@@ -34,10 +34,10 @@
                         </p>
                         <table id='tablecatalog'>
                             <thead>
-                                <% include ./auditfindingsheader %>
+                                <%- include('./auditfindingsheader'); %>
                             </thead>    
                             <tbody>
-                                <% include ./auditfindingsrow %>
+                                <%- include('./auditfindingsrow'); %>
                             </tbody>
                         </table>
                         <input type="hidden" name="rows_count" id="rows_count" value="<%= findingcatalog.length %>"/> 

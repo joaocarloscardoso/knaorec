@@ -35,10 +35,10 @@
                         &nbsp;
                         <table id='tablecatalog'>
                             <thead>
-                                <% include ./auditplanheader %>
+                                <%- include('./auditplanheader'); %>
                             </thead>    
                             <tbody>
-                                <% include ./auditplanrow %>
+                                <%- include('./auditplanrow'); %>
                             </tbody>
                         </table>
                         <input type="hidden" name="rows_count" id="rows_count" value="<%= plancatalog.length %>"/> 
