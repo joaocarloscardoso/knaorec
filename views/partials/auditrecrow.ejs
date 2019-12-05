@@ -12,21 +12,25 @@
         </td>
         <td>
             <%if(item.Priority == "High") { %>
-                <span style="color: rgb(252, 4, 4);"><b><%= item.Priority %></b></span>
+                <img id="phigh<%= item.RowId %>" src="../images/high-16.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>
+                <span><b><%= item.Priority %></b></span>
             <% } else if (item.Priority == "Medium") { %>
-                <span style="color: rgb(221, 210, 0);"><b><%= item.Priority %></b></span>
+                <img id="pmedium<%= item.RowId %>" src="../images/medium-16.png" alt="" style="vertical-align: text-bottom; display: none;"/>
+                <span><b><%= item.Priority %></b></span>
             <% } else if (item.Priority == "Low") { %>
-                <span style="color: rgb(84, 161, 20);"><b><%= item.Priority %></b></span>
+                <span><b><%= item.Priority %></b></span>
             <% } %>                
         </td>
         <td>
             <span><%= item.Risk %></span><br/>
             <%if(item.Riskevaluation == "High") { %>
-                <span style="color: rgb(252, 4, 4);"><b>(<%= item.Riskevaluation %>)</b></span>
+                <span><b>(<img id="rhigh<%= item.RowId %>" src="../images/high-16.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>
+                <%= item.Riskevaluation %>)</b></span>
             <% } else if (item.Riskevaluation == "Medium") { %>
-                <span style="color: rgb(221, 210, 0);"><b>(<%= item.Riskevaluation %>)</b></span>
+                <span><b>(<img id="rmedium<%= item.RowId %>" src="../images/medium-16.png" alt="" style="vertical-align: text-bottom; display: none;"/>
+                <%= item.Riskevaluation %>)</b></span>
             <% } else if (item.Riskevaluation == "Low") { %>
-                <span style="color: rgb(84, 161, 20);"><b>(<%= item.Riskevaluation %>)</b></span>
+                <span><b>(<%= item.Riskevaluation %>)</b></span>
             <% } %>                
         </td>
         <td>

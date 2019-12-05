@@ -29,7 +29,7 @@ const bcrypt = require('bcrypt-nodejs');
 var formidable = require('formidable');
 var fs = require("fs");
 
-const neo4j = require('neo4j-driver').v1;
+const neo4j = require('neo4j-driver');
 
 const driver = neo4j.driver(credentials.neo4j.uri, neo4j.auth.basic(credentials.neo4j.user,credentials.neo4j.password));
 

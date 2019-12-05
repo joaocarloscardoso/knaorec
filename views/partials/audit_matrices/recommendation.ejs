@@ -1,3 +1,4 @@
+
 <section id="contact" class="col-6 col-12-narrower">
     <header>
         <h2></h2>
@@ -32,9 +33,7 @@
             </div>
             <div class="col-12">
                 Description<br/>
-                <textarea name="description" id="description" autofocus placeholder="Recommendation description" rows="10">
-                    <%= Matrix.Description %>
-                </textarea>
+                <textarea name="description" id="description" autofocus placeholder="Recommendation description" rows="10"><%= Matrix.Description %></textarea>
                 <input type="hidden" id="recid" name="recid" value="<%= Matrix.RecId %>"/>
             </div>
             <div class="col-12">
@@ -87,34 +86,26 @@
             </div>
             <div class="col-12">
                 Action plan<br/>
-                <textarea name="actionplan" id="actionplan" placeholder="Action/remedial plan proposed" rows="4">
-                    <%= Matrix.Actionplan %>
-                </textarea>
+                <textarea name="actionplan" id="actionplan" placeholder="Action/remedial plan proposed" rows="4"><%= Matrix.Actionplan %></textarea>
             </div>
             <div class="col-12">
                 Timeline<br/>
-                <textarea name="timeline" id="timeline" placeholder="Timeline planned to implement the action/remedial plan proposed" rows="1">
-                    <%= Matrix.Timeline %>
-                </textarea>
+                <textarea name="timeline" id="timeline" placeholder="Timeline planned to implement the action/remedial plan proposed" rows="1"><%= Matrix.Timeline %></textarea>
             </div>
             <div class="col-12">
                 Desired outcome<br/>
-                <textarea name="outcome" id="outcome" placeholder="Description of the outcome desired by the implementation of the recommendation" rows="2">
-                    <%= Matrix.Outcome %>
-                </textarea>
+                <textarea name="outcome" id="outcome" placeholder="Description of the outcome desired by the implementation of the recommendation" rows="2"><%= Matrix.Outcome %></textarea>
             </div>
             <div class="col-12">
                 Responsible<br/>
-                <textarea name="responsible" id="responsible" placeholder="Identify and direct recommendation to those who have responsibility and authority to act on them" rows="1">
-                    <%= Matrix.Responsible %>
-                </textarea>
+                <textarea name="responsible" id="responsible" placeholder="Identify and direct recommendation to those who have responsibility and authority to act on them" rows="1"><%= Matrix.Responsible %></textarea>
             </div>
             <div class="col-12">
-                    Related reported findings<br/>
-                    <div id="gridfindings" style="width: 100%; height: 200px;"></div>
+                Related reported findings<br/>
+                <div id="jsGrid"></div>
             </div>
             <div class="col-12">
-                    Monitoring and follow-up activities<br/>
+                Monitoring and follow-up activities<br/>
                     <div id="gridmonitoring" style="width: 100%; height: 300px;"></div>
             </div>
             <div class="col-12">
@@ -129,85 +120,3 @@
         </div>
     </form>
 </section>
-<!-- javascript is placed in the body section -->
-<script type="text/javascript">
-    var RelFindings = [
-        { id: 'R20191016-100449', text: 'R20191016-100449' },
-        { id: 'R20191019-100333', text: 'R20191019-100333' }
-    ];
-    var Status = [
-        { id: 'Not initiated', text: 'Not initiated' },
-        { id: 'Cancelled', text: 'Cancelled' },
-        { id: 'Deferred', text: 'Deferred' },
-        { id: 'Identified', text: 'Identified' },
-        { id: 'In progress', text: 'In progress' },
-        { id: 'Implemented', text: 'Implemented' },
-    ];
-
-    $(function () {
-        $('#gridfindings').w2grid({ 
-            name: 'gridfindings', 
-            show: { 
-                toolbar: true,
-                footer: true,
-                lineNumbers: true,
-                toolbarSave: true
-            },
-            columns: [                
-                { field: 'findingid', caption: 'Findig Id', size: '50%', sortable: true, resizable: true, 
-                    editable: { type: 'combo', items: RelFindings, filter: false } 
-                }
-            ],
-            toolbar: {
-                items: [
-                    { id: 'add', type: 'button', caption: 'Add Record', icon: 'w2ui-icon-plus' }
-                ],
-                onClick: function (event) {
-                    if (event.target == 'add') {
-                        w2ui['gridfindings'].add({ recid: w2ui['gridfindings'].records.length + 1 });
-                    }
-                }
-            },
-            records: [
-                { findingid: 'R20191019-100333', editable: false }
-            ]
-        });    
-
-        $('#gridmonitoring').w2grid({ 
-            name: 'gridmonitoring', 
-            show: { 
-                toolbar: true,
-                footer: true,
-                lineNumbers: true,
-                toolbarSave: true
-            },
-            columns: [                
-                { field: 'date', caption: 'date', size: '90px', sortable: true, resizable: true, render: 'date', style: 'text-align: center',
-                    editable: { type: 'date' } 
-                },
-                { field: 'status', caption: 'Status', size: '120px', sortable: true, resizable: true, 
-                    editable: { type: 'combo', items: Status, filter: false } 
-                },
-                { field: 'note', caption: 'Track notes', size: '50%', sortable: true, resizable: true, 
-                    editable: { type: 'text' }
-                }
-            ],
-            toolbar: {
-                items: [
-                    { id: 'add', type: 'button', caption: 'Add Record', icon: 'w2ui-icon-plus' }
-                ],
-                onClick: function (event) {
-                    if (event.target == 'add') {
-                        w2ui['gridmonitoring'].add({ recid: w2ui['gridmonitoring'].records.length + 1 });
-                    }
-                }
-            },
-            records: [
-                { date: '2019-01-01', status:'In progress', note:'1st track notes taken during monitoring and follow up activities'},
-                { date: '2019-06-01', status:'In progress', note:'2nd track notes taken during monitoring and follow up activities'},
-                { date: '2019-10-31', status:'Implemented', note:'Last track notes taken during monitoring and follow up activities'}
-            ]
-        });    
-    });
-
-</script>    

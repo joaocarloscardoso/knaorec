@@ -7,7 +7,8 @@
 <html>
     <!-- based on no-side bar template -->
     <%- include('../partials/head'); %>
-    <body class="is-preload">
+
+	<body class="is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -26,6 +27,8 @@
                                     <%- include('../partials/audit_matrices/preassessment'); %>
                                 <% } else if (operation == 'finding_matrix') { %>
                                     <%- include('../partials/audit_matrices/finding'); %>
+                                <% } else if (operation == 'audit_recommendations') { %>
+                                    <%- include('../partials/audit_matrices/recommendation'); %>
 								<% } %>
 						</article>
 						</div>
@@ -39,6 +42,5 @@
 
 		<!-- Scripts -->
 		<%- include('../partials/scripts'); -%>
-
 	</body>
 </html>

@@ -134,7 +134,7 @@ matricesaudit.get('/preassessMatrix',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -243,7 +243,7 @@ matricesaudit.post('/planMatrix', function(req, res){
                 msg: '',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
-             });*/
+            });*/
         }
     } else {
         res.render('login/login', {
