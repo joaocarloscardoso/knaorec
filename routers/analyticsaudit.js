@@ -74,7 +74,7 @@ analyticsaudit.get('/Findings',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -185,7 +185,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
                     msg: '',
                     auditfile: 'work/' + req.sessionID + '.xml',
                     audit: status
-                 });        
+                });        
                 session.close();  
             })
             .catch(error => {

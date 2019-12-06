@@ -24,11 +24,9 @@
         <td>
             <span><%= item.Risk %></span><br/>
             <%if(item.Riskevaluation == "High") { %>
-                <span><b>(<img id="rhigh<%= item.RowId %>" src="../images/high-16.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>
-                <%= item.Riskevaluation %>)</b></span>
+                <span><b>(<%= item.Riskevaluation %>)</b></span>
             <% } else if (item.Riskevaluation == "Medium") { %>
-                <span><b>(<img id="rmedium<%= item.RowId %>" src="../images/medium-16.png" alt="" style="vertical-align: text-bottom; display: none;"/>
-                <%= item.Riskevaluation %>)</b></span>
+                <span><b>(<%= item.Riskevaluation %>)</b></span>
             <% } else if (item.Riskevaluation == "Low") { %>
                 <span><b>(<%= item.Riskevaluation %>)</b></span>
             <% } %>                

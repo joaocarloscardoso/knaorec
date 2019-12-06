@@ -73,7 +73,7 @@
                 </select>
             </div>
             <div class="col-12">
-                Accepted<br/>
+                Accepted (by the auditee)<br/>
                 <select name="accepted" id="accepted" size="1" data-tooltip-right="Recommendation accepted by the auditee">
                     <% if (Matrix.Accepted == "Yes") { %>
                         <option value="Yes" selected>Yes</option>
@@ -102,11 +102,88 @@
             </div>
             <div class="col-12">
                 Related reported findings<br/>
-                <div id="jsGrid"></div>
+                    <a href="#">
+                        <img id="insert_finding" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;"/>
+                        &nbsp; add new item...
+                    </a>
+                    <table id='tablerelfindings'>
+                        <thead>
+                            <%- include('./submatrices/recrelfindingsheader'); %>
+                        </thead>    
+                        <tbody>
+                            <% if(Matrix.RelFindings.length > 0) { %>
+                                <%- include('./submatrices/recrelfindingsrow'); %>
+                            <% } else { %>
+                            <!--template for new row-->    
+                            <tr id="F_1Row" style="display: table-row;">
+                                <td>
+                                    <a href="#">Delete...</a>
+                                </td>
+                                <td>
+                                    <select name="RF_1" id="RF_1" size="1" autofocus>
+                                        <% Matrix.Findings.split("|").forEach(function(colitem) { -%>
+                                            <option value="<%= colitem %>"><%= colitem %></option>
+                                        <% }) -%>         
+                                    </select>
+                                </td>
+                                <td><span style="color: rgb(252, 4, 4);">(Select finding in dropdown to get related information!)</span>
+                                </td>
+                                <td>&nbsp; 
+                                </td>
+                                <td>&nbsp;
+                                </td>
+                            </tr>
+                            <!--end template for new row-->
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="frows_count" id="frows_count" value="<%= Matrix.RelFindings.length %>"/>                
             </div>
             <div class="col-12">
                 Monitoring and follow-up activities<br/>
-                    <div id="gridmonitoring" style="width: 100%; height: 300px;"></div>
+                <a href="#">
+                        <img id="insert_monitoring" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;"/>
+                        &nbsp; add new item...
+                    </a>
+                    <table id='tablemonitoring'>
+                        <thead>
+                            <%- include('./submatrices/recmonitoringheader'); %>
+                        </thead>    
+                        <tbody>
+                            <% if(Matrix.Monitoring.length > 0) { %>
+                                <%- include('./submatrices/recmonitoringrow'); %>
+                            <% } else { %>
+                            <!--template for new row-->    
+                                <% let today = new Date();
+                                let dd = today.getDate();
+                                dd= '0' + dd;
+                                let mm = (today.getMonth()+1);
+                                mm= '0' + mm;
+                                let yyyy = today.getFullYear();
+
+                                today = yyyy + "-" + mm.slice(-2) + "-" + dd.slice(-2);
+                                %>
+                                <tr id="F_1Row" style="display: table-row;">
+                                    <td>
+                                        <a>Delete...</a>
+                                    </td>
+                                    <td><input type="date" name="MD_1" id="MD_1" value="<%= today %>" />
+                                    </td>
+                                    <td>
+                                        <select name="MS_1" id="MS_1" size="1" autofocus>
+                                            <% Matrix.MonStatus.split("|").forEach(function(colitem) { -%>
+                                                <option value="<%= colitem %>"><%= colitem %></option>
+                                            <% }) -%>         
+                                        </select>
+                                    </td>
+                                    <td><textarea name="MT_1" id="MT_1" placeholder="Track note(s)" rows="3"></textarea> 
+                                    </td>
+                                </tr>
+                                <!--end template for new row-->
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="mrows_count" id="mrows_count" value="<%= Matrix.Monitoring.length %>"/>
             </div>
             <div class="col-12">
                 <ul class="actions">

@@ -1,0 +1,39 @@
+<% 
+let Description=''; 
+let Source='';
+let Relevant='';
+%>
+<% Matrix.RelFindings.forEach(function(item) { %>
+    <% 
+        Description=''; 
+        Source='';
+        Relevant='';
+    %>
+    <tr id="F_<%= item.RowId %>Row" style="display: table-row;">
+        <td>
+            <a>Delete...</a>
+        </td>
+        <td>
+            <select name="RF_<%= item.RowId %>" id="RF_<%= item.RowId %>" size="1" autofocus>
+                <% Matrix.Findings.forEach(function(colitem) { -%>
+                    <% if (item.RowId === colitem.FindingId) { %>
+                        <option value="<%= colitem.FindingId %>" selected><%= colitem.FindingId %></option>
+                        <% 
+                            Description=colitem.Description; 
+                            Source=colitem.Source;
+                            Relevant=colitem.Relevant;
+                        %>
+                    <% } else { %>
+                        <option value="<%= colitem.FindingId %>"><%= colitem.FindingId %></option>
+                    <% } %>       
+                <% }) -%>         
+            </select>
+        </td>
+        <td><%= Description %></td>
+        <td><% Source.split("|").forEach(function(CascadeItem) { -%>
+            <%= CascadeItem %><br/>
+        <% })%>
+        </td>
+        <td><%= Relevant %></td>
+    </tr>
+<% }) %>

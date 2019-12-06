@@ -3526,3 +3526,58 @@ hr {
 	display: none;
 	width: 400px;
 }
+
+/*table styles*/
+#tablerelfindings {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tablerelfindings td, #tablerelfindings th {
+    border: 1px solid #1f1f1f;
+	padding: 8px;
+	font-size: 12px;
+	font-family: 'Courier New', Courier, monospace;
+	vertical-align: top;
+}
+
+#tablerelfindings tr:nth-child(even){background-color: #f2f2f2;}
+
+#tablerelfindings tr:hover {background-color: #ddd;}
+
+#tablerelfindings th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+	background-color: #1f1f1f;
+	color: rgb(255,255,255);
+	text-align: left;
+	border: #1f1f1f;
+}
+
+#tablemonitoring {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tablemonitoring td, #tablemonitoring th {
+    border: 1px solid #1f1f1f;
+	padding: 8px;
+	font-size: 12px;
+	font-family: 'Courier New', Courier, monospace;
+	vertical-align: top;
+}
+
+#tablemonitoring tr:nth-child(even){background-color: #f2f2f2;}
+
+#tablemonitoring tr:hover {background-color: #ddd;}
+
+#tablemonitoring th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+	background-color: #1f1f1f;
+	color: rgb(255,255,255);
+	text-align: left;
+	border: #1f1f1f;
+}
