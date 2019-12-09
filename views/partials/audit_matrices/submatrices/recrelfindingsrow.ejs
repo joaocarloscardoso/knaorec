@@ -2,6 +2,7 @@
 let Description=''; 
 let Source='';
 let Relevant='';
+let i=1;
 %>
 <% Matrix.RelFindings.forEach(function(item) { %>
     <% 
@@ -9,12 +10,12 @@ let Relevant='';
         Source='';
         Relevant='';
     %>
-    <tr id="F_<%= item.RowId %>Row" style="display: table-row;">
+    <tr id="F_<%= i %>Row" style="display: table-row;">
         <td>
-            <a>Delete...</a>
+            <a id="a<%= i %>Row" href="#" onclick="deleteFindingRow(this);return false;">Delete...</a>
         </td>
         <td>
-            <select name="RF_<%= item.RowId %>" id="RF_<%= item.RowId %>" size="1" autofocus>
+            <select name="RF_<%= i %>" id="RF_<%= i %>" size="1" autofocus onchange="GetFindingInfo(this.id);">
                 <% Matrix.Findings.forEach(function(colitem) { -%>
                     <% if (item.RowId === colitem.FindingId) { %>
                         <option value="<%= colitem.FindingId %>" selected><%= colitem.FindingId %></option>
@@ -29,11 +30,13 @@ let Relevant='';
                 <% }) -%>         
             </select>
         </td>
-        <td><%= Description %></td>
-        <td><% Source.split("|").forEach(function(CascadeItem) { -%>
+        <td><span name='RD_<%= i %>' id='RD_<%= i %>'><%= Description %></span></td>
+        <td><span name='RS_<%= i %>' id='RS_<%= i %>'>
+        <% Source.split("|").forEach(function(CascadeItem) { -%>
             <%= CascadeItem %><br/>
         <% })%>
-        </td>
-        <td><%= Relevant %></td>
+        </span></td>
+        <td><span name='RR_<%= i %>' id='RR_<%= i %>'><%= Relevant %></span></td>
     </tr>
+    <% i++ %>
 <% }) %>

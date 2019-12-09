@@ -102,8 +102,8 @@
             </div>
             <div class="col-12">
                 Related reported findings<br/>
-                    <a href="#">
-                        <img id="insert_finding" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;"/>
+                    <a href="#" onclick="InsertFindingRow();return false;">
+                        <img id="insert_finding" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;" />
                         &nbsp; add new item...
                     </a>
                     <table id='tablerelfindings'>
@@ -113,27 +113,6 @@
                         <tbody>
                             <% if(Matrix.RelFindings.length > 0) { %>
                                 <%- include('./submatrices/recrelfindingsrow'); %>
-                            <% } else { %>
-                            <!--template for new row-->    
-                            <tr id="F_1Row" style="display: table-row;">
-                                <td>
-                                    <a href="#">Delete...</a>
-                                </td>
-                                <td>
-                                    <select name="RF_1" id="RF_1" size="1" autofocus>
-                                        <% Matrix.Findings.split("|").forEach(function(colitem) { -%>
-                                            <option value="<%= colitem %>"><%= colitem %></option>
-                                        <% }) -%>         
-                                    </select>
-                                </td>
-                                <td><span style="color: rgb(252, 4, 4);">(Select finding in dropdown to get related information!)</span>
-                                </td>
-                                <td>&nbsp; 
-                                </td>
-                                <td>&nbsp;
-                                </td>
-                            </tr>
-                            <!--end template for new row-->
                             <% } %>
                         </tbody>
                     </table>
@@ -141,7 +120,7 @@
             </div>
             <div class="col-12">
                 Monitoring and follow-up activities<br/>
-                <a href="#">
+                <a href="#" onclick="InsertMonitoringRow();return false;">
                         <img id="insert_monitoring" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;"/>
                         &nbsp; add new item...
                     </a>
@@ -152,34 +131,6 @@
                         <tbody>
                             <% if(Matrix.Monitoring.length > 0) { %>
                                 <%- include('./submatrices/recmonitoringrow'); %>
-                            <% } else { %>
-                            <!--template for new row-->    
-                                <% let today = new Date();
-                                let dd = today.getDate();
-                                dd= '0' + dd;
-                                let mm = (today.getMonth()+1);
-                                mm= '0' + mm;
-                                let yyyy = today.getFullYear();
-
-                                today = yyyy + "-" + mm.slice(-2) + "-" + dd.slice(-2);
-                                %>
-                                <tr id="F_1Row" style="display: table-row;">
-                                    <td>
-                                        <a>Delete...</a>
-                                    </td>
-                                    <td><input type="date" name="MD_1" id="MD_1" value="<%= today %>" />
-                                    </td>
-                                    <td>
-                                        <select name="MS_1" id="MS_1" size="1" autofocus>
-                                            <% Matrix.MonStatus.split("|").forEach(function(colitem) { -%>
-                                                <option value="<%= colitem %>"><%= colitem %></option>
-                                            <% }) -%>         
-                                        </select>
-                                    </td>
-                                    <td><textarea name="MT_1" id="MT_1" placeholder="Track note(s)" rows="3"></textarea> 
-                                    </td>
-                                </tr>
-                                <!--end template for new row-->
                             <% } %>
                         </tbody>
                     </table>
@@ -197,3 +148,111 @@
         </div>
     </form>
 </section>
+<!-- javascript is placed in the body section -->
+<script>
+    var ColFindings=[
+        <% Matrix.Findings.forEach(function(colitem) { -%>
+            {
+                FindingId: "<%= colitem.FindingId -%>",
+                Description: "<%= colitem.Description -%>", 
+                Source: "<%= colitem.Source -%>",
+                Relevant: "<%= colitem.Relevant -%>"
+            },
+        <% }) -%>    
+    ];
+
+    function GetFindingInfo(r){
+
+        var vPos = r.replace("RF_","");
+        var e = document.getElementById(r);
+        var selFindingId = e.options[e.selectedIndex].value;        
+        var result = $.grep(ColFindings, function(e){ return e.FindingId == selFindingId; });
+        var temSource = "";
+
+        if (result.length > 0) {
+            document.getElementById("RD_" + vPos).textContent=result[0].Description;
+            document.getElementById("RS_" + vPos).textContent="";
+            result[0].Source.split("|").forEach(function(CascadeItem) {
+                temSource=temSource + CascadeItem + "<br/>";
+            });
+            $("#RS_" + vPos).html(temSource);
+            document.getElementById("RR_" + vPos).textContent=result[0].Relevant;
+        };
+    }
+    function deleteFindingRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("tablerelfindings").deleteRow(i);
+    }    
+    function deleteMonitoringRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("tablemonitoring").deleteRow(i);
+    }
+
+    function InsertFindingRow() {
+        var Total = $('#frows_count').val();
+        Total=Number(Total) + 1;
+	    // First check if a <tbody> tag exists, add one if not
+        if ($("#tablerelfindings tbody").length == 0) {
+	        $("#tablerelfindings").append("<tbody></tbody>");
+	    }
+
+        // Append product to the table
+        $("#tablerelfindings tbody").append(
+        "<tr>" +
+        "<td>" +
+            "<a href='#' onclick='deleteFindingRow(this);return false;'>Delete...</a>" +
+        "</td>" +
+        "<td>" +
+            "<select name='RF_" + Total +"' id='RF_" + Total +"' size='1' autofocus onchange='GetFindingInfo(this.id);'>" +
+                <% Matrix.Findings.forEach(function(colitem) { -%>
+                "<option value='<%= colitem.FindingId %>''><%= colitem.FindingId %></option>" +
+                <% }) -%>         
+            "</select>" +
+        "</td>" +
+        "<td><span name='RD_" + Total +"' id='RD_" + Total +"'>(Select finding in dropdown to get related information!)</span></td>" +
+        "<td><span name='RS_" + Total +"' id='RS_" + Total +"'><span></td>" +
+        "<td><span name='RR_" + Total +"' id='RR_" + Total +"'><span></td>" +
+        "</tr>"
+        );
+        $('#frows_count').val(Total);
+    }    
+
+    function InsertMonitoringRow() {
+        var Total = $('#mrows_count').val();
+        Total=Number(Total) + 1;
+	    // First check if a <tbody> tag exists, add one if not
+        if ($("#tablemonitoring tbody").length == 0) {
+	        $("#tablemonitoring").append("<tbody></tbody>");
+	    }
+
+        // Append product to the table
+        $("#tablemonitoring tbody").append(
+        <% let today = new Date();
+        let dd = today.getDate();
+        dd= '0' + dd;
+        let mm = (today.getMonth()+1);
+        mm= '0' + mm;
+        let yyyy = today.getFullYear();
+
+        today = yyyy + "-" + mm.slice(-2) + "-" + dd.slice(-2);
+        %>
+        "<tr id='M_" + Total +"Row' style='display: table-row;'>" + 
+            "<td>" +
+                "<a id='a" + Total +"Row' href='#' onclick='deleteMonitoringRow(this);return false;'>Delete...</a>" +
+            "</td>" +
+            "<td><input type='date' name='MD_" + Total +"' id='MD_" + Total +"' value='<%= today %>' />" +
+            "</td>" +
+            "<td>" +
+                "<select name='MS_" + Total +"' id='MS_" + Total +"' size='1' autofocus>" +
+                    <% Matrix.MonStatus.split("|").forEach(function(colitem) { -%>
+                        "<option value='<%= colitem %>'><%= colitem %></option>" +
+                    <% }) -%>         
+                "</select>" +
+            "</td>" +
+            "<td><textarea name='MT_" + Total +"' id='MT_" + Total +"' placeholder='Track note(s)' rows='3'></textarea>" + 
+            "</td>" +
+        "</tr>"
+        );
+        $('#mrows_count').val(Total);
+    }    
+</script>    

@@ -7659,28 +7659,28 @@ detajet e zbatimit"/>
 		</Case>
 	</Cases>
 <Recommendations>
-	<Recommendation nr="R20191016-100449" priority="High" risk="Governance" riskevaluation="High" accepted="Yes">
+	<Recommendation nr="R20191016-100449" priority="High" risk="Governance" riskevaluation="Medium" accepted="Yes">
 	<!--Risks faced by organizations directly and indirectly as a result of non-implementation of audit recommendations-->
 	<!--risk attributes values: Governance, Operational, Reputational, Financial, Compliance, Misappropriation of assets, Obsolescence-->
 	<!--riskevaluation attributes values: High, Medium, Low -->
 	<!--priority attribute values: High, Medium, Low -->
 	<!--accepted (by the auditee) attribute values: Yes, No -->
-		<quote type="description">Recommendation description</quote>
-		<quote type="aplan">Action/remedial plan proposed</quote>
-		<quote type="responsible">Identify and direct recommendation to those who have responsibility and authority to act on them</quote>
-		<quote type="timeline">Timeline planned to implement the action/remedial plan proposed</quote>
-		<quote type="outcome">Description of the outcome desired by the implementation of the recommendation</quote>
+		<quote type="description">R20191016-100449 Recommendation description</quote>
+		<quote type="aplan">R20191016-100449 Action/remedial plan proposed</quote>
+		<quote type="responsible">R20191016-100449 Identify and direct recommendation to those who have responsibility and authority to act on them</quote>
+		<quote type="timeline">R20191016-100449 Timeline planned to implement the action/remedial plan proposed</quote>
+		<quote type="outcome">R20191016-100449 Description of the outcome desired by the implementation of the recommendation</quote>
 		<!--Recommendations should be well-supported by facts and should flow logically from these facts. 
 		This connection can be made by placing the recommendation close to the finding or by inserting language in the recommendation-->
 		<findings>
 			<!--specific to AITAM: identification of relevant reported findings-->
-			<finding nr="R20191016-100449"/>
-			<finding nr="R20191019-100333"/>
+			<finding nr="F20191016-100449"/>
+			<finding nr="F20191108-081659"/>
 		</findings>
 		<!--Monitoring and track notes taken during monitoring and follow up activities-->
 		<monitoring>
-			<assessment date="2019-01-01" status="In progress" note="Track notes taken during monitoring and follow up activities"/>
-			<assessment date="2019-10-01" status="Implemented" note="Track notes taken during monitoring and follow up activities"/>
+			<assessment nr="1" date="2019-01-01" status="In progress" note="Track notes taken during monitoring and follow up activities"/>
+			<assessment nr="2" date="2019-10-01" status="Implemented" note="Track notes taken during monitoring and follow up activities"/>
 			<!--status attribute values: Not initiated, Cancelled, Deferred, Identified, In progress, Implemented 
 			The global status of the recommendation is provided by the most recent assessment-->
 		</monitoring>

@@ -1,13 +1,13 @@
 <% let i=1 %>
 <% Matrix.Monitoring.forEach(function(item) { %>
-    <tr id="F_<%= item.RowId %>Row" style="display: table-row;">
+    <tr id="M_<%= i %>Row" style="display: table-row;">
         <td>
-            <a>Delete...</a>
+            <a id="a<%= i %>Row" href="#" onclick="deleteMonitoringRow(this);return false;">Delete...</a>
         </td>
-        <td><input type="date" name="MD_<%= item.RowId %>" id="MD_<%= item.RowId %>" value="<%= item.Date %>" />
+        <td><input type="date" name="MD_<%= i %>" id="MD_<%= i %>" value="<%= item.Date %>" />
         </td>
         <td>
-            <select name="MS_<%= item.RowId %>" id="MS_<%= item.RowId %>" size="1" autofocus>
+            <select name="MS_<%= i %>" id="MS_<%= i %>" size="1" autofocus>
                 <% Matrix.MonStatus.split("|").forEach(function(colitem) { -%>
                     <% if (item.Status === colitem) { %>
                         <option value="<%= colitem %>" selected><%= colitem %></option>
@@ -17,7 +17,7 @@
                 <% }) -%>         
             </select>
         </td>
-        <td><textarea name="MT_<%= item.RowId %>" id="MT_<%= item.RowId %>" placeholder="Track note(s)" rows="3"><%= item.Note %></textarea> 
+        <td><textarea name="MT_<%= i %>" id="MT_<%= i %>" placeholder="Track note(s)" rows="3"><%= item.Note %></textarea> 
         </td>
     </tr>
     <% i++ %>
