@@ -311,4 +311,79 @@ matricesaudit.post('/findingMatrix', function(req, res){
     }    
 });
 
+matricesaudit.post('/recMatrix', function(req, res){
+    //old: path.join(__dirname,'work')
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    
+    if (status) {
+        //check if req.body is filled
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+            log.warn('Object req.body missing on tool audit matrix');
+        } else {
+            var Catalog = {
+                RecommendationId: req.body.recid,
+                Priority: req.body.priority,
+                Risk: req.body.risk,
+                Riskevaluation: req.body.riskevaluation,
+                Accepted: req.body.accepted,
+                Description: req.body.description,
+                Actionplan: req.body.actionplan,
+                Responsible: req.body.responsible,
+                Timeline: req.body.timeline,
+                Outcome: req.body.outcome,
+                RelFindings: [],
+                Monitoring:[]
+            };
+            var totalCtrl = req.body.frows_count; 
+            for ( var i = 1; i <= totalCtrl; i ++) {
+                var NewEntry = {
+                    RowId: req.body['RF_' + i.toString()]
+                };
+                Catalog.RelFindings.push(NewEntry);
+            }
+            totalCtrl = req.body.mrows_count; 
+            for ( var i = 1; i <= totalCtrl; i ++) {
+                var NewEntry = {
+                    RowId: i,
+                    Date: req.body['MD_' + i.toString()],
+                    Status: req.body['MS_' + i.toString()],
+                    Note: req.body['MT_' + i.toString()]
+                };
+                Catalog.Monitoring.push(NewEntry);
+            }
+
+            //save recommendations selected for audit
+            var RefId = Matrices.SaveRecommendationMatrix(NewAuditFile, Catalog);
+            //Issue #52: Automatic save/download on conclusion of key activities
+            if (req.body.recid == '(New)'){
+                if (RefId.substring(0, 1) == 'R') {
+                    var RecommendationMatrix = Matrices.LoadRecommendationMatrix(NewAuditFile, RefId);
+                    res.render('toolaudit/supportmatrix', {
+                        action: 'audit',
+                        operation: 'audit_recommendations',
+                        AuditErrors: '',
+                        Matrix: RecommendationMatrix,
+                        msg: '',
+                        auditfile: 'work/' + req.sessionID + '.xml',
+                        audit: status
+                    });            
+                }
+            }else{
+                res.redirect('/toolaudit/work/download')
+            }
+        }
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }    
+});
+
+
 module.exports = matricesaudit;
