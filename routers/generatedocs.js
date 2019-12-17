@@ -110,7 +110,38 @@ generatedocs.get('/docfindingMatrix',function(req,res){
         var data = Matrices.LoadFindingMatrix(NewAuditFile, req.query.id);
         carbone.render('./public/templates/FindingMatrix.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
-              return log.info('document (finding matrix) generation error:  ' +err);
+                return log.info('document (finding matrix) generation error:  ' +err);
+            }
+            // write the result
+            fs.writeFileSync(NewDocFile, result);
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
+generatedocs.get('/docrecMatrix',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    var NewDocFile = credentials.WorkSetPath;
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
+
+    if (status) {
+        var data = Matrices.LoadRecommendationMatrix(NewAuditFile, req.query.id);
+        carbone.render('./public/templates/RecMatrix.'+ credentials.ReportFormat, data, function(err, result){
+            if (err) {
+                return log.info('document (recommendation matrix) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
@@ -141,7 +172,7 @@ generatedocs.get('/docauditprogramme',function(req,res){
         var data = Docs.LoadAuditProgramme(NewAuditFile);
         carbone.render('./public/templates/AuditProgramme.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
-              return log.info('document (Audit Programme) generation error:  ' +err);
+                return log.info('document (Audit Programme) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
@@ -172,7 +203,7 @@ generatedocs.get('/docexecutivesummary',function(req,res){
         var data = Docs.LoadExecutiveSummary(NewAuditFile);
         carbone.render('./public/templates/AuditExecutiveSummary.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
-              return log.info('document (Executive Summary) generation error:  ' +err);
+                return log.info('document (Executive Summary) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
@@ -203,7 +234,7 @@ generatedocs.get('/docplanList',function(req,res){
         var data = Planning.LoadPlanning2Doc(NewAuditFile, req.query.op);
         carbone.render('./public/templates/PlanList.' + credentials.ReportFormat, data, function(err, result){
             if (err) {
-              return log.info('document (plan list) generation error:  ' +err);
+                return log.info('document (plan list) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
@@ -234,7 +265,7 @@ generatedocs.get('/docmatriceslist',function(req,res){
         var data = Docs.LoadMatricesCollection(NewAuditFile);
         carbone.render('./public/templates/PlanMatrixCollection.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
-              return log.info('document (Collection of Planning Matrices) generation error:  ' +err);
+                return log.info('document (Collection of Planning Matrices) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);

@@ -61,7 +61,7 @@
                 </select>
             </div>
             <div class="col-12">
-                Risk evaluation<br/>
+                Risk level<br/>
                 <select name="riskevaluation" id="riskevaluation" size="1">
                     <% Matrix.RisksEvaluation.split("|").forEach(function(item) { -%>
                         <% if (Matrix.Riskevaluation === item) { %>
@@ -97,7 +97,7 @@
                 </select>
             </div>
             <div class="col-12">
-                Repeated in previous audit(s)?(register in remarks field the history)<br/>
+                Repeated in previous audit(s)? (register in remarks field the history)<br/>
                 <select name="reapeated" id="reapeated" size="1" data-tooltip-right="Recommendation repeated in previous audit(s)">
                     <% if (Matrix.Repeated == "Yes") { %>
                         <option value="Yes" selected>Yes</option>
