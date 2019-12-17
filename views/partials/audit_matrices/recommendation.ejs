@@ -73,9 +73,33 @@
                 </select>
             </div>
             <div class="col-12">
+                Importance<br/>
+                <select name="importance" id="importance" size="1">
+                    <% Matrix.ICategories.split("|").forEach(function(item) { -%>
+                        <% if (Matrix.Importance === item) { %>
+                            <option value="<%= item %>" selected><%= item %></option>
+                        <% } else { %>
+                            <option value="<%= item %>"><%= item %></option>
+                        <% } %>       
+                    <% }) -%>         
+                </select>
+            </div>
+            <div class="col-12">
                 Accepted (by the auditee)<br/>
                 <select name="accepted" id="accepted" size="1" data-tooltip-right="Recommendation accepted by the auditee">
                     <% if (Matrix.Accepted == "Yes") { %>
+                        <option value="Yes" selected>Yes</option>
+                        <option value="No" >No</option>
+                    <% } else { %>
+                        <option value="Yes">Yes</option>
+                        <option value="No" selected>No</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-12">
+                Repeated in previous audit(s)?(register in remarks field the history)<br/>
+                <select name="reapeated" id="reapeated" size="1" data-tooltip-right="Recommendation repeated in previous audit(s)">
+                    <% if (Matrix.Repeated == "Yes") { %>
                         <option value="Yes" selected>Yes</option>
                         <option value="No" >No</option>
                     <% } else { %>
@@ -99,6 +123,10 @@
             <div class="col-12">
                 Responsible<br/>
                 <textarea name="responsible" id="responsible" placeholder="Identify and direct recommendation to those who have responsibility and authority to act on them" rows="1"><%= Matrix.Responsible %></textarea>
+            </div>
+            <div class="col-12">
+                Remarks<br/>
+                <textarea name="remarks" id="remarks" placeholder="(Unstructured) Notes and remarks about recommendation registered by the auditor" rows="2"><%= Matrix.Remarks %></textarea>
             </div>
             <div class="col-12">
                 Related reported findings<br/>

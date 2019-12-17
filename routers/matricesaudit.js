@@ -329,11 +329,14 @@ matricesaudit.post('/recMatrix', function(req, res){
                 Risk: req.body.risk,
                 Riskevaluation: req.body.riskevaluation,
                 Accepted: req.body.accepted,
+                Repeated: req.body.reapeated,
+                Importance: req.body.importance,
                 Description: req.body.description,
                 Actionplan: req.body.actionplan,
                 Responsible: req.body.responsible,
                 Timeline: req.body.timeline,
                 Outcome: req.body.outcome,
+                Remarks: req.body.remarks,
                 RelFindings: [],
                 Monitoring:[]
             };

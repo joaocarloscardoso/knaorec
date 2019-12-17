@@ -11,11 +11,8 @@
             <span><%= item.Description %></span>
         </td>
         <td>
-            <%if(item.Priority == "High") { %>
+            <%if(item.Priority == "Urgent") { %>
                 <img id="phigh<%= item.RowId %>" src="../images/high-16.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>
-                <span><b><%= item.Priority %></b></span>
-            <% } else if (item.Priority == "Medium") { %>
-                <img id="pmedium<%= item.RowId %>" src="../images/medium-16.png" alt="" style="vertical-align: text-bottom; display: none;"/>
                 <span><b><%= item.Priority %></b></span>
             <% } else if (item.Priority == "Low") { %>
                 <span><b><%= item.Priority %></b></span>
@@ -23,13 +20,7 @@
         </td>
         <td>
             <span><%= item.Risk %></span><br/>
-            <%if(item.Riskevaluation == "High") { %>
-                <span><b>(<%= item.Riskevaluation %>)</b></span>
-            <% } else if (item.Riskevaluation == "Medium") { %>
-                <span><b>(<%= item.Riskevaluation %>)</b></span>
-            <% } else if (item.Riskevaluation == "Low") { %>
-                <span><b>(<%= item.Riskevaluation %>)</b></span>
-            <% } %>                
+            <span><b>(<%= item.Riskevaluation %>)</b></span>            
         </td>
         <td>
             <span><%= item.Timeline %></span>
