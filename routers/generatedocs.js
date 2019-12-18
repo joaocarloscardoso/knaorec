@@ -10,6 +10,7 @@ var credentials = require('../credentials.js');
 var Matrices = require('../lib/matrices.js');
 var Docs = require('../lib/docgeneration.js');
 var Planning = require('../lib/planning.js');
+var Recommendations = require('../lib/auditrec.js');
 //logging system
 var log = require('../lib/log.js');
 
@@ -48,7 +49,7 @@ generatedocs.get('/docplanMatrix',function(req,res){
         var data = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
         carbone.render('./public/templates/PlanMatrix.' + credentials.ReportFormat, data, function(err, result){
             if (err) {
-              return log.info('document (plan matrix) generation error:  ' +err);
+                return log.info('document (plan matrix) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
@@ -79,7 +80,7 @@ generatedocs.get('/docpreassessMatrix',function(req,res){
         var data = Matrices.LoadPreAssessMatrix(NewAuditFile, req.query.area, req.query.issue);
         carbone.render('./public/templates/PreAssessMatrix.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
-              return log.info('document (preassessment matrix) generation error:  ' +err);
+                return log.info('document (preassessment matrix) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);
@@ -266,6 +267,37 @@ generatedocs.get('/docmatriceslist',function(req,res){
         carbone.render('./public/templates/PlanMatrixCollection.'+ credentials.ReportFormat, data, function(err, result){
             if (err) {
                 return log.info('document (Collection of Planning Matrices) generation error:  ' +err);
+            }
+            // write the result
+            fs.writeFileSync(NewDocFile, result);
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
+generatedocs.get('/rectrackreport',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    var NewDocFile = credentials.WorkSetPath;
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
+
+    if (status) {
+        var data = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
+        carbone.render('./public/templates/RecTrackReport.'+ credentials.ReportFormat, data, function(err, result){
+            if (err) {
+                return log.info('document (recommendations tracking report) generation error:  ' +err);
             }
             // write the result
             fs.writeFileSync(NewDocFile, result);

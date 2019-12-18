@@ -7658,4 +7658,24 @@ detajet e zbatimit"/>
 			<quote type="recommendation">zfsdf</quote>
 		</Case>
 	</Cases>
+<Recommendations>
+	<Recommendation nr="R20191016-100449" priority="Urgent" risk="Governance" riskevaluation="Municipality" accepted="Yes" repeated="Yes" importance="Strategic">
+	<!--Risks faced by organizations directly and indirectly as a result of non-implementation of audit recommendations-->
+	<!--risk attributes values: Governance, Operational, Reputational, Financial, Compliance, Misappropriation of assets, Obsolescence-->
+	<!--riskevaluation attributes values: High, Medium, Low -->
+	<!--priority attribute values: High, Medium, Low -->
+	<!--accepted (by the auditee) attribute values: Yes, No -->
+		<quote type="description">R20191016-100449 Recommendation description</quote>
+		<quote type="aplan">R20191016-100449 Action/remedial plan proposed</quote>
+		<quote type="responsible">R20191016-100449 Identify and direct recommendation to those who have responsibility and authority to act on them</quote>
+		<quote type="timeline">R20191016-100449 Timeline planned to implement the action/remedial plan proposed</quote>
+		<quote type="outcome">R20191016-100449 Timeline planned to implement the action/remedial plan proposed</quote>
+		<quote type="remarks">(Unstructured) Notes and remaks about recommendation registered by the auditor</quote>
+		<!--Recommendations should be well-supported by facts and should flow logically from these facts. 
+		This connection can be made by placing the recommendation close to the finding or by inserting language in the recommendation-->
+		
+		<!--Monitoring and track notes taken during monitoring and follow up activities-->
+		
+	<findings><finding nr="undefined"/><finding nr="F20191108-081659"/><finding nr="F20191108-081659"/></findings><monitoring><assessment nr="1" date="2019-01-01" status="Started Implementation" note="Track notes taken during monitoring and follow up activities"/><assessment nr="2" date="undefined" status="undefined" note="undefined"/><assessment nr="3" date="2019-12-18" status="Started Implementation" note="aaa"/></monitoring></Recommendation>
+<Recommendation nr="R20191218-082655" priority="Regular" risk="Obsolescence" riskevaluation="Entity" accepted="Yes" repeated="No" importance="Important, but not essential"><quote type="description">The mail system shoul be updated to decrease downtime periods fo the service</quote><quote type="aplan">Mail server migration</quote><quote type="responsible">IT Staff</quote><quote type="timeline">march of 2020</quote><quote type="outcome">march of 2020</quote><quote type="remarks"/><findings><finding nr="F20191108-081659"/></findings><monitoring><assessment nr="1" date="2019-12-18" status="Not started Implementation" note="Identified the need by IT Staff"/></monitoring></Recommendation></Recommendations>	
 </Audit>

@@ -345,8 +345,11 @@ matricesaudit.post('/recMatrix', function(req, res){
                 var NewEntry = {
                     RowId: req.body['RF_' + i.toString()]
                 };
-                Catalog.RelFindings.push(NewEntry);
+                if (NewEntry.RowId !== null) {
+                    Catalog.RelFindings.push(NewEntry);
+                }
             }
+
             totalCtrl = req.body.mrows_count; 
             for ( var i = 1; i <= totalCtrl; i ++) {
                 var NewEntry = {
@@ -355,7 +358,9 @@ matricesaudit.post('/recMatrix', function(req, res){
                     Status: req.body['MS_' + i.toString()],
                     Note: req.body['MT_' + i.toString()]
                 };
-                Catalog.Monitoring.push(NewEntry);
+                if (NewEntry.Date !== null) {
+                    Catalog.Monitoring.push(NewEntry);
+                }
             }
 
             //save recommendations selected for audit

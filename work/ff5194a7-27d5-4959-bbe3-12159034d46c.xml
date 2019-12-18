@@ -7686,5 +7686,5 @@ detajet e zbatimit"/>
 			The global status of the recommendation is provided by the most recent assessment-->
 		</monitoring>
 	</Recommendation>
-</Recommendations>	
+<Recommendation nr="R20191218-082655" priority="Regular" risk="Obsolescence" riskevaluation="Entity" accepted="Yes" repeated="No" importance="Important, but not essential"><quote type="description">The mail system shoul be updated to decrease downtime periods fo the service</quote><quote type="aplan">Mail server migration</quote><quote type="responsible">IT Staff</quote><quote type="timeline">march of 2020</quote><quote type="outcome">march of 2020</quote><quote type="remarks"/><findings><finding nr="F20191108-081659"/></findings><monitoring><assessment nr="1" date="2019-12-18" status="Not started Implementation" note="Identified the need by IT Staff"/></monitoring></Recommendation></Recommendations>	
 </Audit>
