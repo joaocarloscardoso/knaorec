@@ -12,6 +12,9 @@ var Findings = require('../lib/findings.js');
 var log = require('../lib/log.js');
 //nlp
 var nlp = require('../lib/nlp.js');
+//nlp
+var Recommendations = require('../lib/auditrec.js');
+
 
 //generation of uuid
 const uuid = require('uuid/v4');
@@ -222,7 +225,7 @@ analyticsaudit.get('/SentimentFindings',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -256,6 +259,38 @@ analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
          });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
+analyticsaudit.get('/StatsRecommendations',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var SentimentFile = credentials.WorkSetPath;
+        SentimentFile = SentimentFile + req.sessionID + '.sent';
+        var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
+       
+        res.render('toolaudit/supportanalytics', {
+            action: 'audit',
+            operation: 'trackauditrecs',
+            AuditErrors: '',
+            data: DataRecommendations,
+            msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
+	        audit: status
+        });
     } else {
         res.render('login/login', {
             action: 'login',

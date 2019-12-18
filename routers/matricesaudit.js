@@ -345,7 +345,7 @@ matricesaudit.post('/recMatrix', function(req, res){
                 var NewEntry = {
                     RowId: req.body['RF_' + i.toString()]
                 };
-                if (NewEntry.RowId !== null) {
+                if (typeof NewEntry.RowId != 'undefined') {
                     Catalog.RelFindings.push(NewEntry);
                 }
             }
@@ -358,7 +358,7 @@ matricesaudit.post('/recMatrix', function(req, res){
                     Status: req.body['MS_' + i.toString()],
                     Note: req.body['MT_' + i.toString()]
                 };
-                if (NewEntry.Date !== null) {
+                if (typeof NewEntry.Date != 'undefined') {
                     Catalog.Monitoring.push(NewEntry);
                 }
             }
