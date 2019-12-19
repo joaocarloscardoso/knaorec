@@ -97,6 +97,18 @@
                 </select>
             </div>
             <div class="col-12">
+                Categorizing the audit recommendation<br/>
+                <select name="category" id="category" size="1">
+                    <% Matrix.Categories.split("|").forEach(function(item) { -%>
+                        <% if (Matrix.Category === item) { %>
+                            <option value="<%= item %>" selected><%= item %></option>
+                        <% } else { %>
+                            <option value="<%= item %>"><%= item %></option>
+                        <% } %>       
+                    <% }) -%>         
+                </select>
+            </div>
+            <div class="col-12">
                 Repeated in previous audit(s)? (register in remarks field the history)<br/>
                 <select name="reapeated" id="reapeated" size="1" data-tooltip-right="Recommendation repeated in previous audit(s)">
                     <% if (Matrix.Repeated == "Yes") { %>
