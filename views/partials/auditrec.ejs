@@ -18,21 +18,15 @@
                     <ul class="actions">
                         <li><a href="/auditrec/auditrecs" class="button">Reload List</a></li>
                         <li><a href="/auditMatrices/recMatrix?id=New" class="button">Create Recommendation</a></li>
-                        <% if(reccatalog.length > 0) { %>
-                            <li><input type="submit" class="button alt" value="Save" /></li>
-                        <% } %>
                     </ul>
-                </div>        
-            <% } %>
+                </div>
+                <p>
+                    <a style="border-style: none;" href="/generatedocs/rectrackreport" data-tooltip="This functionality generates a word processing document containing the audit recommendations track report"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Track report</a>    
+                </p>
+        <% } %>
             <p>
                 <% if(reccatalog.length > 0) { %>
-                    <p>Use hyperlink on ID to visualize/edit the audit recommendation
-                        <% if(reccatalog.length > 6) { %>
-                            <br/>&nbsp;<br/>
-                            <li><a href="/auditrec/auditrecs" class="button">Reload List</a></li>
-                            <li><a href="/auditMatrices/recMatrix?id=New" class="button">Create Recommendation</a></li>
-                        <% } %>
-                    </p>
+                    <p>Use hyperlink on ID to visualize/edit the audit recommendation</p>
                     <table id='tablecatalog'>
                         <thead>
                             <%- include('./auditrecheader'); %>
@@ -53,7 +47,7 @@
                 <ul class="actions">
                     <li><a href="/auditrec/auditrecs" class="button">Reload List</a></li>
                     <li><a href="/auditMatrices/recMatrix?id=New" class="button">Create Recommendation</a></li>
-            </ul>
+                </ul>
             </div>
         </div>
     </form>
