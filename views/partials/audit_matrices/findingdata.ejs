@@ -1,0 +1,65 @@
+<section id="contact" class="col-6 col-12-narrower">
+    <header>
+        <h2></h2>
+        <h2><%= Matrix.FindingId %></h2>
+    </header>
+    <div class="col-12">
+        <b>Finding:</b><br/>
+        <span><%= Matrix.Description %></span>
+        <br/>&nbsp;
+    </div>
+    <div class="col-12">
+        <b>Cause:</b><br/>
+        <span><%= Matrix.Cause %></span>
+        <br/>&nbsp;
+    </div>
+    <div class="col-12">
+        <b>Result:</b><br/>
+        <span><%= Matrix.Result %></span>
+        <br/>&nbsp;
+    </div>
+    <hr/>
+    <h3>Domains, areas and issues map</h3>
+    <div class="col-12">
+        <b>Source:</b><br/>
+        <span><%= Matrix.Source %></span>
+        <br/>&nbsp;
+    </div>
+    <div class="col-12">
+        <b>Domain:</b><br/>
+        <% Matrix.Domains.split("|").forEach(function(item) { -%>
+            <% subitem = item.split("#") %>
+            <% if (subitem[0].indexOf(Matrix.Source) > -1) { %>
+                <% if (Matrix.Domain == subitem[0]) { %>
+                    <span><%= subitem[1] %></span>
+                <% } %>  
+            <% } %>      
+        <% }) -%>         
+        <br/>&nbsp;
+    </div>
+    <div class="col-12">
+        <b>Area:</b><br/>
+        <% Matrix.Areas.split("|").forEach(function(item) { -%>
+            <% subitem = item.split("#") %>                    
+            <% if (subitem[0].indexOf(Matrix.Domain) > -1) { %>
+                <% if (Matrix.Area == subitem[0]) { %>
+                    <span><%= subitem[1] %></span>
+                <% } %>       
+            <% } %>
+        <% }) -%>         
+        <br/>&nbsp;
+    </div>
+    <div class="col-12">
+        <b>Issue:</b><br/>
+        <% Matrix.Issues.split("|").forEach(function(item) { -%>
+            <% subitem = item.split("#") %>
+            <% if (subitem[0].indexOf(Matrix.Area) > -1) { %>
+                <% if (Matrix.Issue == subitem[0]) { %>
+                    <span><%= subitem[1] %></span>
+                <% } %>
+            <% } %>
+        <% }) -%>         
+    <br/>&nbsp;
+    </div>
+<p>&nbsp;</p>
+</section>            

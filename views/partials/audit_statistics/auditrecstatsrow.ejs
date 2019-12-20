@@ -2,6 +2,15 @@
     <tr id="<%= item.RowId %>Row" style="display: table-row;">
         <td>
             <span><%= item.Description %></span>
+            <p><span><b>Related findings:&nbsp;</b>
+                <% if(item.Findings.length > 0) { %>
+                    <% item.Findings.split("|").forEach(function(finding) { -%>
+                        <a  target="_blank" href="/auditMatrices/FindingData?id=<%= finding %>" data-tooltip-bottom="Use hyperlink on finding #id to visualize it"><%= finding %></a> - 
+                    <% }) -%>
+                <% } else { %>
+                    <span>(none so far)</span>
+                <% } %>   
+            </span></p>
         </td>
         <td>
             <span><b><%= item.Priority %></b></span>

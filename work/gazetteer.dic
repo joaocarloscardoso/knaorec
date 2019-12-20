@@ -29,6 +29,88 @@ Slovakia|Country|0
 Kuwait|Country|0
 Bulgaria|Country|0
 Poland|Country|0
+work process design|Function|0
+product-service purchase|Function|0
+purchase|Function|0
+finance|Function|0
+regulation|Function|0
+IT|Function|0
+governance|Function|0
+development and research|Function|0
+infrastructure|Function|0
+human resources|Function|0
+security|Function|0
+logistics|Function|0
+assets management|Function|0
+product service delivery|Function|0
+project methodology|Function|0
+documentation|Function|0
+regulations|Function|0
+strategy|Function|0
+planning|Function|0
+analysis|Function|0
+data processing|Function|0
+product-service delivery|Function|0
+outsourcing|Function|0
+monitoring|Function|0
+coordination|Function|0
+training|Function|0
+archives|Function|0
+health |ActivityDomain|0
+geodata|ActivityDomain|0
+energy|ActivityDomain|0
+regions|ActivityDomain|0
+veterinary|ActivityDomain|0
+internal affairs|ActivityDomain|0
+economic affairs|ActivityDomain|0
+consumer protection|ActivityDomain|0
+law enforcement|ActivityDomain|0
+space management|ActivityDomain|0
+telecommunication|ActivityDomain|0
+commerce|ActivityDomain|0
+law enforcement |ActivityDomain|0
+health|ActivityDomain|0
+science and development|ActivityDomain|0
+tax-customs|ActivityDomain|0
+veterans|ActivityDomain|0
+justice|ActivityDomain|0
+social protection|ActivityDomain|0
+agriculture|ActivityDomain|0
+buildings|ActivityDomain|0
+State statistics|ActivityDomain|0
+education|ActivityDomain|0
+public order and safety|ActivityDomain|0
+culture heritage|ActivityDomain|0
+environment|ActivityDomain|0
+public relations|ActivityDomain|0
+transport|ActivityDomain|0
+general public services|ActivityDomain|0
+labour|ActivityDomain|0
+public finance|ActivityDomain|0
+defence|ActivityDomain|0
+space|ActivityDomain|0
+patents|ActivityDomain|0
+pharmacy|ActivityDomain|0
+State property|ActivityDomain|0
+research|ActivityDomain|0
+communication|ActivityDomain|0
+interior affairs|ActivityDomain|0
+housing|ActivityDomain|0
+tourism|ActivityDomain|0
+logistics|ActivityDomain|0
+Police|ActivityDomain|0
+Communication|ActivityDomain|0
+General Public Service|ActivityDomain|0
+tax - customs|ActivityDomain|0
+financial services|ActivityDomain|0
+foreign affairs|ActivityDomain|0
+railways|ActivityDomain|0
+roads|ActivityDomain|0
+municipalities|ActivityDomain|0
+law enforcement   |ActivityDomain|0
+public order and safety   |ActivityDomain|0
+general public services |ActivityDomain|0
+regional development|ActivityDomain|0
 requirements management|Topics|0
 information society|Topics|0
 large scale undertaking|Topics|0
