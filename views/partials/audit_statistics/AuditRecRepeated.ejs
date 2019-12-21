@@ -1,0 +1,42 @@
+<h1>Repeated?</h1>
+<canvas id="chartjs-Rrepetead" class="chartjs" width="undefined" height="undefined"></canvas>
+<script>
+    new Chart(document.getElementById("chartjs-Rrepetead"),
+    {
+    "type":"horizontalBar",
+    "data":{
+        "labels":[
+            'Total','New', 'Repeated'
+        ],
+        "datasets":
+            [
+                {
+                    "label":"Number",
+                    "data":[
+                        <%= data.NumberOfRecommendations %>,
+                        <%= data.NumberOfNewRecommendations %>,
+                        <%= (parseInt(data.NumberOfRecommendations) - parseInt(data.NumberOfNewRecommendations)) %>
+                    ],
+                    "fill":false,
+                    "backgroundColor":[
+                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(54, 162, 235, 0.2)",
+                        "rgba(255, 159, 64, 1)"
+                    ],
+                    "borderColor":[
+                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(54, 162, 235, 0.2)",
+                        "rgba(255, 159, 64, 1)"
+                    ],
+                    "borderWidth":1
+                }
+            ]
+        },
+        "options":{
+            "scales":
+                {
+                    "xAxes":[{"ticks":{"beginAtZero":true}}]
+                }
+        }
+    });
+</script>
