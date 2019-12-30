@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <!-- based on no-side bar template -->
+    <%- include('../partials/head'); %>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<%- include('../partials/header'); %>
+
+			<!-- Main -->
+            <div class="container">
+                <section class="col-6 col-12-narrower">
+					<div class="container">
+						<div id="content">
+							<!-- Content -->
+                            <article>
+                                <section id="contact" class="col-6 col-12-narrower">
+                                    <header>
+                                        <h2></h2>
+                                        <h2>Audit (Network) Map</h2>
+                                        <p>Click on each node to obtain more information.</p>
+                                    </header>
+                                    <div id="mynetwork"></div>
+                                </section>
+                            </article>
+						</div>
+					</div>
+				</section>
+            </div>
+			<!-- Footer -->
+			<%- include('../partials/footer'); %>
+
+		</div>
+
+        <script type="text/javascript">
+            //create support array of objects for sweet alert and hook for related matrix
+            var supporNodes=[
+                {title: 'Audit: test2 audit', matrix: '/toolaudit/toolauditreference?src=map', description: 'Audit background'},
+                {title: 'Issue: 03 IT Investments (medium risk)', matrix: '/auditMatrices/planMatrix?plugin=CORE&domain=01&area=01&issue=03&src=map', description: 'Organizations should manage their IT projects and investments in manner that maximizes benefits and considers elements such as risk, capabilities, needs, and prioritization among competing investments.'},
+                {title: 'Area: 01 Defining IT requirements', matrix: '', description: 'The organization leadership effectively direct, evaluate and monitor IT use in the organization in order to fulfill the organization’s mission.'},
+                {title: 'Domain: 01 IT Governance', matrix: '', description: 'An integral part of the enterprise governance, which consists of the organisational leadership, institutional structures and processes, and other mechanisms (reporting &amp; feedback, enforcement, resources etc) that ensure that IT systems sustain organizational goals and strategy while balancing risks and effectively managing resources.'},
+                {title: 'Issue: 02 Risk Management (medium risk)', matrix: '/auditMatrices/planMatrix?plugin=CORE&domain=01&area=02&issue=02&src=map', description: 'The organization has risk management policy and plan and has assigned sufficient resources to identify and manage risks.'},
+                {title: 'Area: 02 IT Strategy and Planning', matrix: '', description: 'The IT Strategy represents the mutual alignment between IT strategy and business strategic objectives. The IT strategic objectives should consider the current and future needs of the business, the current IT capacity to deliver services and the requirement of resources.'},
+                {title: 'Finding: F20191016-100449', matrix: '/auditMatrices/findingMatrix?id=F20191016-100449&src=map', description: ''},
+                {title: 'Finding: F20191108-081659', matrix: '/auditMatrices/findingMatrix?id=F20191016-100449&src=map', description: ''},
+                {title: 'Finding: F20191219-084633', matrix: '/auditMatrices/findingMatrix?id=F20191016-100449&src=map', description: ''},
+                {title: 'Finding: F20191219-084927', matrix: '/auditMatrices/findingMatrix?id=F20191016-100449&src=map', description: ''},
+                {title: 'Finding: F20191219-085307', matrix: '/auditMatrices/findingMatrix?id=F20191016-100449&src=map', description: ''},
+                {title: 'Finding: F20191219-085515', matrix: '/auditMatrices/findingMatrix?id=F20191016-100449&src=map', description: ''},
+                {title: 'Recommendation: R20191016-100449', matrix: '/auditMatrices/recMatrix?id=R20191016-100449&src=map', description: ''},
+                {title: 'Recommendation: R20191218-191149', matrix: '/auditMatrices/recMatrix?id=R20191016-100449&src=map', description: ''},
+                {title: 'Recommendation: R20191218-191703', matrix: '/auditMatrices/recMatrix?id=R20191016-100449&src=map', description: ''},
+                {title: 'Recommendation: R20191218-194804', matrix: '/auditMatrices/recMatrix?id=R20191016-100449&src=map', description: ''},
+                {title: 'Recommendation: R20191218-195346', matrix: '/auditMatrices/recMatrix?id=R20191016-100449&src=map', description: ''},
+                {title: 'Recommendation: R20191219-065509', matrix: '/auditMatrices/recMatrix?id=R20191016-100449&src=map', description: ''}
+            ];
+
+            // create an array with nodes
+            //if recommendation is not linked with finding, at least it will linked with root node: the audit himself
+            var nodes = new vis.DataSet([
+                {id: 0, label: 'test2 audit', title: 'Audit: test2 audit', group: 0},
+                {id: 1, label: 'Issue:\n03 IT Investments', title: 'Issue: 03 IT Investments (medium risk)', group: 1},
+                {id: 2, label: 'Area:\n01 Defining IT requirements', title: 'Area: 01 Defining IT requirements', group: 1},
+                {id: 3, label: 'Domain:\n01 IT Governance', title: 'Domain: 01 IT Governance', group: 1},
+                {id: 4, label: 'Issue:\n02 Risk Management', title: 'Issue: 02 Risk Management (medium risk)', group: 1},
+                {id: 5, label: 'Area:\n02 IT Strategy and Planning', title: 'Area: 02 IT Strategy and Planning', group: 1},
+                {id: 6, label: 'Finding:\nF20191016-100449', title: 'Finding: F20191016-100449', group: 2},
+                {id: 7, label: 'Finding:\nF20191108-081659', title: 'Finding: F20191108-081659', group: 2},
+                {id: 8, label: 'Finding:\nF20191219-084633', title: 'Finding: F20191219-084633', group: 2},
+                {id: 9, label: 'Finding:\nF20191219-084927', title: 'Finding: F20191219-084927', group: 2},
+                {id: 10, label: 'Finding:\nF20191219-085307', title: 'Finding: F20191219-085307', group: 2},
+                {id: 11, label: 'Finding:\nF20191219-085515', title: 'Finding: F20191219-085515', group: 2},
+                {id: 12, label: 'Recommendation:\nR20191016-100449', title: 'Recommendation: R20191016-100449', group: 3},
+                {id: 13, label: 'Recommendation:\nR20191218-191149', title: 'Recommendation: R20191218-191149', group: 3},
+                {id: 14, label: 'Recommendation:\nR20191218-191703', title: 'Recommendation: R20191218-191703', group: 3},
+                {id: 15, label: 'Recommendation:\nR20191218-194804', title: 'Recommendation: R20191218-194804', group: 3},
+                {id: 16, label: 'Recommendation:\nR20191218-195346', title: 'Recommendation: R20191218-195346', group: 3},
+                {id: 17, label: 'Recommendation:\nR20191219-065509', title: 'Recommendation: R20191219-065509', group: 3}
+            ]);
+    
+            // create an array with edges
+            var edges = new vis.DataSet([
+                {from: 0, to: 3},
+                {from: 3, to: 2},
+                {from: 3, to: 5},
+                {from: 2, to: 1},
+                {from: 5, to: 4},
+                {from: 1, to: 6},
+                {from: 1, to: 7},
+                {from: 1, to: 8},
+                {from: 1, to: 9},
+                {from: 1, to: 10},
+                {from: 4, to: 11},
+                {from: 6, to: 12},
+                {from: 7, to: 13},
+                {from: 8, to: 14},
+                {from: 9, to: 15},
+                {from: 10, to: 16},
+                {from: 10, to: 17},
+                {from: 11, to: 17}
+            ]);
+    
+            // create a network
+            var container = document.getElementById('mynetwork');
+    
+            // provide the data in the vis format
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {
+                interaction:{hover:true},
+                layout: {
+                    hierarchical: {
+                        sortMethod: 'directed',
+                        shakeTowards: 'hubsize'
+                    }
+                },
+                nodes: {
+                    shape: 'dot',
+                    size: 30,
+                    font: {
+                        size: 12,
+                        color: '#000000'
+                    },
+                    borderWidth: 2,
+                    shadow:true
+                },
+                edges: {
+                    width: 2,
+                    smooth: true,
+                    arrows: { to: true },
+                    shadow:true
+                }
+            };
+    
+            // initialize your network!
+            var network = new vis.Network(container, data, options);
+    
+            network.on("click", function (params) {
+                var vButtonVisibility = true;
+                params.event = "[original event]";
+                if (params.nodes >= 0){
+                    if (supporNodes[params.nodes].matrix === ''){
+                        vButtonVisibility= false;
+                    } else {
+                        vButtonVisibility= true;
+                    };
+                    swal({
+                        title: supporNodes[params.nodes].title,
+                        text: supporNodes[params.nodes].description,
+                        buttons: {
+                            Matrix: {
+                                text: "Open related matrix",
+                                value: "matrix",
+                                visible: vButtonVisibility,
+                                closeModal: true,
+                            },
+                            Close: {
+                                text: "Close",
+                                value: true,
+                                closeModal: true,
+                            },
+                        },
+                    })
+                    .then((value) => {
+                        switch (value) {
+                        
+                            case "matrix":
+                                window.location.href = supporNodes[params.nodes].matrix;
+                            break;
+                        }
+                    });            
+                }
+            });
+        </script>
+    
+		<!-- Scripts -->
+        <%- include('../partials/scripts'); -%>
+	</body>
+
+</html>

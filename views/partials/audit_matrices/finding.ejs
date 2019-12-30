@@ -26,7 +26,11 @@
                         <% if (Matrix.FindingId != "(New)") { %>
                             <li><a href="/generatedocs/docfindingMatrix?id=<%= Matrix.FindingId %>" class="button">Generate document</a></li>
                         <% } %>
-                        <li><a href="/findingaudit/auditfindings" class="button">Close</a></li>
+                        <% if (source === "map") { %>
+                            <li><a href="/analytics/AuditMap" class="button">Close</a></li>
+                        <% } else { %>}
+                            <li><a href="/findingaudit/auditfindings" class="button">Close</a></li>
+                        <% } %>
                         <li><input type="submit" class="button alt" value="Save" /></li>
                     </ul>
                 </div>
@@ -117,7 +121,11 @@
                         <% if (Matrix.FindingId != "(New)") { %>
                             <li><a href="/generatedocs/docfindingMatrix?id=<%= Matrix.FindingId %>" class="button">Generate document</a></li>
                         <% } %>
-                        <li><a href="/findingaudit/auditfindings" class="button">Close</a></li>
+                        <% if (source === "map") { %>
+                            <li><a href="/analytics/AuditMap" class="button">Close</a></li>
+                        <% } else { %>}
+                            <li><a href="/findingaudit/auditfindings" class="button">Close</a></li>
+                        <% } %>
                         <li><input type="submit" class="button alt" value="Save" /></li>
                     </ul>
                 </div>

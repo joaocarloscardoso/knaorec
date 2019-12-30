@@ -301,4 +301,36 @@ analyticsaudit.get('/StatsRecommendations',function(req,res){
     }
 });
 
+analyticsaudit.get('/AuditMap',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var AuditMapFile = credentials.WorkSetPath;
+        AuditMapFile = AuditMapFile + req.sessionID + '.map';
+        var DataAuditMap = []; //Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
+       
+        res.render('toolaudit/auditmap', {
+            action: 'audit',
+            operation: 'auditmap',
+            AuditErrors: '',
+            data: DataAuditMap,
+            msg: '',
+            auditfile: 'work/' + req.sessionID + '.xml',
+	        audit: status
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
 module.exports = analyticsaudit;

@@ -27,7 +27,11 @@
                     <% if (Matrix.RecId != "(New)") { %>
                         <li><a href="/generatedocs/docrecMatrix?id=<%= Matrix.RecId %>" class="button">Generate document</a></li>
                     <% } %>
-                    <li><a href="/auditrec/auditrecs" class="button">Close</a></li>
+                    <% if (source === "map") { %>
+                        <li><a href="/analytics/AuditMap" class="button">Close</a></li>
+                    <% } else { %>}
+                        <li><a href="/auditrec/auditrecs" class="button">Close</a></li>
+                    <% } %>
                     <li><input type="submit" class="button alt" value="Save" /></li>
                 </ul>
             </div>

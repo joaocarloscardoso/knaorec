@@ -7,10 +7,10 @@
 		<WorkingLanguage wl="eng"/>
 	</About>
 	<Background>
-		<ak/>
+		<ak>Audit on IT governance aspects</ak>
 	</Background>
 	<Scope>
-		<ak/>
+		<ak></ak>
 	</Scope>
 	<Preassessment>
 		<About id="PreactIS">
@@ -7713,9 +7713,13 @@ detajet e zbatimit"/>
 			<quote type="timeline">march of 2020</quote>
 			<quote type="outcome">march of 2020</quote>
 			<quote type="remarks"/>
-			
-			
-		<findings><finding nr="F20191219-085757"/></findings><monitoring><assessment nr="1" date="2019-12-18" status="Not started Implementation" note="Identified the need by IT Staff"/></monitoring></Recommendation>
+			<findings>
+				<finding nr="F20191219-085757"/>
+			</findings>
+			<monitoring>
+				<assessment nr="1" date="2019-12-18" status="Not started Implementation" note="Identified the need by IT Staff"/>
+			</monitoring>
+		</Recommendation>
 		<Recommendation nr="R20191218-191149" priority="Urgent" risk="Governance" riskevaluation="State" accepted="Yes" repeated="No" importance="Strategic" category="Action Plan by Government">
 			<quote type="description">At least twice a year, the Assembly should review the progress made on the recommendations given, strengthen accountability measures and propose measures to eliminate all obstacles that may affect the non-implementation of recommendations.</quote>
 			<quote type="aplan">Review the progress made on the recommendations given</quote>
@@ -7723,9 +7727,13 @@ detajet e zbatimit"/>
 			<quote type="timeline">Upon receipt of the KNAO Anual Audit report,</quote>
 			<quote type="outcome">Upon receipt of the KNAO Anual Audit report,</quote>
 			<quote type="remarks"/>
-			
-			
-		<findings><finding nr="F20191108-081659"/></findings><monitoring><assessment nr="1" date="2019-12-18" status="Not started Implementation" note="There are no reports on the review of progress of recommendations within the year."/></monitoring></Recommendation>
+			<findings>
+				<finding nr="F20191108-081659"/>
+			</findings>
+			<monitoring>
+				<assessment nr="1" date="2019-12-18" status="Not started Implementation" note="There are no reports on the review of progress of recommendations within the year."/>
+			</monitoring>
+		</Recommendation>
 		<Recommendation nr="R20191218-191703" priority="Regular" risk="Governance" riskevaluation="State" accepted="Yes" repeated="No" importance="Important, but not essential" category="Air quality - legal framework to be added">
 			<quote type="description">Review the existing legal framework for improving air quality and propose legal initiatives for the functionalising the monitoring network and air pollution prevention measures;</quote>
 			<quote type="aplan">Adoption of the Air Quality Action Plan, measurement and formulation of recommendations for improving air quality</quote>
@@ -7733,9 +7741,13 @@ detajet e zbatimit"/>
 			<quote type="timeline">Beginning of 2019</quote>
 			<quote type="outcome">Beginning of 2019</quote>
 			<quote type="remarks"/>
-			
-			
-		<findings><finding nr="F20191219-084633"/></findings><monitoring><assessment nr="1" date="2019-09-18" status="Partially implemented" note="The Government of Kosovo has adopted the Air Quality Action Plan, and the Hydro meteorological Institute has put in place the software and mobile application for real-time air quality data reporting. However, recommendations for improving air quality remain to be assessed by a follow-up audit."/></monitoring></Recommendation>
+			<findings>
+				<finding nr="F20191219-084633"/>
+			</findings>
+			<monitoring>
+				<assessment nr="1" date="2019-09-18" status="Partially implemented" note="The Government of Kosovo has adopted the Air Quality Action Plan, and the Hydro meteorological Institute has put in place the software and mobile application for real-time air quality data reporting. However, recommendations for improving air quality remain to be assessed by a follow-up audit."/>
+			</monitoring>
+		</Recommendation>
 		<Recommendation nr="R20191218-194804" priority="Regular" risk="Financial" riskevaluation="State" accepted="Yes" repeated="No" importance="Strategic" category="Budgetary planning of revenues">
 			<quote type="description">Based on the Treasury quarterly reports, the Ministry of Finance should address all the challenges identified by line Ministries in implementing projects financed from borrowing. At any time and in all cases where it is considered necessary, the Government should be advised the appropriate measures to overcome the difficulties; </quote>
 			<quote type="aplan">Establish guidelines to address all the challenges identified by line Ministries</quote>
@@ -7743,9 +7755,13 @@ detajet e zbatimit"/>
 			<quote type="timeline">Fall of 2019</quote>
 			<quote type="outcome">Fall of 2019</quote>
 			<quote type="remarks"/>
-			
-			
-		<findings><finding nr="F20191219-084927"/></findings><monitoring><assessment nr="1" date="2019-12-18" status="Partially implemented" note="In the quarter of 2018, the MoF has reported on the status or progress of projects financed from borrowing. However, no progress has been reported in financing these projects"/></monitoring></Recommendation>
+			<findings>
+				<finding nr="F20191219-084927"/>
+			</findings>
+			<monitoring>
+				<assessment nr="1" date="2019-12-18" status="Partially implemented" note="In the quarter of 2018, the MoF has reported on the status or progress of projects financed from borrowing. However, no progress has been reported in financing these projects"/>
+			</monitoring>
+		</Recommendation>
 		<Recommendation nr="R20191218-195346" priority="Regular" risk="Reputational" riskevaluation="Municipality" accepted="Yes" repeated="No" importance="Strategic" category="Municipal Assemblies to discuss and report">
 			<quote type="description">Mayors should regularly discuss the reports of managers responsible for the implementation of action plans, and report to the Municipal Assembly at least twice a year on progress and challenges in this area.</quote>
 			<quote type="aplan">Promote the debate within Municipal Assemblies of action plans</quote>
@@ -7753,9 +7769,13 @@ detajet e zbatimit"/>
 			<quote type="timeline">Across 2018/2019</quote>
 			<quote type="outcome">Across 2018/2019</quote>
 			<quote type="remarks"/>
-			
-			
-		<findings><finding nr="F20191219-085307"/></findings><monitoring><assessment nr="1" date="2019-12-18" status="Started Implementation" note="• In most cases, action plans have been debated within Municipal Assemblies. However, there are no reporting in the Municipal Assemblies on the progress and challenges regarding their implementation."/></monitoring></Recommendation>
+			<findings>
+				<finding nr="F20191219-085307"/>
+			</findings>
+			<monitoring>
+				<assessment nr="1" date="2019-12-18" status="Started Implementation" note="• In most cases, action plans have been debated within Municipal Assemblies. However, there are no reporting in the Municipal Assemblies on the progress and challenges regarding their implementation."/>
+			</monitoring>
+		</Recommendation>
 		<Recommendation nr="R20191219-065509" priority="Urgent" risk="Governance" riskevaluation="State" accepted="Yes" repeated="No" importance="Strategic" category="Procurement - compliance with regulations and guidelines">
 			<quote type="description">The unemployment rate in the country is alarming; therefore, policies at the government and sectoral level should serve as a response to the unemployment situation created in the country. This can be achieved through adequate planning of the necessary human resources and financial capacities for policy implementation as well as through the establishment of sustainable monitoring mechanisms.
 Employment-related strategic priorities and sectoral employment objectives have not been properly monitored as monitoring is not based on sound analysis. The implementation of proactive labour market measures, especially during 2017, was impeded by major delays in the functioning of the Employment Agency, the lack of specialising of a number of unemployed people, the preparation of lists with a limited number of unemployed people to undergo the process of selection, and lack of prioritisation of long-term unemployed people during the selection process. These shortcomings make it impossible to identify the unemployed persons who are more likely to become long-term unemployed persons; do not provide equal opportunities for a significant number of unemployed persons, and affect the increase in the number of long-term unemployed persons.</quote>
@@ -7764,8 +7784,12 @@ Employment-related strategic priorities and sectoral employment objectives have 
 			<quote type="timeline">During the mandate</quote>
 			<quote type="outcome">During the mandate</quote>
 			<quote type="remarks"/>
-			
-			
-		<findings><finding nr="F20191219-085515"/></findings><monitoring><assessment nr="1" date="2019-12-19" status="Not started Implementation" note="The Office of the Prime Minister has not preceded a proper assessment of the employment aspects, with particular focus, the responsibilities of line ministries were not clearly defined and the full identification of financial resources was not made."/></monitoring></Recommendation>
+			<findings>
+				<finding nr="F20191219-085515"/>
+			</findings>
+			<monitoring>
+				<assessment nr="1" date="2019-12-19" status="Not started Implementation" note="The Office of the Prime Minister has not preceded a proper assessment of the employment aspects, with particular focus, the responsibilities of line ministries were not clearly defined and the full identification of financial resources was not made."/>
+			</monitoring>
+		</Recommendation>
 	</Recommendations>
 </Audit>

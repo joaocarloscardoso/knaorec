@@ -48,12 +48,13 @@ tooleaudit.get('/toolauditreference',function(req,res){
         res.render('toolaudit/toolwork', {
             action: 'audit',
             operation: 'audit_reference',
+            source: req.query.src,
             AuditReference: AuditReference,
             AuditErrors: '',
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',

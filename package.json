@@ -33,6 +33,7 @@
     "sweetalert": "^2.1.2",
     "underscore": "^1.9.1",
     "uuid": "^3.3.3",
+    "vis-network": "^6.5.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.4.0",
     "xmldom": "^0.2.1",

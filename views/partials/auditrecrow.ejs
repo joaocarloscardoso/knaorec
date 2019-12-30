@@ -4,7 +4,7 @@
             <a href="/auditrec/deleteauditrec/<%= item.Id %>">Delete...</a>
         </td>
         <td>
-            <a href="/auditMatrices/recMatrix?id=<%= item.Id %>""><%= item.Id %></a>
+            <a href="/auditMatrices/recMatrix?id=<%= item.Id %>&src=tbl"><%= item.Id %></a>
             <input type="hidden" id="<%= item.RowId %>Id" name="<%= item.RowId %>Id" value="<%= item.Id %>"/>
         </td>
         <td>
@@ -12,7 +12,7 @@
             <p><span><b>Related findings:&nbsp;</b>
                 <% if(item.Findings.length > 0) { %>
                     <% item.Findings.split("|").forEach(function(finding) { -%>
-                        <a  target="_blank" href="/auditMatrices/FindingData?id=<%= finding %>" data-tooltip-bottom="Use hyperlink on finding #id to visualize it"><%= finding %></a> - 
+                        <a  target="_blank" href="/auditMatrices/FindingData?id=<%= finding %>&src=tbl" data-tooltip-bottom="Use hyperlink on finding #id to visualize it"><%= finding %></a> - 
                     <% }) -%>
                 <% } else { %>
                     <span>(none so far)</span>

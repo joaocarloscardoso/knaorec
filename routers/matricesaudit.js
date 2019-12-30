@@ -42,6 +42,7 @@ matricesaudit.get('/planMatrix',function(req,res){
         res.render('toolaudit/supportmatrix', {
             action: 'audit',
             operation: 'plan_matrix',
+            source: req.query.src,
             AuditErrors: '',
             Matrix: PlanMatrix,
             msg: '',
@@ -71,6 +72,7 @@ matricesaudit.get('/findingMatrix',function(req,res){
         res.render('toolaudit/supportmatrix', {
             action: 'audit',
             operation: 'finding_matrix',
+            source: req.query.src,
             AuditErrors: '',
             Matrix: FindingMatrix,
             msg: '',
@@ -100,6 +102,7 @@ matricesaudit.get('/FindingData',function(req,res){
         res.render('toolaudit/supportmatrix', {
             action: 'audit',
             operation: 'finding_data',
+            source: '',
             AuditErrors: '',
             Matrix: FindingMatrix,
             msg: '',
@@ -129,6 +132,7 @@ matricesaudit.get('/recMatrix',function(req,res){
         res.render('toolaudit/supportmatrix', {
             action: 'audit',
             operation: 'audit_recommendations',
+            source: req.query.src,
             AuditErrors: '',
             Matrix: RecommendationMatrix,
             msg: '',
@@ -158,6 +162,7 @@ matricesaudit.get('/preassessMatrix',function(req,res){
         res.render('toolaudit/supportmatrix', {
             action: 'audit',
             operation: 'preassess_matrix',
+            source: '',
             AuditErrors: '',
             Matrix: preassessMatrix,
             msg: '',
@@ -319,6 +324,7 @@ matricesaudit.post('/findingMatrix', function(req, res){
                     res.render('toolaudit/supportmatrix', {
                         action: 'audit',
                         operation: 'finding_matrix',
+                        source: 'tbl',
                         AuditErrors: '',
                         Matrix: FindingMatrix,
                         msg: '',
@@ -402,6 +408,7 @@ matricesaudit.post('/recMatrix', function(req, res){
                     res.render('toolaudit/supportmatrix', {
                         action: 'audit',
                         operation: 'audit_recommendations',
+                        source: 'tbl',
                         AuditErrors: '',
                         Matrix: RecommendationMatrix,
                         msg: '',

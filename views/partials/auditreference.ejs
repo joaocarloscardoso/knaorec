@@ -36,6 +36,9 @@
             </div>
             <div class="col-12">
                 <ul class="actions">
+                    <% if (source === "map") { %>
+                        <li><a href="/analytics/AuditMap" class="button">Close</a></li>
+                    <% } %>
                     <li><input type="submit" class="button alt" value="Save" /></li>
                 </ul>
             </div>

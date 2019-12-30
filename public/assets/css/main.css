@@ -3581,3 +3581,10 @@ hr {
 	text-align: left;
 	border: #1f1f1f;
 }
+
+#mynetwork {
+	width: 100%;
+	height: 800px;
+	overflow: auto;
+	border: 0px solid lightgray;
+}
