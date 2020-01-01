@@ -14,7 +14,8 @@ var log = require('../lib/log.js');
 var nlp = require('../lib/nlp.js');
 //nlp
 var Recommendations = require('../lib/auditrec.js');
-
+//audit maps
+var AuditMap = require('../lib/auditmap.js');
 
 //generation of uuid
 const uuid = require('uuid/v4');
@@ -115,8 +116,8 @@ analyticsaudit.get('/Recommendations',function(req,res){
             Matrix: Vector,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
-         });
+            audit: status
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -224,7 +225,7 @@ analyticsaudit.get('/SentimentFindings',function(req,res){
             Matrix: Vector,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status
         });
     } else {
         res.render('login/login', {
@@ -257,8 +258,8 @@ analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
             FindingId: req.query.id,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
-         });
+            audit: status
+        });
     } else {
         res.render('login/login', {
             action: 'login',
@@ -281,7 +282,7 @@ analyticsaudit.get('/StatsRecommendations',function(req,res){
         var SentimentFile = credentials.WorkSetPath;
         SentimentFile = SentimentFile + req.sessionID + '.sent';
         var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
-       
+
         res.render('toolaudit/supportanalytics', {
             action: 'audit',
             operation: 'trackauditrecs',
@@ -289,7 +290,7 @@ analyticsaudit.get('/StatsRecommendations',function(req,res){
             data: DataRecommendations,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status
         });
     } else {
         res.render('login/login', {
@@ -311,9 +312,10 @@ analyticsaudit.get('/AuditMap',function(req,res){
 
     if (status) {
         var AuditMapFile = credentials.WorkSetPath;
-        AuditMapFile = AuditMapFile + req.sessionID + '.map';
-        var DataAuditMap = []; //Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
-       
+        AuditMapFile = AuditMapFile + 'test.map';
+        //AuditMapFile = AuditMapFile + req.sessionID + '.map';
+        var DataAuditMap = AuditMap.LoadAuditMap(AuditMapFile);
+        console.log(DataAuditMap);
         res.render('toolaudit/auditmap', {
             action: 'audit',
             operation: 'auditmap',
@@ -321,7 +323,7 @@ analyticsaudit.get('/AuditMap',function(req,res){
             data: DataAuditMap,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status
         });
     } else {
         res.render('login/login', {
