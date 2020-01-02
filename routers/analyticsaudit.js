@@ -314,6 +314,7 @@ analyticsaudit.get('/AuditMap',function(req,res){
         var AuditMapFile = credentials.WorkSetPath;
         AuditMapFile = AuditMapFile + 'test.map';
         //AuditMapFile = AuditMapFile + req.sessionID + '.map';
+        AuditMap.GenerateAuditMap(NewAuditFile);
         var DataAuditMap = AuditMap.LoadAuditMap(AuditMapFile);
         console.log(DataAuditMap);
         res.render('toolaudit/auditmap', {
