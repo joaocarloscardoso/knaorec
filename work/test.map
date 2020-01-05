@@ -40,11 +40,11 @@
                 {"id": 17, "label": "Recommendation:\nR20191219-065509", "title": "Recommendation: R20191219-065509", "group": 3}
 			],
 "edges":	[
-                {"from": 0, "to": 3},
                 {"from": 3, "to": 2},
                 {"from": 3, "to": 5},
                 {"from": 2, "to": 1},
                 {"from": 5, "to": 4},
+                {"from": 0, "to": 3},
                 {"from": 1, "to": 6},
                 {"from": 1, "to": 7},
                 {"from": 1, "to": 8},

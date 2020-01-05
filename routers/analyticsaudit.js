@@ -311,12 +311,10 @@ analyticsaudit.get('/AuditMap',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     if (status) {
-        var AuditMapFile = credentials.WorkSetPath;
-        AuditMapFile = AuditMapFile + 'test.map';
-        //AuditMapFile = AuditMapFile + req.sessionID + '.map';
-        AuditMap.GenerateAuditMap(NewAuditFile);
-        var DataAuditMap = AuditMap.LoadAuditMap(AuditMapFile);
-        console.log(DataAuditMap);
+        //var AuditMapFile = credentials.WorkSetPath;
+        //AuditMapFile = AuditMapFile + 'test.map';
+        //var DataAuditMap = AuditMap.LoadAuditMap(AuditMapFile);
+        var DataAuditMap = AuditMap.GenerateAuditMap(NewAuditFile);
         res.render('toolaudit/auditmap', {
             action: 'audit',
             operation: 'auditmap',
