@@ -49,7 +49,9 @@
             var nodes = new vis.DataSet(
                 <%- JSON.stringify(data.nodes) %>
             );
-    
+            
+            var source = <%- JSON.stringify(data.edges) %>; 
+
             // create an array with edges
             var edges = new vis.DataSet(
                 <%- JSON.stringify(data.edges) %>
@@ -91,7 +93,23 @@
     
             // initialize your network!
             var network = new vis.Network(container, data, options);
-    
+
+            var traverse = function(collection, value) {
+                nodes.remove({id: value});
+                for (var i=0; i<collection.length; i++) {
+                    if (collection[i].from == value){
+                        var foundLabel = traverse(collection, collection[i].to);
+                        if(foundLabel) { return foundLabel; }
+                        nodes.remove({id: collection[i].to});
+                        //window.alert(collection[i].to);
+                    }
+                    //var ck = current.out[cki];
+                    //var child = tree[ck];
+                    //traverse(tree, child);
+                }
+                return null;
+            };
+            
             network.on("click", function (params) {
                 var vButtonVisibility = true;
                 params.event = "[original event]";
@@ -111,16 +129,23 @@
                                 visible: vButtonVisibility,
                                 closeModal: true,
                             },
+                            Delete: {
+                                text: "Delete branch",
+                                value: "deletebranch",
+                                closeModal: true,
+                            },
                             Close: {
                                 text: "Close",
                                 value: true,
                                 closeModal: true,
-                            },
+                            }
                         },
                     })
                     .then((value) => {
                         switch (value) {
-                        
+                            case "deletebranch":
+                                traverse(source, params.nodes); 
+                                break;
                             case "matrix":
                                 window.location.href = supporNodes[params.nodes].matrix;
                             break;
