@@ -144,7 +144,9 @@
                     .then((value) => {
                         switch (value) {
                             case "deletebranch":
+                                var vNode = params.nodes;
                                 traverse(source, params.nodes); 
+                                nodes.remove({id: parseInt(vNode)});
                                 break;
                             case "matrix":
                                 window.location.href = supporNodes[params.nodes].matrix;
