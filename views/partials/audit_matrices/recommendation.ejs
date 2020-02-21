@@ -29,7 +29,7 @@
                     <% } %>
                     <% if (source === "map") { %>
                         <li><a href="/analytics/AuditMap" class="button">Close</a></li>
-                    <% } else { %>}
+                    <% } else { %>
                         <li><a href="/auditrec/auditrecs" class="button">Close</a></li>
                     <% } %>
                     <li><input type="submit" class="button alt" value="Save" /></li>
@@ -117,9 +117,15 @@
                 <select name="reapeated" id="reapeated" size="1" data-tooltip-right="Recommendation repeated in previous audit(s)">
                     <% if (Matrix.Repeated == "Yes") { %>
                         <option value="Yes" selected>Yes</option>
+                        <option value="Partially" >Partially</option>
                         <option value="No" >No</option>
-                    <% } else { %>
+                    <% } if (Matrix.Repeated == "Partially") { %>
                         <option value="Yes">Yes</option>
+                        <option value="Partially" selected>Partially</option>
+                        <option value="No" >No</option>
+                    <% } if (Matrix.Repeated == "No") { %>
+                        <option value="Yes">Yes</option>
+                        <option value="Partially">Partially</option>
                         <option value="No" selected>No</option>
                     <% } %>
                 </select>

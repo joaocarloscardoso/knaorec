@@ -6,7 +6,7 @@
     "type":"horizontalBar",
     "data":{
         "labels":[
-            'Total','New', 'Repeated'
+            'Total','New', 'Repeated', 'Partially Rep.'
         ],
         "datasets":
             [
@@ -15,18 +15,21 @@
                     "data":[
                         <%= data.NumberOfRecommendations %>,
                         <%= data.NumberOfNewRecommendations %>,
-                        <%= data.NumberOfRepRecommendations %>
+                        <%= data.NumberOfRepRecommendations %>,
+                        <%= data.NumberOfPartRecommendations %>
                     ],
                     "fill":false,
                     "backgroundColor":[
                         "rgba(255, 99, 132, 0.2)",
                         "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 159, 64, 1)"
+                        "rgba(255, 159, 64, 1)",
+                        "rgba(25, 159, 64, 1)"
                     ],
                     "borderColor":[
                         "rgba(255, 99, 132, 0.2)",
                         "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 159, 64, 1)"
+                        "rgba(255, 159, 64, 1)",
+                        "rgba(25, 159, 64, 1)"
                     ],
                     "borderWidth":1
                 }
