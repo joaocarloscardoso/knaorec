@@ -366,7 +366,7 @@ matricesaudit.post('/recMatrix', function(req, res){
                 Accepted: req.body.accepted,
                 Repeated: req.body.reapeated,
                 Importance: req.body.importance,
-                Category: req.body.category,
+                Category: req.body.category === '' ? '(Not defined yet)' : req.body.category,
                 Description: req.body.description,
                 Actionplan: req.body.actionplan,
                 Responsible: req.body.responsible,
