@@ -30,6 +30,8 @@
                             <% if(findingcatalog.length > 6) { %>
                                 <br/>&nbsp;<br/>
                                 <a style="border-style: none;" href="/generatedocs/docexecutivesummary" data-tooltip="This functionality generates a word processing document containing the Executive summary"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary</a>    
+                                &nbsp;
+                                <a style="border-style: none;" href="/generatedocs/docexecutivesummarywrecs" data-tooltip="This functionality generates a word processing document containing the Executive summary with recommendations"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary (include recommendations)</a>    
                             <% } %>
                         </p>
                         <table id='tablecatalog'>
@@ -42,8 +44,10 @@
                         </table>
                         <input type="hidden" name="rows_count" id="rows_count" value="<%= findingcatalog.length %>"/> 
                         <p>
-                            <a style="border-style: none;" href="/generatedocs/docexecutivesummary" data-tooltip="This functionality generates a word porcessing document containing the Executive summary"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary</a>    
-                        </p>
+                            <a style="border-style: none;" href="/generatedocs/docexecutivesummary" data-tooltip="This functionality generates a word processing document containing the Executive summary"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary</a>    
+                            &nbsp;
+                            <a style="border-style: none;" href="/generatedocs/docexecutivesummarywrecs" data-tooltip="This functionality generates a word processing document containing the Executive summary with recommendations"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Executive summary (include recommendations)</a>    
+                    </p>
                     <% } else { %>
                         <p>No findings available!</p>
                     <% } %>

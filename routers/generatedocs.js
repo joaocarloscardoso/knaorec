@@ -313,4 +313,36 @@ generatedocs.get('/rectrackreport',function(req,res){
     }
 });
 
+generatedocs.get('/docexecutivesummarywrecs',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    var NewDocFile = credentials.WorkSetPath;
+    NewDocFile = NewDocFile + req.sessionID + '.'+ credentials.ReportFormat;
+
+    if (status) {
+        var data = Docs.LoadExecutiveSummaryWRecs(NewAuditFile);
+        carbone.render('./public/templates/AuditExecutiveSummaryWRecs.'+ credentials.ReportFormat, data, function(err, result){
+            if (err) {
+                return log.info('document (Executive Summary with recommendations) generation error:  ' +err);
+            }
+            // write the result
+            fs.writeFileSync(NewDocFile, result);
+            res.redirect('/document/work/' + req.sessionID + '.'+ credentials.ReportFormat);
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
+
 module.exports = generatedocs;
