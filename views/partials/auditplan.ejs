@@ -26,13 +26,15 @@
                 <p>
                     <% if(plancatalog.length > 0) { %>
                         <p>Filter by <a href="#" onclick="filterRisk('3'); return false;">high risk</a>, <a href="#" onclick="filterRisk('2'); return false;">medium/high risk</a>, <a href="#" onclick="filterInclude(); return false;">include in audit</a>, <a href="#" onclick="showAllRows(); return false;">all issues</a>
-                        <br/>&nbsp;<br/>
-                        <a style="border-style: none;" href="javascript:GetListOptions();" data-tooltip="This functionality generates a word porcessing document containing the planning list"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Export list</a>
+                        <p><div class="row gtr-50">
+                        <a style="border-style: none;" href="javascript:GetListOptions();" data-tooltip="This functionality generates a word processing document containing the planning list"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Export list</a>
                         &nbsp;
-                        <a style="border-style: none;" href="/generatedocs/docauditprogramme" data-tooltip="This functionality generates a word porcessing document containing the audit programme"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Audit programme</a>
+                        <a style="border-style: none;" href="/generatedocs/docauditprogramme" data-tooltip="This functionality generates a word processing document containing the audit programme"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Audit programme</a>
+                        &nbsp;
+                        <a style="border-style: none;" href="/generatedocs/docmethodmatrix" data-tooltip="This functionality generates the methodological audit matrix"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Audit matrix</a>
                         &nbsp;
                         <a style="border-style: none;" href="/generatedocs/docmatricesList" data-tooltip="This functionality generates the matrices collection of all issues included in audit"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Collection of matrices</a></p>
-                        &nbsp;
+                        &nbsp;</div></p>
                         <table id='tablecatalog'>
                             <thead>
                                 <%- include('./auditplanheader'); %>
@@ -43,9 +45,11 @@
                         </table>
                         <input type="hidden" name="rows_count" id="rows_count" value="<%= plancatalog.length %>"/> 
                         <p>
-                        <a style="border-style: none;" href="javascript:GetListOptions();" data-tooltip="This functionality generates a word porcessing document containing the planning list"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Export list</a>
+                        <a style="border-style: none;" href="javascript:GetListOptions();" data-tooltip="This functionality generates a word processing document containing the planning list"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Export list</a>
                         &nbsp;
-                        <a style="border-style: none;" href="/generatedocs/docauditprogramme" data-tooltip="This functionality generates a word porcessing document containing the audit programme"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Audit programme</a>
+                        <a style="border-style: none;" href="/generatedocs/docauditprogramme" data-tooltip="This functionality generates a word processing document containing the audit programme"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Audit programme</a>
+                        &nbsp;
+                        <a style="border-style: none;" href="/generatedocs/docmethodmatrix" data-tooltip="This functionality generates the methodological audit matrix"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Audit matrix</a>
                         &nbsp;
                         <a style="border-style: none;" href="/generatedocs/docmatricesList" data-tooltip="This functionality generates the matrices collection of all issues included in audit"><img src="../images/export32t.png" alt="" style="vertical-align: text-bottom; display: inline-block;"/>&nbsp; Collection of matrices</a></p>
                     <% } else { %>

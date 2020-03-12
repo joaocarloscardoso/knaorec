@@ -11,6 +11,7 @@ var Matrices = require('../lib/matrices.js');
 var Docs = require('../lib/docgeneration.js');
 var Planning = require('../lib/planning.js');
 var Recommendations = require('../lib/auditrec.js');
+var Excel = require('../lib/excel.js');
 //logging system
 var log = require('../lib/log.js');
 
@@ -344,5 +345,33 @@ generatedocs.get('/docexecutivesummarywrecs',function(req,res){
     }
 });
 
+generatedocs.get('/docmethodmatrix',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    var NewDocFile = credentials.WorkSetPath;
+    NewDocFile = NewDocFile + req.sessionID + '.xlsx';
+
+    if (status) {
+        var data = Docs.LoadAuditProgramme(NewAuditFile);
+        var workbook = Excel.GenerateMethologicalMatrix(data);
+        workbook.xlsx.writeFile(NewDocFile)
+            .then(function() {
+            // 
+            res.redirect('/document/work/' + req.sessionID + '.xlsx');
+        });  
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
 
 module.exports = generatedocs;
