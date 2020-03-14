@@ -130,7 +130,7 @@ planaudit.get('/syncauditplanning',function(req,res){
             msg: 'Sync with A2.02 matrix (“02 Understanding the IT-systems”) completed!',
             auditfile: 'work/' + req.sessionID + '.xml',
 	        audit: status
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',

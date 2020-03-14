@@ -374,4 +374,33 @@ generatedocs.get('/docmethodmatrix',function(req,res){
     }
 });
 
+generatedocs.get('/heatmatrix',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    if (status) {
+        var data = Docs.LoadPlanHeatMatrix(NewAuditFile);
+        res.render('toolaudit/heatmatrix', {
+            action: 'heatmatrix',
+            operation: 'audit_plan_heatmatrix',
+            AuditErrors: '',
+            plancatalog: data,
+            msg: '',
+            auditfile: '',
+	        audit: status
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status
+        });
+    }
+});
+
 module.exports = generatedocs;
