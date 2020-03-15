@@ -18,7 +18,8 @@ var Recommendations = require('../lib/auditrec.js');
 var AuditMap = require('../lib/auditmap.js');
 
 //generation of uuid
-const uuid = require('uuid/v4');
+//const uuid = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 //session handling and store
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);

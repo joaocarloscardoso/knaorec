@@ -14,7 +14,9 @@ var pluginsService = require('./lib/catplugins.js')(credentials.PlugInsPath);
 //logging system
 var log = require('./lib/log.js');
 //generation of uuid
-const uuid = require('uuid/v4');
+//old method bellow deprecated: https://github.com/uuidjs/uuid#deep-requires-now-deprecated
+//const uuid = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 //session handling and store
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
