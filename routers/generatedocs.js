@@ -384,12 +384,12 @@ generatedocs.get('/heatmatrix',function(req,res){
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
     if (status) {
-        var data = Docs.LoadPlanHeatMatrix(NewAuditFile);
+        var heatdata = Docs.LoadPlanHeatMatrix(NewAuditFile);
         res.render('toolaudit/heatmatrix', {
             action: 'heatmatrix',
             operation: 'audit_plan_heatmatrix',
             AuditErrors: '',
-            plancatalog: data,
+            plancatalog: heatdata,
             msg: '',
             auditfile: '',
 	        audit: status
