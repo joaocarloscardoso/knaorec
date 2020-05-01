@@ -5,7 +5,8 @@
             <p><span><b>Related findings:&nbsp;</b>
                 <% if(item.Findings.length > 0) { %>
                     <% item.Findings.split("|").forEach(function(finding) { -%>
-                        <a  target="_blank" href="/auditMatrices/FindingData?id=<%= finding %>" data-tooltip-bottom="Use hyperlink on finding #id to visualize it"><%= finding %></a> - 
+                        <% subitem = finding.split("#") -%>
+                        <a  target="_blank" href="/auditMatrices/FindingData?id=<%= subitem[0] %>" data-tooltip-bottom="Use hyperlink on finding #number to visualize it">#<%= subitem[1] %></a> - 
                     <% }) -%>
                 <% } else { %>
                     <span>(none so far)</span>
