@@ -18,14 +18,14 @@ let i=1;
             <select name="RF_<%= i %>" id="RF_<%= i %>" size="1" autofocus onchange="GetFindingInfo(this.id);">
                 <% Matrix.Findings.forEach(function(colitem) { -%>
                     <% if (item.RowId === colitem.FindingId) { %>
-                        <option value="<%= colitem.FindingId %>" selected><%= colitem.FindingId %></option>
+                        <option value="<%= colitem.FindingId %>" selected><%= colitem.Number %></option>
                         <% 
                             Description=colitem.Description; 
                             Source=colitem.Source;
                             Relevant=colitem.Relevant;
                         %>
                     <% } else { %>
-                        <option value="<%= colitem.FindingId %>"><%= colitem.FindingId %></option>
+                        <option value="<%= colitem.FindingId %>"><%= colitem.Number %></option>
                     <% } %>       
                 <% }) -%>         
             </select>
