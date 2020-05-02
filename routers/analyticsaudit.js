@@ -257,6 +257,7 @@ analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
             AuditErrors: '',
             Matrix: Vector,
             FindingId: req.query.id,
+            FindingNumber: req.query.number,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status
