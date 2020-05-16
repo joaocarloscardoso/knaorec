@@ -228,6 +228,7 @@ tooleaudit.post('/toolauditreference', [
             action: 'audit',
             operation: 'audit_reference',
             AuditReference: AuditReference,
+            source: 'tbl',
             AuditErrors: errors.array(),
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
