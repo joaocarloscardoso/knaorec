@@ -11,6 +11,7 @@ var Findings = require('../lib/findings.js');
 //logging system
 var log = require('../lib/log.js');
 
+
 //generation of uuid
 //const uuid = require('uuid/v4');
 const { v4: uuid } = require('uuid');

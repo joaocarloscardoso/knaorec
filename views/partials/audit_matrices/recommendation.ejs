@@ -201,6 +201,7 @@
             {
                 FindingId: "<%= colitem.FindingId -%>",
                 Number: "<%= colitem.Number -%>",
+                Name: "<%= colitem.Name -%>",
                 Description: "<%= colitem.Description -%>", 
                 Source: "<%= colitem.Source -%>",
                 Relevant: "<%= colitem.Relevant -%>"
@@ -215,9 +216,15 @@
         var selFindingId = e.options[e.selectedIndex].value;        
         var result = $.grep(ColFindings, function(e){ return e.FindingId == selFindingId; });
         var temSource = "";
+        var temDescription = "";
 
         if (result.length > 0) {
-            document.getElementById("RD_" + vPos).textContent=result[0].Description;
+            if (result[0].Name == '') {
+                document.getElementById("RD_" + vPos).textContent=result[0].Description;
+            } else {
+                temDescription= "<b>" + result[0].Name + "</b><br/>" + result[0].Description;
+                $("#RD_" + vPos).html(temDescription);
+            }
             document.getElementById("RS_" + vPos).textContent="";
             result[0].Source.split("|").forEach(function(CascadeItem) {
                 temSource=temSource + CascadeItem + "<br/>";

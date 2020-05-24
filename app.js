@@ -35,6 +35,8 @@ var FileCleaner = require('cron-file-cleaner').FileCleaner;
 
 //graphdb access
 var graphdb = require('./lib/graphdb.js');
+//issue #110 retain audit id to form downloaded xml file
+var FileAuditID = require('./lib/planning.js');
 
 var fileWatcher = new FileCleaner(credentials.WorkSetPath, (48 * 3600000),  '* */15 * * * *', {
     start: true
@@ -221,9 +223,14 @@ app.get(('/toolaudit/work/download'),function(req,res){
     var file = credentials.WorkSetPath + req.sessionID + '.xml'
     var InitialAudit = require('./lib/initialaudit.js')(file);
     var status = InitialAudit.VerifyAuditFile(file);
+    var newFileName = FileAuditID.GetAuditID(file);
+    if (newFileName == '') {
+        newFileName  = req.sessionID;
+    }
+    newFileName  = newFileName + '.xml'
     if (status) {
         var file = file.replace("/","\\");
-        res.download(file); // Set disposition and send it.
+        res.download(file, newFileName); // Set disposition and send it.
         log.info('audit file download: ' + file);
     } else {
         res.render('login/login', {

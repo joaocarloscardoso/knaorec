@@ -21,6 +21,7 @@ let i=1;
                         <option value="<%= colitem.FindingId %>" selected><%= colitem.Number %></option>
                         <% 
                             Description=colitem.Description; 
+                            Name=colitem.Name;
                             Source=colitem.Source;
                             Relevant=colitem.Relevant;
                         %>
@@ -30,7 +31,13 @@ let i=1;
                 <% }) -%>         
             </select>
         </td>
-        <td><span name='RD_<%= i %>' id='RD_<%= i %>'><%= Description %></span></td>
+        <td><span name='RD_<%= i %>' id='RD_<%= i %>'>
+        <% if (Name =='') { %>
+            <%= Description %>
+        <% } else { %>
+            <b><%= Name %></b><br/><%= Description %>
+        <% } %> 
+        </span></td>
         <td><span name='RS_<%= i %>' id='RS_<%= i %>'>
         <% Source.split("|").forEach(function(CascadeItem) { -%>
             <%= CascadeItem %><br/>

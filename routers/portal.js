@@ -72,11 +72,11 @@ portal.get('/contactfeedback',function(req,res){
 
     //res.send('Hello e-gov');
     //res.json(persons);
-     res.render('portal/contactfeedback', {
-         action: 'home',
-         auditfile: 'work/' + req.sessionID + '.xml',
-         audit: status
-        });
+    res.render('portal/contactfeedback', {
+        action: 'home',
+        auditfile: 'work/' + req.sessionID + '.xml',
+        audit: status
+    });
 });
 
 portal.get('/project',function(req,res){
@@ -146,11 +146,11 @@ portal.get('/catalogplugins',function(req,res){
 
 portal.post('/contactus', [
     // email must be an email
-    check('email').isEmail().withMessage('Invalid email!'),
-    // first and last names must be at least 3 chars long
-    check('name').isLength({ min: 3 }).withMessage('Name must be at least 3 chars long!'),
-    check('message').isLength({ min: 3 }).withMessage('Message must be at least 3 chars long!')
-  ], (req, res) => {
+        check('email').isEmail().withMessage('Invalid email!'),
+        // first and last names must be at least 3 chars long
+        check('name').isLength({ min: 3 }).withMessage('Name must be at least 3 chars long!'),
+        check('message').isLength({ min: 3 }).withMessage('Message must be at least 3 chars long!')
+    ], (req, res) => {
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
@@ -166,7 +166,7 @@ portal.post('/contactus', [
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         //return res.status(422).json({ errors: errors.array() });
-       res.render('/index', {
+        res.render('/index', {
             action: '#contact',
             message: newMessage,
             errors: errors.array(),

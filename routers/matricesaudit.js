@@ -314,6 +314,7 @@ matricesaudit.post('/findingMatrix', function(req, res){
                 Cause: req.body.cause,
                 Result: req.body.result,
                 Number: req.body.number,
+                Name: req.body.findname,
                 Description: req.body.description,
                 Recommendation: req.body.recommendation,
                 LegalAct: req.body.legalact,

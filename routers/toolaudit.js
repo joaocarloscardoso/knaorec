@@ -208,7 +208,7 @@ tooleaudit.post('/toolnewaudit', function(req, res){
 tooleaudit.post('/toolauditreference', [
     check('auditid').isLength({ min: 2 }).withMessage('Audit ID must be at least 2 chars long!'),
     check('title').isLength({ min: 3 }).withMessage('Audit Title must be at least 3 chars long!')
-  ], (req, res) => {
+], (req, res) => {
     // Get content
     var AuditReference = {
         AuditId: req.body.auditid,
