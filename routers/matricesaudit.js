@@ -128,6 +128,8 @@ matricesaudit.get('/recMatrix',function(req,res){
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
+    console.log(req.session.passport.user);
+
     if (status) {
         var RecommendationMatrix = Matrices.LoadRecommendationMatrix(NewAuditFile, req.query.id);
         res.render('toolaudit/supportmatrix', {
