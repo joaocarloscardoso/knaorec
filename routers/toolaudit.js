@@ -15,6 +15,8 @@ var statisticsService = require('../lib/statistics.js');
 //logging system
 var log = require('../lib/log.js');
 
+var portfolio = require('../lib/portfolio.js');
+
 //generation of uuid
 //const uuid = require('uuid/v4');
 const { v4: uuid } = require('uuid');
@@ -32,7 +34,6 @@ const bcrypt = require('bcrypt-nodejs');
 var formidable = require('formidable');
 var fs = require("fs");
 
-
 var tooleaudit = express.Router();
 
 tooleaudit.get('/toolauditreference',function(req,res){
@@ -42,6 +43,8 @@ tooleaudit.get('/toolauditreference',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+
+    portfolio.SaveToDatabase(credentials.WorkSetPath + 'Portfolio01.xml', 'user01');
 
     if (status) {
         var AuditReference = InitialAudit.GetAuditReference(NewAuditFile);

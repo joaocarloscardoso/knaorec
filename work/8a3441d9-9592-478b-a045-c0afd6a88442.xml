@@ -1,5 +1,5 @@
 <Audit>
-	<About id="Audit01" descriptionfile="">
+	<About id="ATK-SIGTAS" descriptionfile="">
 		<version id="1.0" name=""/>
 		<title>
 			<tx l="eng" name="Tax administration" rem=""/>
@@ -9,6 +9,7 @@
 	<Background>
 		<ak>Background</ak>
 	</Background>
+	<Scope><ak></ak></Scope>
 	<Preassessment>
 		<About id="PreactIS">
 			<version id="20180418" name="main"/>

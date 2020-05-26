@@ -1,5 +1,5 @@
 AITAM web version
-2019-01-21
+2020-05-26
 Important Change on credentials.js. New structure:
 
 module.exports = {
@@ -10,17 +10,27 @@ module.exports = {
     },
     neo4j: {
         uri:'',
+        uriExternal:'',
         user: '',
         password: ''
     },
+    mongoDB: {
+        urlDB:'',
+        user: '',
+        password:'',
+        dbportfolio: '',
+        colportfolio: ''
+    },
     AITAMmail: '',
     PlugInsPath: '',
+    AuditTemplatesPath: '',
     LogFilesPath: '',
     CoreSetPath: '',
     WorkSetPath: '',
     WorkLang: 'eng',
     ReportFormat: 'odt',
     urlpaths: {
-        plugins: '',
+        plugins: 'public/plugins/',
+        audittemplates: 'public/audittemplates/',
     }
 };
