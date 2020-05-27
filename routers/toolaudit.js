@@ -44,7 +44,11 @@ tooleaudit.get('/toolauditreference',function(req,res){
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
 
-    portfolio.SaveToDatabase(credentials.WorkSetPath + 'Portfolio01.xml', 'user01');
+    //replace user01 with this: req.session.passport.user
+    //portfolio.LoadFromDatabase(credentials.WorkSetPath + req.sessionID + '_plf.xml','Portfolio01', 'user01');
+    portfolio.ListPortfolios('user01', '1').then(function(Result){
+        console.log(Result);
+    });
 
     if (status) {
         var AuditReference = InitialAudit.GetAuditReference(NewAuditFile);
