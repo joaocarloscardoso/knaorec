@@ -12,6 +12,8 @@ var emailService = require('../lib/email.js')(credentials);
 var pluginsService = require('../lib/catplugins.js')(credentials.PlugInsPath);
 //logging system
 var log = require('../lib/log.js');
+//portfolios
+var portfolio = require('../lib/portfolio.js');
 
 //generation of uuid
 //const uuid = require('uuid/v4');
@@ -44,7 +46,7 @@ portal.get('/tool', (req, res) => {
         res.redirect('/login/login');
     }
 });
-  
+
 portal.get('/toolindex', (req, res) => {
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
@@ -143,6 +145,38 @@ portal.get('/catalogplugins',function(req,res){
 	        audit: status
         });  
 });
+
+portal.get('/rectracking',function(req,res){
+    var AuditFile = credentials.WorkSetPath;
+    AuditFile = AuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var LastDate = ''
+
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    var AuditTemplatesCatalog = pluginsService.getListOfAuditTemplates(credentials.AuditTemplatesPath);
+    //console.log(PluginsCatalog.length)
+    portfolio.ListPortfolios(user, '1').then(function(Result){
+        if (Result.length > 0) {
+            LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
+        };
+        res.render('portal/rectracking', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate,
+            catalog: Result,
+            user: user,
+            audit: status
+        });  
+    });
+});
+
 
 portal.post('/contactus', [
     // email must be an email
