@@ -38,6 +38,12 @@ findingaudit.get('/auditfindings',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var findingscatalog = Findings.LoadFindings(NewAuditFile);
@@ -49,14 +55,16 @@ findingaudit.get('/auditfindings',function(req,res){
             findingcatalog: findingscatalog,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -67,7 +75,7 @@ findingaudit.post('/auditfindings', function(req, res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
-    
+        
     if (status) {
         //check if req.body is filled
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -104,7 +112,8 @@ findingaudit.post('/auditfindings', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }    
 });
@@ -116,6 +125,12 @@ findingaudit.get('/deleteauditfinding/:findingId',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var status = Findings.DeleteFinding(NewAuditFile, req.params.findingId);
@@ -127,14 +142,16 @@ findingaudit.get('/deleteauditfinding/:findingId',function(req,res){
             findingcatalog: findingscatalog,
             msg: 'Selected finding deleted!',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             auditfile: '',
             //persons: persons,
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });

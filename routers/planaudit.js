@@ -37,6 +37,12 @@ planaudit.get('/auditplanning',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var plancatalog = Planning.LoadPlanning(NewAuditFile);
@@ -47,14 +53,16 @@ planaudit.get('/auditplanning',function(req,res){
             plancatalog: plancatalog,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
          });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -65,7 +73,8 @@ planaudit.post('/auditplanning', function(req, res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
-    
+    var user = '';
+        
     if (status) {
         //check if req.body is filled
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -107,7 +116,8 @@ planaudit.post('/auditplanning', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }    
 });
@@ -119,6 +129,12 @@ planaudit.get('/syncauditplanning',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var status = Planning.SyncPreAssessmentWithRiskAnalysis(NewAuditFile);
@@ -130,14 +146,16 @@ planaudit.get('/syncauditplanning',function(req,res){
             plancatalog: plancatalog,
             msg: 'Sync with A2.02 matrix (“02 Understanding the IT-systems”) completed!',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });

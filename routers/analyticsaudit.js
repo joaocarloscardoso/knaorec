@@ -47,6 +47,12 @@ analyticsaudit.get('/Findings',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var GeneralDomainCatalog = Findings.FindingsForGeneralDomainsAnalysis(NewAuditFile);
@@ -78,7 +84,8 @@ analyticsaudit.get('/Findings',function(req,res){
             Domain07Catalog: Domain07Catalog,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
@@ -97,6 +104,12 @@ analyticsaudit.get('/Recommendations',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var CrawlerFile = credentials.WorkSetPath;
@@ -117,14 +130,16 @@ analyticsaudit.get('/Recommendations',function(req,res){
             Matrix: Vector,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -136,6 +151,12 @@ analyticsaudit.post('/Recommendations',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var VectorFile = credentials.WorkSetPath;
@@ -189,7 +210,8 @@ analyticsaudit.post('/Recommendations',function(req,res){
                     DataTable: NodeResults.sort(nlp.sort_by('Number', true, parseFloat)),
                     msg: '',
                     auditfile: 'work/' + req.sessionID + '.xml',
-                    audit: status
+                    audit: status,
+                    user: user
                 });        
                 session.close();  
             })
@@ -201,7 +223,8 @@ analyticsaudit.post('/Recommendations',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: user
         });
     }
 });
@@ -213,6 +236,12 @@ analyticsaudit.get('/SentimentFindings',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var SentimentFile = credentials.WorkSetPath;
@@ -226,14 +255,16 @@ analyticsaudit.get('/SentimentFindings',function(req,res){
             Matrix: Vector,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -245,6 +276,12 @@ analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var SentimentFile = credentials.WorkSetPath;
@@ -260,14 +297,16 @@ analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
             FindingNumber: req.query.number,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -279,6 +318,12 @@ analyticsaudit.get('/StatsRecommendations',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var SentimentFile = credentials.WorkSetPath;
@@ -292,14 +337,16 @@ analyticsaudit.get('/StatsRecommendations',function(req,res){
             data: DataRecommendations,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -311,6 +358,12 @@ analyticsaudit.get('/AuditMap',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         //var AuditMapFile = credentials.WorkSetPath;
@@ -324,14 +377,16 @@ analyticsaudit.get('/AuditMap',function(req,res){
             data: DataAuditMap,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: user
         });
     }
 });

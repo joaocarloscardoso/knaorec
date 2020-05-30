@@ -62,7 +62,8 @@ generatedocs.get('/docplanMatrix',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -93,7 +94,8 @@ generatedocs.get('/docpreassessMatrix',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -124,7 +126,8 @@ generatedocs.get('/docfindingMatrix',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -155,7 +158,8 @@ generatedocs.get('/docrecMatrix',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -186,7 +190,8 @@ generatedocs.get('/docauditprogramme',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -217,7 +222,8 @@ generatedocs.get('/docexecutivesummary',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -248,7 +254,8 @@ generatedocs.get('/docplanList',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -279,7 +286,8 @@ generatedocs.get('/docmatriceslist',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -310,7 +318,8 @@ generatedocs.get('/rectrackreport',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -341,7 +350,8 @@ generatedocs.get('/docexecutivesummarywrecs',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -370,7 +380,8 @@ generatedocs.get('/docmethodmatrix',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -382,6 +393,12 @@ generatedocs.get('/heatmatrix',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var heatdata = Docs.LoadPlanHeatMatrix(NewAuditFile);
@@ -392,14 +409,16 @@ generatedocs.get('/heatmatrix',function(req,res){
             plancatalog: heatdata,
             msg: '',
             auditfile: '',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });

@@ -37,6 +37,12 @@ matricesaudit.get('/planMatrix',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var PlanMatrix = Matrices.LoadPlanMatrix(NewAuditFile, req.query.plugin, req.query.domain, req.query.area, req.query.issue);
@@ -48,14 +54,16 @@ matricesaudit.get('/planMatrix',function(req,res){
             Matrix: PlanMatrix,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -67,6 +75,12 @@ matricesaudit.get('/findingMatrix',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var FindingMatrix = Matrices.LoadFindingMatrix(NewAuditFile, req.query.id);
@@ -78,14 +92,16 @@ matricesaudit.get('/findingMatrix',function(req,res){
             Matrix: FindingMatrix,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -97,6 +113,12 @@ matricesaudit.get('/FindingData',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var FindingMatrix = Matrices.LoadFindingMatrix(NewAuditFile, req.query.id);
@@ -108,14 +130,16 @@ matricesaudit.get('/FindingData',function(req,res){
             Matrix: FindingMatrix,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -127,6 +151,12 @@ matricesaudit.get('/recMatrix',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     console.log(req.session.passport.user);
 
@@ -140,14 +170,16 @@ matricesaudit.get('/recMatrix',function(req,res){
             Matrix: RecommendationMatrix,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -159,6 +191,12 @@ matricesaudit.get('/preassessMatrix',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var preassessMatrix = Matrices.LoadPreAssessMatrix(NewAuditFile, req.query.area, req.query.issue);
@@ -170,14 +208,16 @@ matricesaudit.get('/preassessMatrix',function(req,res){
             Matrix: preassessMatrix,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -188,7 +228,8 @@ matricesaudit.post('/preassessMatrix', function(req, res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
-    
+    var user = '';
+        
     if (status) {
         //check if req.body is filled
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -236,7 +277,8 @@ matricesaudit.post('/preassessMatrix', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }    
 });
@@ -287,7 +329,8 @@ matricesaudit.post('/planMatrix', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }    
 });
@@ -298,7 +341,13 @@ matricesaudit.post('/findingMatrix', function(req, res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
-    
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
     if (status) {
         //check if req.body is filled
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -334,7 +383,8 @@ matricesaudit.post('/findingMatrix', function(req, res){
                         Matrix: FindingMatrix,
                         msg: '',
                         auditfile: 'work/' + req.sessionID + '.xml',
-                        audit: 'true'
+                        audit: 'true',
+                        user: user
                     });                    
                 }
             }else{
@@ -346,7 +396,8 @@ matricesaudit.post('/findingMatrix', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }    
 });
@@ -357,7 +408,13 @@ matricesaudit.post('/recMatrix', function(req, res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
-    
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
     if (status) {
         //check if req.body is filled
         if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
@@ -419,7 +476,8 @@ matricesaudit.post('/recMatrix', function(req, res){
                         Matrix: RecommendationMatrix,
                         msg: '',
                         auditfile: 'work/' + req.sessionID + '.xml',
-                        audit: status
+                        audit: status,
+                        user: user
                     });            
                 }
             }else{
@@ -431,7 +489,8 @@ matricesaudit.post('/recMatrix', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }    
 });

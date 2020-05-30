@@ -43,6 +43,12 @@ tooleaudit.get('/toolauditreference',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     //replace user01 with this: req.session.passport.user
     //portfolio.LoadFromDatabase(credentials.WorkSetPath + req.sessionID + '_plf.xml','Portfolio01', 'user01');
@@ -61,14 +67,16 @@ tooleaudit.get('/toolauditreference',function(req,res){
             AuditErrors: '',
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -80,6 +88,12 @@ tooleaudit.get('/toolauditplugins',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var PluginsCatalog = pluginsService.getPluginsForAudit(NewAuditFile);
@@ -90,14 +104,16 @@ tooleaudit.get('/toolauditplugins',function(req,res){
             catalog: PluginsCatalog,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });
@@ -109,6 +125,12 @@ tooleaudit.get('/auditstatistics',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var GeneralDomainCatalog = statisticsService.GeneralDomainCharacterization(NewAuditFile);
@@ -135,14 +157,16 @@ tooleaudit.get('/auditstatistics',function(req,res){
             Domain07Catalog: Domain07Catalog,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -161,13 +185,20 @@ tooleaudit.post('/tooleditaudit', function(req, res){
         AuditFile = AuditFile + req.sessionID + '.xml';
         var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
         var status = InitialAudit.VerifyAuditFile(AuditFile);
-
+        var user = '';
+        try {
+            user = req.session.passport.user;
+        } catch (error) {
+            user ='';
+        };
+    
         if(err) { 
             log.warn('Error loading file from user ' + req.session.passport.user +'!');
             return res.render('/portal/toolindex', {
                 action: 'tool',
                 auditfile: 'work/' + req.sessionID + '.xml',
-                audit: status
+                audit: status,
+                user: user
             });
         }
         log.info(`User (` +  req.session.passport.user + `) uploaded a file: ${JSON.stringify(files)}`);
@@ -180,7 +211,8 @@ tooleaudit.post('/tooleditaudit', function(req, res){
             operation: 'audit_creation',
             msg: 'Load completed successfuly!',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     });
     /*
@@ -198,6 +230,12 @@ tooleaudit.post('/tooleditaudit', function(req, res){
 tooleaudit.post('/toolnewaudit', function(req, res){
     var NewAuditFile = credentials.WorkSetPath;
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     //Create new audit file
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
@@ -208,7 +246,8 @@ tooleaudit.post('/toolnewaudit', function(req, res){
         operation: 'audit_creation',
         msg: 'New audit created successfuly!',
         auditfile: 'work/' + req.sessionID + '.xml',
-        audit: true
+        audit: true,
+        user: user
     });
 });  
 
@@ -226,6 +265,12 @@ tooleaudit.post('/toolauditreference', [
 
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
@@ -239,7 +284,8 @@ tooleaudit.post('/toolauditreference', [
             AuditErrors: errors.array(),
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-            audit: true
+            audit: true,
+            user: user
         });
     }
     else {
@@ -268,6 +314,12 @@ tooleaudit.post('/toolauditplugins', function(req, res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
     
     if (status) {
         //check if req.body is filled
@@ -293,7 +345,8 @@ tooleaudit.post('/toolauditplugins', function(req, res){
                 catalog: PluginsCatalog,
                 msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
                 auditfile: 'work/' + req.sessionID + '.xml',
-                audit: status
+                audit: status,
+                user: user
             });
         }
     } else {
@@ -301,7 +354,8 @@ tooleaudit.post('/toolauditplugins', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: ''
         });
     }    
 });

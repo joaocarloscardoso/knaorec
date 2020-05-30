@@ -7,9 +7,15 @@ const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('../credentials.js');
 //plugins stats and catalogue
-var PreAssessment = require('../lib/preassessment.js');
+var Findings = require('../lib/findings.js');
 //logging system
 var log = require('../lib/log.js');
+//nlp
+var nlp = require('../lib/nlp.js');
+//nlp
+var Recommendations = require('../lib/auditrec.js');
+//audit maps
+var AuditMap = require('../lib/auditmap.js');
 
 //generation of uuid
 //const uuid = require('uuid/v4');
@@ -28,11 +34,13 @@ const bcrypt = require('bcrypt-nodejs');
 var formidable = require('formidable');
 var fs = require("fs");
 
-var preassessaudit = express.Router();
+const neo4j = require('neo4j-driver');
 
-preassessaudit.get('/auditpreassessment',function(req,res){
-    //res.send('Hello e-gov');
-    //res.json(persons);
+const driver = neo4j.driver(credentials.neo4j.uri, neo4j.auth.basic(credentials.neo4j.user,credentials.neo4j.password));
+
+var analyticsportfolio = express.Router();
+
+analyticsportfolio.get('/portfolio',function(req,res){
     var NewAuditFile = credentials.WorkSetPath;
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
@@ -43,27 +51,9 @@ preassessaudit.get('/auditpreassessment',function(req,res){
     } catch (error) {
         user ='';
     };
-
-    if (status) {
-        var preassesscatalog = PreAssessment.LoadPreAssessment(NewAuditFile);
-        res.render('toolaudit/toolwork', {
-            action: 'audit',
-            operation: 'audit_preassess',
-            AuditErrors: '',
-            preassesscatalog: preassesscatalog,
-            msg: '',
-            auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status,
-            user: user
-         });
-    } else {
-        res.render('login/login', {
-            action: 'login',
-            //persons: persons,
-            audit: status,
-            user: ''
-        });
-    }
+    res.type('text/html');
+    res.status(500);
+    res.render('500');
 });
 
-module.exports = preassessaudit;
+module.exports = analyticsportfolio;

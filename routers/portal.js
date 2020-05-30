@@ -52,6 +52,12 @@ portal.get('/toolindex', (req, res) => {
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     //console.log('Inside GET /authrequired callback');
     //console.log(`User authenticated? ${req.isAuthenticated()}`);
@@ -59,7 +65,8 @@ portal.get('/toolindex', (req, res) => {
         res.render('portal/toolindex', {
             action: 'tool',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.redirect('/login/login');
@@ -71,13 +78,20 @@ portal.get('/contactfeedback',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     //res.send('Hello e-gov');
     //res.json(persons);
     res.render('portal/contactfeedback', {
         action: 'home',
         auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status
+        audit: status,
+        user: user
     });
 });
 
@@ -86,12 +100,19 @@ portal.get('/project',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     res.render('./portal/project', {
         //action: req.query.action,
         action: req.params.name,
         auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status
+        audit: status,
+        user: user
     });  
 });
 
@@ -100,12 +121,20 @@ portal.get('/desktop',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     res.render('portal/desktop', {
         //action: req.query.action,
         action: req.params.name,
         auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status
+        audit: status,
+        user: user
+
     });  
 });
 
@@ -114,12 +143,19 @@ portal.get('/newsdesktopv2',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     res.render('portal/newsdesktopv2', {
         //action: req.query.action,
         action: req.params.name,
         auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status
+        audit: status,
+        user: user
     });  
 });
 
@@ -128,22 +164,29 @@ portal.get('/catalogplugins',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
-        var LastDate = pluginsService.getMostRecentFileName();
-        var PluginsCatalog = pluginsService.getListOfPlugins();
-        var AuditTemplatesCatalog = pluginsService.getListOfAuditTemplates(credentials.AuditTemplatesPath);
-        //console.log(PluginsCatalog.length)
-        res.render('portal/catalogplugins', {
-            //action: req.query.action,
-            action: req.params.name,
-            lastupdate: LastDate,
-            catalog: PluginsCatalog,
-            audittemplates: AuditTemplatesCatalog,
-            downloadurl: credentials.urlpaths.plugins,
-            downloadurlTemplates: credentials.urlpaths.audittemplates,
-            auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
-        });  
+    var LastDate = pluginsService.getMostRecentFileName();
+    var PluginsCatalog = pluginsService.getListOfPlugins();
+    var AuditTemplatesCatalog = pluginsService.getListOfAuditTemplates(credentials.AuditTemplatesPath);
+    //console.log(PluginsCatalog.length)
+    res.render('portal/catalogplugins', {
+        //action: req.query.action,
+        action: req.params.name,
+        lastupdate: LastDate,
+        catalog: PluginsCatalog,
+        audittemplates: AuditTemplatesCatalog,
+        downloadurl: credentials.urlpaths.plugins,
+        downloadurlTemplates: credentials.urlpaths.audittemplates,
+        auditfile: 'work/' + req.sessionID + '.xml',
+        audit: status,
+        user: user
+    });  
 });
 
 portal.get('/rectracking',function(req,res){
@@ -152,7 +195,6 @@ portal.get('/rectracking',function(req,res){
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
     var LastDate = ''
-
     var user = '';
     try {
         user = req.session.passport.user;
@@ -189,6 +231,12 @@ portal.post('/contactus', [
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     // Get content
     var newMessage = {
@@ -205,7 +253,8 @@ portal.post('/contactus', [
             message: newMessage,
             errors: errors.array(),
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     }
     else {

@@ -37,6 +37,12 @@ auditrec.get('/auditrecs',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var reccatalog = AuditRecommendations.LoadAuditRecommendations(NewAuditFile);
@@ -48,14 +54,16 @@ auditrec.get('/auditrecs',function(req,res){
             reccatalog: reccatalog,
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }
 });
@@ -68,6 +76,12 @@ auditrec.get('/deleteauditrec/:auditrecId',function(req,res){
     NewAuditFile = NewAuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
     var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     if (status) {
         var status = AuditRecommendations.DeleteAuditRecommendation(NewAuditFile, req.params.auditrecId);
@@ -79,14 +93,16 @@ auditrec.get('/deleteauditrec/:auditrecId',function(req,res){
             reccatalog: reccatalog,
             msg: 'Selected audit recommendation deleted!',
             auditfile: 'work/' + req.sessionID + '.xml',
-	        audit: status
+            audit: status,
+            user: user
         });
     } else {
         res.render('login/login', {
             action: 'login',
             auditfile: '',
             //persons: persons,
-            audit: status
+            audit: status,
+            user: ''
         });
     }
 });

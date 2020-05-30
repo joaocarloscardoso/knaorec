@@ -39,11 +39,18 @@ login.get('/login',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     res.render('login/login', {
         action: 'login',
         auditfile: '',
-        audit: status
+        audit: status,
+        user: user
     });
 });
 

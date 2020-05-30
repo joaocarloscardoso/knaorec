@@ -68,13 +68,15 @@ var DocsRouter = require('./routers/generatedocs.js');
 var AnalyticsRouter = require('./routers/analyticsaudit.js');
 var CubeRouter = require('./routers/cube.js');
 var AuditRecRouter = require('./routers/auditrec.js');
+var AnalyticsPortRouter = require('./routers/analyticsportfolio.js');
+
 
 // configure passport.js to use the local strategy
 passport.use(new LocalStrategy(
     { usernameField: 'email' },
     (email, password, done) => {
-      axios.get(`http://localhost:5000/users?email=${email}`)
-      .then(res => {
+    axios.get(`http://localhost:5000/users?email=${email}`)
+    .then(res => {
         const user = res.data[0]
         if (!user) {
             return done(null, false, { message: 'Invalid credentials.\n' });
@@ -83,11 +85,10 @@ passport.use(new LocalStrategy(
             return done(null, false, { message: 'Invalid credentials.\n' });
         }
         return done(null, user);
-      })
-      .catch(error => done(error));
+    })
+    .catch(error => done(error));
     }
 ));
-  
 
 // tell passport how to serialize the user
 passport.serializeUser((user, done) => {
@@ -143,11 +144,18 @@ app.get('/',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     res.render('index', {
         action: 'home',
         auditfile: AuditFile,
-        audit: status
+        audit: status,
+        user: user
         //persons: persons
     });
 });
@@ -159,11 +167,18 @@ app.get('/index',function(req,res){
     AuditFile = AuditFile + req.sessionID + '.xml';
     var InitialAudit = require('./lib/initialaudit.js')(AuditFile);
     var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
 
     res.render('index', {
         action: 'home',
         auditfile: AuditFile,
-        audit: status
+        audit: status,
+        user: user
         //persons: persons
     });
 });
@@ -199,6 +214,13 @@ app.post(('/work/delete'),function(req,res){
     vDocfile = vDocfile + req.sessionID + '.' + credentials.ReportFormat
     var InitialAudit = require('./lib/initialaudit.js')(vDocfile);
     var status = InitialAudit.VerifyAuditFile(vDocfile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
     if (status) {
         vDocfile = vDocfile.replace("/","\\");
 
@@ -211,7 +233,8 @@ app.post(('/work/delete'),function(req,res){
         res.render('portal/toolindex', {
             action: 'tool',
             auditfile: '',
-	        audit: ''
+            audit: '',
+            user: user
         });
     } else {
         res.redirect('/login/login');
@@ -223,6 +246,13 @@ app.get(('/toolaudit/work/download'),function(req,res){
     var file = credentials.WorkSetPath + req.sessionID + '.xml'
     var InitialAudit = require('./lib/initialaudit.js')(file);
     var status = InitialAudit.VerifyAuditFile(file);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
     var newFileName = FileAuditID.GetAuditID(file);
     if (newFileName == '') {
         newFileName  = req.sessionID;
@@ -237,7 +267,8 @@ app.get(('/toolaudit/work/download'),function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user: user
         });
     }    
 });
@@ -247,11 +278,19 @@ app.get(('/toolaudit/work/onclose'),function(req,res){
     var file = credentials.WorkSetPath + req.sessionID + '.xml'
     var InitialAudit = require('./lib/initialaudit.js')(file);
     var status = InitialAudit.VerifyAuditFile(file);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
     if (status) {
         res.render('./portal/onclose', {
             action: 'home',
             auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status
+            audit: status,
+            user: user
             //persons: persons
         });
     } else {
@@ -259,7 +298,8 @@ app.get(('/toolaudit/work/onclose'),function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status
+            audit: status,
+            user:''
         });
     }    
 });
@@ -285,6 +325,7 @@ app.use('/generatedocs', DocsRouter);
 app.use('/analytics', AnalyticsRouter);
 app.use('/cube', CubeRouter);
 app.use('/auditrec',AuditRecRouter);
+app.use('/portanalytics', AnalyticsPortRouter);
 
 app.use(function(req,res,next){
     log.warn('404 - Not Found');
