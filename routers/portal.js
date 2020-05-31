@@ -202,7 +202,6 @@ portal.get('/rectracking',function(req,res){
         user ='';
     };
 
-    var AuditTemplatesCatalog = pluginsService.getListOfAuditTemplates(credentials.AuditTemplatesPath);
     //console.log(PluginsCatalog.length)
     portfolio.ListPortfolios(user, '1').then(function(Result){
         if (Result.length > 0) {

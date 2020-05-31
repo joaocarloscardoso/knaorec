@@ -7,7 +7,7 @@ const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('../credentials.js');
 //plugins stats and catalogue
-var Findings = require('../lib/findings.js');
+var portfolio = require('../lib/portfolio.js');
 //logging system
 var log = require('../lib/log.js');
 //nlp
@@ -51,9 +51,23 @@ analyticsportfolio.get('/portfolio',function(req,res){
     } catch (error) {
         user ='';
     };
-    res.type('text/html');
-    res.status(500);
-    res.render('500');
+
+portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
+        res.type('text/html');
+        res.status(500);
+        res.render('500');
+
+        /*
+        res.render('portal/rectracking', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate,
+            catalog: Result,
+            user: user,
+            audit: status
+        }); 
+        */
+    });
 });
 
 module.exports = analyticsportfolio;
