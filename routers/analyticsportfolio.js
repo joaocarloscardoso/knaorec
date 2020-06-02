@@ -64,4 +64,32 @@ analyticsportfolio.get('/portfolio',function(req,res){
     });
 });
 
+analyticsportfolio.get('/audit',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    //var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
+    portfolio.LoadPortfolioAudit(req.query.id, req.query.auditid).then(function(Result){
+        res.render('toolaudit/portfolioanalytics', {
+            //action: req.query.action,
+            action: 'audit',
+            operation: 'audit',
+            data: Result,
+            user: user,
+            audit: status
+        });     
+    });
+
+});
+
 module.exports = analyticsportfolio;

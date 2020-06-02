@@ -23,6 +23,8 @@
                             <article>
                                 <%  if (operation == 'portfolio') { %>
                                     <%- include('../partials/portfolio_analytics/portfolio'); %>
+								<% } else if (operation == 'audit') { %>
+									<%- include('../partials/portfolio_analytics/audit'); %>
 								<% } %>
 						</article>
 						</div>
