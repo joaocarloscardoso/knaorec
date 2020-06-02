@@ -52,21 +52,15 @@ analyticsportfolio.get('/portfolio',function(req,res){
         user ='';
     };
 
-portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
-        res.type('text/html');
-        res.status(500);
-        res.render('500');
-
-        /*
-        res.render('portal/rectracking', {
+    portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
+        res.render('toolaudit/portfolioanalytics', {
             //action: req.query.action,
-            action: req.params.name,
-            lastupdate: LastDate,
+            action: 'audit',
+            operation: 'portfolio',
             catalog: Result,
             user: user,
             audit: status
-        }); 
-        */
+        });     
     });
 });
 
