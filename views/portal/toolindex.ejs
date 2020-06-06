@@ -25,19 +25,26 @@
                                     <h2>Start here</h2>
                                     <p>Choose action to take</p>
                                 </header>
-                                <form method="POST" action="/toolaudit/toolnewaudit">
-                                    <div class="row gtr-50">
+                                <div class="row gtr-50">
+                                    <form method="POST" action="/toolaudit/toolnewaudit">
                                         <div class="col-12">
                                             <ul class="actions">
                                                 <li><input type="submit" class="button alt" value="Create New Audit...   " /></li>
                                             </ul>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                    <form method="POST" action="/toolaudit/toolnewportfolio">
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" class="button alt" value="Create New Portfolio...   " /></li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </div>
                                 <hr>
                                 <br/>
-                                <form method="POST" enctype="multipart/form-data" action="/toolaudit/tooleditaudit">
-                                    <div class="row gtr-50">
+                                <div class="row gtr-50">
+                                    <form method="POST" enctype="multipart/form-data" action="/toolaudit/tooleditaudit">
                                         <div class="col-6 col-12-mobilep">
                                             <label for="file-upload" class="custom-file-upload">
                                                 <i class="fa fa-cloud-upload"></i> Search File
@@ -49,8 +56,21 @@
                                                 <li><input type="submit" class="button alt" value="Load and Edit Audit..." /></li>
                                             </ul>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                    <form method="POST" enctype="multipart/form-data" action="/toolaudit/tooleditportfolio">
+                                        <div class="col-6 col-12-mobilep">
+                                            <label for="file-upload" class="custom-file-upload">
+                                                <i class="fa fa-cloud-upload"></i> Search File
+                                            </label>
+                                            <input name="file-uploadportfolio" id="file-uploadportfolio" type="file" required accept=".xml"/>
+                                        </div>
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" class="button alt" value="Load and Edit Portfolio..." /></li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </div>
                             </article>
 						</div>
 					</div>
