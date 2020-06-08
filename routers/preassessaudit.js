@@ -55,7 +55,7 @@ preassessaudit.get('/auditpreassessment',function(req,res){
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
             user: user
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',

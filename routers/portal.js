@@ -218,6 +218,32 @@ portal.get('/rectracking',function(req,res){
     });
 });
 
+portal.get('/recmanagement',function(req,res){
+    var AuditFile = credentials.WorkSetPath;
+    AuditFile = AuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var LastDate = ''
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    //console.log(PluginsCatalog.length)
+    portfolio.ListPortfoliosFromUser(user).then(function(Result){
+        res.render('portal/recmanagement', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate,
+            catalog: Result,
+            user: user,
+            audit: status
+        });  
+    });
+});
+
 
 portal.post('/contactus', [
     // email must be an email

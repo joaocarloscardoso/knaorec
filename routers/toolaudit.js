@@ -15,8 +15,6 @@ var statisticsService = require('../lib/statistics.js');
 //logging system
 var log = require('../lib/log.js');
 
-var portfolio = require('../lib/portfolio.js');
-
 //generation of uuid
 //const uuid = require('uuid/v4');
 const { v4: uuid } = require('uuid');
@@ -49,12 +47,6 @@ tooleaudit.get('/toolauditreference',function(req,res){
     } catch (error) {
         user ='';
     };
-
-    //replace user01 with this: req.session.passport.user
-    //portfolio.LoadFromDatabase(credentials.WorkSetPath + req.sessionID + '_plf.xml','Portfolio01', 'user01');
-    portfolio.ListPortfolios('user01', '1').then(function(Result){
-        console.log(Result);
-    });
 
     if (status) {
         var AuditReference = InitialAudit.GetAuditReference(NewAuditFile);
