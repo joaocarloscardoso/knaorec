@@ -10,6 +10,8 @@ var credentials = require('../credentials.js');
 var Matrices = require('../lib/matrices.js');
 //logging system
 var log = require('../lib/log.js');
+//portfolios
+var portfolio = require('../lib/portfolio.js');
 
 //generation of uuid
 //const uuid = require('uuid/v4');
@@ -493,6 +495,46 @@ matricesaudit.post('/recMatrix', function(req, res){
             user: ''
         });
     }    
+});
+
+matricesaudit.get('/portfolio',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    //console.log('user:' + user);
+
+    if (user != '') {
+        portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
+            res.render('toolaudit/supportmatrix', {
+                //action: req.query.action,
+                action: 'portfolio',
+                AuditErrors: '',
+                msg: '',
+                operation: 'portfolio',
+                catalog: Result,
+                user: user,
+                audit: status
+            });     
+        });
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status,
+            user: ''
+        });
+    }
 });
 
 

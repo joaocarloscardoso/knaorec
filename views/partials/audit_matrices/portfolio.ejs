@@ -1,0 +1,67 @@
+<section id="contact" class="col-6 col-12-narrower">
+    <header>
+        <h2></h2>
+        <h2>Manage portfolio</h2>
+    </header>
+    <% if(msg != ''){ %>
+        <div class="col-12" id="save_auditmatrix">
+            <p>
+                <span class="successformtext"><%= msg %></span><br/>
+            </p>
+        </div>
+    <% } %>    
+    <% if(AuditErrors){ %>
+    <div class="col-12" id="err_auditmatrix">
+        <p>
+            <% AuditErrors.forEach(function(error){ %>
+                <span class="errformtext">* <%= error.msg %></span><br/>
+            <% }) %>    
+        </p>
+    </div>
+    <% } %>
+    <form method="POST" action="/auditMatrices/portfolio">
+        <div class="row gtr-50">
+            <div class="col-12">
+                <ul class="actions">
+                    <li><a href="/portal/recmanagement" class="button">Close</a></li>
+                    <li><input type="submit" class="button alt" value="Save" /></li>
+                </ul>
+            </div>
+            <div class="col-12">
+                Portfolio reference<br/>
+                <textarea name="portfolioid" id="portfolioid" autofocus placeholder="Portfolio reference" rows="1" ><%= catalog.portfolioid %></textarea>
+            </div>
+            <div class="col-12">
+                Description<br/>
+                <textarea name="description" id="description" placeholder="Portfolio description" rows="10"><%= catalog.description %></textarea>
+                <input type="hidden" id="_id" name="_id" value="<%= catalog._id %>"/>
+            </div>
+            <div class="col-12">
+                Coverage<br/>
+                <textarea name="coverage" id="coverage" placeholder="Portfolio coverage" rows="10"><%= catalog.coverage %></textarea>
+            </div>
+            <div class="col-12">
+                SAI<br/>
+                <textarea name="sai" id="sai" placeholder="SAI" rows="1" ><%= catalog.org %></textarea>
+            </div>
+            <div class="col-12">
+                Published?<br/>
+                <select name="published" id="published" size="1" data-tooltip-right="Portfolio published (and available to everyone)">
+                    <% if (catalog.publish == '1') { %>
+                        <option value="Yes" selected>Yes</option>
+                        <option value="No" >No</option>
+                    <% } else { %>
+                        <option value="Yes">Yes</option>
+                        <option value="No" selected>No</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-12">
+                <ul class="actions">
+                    <li><a href="/portal/recmanagement" class="button">Close</a></li>
+                    <li><input type="submit" class="button alt" value="Save" /></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</section>
