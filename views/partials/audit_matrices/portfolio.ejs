@@ -33,12 +33,12 @@
             </div>
             <div class="col-12">
                 Description<br/>
-                <textarea name="description" id="description" placeholder="Portfolio description" rows="10"><%= catalog.description %></textarea>
+                <textarea name="description" id="description" placeholder="Portfolio description" rows="6"><%= catalog.description %></textarea>
                 <input type="hidden" id="_id" name="_id" value="<%= catalog._id %>"/>
             </div>
             <div class="col-12">
                 Coverage<br/>
-                <textarea name="coverage" id="coverage" placeholder="Portfolio coverage" rows="10"><%= catalog.coverage %></textarea>
+                <textarea name="coverage" id="coverage" placeholder="Portfolio coverage" rows="4"><%= catalog.coverage %></textarea>
             </div>
             <div class="col-12">
                 SAI<br/>
@@ -55,6 +55,24 @@
                         <option value="No" selected>No</option>
                     <% } %>
                 </select>
+            </div>
+            <div class="col-12">
+                Audit(s) managed<br/>
+                <a href="#" onclick="InsertAuditRow();return false;">
+                    <img id="insert_monitoring" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;"/>
+                    &nbsp; add new item...
+                </a>
+                <table id='tableaudits'>
+                    <thead>
+                        <%- include('./submatrices/portauditsheader'); %>
+                    </thead>    
+                    <tbody>
+                        <% if(catalog.audits.length > 0) { %>
+                            <%- include('./submatrices/portauditsrow'); %>
+                        <% } %>
+                    </tbody>
+                </table>
+                <input type="hidden" name="mrows_count" id="mrows_count" value="<%= catalog.audits.length %>"/>
             </div>
             <div class="col-12">
                 <ul class="actions">
