@@ -514,18 +514,32 @@ matricesaudit.get('/portfolio',function(req,res){
     //console.log('user:' + user);
 
     if (user != '') {
-        portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
+        if (req.query.id != 'New') {
+            portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
+                res.render('toolaudit/supportmatrix', {
+                    //action: req.query.action,
+                    action: 'portfolio',
+                    AuditErrors: '',
+                    msg: '',
+                    operation: 'portfolio',
+                    catalog: Result,
+                    user: user,
+                    audit: status
+                });     
+            });
+        } else {
+            var Catalog = portfolio.LoadNewPortfolioOverview();
             res.render('toolaudit/supportmatrix', {
                 //action: req.query.action,
                 action: 'portfolio',
                 AuditErrors: '',
                 msg: '',
                 operation: 'portfolio',
-                catalog: Result,
+                catalog: Catalog,
                 user: user,
                 audit: status
             });     
-        });
+        }
     } else {
         res.render('login/login', {
             action: 'login',
