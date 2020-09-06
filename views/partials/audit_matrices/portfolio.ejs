@@ -34,9 +34,8 @@
             <div class="col-12">
                 Description<br/>
                 <textarea name="description" id="description" placeholder="Portfolio description" rows="6"><%= catalog.description %></textarea>
-                <input type="hidden" id="_id" name="_id" value="<%= catalog._id %>"/>
+                <input type="hidden" id="portid" name="portid" value="<%= catalog._id %>"/>
                 <input type="hidden" id="action" name="action" value="update"/>
-                <input type="hidden" id="auditid" name="auditid" value=""/>
             </div>
             <div class="col-12">
                 Coverage<br/>

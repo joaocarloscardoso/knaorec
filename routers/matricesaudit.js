@@ -551,5 +551,70 @@ matricesaudit.get('/portfolio',function(req,res){
     }
 });
 
+matricesaudit.post('/portfolio', function(req, res){
+    //old: path.join(__dirname,'work')
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    if (user != '') {
+        //check if req.body is filled
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+            log.warn('Object req.body missing on tool audit matrix');
+        } else {
+            var Catalog = {
+                portfolioid: req.body.portfolioid,
+                description: req.body.description,
+                coverage: req.body.coverage,
+                org: req.body.sai,
+                publish: req.body.published === 'Yes' ? '1' : '0'
+            };
+
+            if (req.body.portid == 'New' && req.body.action == 'update') {
+                portfolio.CreatePortfolio(Catalog, user).then(function(Result){
+                    var NewPortId = Result.insertedId;
+                    portfolio.LoadPortfolioOverview(NewPortId).then(function(Result){
+                        res.render('toolaudit/supportmatrix', {
+                            //action: req.query.action,
+                            action: 'portfolio',
+                            AuditErrors: '',
+                            msg: '',
+                            operation: 'portfolio',
+                            catalog: Result,
+                            user: user,
+                            audit: status
+                        });     
+                    });
+                });
+            }else{
+                portfolio.UpdatePortfolio(req.body.portid, Catalog, user).then(function(Result){
+                    portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
+                        res.render('toolaudit/supportmatrix', {
+                            //action: req.query.action,
+                            action: 'portfolio',
+                            AuditErrors: '',
+                            msg: '',
+                            operation: 'portfolio',
+                            catalog: Result,
+                            user: user,
+                            audit: status
+                        });     
+                    });    
+                });
+            }
+        }
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: status,
+            user: ''
+        });
+    }    
+});
 
 module.exports = matricesaudit;
