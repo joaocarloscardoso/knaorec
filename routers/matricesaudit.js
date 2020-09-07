@@ -524,7 +524,7 @@ matricesaudit.get('/portfolio',function(req,res){
                     operation: 'portfolio',
                     catalog: Result,
                     user: user,
-                    audit: status
+                    audit: true
                 });     
             });
         } else {
@@ -537,7 +537,7 @@ matricesaudit.get('/portfolio',function(req,res){
                 operation: 'portfolio',
                 catalog: Catalog,
                 user: user,
-                audit: status
+                audit: true
             });     
         }
     } else {
@@ -573,45 +573,47 @@ matricesaudit.post('/portfolio', function(req, res){
                 publish: req.body.published === 'Yes' ? '1' : '0'
             };
 
-            if (req.body.portid == 'New' && req.body.action == 'update') {
-                portfolio.CreatePortfolio(Catalog, user).then(function(Result){
-                    var NewPortId = Result.insertedId;
-                    portfolio.LoadPortfolioOverview(NewPortId).then(function(Result){
-                        res.render('toolaudit/supportmatrix', {
-                            //action: req.query.action,
-                            action: 'portfolio',
-                            AuditErrors: '',
-                            msg: '',
-                            operation: 'portfolio',
-                            catalog: Result,
-                            user: user,
-                            audit: status
-                        });     
+            if (req.body.action == 'update') {
+                if (req.body.portid == 'New') {
+                    portfolio.CreatePortfolio(Catalog, user).then(function(Result){
+                        var NewPortId = Result;
+                        portfolio.LoadPortfolioOverview(NewPortId).then(function(Result){
+                            res.render('toolaudit/supportmatrix', {
+                                //action: req.query.action,
+                                action: 'portfolio',
+                                AuditErrors: '',
+                                msg: '',
+                                operation: 'portfolio',
+                                catalog: Result,
+                                user: user,
+                                audit: true
+                            });     
+                        });
                     });
-                });
-            }else{
-                portfolio.UpdatePortfolio(req.body.portid, Catalog, user).then(function(Result){
-                    portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
-                        res.render('toolaudit/supportmatrix', {
-                            //action: req.query.action,
-                            action: 'portfolio',
-                            AuditErrors: '',
-                            msg: '',
-                            operation: 'portfolio',
-                            catalog: Result,
-                            user: user,
-                            audit: status
-                        });     
-                    });    
-                });
-            }
+                }else{
+                    portfolio.UpdatePortfolio(req.body.portid, Catalog, user).then(function(Result){
+                        portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
+                            res.render('toolaudit/supportmatrix', {
+                                //action: req.query.action,
+                                action: 'portfolio',
+                                AuditErrors: '',
+                                msg: '',
+                                operation: 'portfolio',
+                                catalog: Result,
+                                user: user,
+                                audit: true
+                            });     
+                        });    
+                    });
+                };
+            };
         }
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
-            audit: status,
+            audit: true,
             user: ''
         });
     }    
