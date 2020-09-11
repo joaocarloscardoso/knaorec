@@ -658,7 +658,37 @@ matricesaudit.get('/portfoliodetach', function(req, res){
                 });     
             });    
         });
-     } else {
+    } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: true,
+            user: ''
+        });
+    }    
+});
+
+matricesaudit.get('/portfolioattach', function(req, res){
+    //old: path.join(__dirname,'work')
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    if (user != '') {
+        portfolio.ListPortfolioBasic(req.query.id).then(function(Result){
+            res.render('portal/portfolioattach', {
+                //action: req.query.action,
+                action: 'attachaudit',
+                catalog: Result,
+                user: user,
+                audit: true
+            });     
+        });    
+    } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
