@@ -2,8 +2,7 @@
 <% catalog.audits.forEach(function(item) { %>
     <tr id="PA_<%= i %>Row" style="display: table-row;">
         <td>
-            <a id="a<%= i %>Row" href="#" onclick="deleteAuditRow('<%= item.AuditId %>');return false;">Detach...</a>
-            <input type="hidden" id="PAid_<%= i %>" name="PAid_<%= i %>" value="<%= item.AuditId %>"/>
+            <a id="a<%= i %>Row" href="/auditMatrices/portfoliodetach?id=<%= catalog._id %>&auditid=<%= item.AuditId %>">Detach...</a>
         </td>
         <td><%= item.Title %></td>
         <td><%= item.Background %></td>

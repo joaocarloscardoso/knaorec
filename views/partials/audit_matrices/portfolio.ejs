@@ -59,7 +59,7 @@
             </div>
             <div class="col-12">
                 Audit(s) managed<br/>
-                <a href="#" onclick="AttachAudit();return false;">
+                <a href="/auditMatrices/portfolioattach?id=<%= catalog._id %>">
                     <img id="insert_audit" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;"/>
                     &nbsp; Attach new audit...
                 </a>
@@ -85,15 +85,3 @@
     </form>
 </section>
 <!-- javascript is placed in the body section -->
-<script>
-     function AttachAudit() {
-        document.getElementById("action").value="addaudit";
-        document.getElementById("auditid").value="new";
-        document.getElementById("myForm").submit();
-    }    
-    function deleteAuditRow(r) {
-        document.getElementById("action").value="delaudit";
-        document.getElementById("auditid").value=r;
-        document.getElementById("myForm").submit();
-    }
-</script>    

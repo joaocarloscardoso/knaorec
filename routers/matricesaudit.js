@@ -606,9 +606,59 @@ matricesaudit.post('/portfolio', function(req, res){
                         });    
                     });
                 };
+            } else if (req.body.action == 'delaudit') {
+                portfolio.DeleteAuditFromPortfolio(req.body.portid, req.body.auditid, user).then(function(Result){
+                    portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
+                        res.render('toolaudit/supportmatrix', {
+                            //action: req.query.action,
+                            action: 'portfolio',
+                            AuditErrors: '',
+                            msg: '',
+                            operation: 'portfolio',
+                            catalog: Result,
+                            user: user,
+                            audit: true
+                        });     
+                    });    
+                });
             };
         }
     } else {
+        res.render('login/login', {
+            action: 'login',
+            //persons: persons,
+            auditfile: '',
+            audit: true,
+            user: ''
+        });
+    }    
+});
+
+matricesaudit.get('/portfoliodetach', function(req, res){
+    //old: path.join(__dirname,'work')
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    if (user != '') {
+        portfolio.DeleteAuditFromPortfolio(req.query.id, req.query.auditid, user).then(function(Result){
+            portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
+                res.render('toolaudit/supportmatrix', {
+                    //action: req.query.action,
+                    action: 'portfolio',
+                    AuditErrors: '',
+                    msg: '',
+                    operation: 'portfolio',
+                    catalog: Result,
+                    user: user,
+                    audit: true
+                });     
+            });    
+        });
+     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
