@@ -19,7 +19,7 @@
                                 <p><%= catalog.org %></p>
                             </header>
                             <div class="row gtr-50">
-                                <form method="POST" enctype="multipart/form-data" action="/toolaudit/tooleditaudit">
+                                <form method="POST" enctype="multipart/form-data" action="/auditMatrices/toolAttachaudit">
                                     <div class="col-6 col-12-mobilep">
                                         <label for="file-upload" class="custom-file-upload">
                                             <i class="fa fa-cloud-upload"></i> Search File
@@ -32,7 +32,8 @@
                                             <li><a href="/auditMatrices/portfolio?id=<%= catalog._id %>" class="button">Close</a></li>
                                         </ul>
                                     </div>
-                                    <input type="hidden" id="porfolioid" name="porfolioid" value="<%= catalog._id %>"/>                                </form>
+                                    <input type="hidden" id="portfolioid" name="portfolioid" value="<%= catalog._id %>"/>
+                                </form>
                             </div>
                         </article>
                     </div>

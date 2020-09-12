@@ -699,4 +699,68 @@ matricesaudit.get('/portfolioattach', function(req, res){
     }    
 });
 
+matricesaudit.post('/toolAttachaudit', function(req, res){    
+    var form = new formidable.IncomingForm();
+    form.uploadDir = credentials.WorkSetPath;
+
+    form.on('fileBegin', function(field, file) {
+        //rename the incoming file to the file's name
+        file.path = form.uploadDir + 'port_' + req.sessionID + '.xml';
+    });   
+
+    form.parse(req, function(err, fields, files){
+        var AuditFile = credentials.WorkSetPath;
+        AuditFile = AuditFile + 'port_' + req.sessionID + '.xml';
+        var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
+        var status = InitialAudit.VerifyAuditFile(AuditFile);
+        var user = '';
+        try {
+            user = req.session.passport.user;
+        } catch (error) {
+            user ='';
+        };
+
+        if(err) { 
+            log.warn('Error loading file from user ' + req.session.passport.user +'!');
+            return res.render('/portal/toolindex', {
+                action: 'tool',
+                auditfile: 'work/' + 'port_' + req.sessionID + '.xml',
+                audit: status,
+                user: user
+            });
+        }
+        log.info(`User (` +  req.session.passport.user + `) uploaded a file: ${JSON.stringify(files)}`);
+        //res.redirect(303, '/thank-you');
+        //var CheckedAuditFile = credentials.WorkSetPath;
+        //CheckedAuditFile = CheckedAuditFile + req.sessionID + '.xml';
+
+        portfolio.AddAuditToPortfolio(fields.portfolioid, AuditFile, user).then(function(Result){
+            portfolio.LoadPortfolioOverview(fields.portfolioid).then(function(Result){
+                return  res.render('toolaudit/supportmatrix', {
+                    //action: req.query.action,
+                    action: 'portfolio',
+                    AuditErrors: '',
+                    msg: '',
+                    operation: 'portfolio',
+                    catalog: Result,
+                    user: user,
+                    audit: true
+                });     
+            });    
+        });
+        
+    });
+    /*
+    form.on('error', function(err) {
+        console.log("an error has occured with form upload");
+        console.log(err);
+        request.resume();
+    });
+    form.on('aborted', function(err) {
+        console.log("user aborted upload");
+    });
+    */
+});  
+
+
 module.exports = matricesaudit;
