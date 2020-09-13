@@ -63,6 +63,7 @@ generatedocs.get('/docplanMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -95,6 +96,7 @@ generatedocs.get('/docpreassessMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -127,6 +129,7 @@ generatedocs.get('/docfindingMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -159,6 +162,7 @@ generatedocs.get('/docrecMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -191,6 +195,7 @@ generatedocs.get('/docauditprogramme',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -223,6 +228,7 @@ generatedocs.get('/docexecutivesummary',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -255,6 +261,7 @@ generatedocs.get('/docplanList',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -287,6 +294,7 @@ generatedocs.get('/docmatriceslist',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -319,6 +327,7 @@ generatedocs.get('/rectrackreport',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -351,6 +360,7 @@ generatedocs.get('/docexecutivesummarywrecs',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -381,6 +391,7 @@ generatedocs.get('/docmethodmatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -410,6 +421,7 @@ generatedocs.get('/heatmatrix',function(req,res){
             msg: '',
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -418,6 +430,7 @@ generatedocs.get('/heatmatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }

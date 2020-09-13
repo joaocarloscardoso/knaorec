@@ -57,6 +57,7 @@ matricesaudit.get('/planMatrix',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -65,6 +66,7 @@ matricesaudit.get('/planMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -95,6 +97,7 @@ matricesaudit.get('/findingMatrix',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -103,6 +106,7 @@ matricesaudit.get('/findingMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -133,6 +137,7 @@ matricesaudit.get('/FindingData',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -141,6 +146,7 @@ matricesaudit.get('/FindingData',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -173,6 +179,7 @@ matricesaudit.get('/recMatrix',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -181,6 +188,7 @@ matricesaudit.get('/recMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -211,6 +219,7 @@ matricesaudit.get('/preassessMatrix',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -219,6 +228,7 @@ matricesaudit.get('/preassessMatrix',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -280,6 +290,7 @@ matricesaudit.post('/preassessMatrix', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }    
@@ -332,6 +343,7 @@ matricesaudit.post('/planMatrix', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }    
@@ -386,6 +398,7 @@ matricesaudit.post('/findingMatrix', function(req, res){
                         msg: '',
                         auditfile: 'work/' + req.sessionID + '.xml',
                         audit: 'true',
+                        rectracking: credentials.portfolio,
                         user: user
                     });                    
                 }
@@ -399,6 +412,7 @@ matricesaudit.post('/findingMatrix', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }    
@@ -479,6 +493,7 @@ matricesaudit.post('/recMatrix', function(req, res){
                         msg: '',
                         auditfile: 'work/' + req.sessionID + '.xml',
                         audit: status,
+                        rectracking: credentials.portfolio,
                         user: user
                     });            
                 }
@@ -492,6 +507,7 @@ matricesaudit.post('/recMatrix', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }    
@@ -524,6 +540,7 @@ matricesaudit.get('/portfolio',function(req,res){
                     operation: 'portfolio',
                     catalog: Result,
                     user: user,
+                    rectracking: credentials.portfolio,
                     audit: true
                 });     
             });
@@ -537,6 +554,7 @@ matricesaudit.get('/portfolio',function(req,res){
                 operation: 'portfolio',
                 catalog: Catalog,
                 user: user,
+                rectracking: credentials.portfolio,
                 audit: true
             });     
         }
@@ -546,6 +564,7 @@ matricesaudit.get('/portfolio',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -582,9 +601,10 @@ matricesaudit.post('/portfolio', function(req, res){
                                 //action: req.query.action,
                                 action: 'portfolio',
                                 AuditErrors: '',
-                                msg: '',
+                                msg: 'Portfolio created!',
                                 operation: 'portfolio',
                                 catalog: Result,
+                                rectracking: credentials.portfolio,
                                 user: user,
                                 audit: true
                             });     
@@ -592,14 +612,15 @@ matricesaudit.post('/portfolio', function(req, res){
                     });
                 }else{
                     portfolio.UpdatePortfolio(req.body.portid, Catalog, user).then(function(Result){
-                        portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
+                       portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
                             res.render('toolaudit/supportmatrix', {
                                 //action: req.query.action,
                                 action: 'portfolio',
                                 AuditErrors: '',
-                                msg: '',
+                                msg: 'Portfolio updated!',
                                 operation: 'portfolio',
                                 catalog: Result,
+                                rectracking: credentials.portfolio,
                                 user: user,
                                 audit: true
                             });     
@@ -616,6 +637,7 @@ matricesaudit.post('/portfolio', function(req, res){
                             msg: '',
                             operation: 'portfolio',
                             catalog: Result,
+                            rectracking: credentials.portfolio,
                             user: user,
                             audit: true
                         });     
@@ -628,6 +650,7 @@ matricesaudit.post('/portfolio', function(req, res){
             action: 'login',
             //persons: persons,
             auditfile: '',
+            rectracking: credentials.portfolio,
             audit: true,
             user: ''
         });
@@ -650,9 +673,10 @@ matricesaudit.get('/portfoliodetach', function(req, res){
                     //action: req.query.action,
                     action: 'portfolio',
                     AuditErrors: '',
-                    msg: '',
+                    msg: 'Selected audit was successfully dettached!',
                     operation: 'portfolio',
                     catalog: Result,
+                    rectracking: credentials.portfolio,
                     user: user,
                     audit: true
                 });     
@@ -664,6 +688,7 @@ matricesaudit.get('/portfoliodetach', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: true,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }    
@@ -685,6 +710,7 @@ matricesaudit.get('/portfolioattach', function(req, res){
                 action: 'attachaudit',
                 catalog: Result,
                 user: user,
+                rectracking: credentials.portfolio,
                 audit: true
             });     
         });    
@@ -694,6 +720,7 @@ matricesaudit.get('/portfolioattach', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: true,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }    
@@ -726,6 +753,7 @@ matricesaudit.post('/toolAttachaudit', function(req, res){
                 action: 'tool',
                 auditfile: 'work/' + 'port_' + req.sessionID + '.xml',
                 audit: status,
+                rectracking: credentials.portfolio,
                 user: user
             });
         }
@@ -735,18 +763,36 @@ matricesaudit.post('/toolAttachaudit', function(req, res){
         //CheckedAuditFile = CheckedAuditFile + req.sessionID + '.xml';
 
         portfolio.AddAuditToPortfolio(fields.portfolioid, AuditFile, user).then(function(Result){
-            portfolio.LoadPortfolioOverview(fields.portfolioid).then(function(Result){
-                return  res.render('toolaudit/supportmatrix', {
-                    //action: req.query.action,
-                    action: 'portfolio',
-                    AuditErrors: '',
-                    msg: '',
-                    operation: 'portfolio',
-                    catalog: Result,
-                    user: user,
-                    audit: true
-                });     
-            });    
+            if (Result.length > 1 && Result[0].hasOwnProperty('msg')){
+                var ErrorsInPortfolio = Result;
+                portfolio.LoadPortfolioOverview(fields.portfolioid).then(function(Result){
+                    return  res.render('toolaudit/supportmatrix', {
+                        //action: req.query.action,
+                        action: 'portfolio',
+                        AuditErrors: ErrorsInPortfolio,
+                        msg: '',
+                        operation: 'portfolio',
+                        catalog: Result,
+                        user: user,
+                        rectracking: credentials.portfolio,
+                        audit: true
+                    });     
+                });    
+            } else {
+                portfolio.LoadPortfolioOverview(fields.portfolioid).then(function(Result){
+                    return  res.render('toolaudit/supportmatrix', {
+                        //action: req.query.action,
+                        action: 'portfolio',
+                        AuditErrors: '',
+                        msg: 'Selected audit was attached to portfolio!',
+                        operation: 'portfolio',
+                        catalog: Result,
+                        user: user,
+                        rectracking: credentials.portfolio,
+                        audit: true
+                    });     
+                });    
+            };
         });
         
     });

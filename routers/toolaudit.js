@@ -60,6 +60,7 @@ tooleaudit.get('/toolauditreference',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -68,6 +69,7 @@ tooleaudit.get('/toolauditreference',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -97,6 +99,7 @@ tooleaudit.get('/toolauditplugins',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -105,6 +108,7 @@ tooleaudit.get('/toolauditplugins',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -150,6 +154,7 @@ tooleaudit.get('/auditstatistics',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -158,6 +163,7 @@ tooleaudit.get('/auditstatistics',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -190,6 +196,7 @@ tooleaudit.post('/tooleditaudit', function(req, res){
                 action: 'tool',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status,
+                rectracking: credentials.portfolio,
                 user: user
             });
         }
@@ -197,13 +204,14 @@ tooleaudit.post('/tooleditaudit', function(req, res){
         //res.redirect(303, '/thank-you');
         //var CheckedAuditFile = credentials.WorkSetPath;
         //CheckedAuditFile = CheckedAuditFile + req.sessionID + '.xml';
- 
+
         return res.render('toolaudit/toolwork', {
             action: 'audit',
             operation: 'audit_creation',
             msg: 'Load completed successfuly!',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     });
@@ -239,6 +247,7 @@ tooleaudit.post('/toolnewaudit', function(req, res){
         msg: 'New audit created successfuly!',
         auditfile: 'work/' + req.sessionID + '.xml',
         audit: true,
+        rectracking: credentials.portfolio,
         user: user
     });
 });  
@@ -277,6 +286,7 @@ tooleaudit.post('/toolauditreference', [
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: true,
+            rectracking: credentials.portfolio,
             user: user
         });
     }
@@ -338,6 +348,7 @@ tooleaudit.post('/toolauditplugins', function(req, res){
                 msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status,
+                rectracking: credentials.portfolio,
                 user: user
             });
         }
@@ -347,6 +358,7 @@ tooleaudit.post('/toolauditplugins', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }    

@@ -50,6 +50,7 @@ login.get('/login',function(req,res){
         action: 'login',
         auditfile: '',
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
     });
 });

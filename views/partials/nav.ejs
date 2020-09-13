@@ -45,14 +45,16 @@
                     <% } else { %>
                         <li>
                     <% } %>
-                    <%  if (user == '') { %>
-                        <a href="/portal/rectracking">Recommendations</a>
-                    <% } else { %>
-                        <a href="#">Recommendations</a>
-                        <ul>
-                            <li><a href="/portal/rectracking">Browse</a></li>
-                            <li><a href="/portal/recmanagement">Manages portfolios</a></li>
-                        </ul>
+                    <%  if (rectracking == 'Yes') { %>
+                        <%  if (user == '') { %>
+                            <a href="/portal/rectracking">Recommendations</a>
+                        <% } else { %>
+                            <a href="#">Recommendations</a>
+                            <ul>
+                                <li><a href="/portal/rectracking">Browse</a></li>
+                                <li><a href="/portal/recmanagement">Manages portfolios</a></li>
+                            </ul>
+                        <% } %>
                     <% } %>
                     </li>
                     <li><a href="/portal/project">Project</a></li>

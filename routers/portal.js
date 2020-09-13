@@ -66,6 +66,7 @@ portal.get('/toolindex', (req, res) => {
             action: 'tool',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -91,6 +92,7 @@ portal.get('/contactfeedback',function(req,res){
         action: 'home',
         auditfile: 'work/' + req.sessionID + '.xml',
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
     });
 });
@@ -112,6 +114,7 @@ portal.get('/project',function(req,res){
         action: req.params.name,
         auditfile: 'work/' + req.sessionID + '.xml',
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
     });  
 });
@@ -133,6 +136,7 @@ portal.get('/desktop',function(req,res){
         action: req.params.name,
         auditfile: 'work/' + req.sessionID + '.xml',
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
 
     });  
@@ -155,6 +159,7 @@ portal.get('/newsdesktopv2',function(req,res){
         action: req.params.name,
         auditfile: 'work/' + req.sessionID + '.xml',
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
     });  
 });
@@ -185,6 +190,7 @@ portal.get('/catalogplugins',function(req,res){
         downloadurlTemplates: credentials.urlpaths.audittemplates,
         auditfile: 'work/' + req.sessionID + '.xml',
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
     });  
 });
@@ -213,6 +219,7 @@ portal.get('/rectracking',function(req,res){
             lastupdate: LastDate,
             catalog: Result,
             user: user,
+            rectracking: credentials.portfolio,
             audit: status
         });  
     });
@@ -239,6 +246,7 @@ portal.get('/recmanagement',function(req,res){
             lastupdate: LastDate,
             catalog: Result,
             user: user,
+            rectracking: credentials.portfolio,
             audit: status
         });  
     });
@@ -279,6 +287,7 @@ portal.post('/contactus', [
             errors: errors.array(),
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     }

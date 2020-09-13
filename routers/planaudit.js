@@ -54,14 +54,16 @@ planaudit.get('/auditplanning',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
-         });
+        });
     } else {
         res.render('login/login', {
             action: 'login',
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -109,7 +111,7 @@ planaudit.post('/auditplanning', function(req, res){
                 msg: 'Audit saved successfuly! Use "Download" command under "Audit" menu to get the file.',
                 auditfile: 'work/' + req.sessionID + '.xml',
                 audit: status
-             });*/
+            });*/
         }
     } else {
         res.render('login/login', {
@@ -117,6 +119,7 @@ planaudit.post('/auditplanning', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }    
@@ -147,6 +150,7 @@ planaudit.get('/syncauditplanning',function(req,res){
             msg: 'Sync with A2.02 matrix (“02 Understanding the IT-systems”) completed!',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -155,6 +159,7 @@ planaudit.get('/syncauditplanning',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }

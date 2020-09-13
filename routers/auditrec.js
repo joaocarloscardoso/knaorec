@@ -55,6 +55,7 @@ auditrec.get('/auditrecs',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -63,6 +64,7 @@ auditrec.get('/auditrecs',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -94,6 +96,7 @@ auditrec.get('/deleteauditrec/:auditrecId',function(req,res){
             msg: 'Selected audit recommendation deleted!',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -102,6 +105,7 @@ auditrec.get('/deleteauditrec/:auditrecId',function(req,res){
             auditfile: '',
             //persons: persons,
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }

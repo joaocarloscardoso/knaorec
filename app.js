@@ -155,6 +155,7 @@ app.get('/',function(req,res){
         action: 'home',
         auditfile: AuditFile,
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
         //persons: persons
     });
@@ -178,6 +179,7 @@ app.get('/index',function(req,res){
         action: 'home',
         auditfile: AuditFile,
         audit: status,
+        rectracking: credentials.portfolio,
         user: user
         //persons: persons
     });
@@ -234,6 +236,7 @@ app.post(('/work/delete'),function(req,res){
             action: 'tool',
             auditfile: '',
             audit: '',
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -268,6 +271,7 @@ app.get(('/toolaudit/work/download'),function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     }    
@@ -290,6 +294,7 @@ app.get(('/toolaudit/work/onclose'),function(req,res){
             action: 'home',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
             //persons: persons
         });
@@ -299,6 +304,7 @@ app.get(('/toolaudit/work/onclose'),function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }    

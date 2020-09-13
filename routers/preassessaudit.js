@@ -54,6 +54,7 @@ preassessaudit.get('/auditpreassessment',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -61,6 +62,7 @@ preassessaudit.get('/auditpreassessment',function(req,res){
             action: 'login',
             //persons: persons,
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }

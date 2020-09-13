@@ -56,6 +56,7 @@ findingaudit.get('/auditfindings',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -64,6 +65,7 @@ findingaudit.get('/auditfindings',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -113,6 +115,7 @@ findingaudit.post('/auditfindings', function(req, res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }    
@@ -143,6 +146,7 @@ findingaudit.get('/deleteauditfinding/:findingId',function(req,res){
             msg: 'Selected finding deleted!',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -151,6 +155,7 @@ findingaudit.get('/deleteauditfinding/:findingId',function(req,res){
             auditfile: '',
             //persons: persons,
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }

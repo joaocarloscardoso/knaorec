@@ -85,6 +85,7 @@ analyticsaudit.get('/Findings',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -92,6 +93,7 @@ analyticsaudit.get('/Findings',function(req,res){
             action: 'login',
             //persons: persons,
             auditfile: '',
+            rectracking: credentials.portfolio,
             audit: status
         });
     }
@@ -131,6 +133,7 @@ analyticsaudit.get('/Recommendations',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -139,6 +142,7 @@ analyticsaudit.get('/Recommendations',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -211,6 +215,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
                     msg: '',
                     auditfile: 'work/' + req.sessionID + '.xml',
                     audit: status,
+                    rectracking: credentials.portfolio,
                     user: user
                 });        
                 session.close();  
@@ -224,6 +229,7 @@ analyticsaudit.post('/Recommendations',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     }
@@ -256,6 +262,7 @@ analyticsaudit.get('/SentimentFindings',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -264,6 +271,7 @@ analyticsaudit.get('/SentimentFindings',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -298,6 +306,7 @@ analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -306,6 +315,7 @@ analyticsaudit.get('/SentimentFindingsDetailed',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: ''
         });
     }
@@ -338,6 +348,7 @@ analyticsaudit.get('/StatsRecommendations',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -346,6 +357,7 @@ analyticsaudit.get('/StatsRecommendations',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user:''
         });
     }
@@ -378,6 +390,7 @@ analyticsaudit.get('/AuditMap',function(req,res){
             msg: '',
             auditfile: 'work/' + req.sessionID + '.xml',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     } else {
@@ -386,6 +399,7 @@ analyticsaudit.get('/AuditMap',function(req,res){
             //persons: persons,
             auditfile: '',
             audit: status,
+            rectracking: credentials.portfolio,
             user: user
         });
     }

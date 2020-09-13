@@ -59,6 +59,7 @@ analyticsportfolio.get('/portfolio',function(req,res){
             operation: 'portfolio',
             catalog: Result,
             user: user,
+            rectracking: credentials.portfolio,
             audit: status
         });     
     });
@@ -86,6 +87,7 @@ analyticsportfolio.get('/audit',function(req,res){
             operation: 'audit',
             data: Result,
             user: user,
+            rectracking: credentials.portfolio,
             audit: status
         });     
     });
