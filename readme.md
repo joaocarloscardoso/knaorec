@@ -1,7 +1,3 @@
-AITAM web version
-2020-05-26
-Important Change on credentials.js. New structure:
-
 module.exports = {
     cookieSecret: '',
     gmail: {
@@ -29,6 +25,7 @@ module.exports = {
     WorkSetPath: '',
     WorkLang: 'eng',
     ReportFormat: 'odt',
+    portfolio: "Yes",
     urlpaths: {
         plugins: 'public/plugins/',
         audittemplates: 'public/audittemplates/',
