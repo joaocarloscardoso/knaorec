@@ -1,7 +1,7 @@
 {
-  "name": "aitam",
+  "name": "knaorec",
   "version": "1.0.0",
-  "description": "AITAM Web App",
+  "description": "KNAO Recommendations Web App",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -47,6 +47,6 @@
     "xmldom": "^0.4.0",
     "xpath": "0.0.32"
   },
-  "author": "EUROSAI ITWG",
+  "author": "KNAO SAI",
   "license": "ISC"
 }
