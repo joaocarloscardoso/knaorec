@@ -2,62 +2,7 @@
             <nav id="nav">
                 <ul>
                     <!--selected menu item controlled through class="current" in li element -->
-                    <%  if (action == 'home') { %>
-                        <li class="current">
-                    <% } else { %>
-                        <li>
-                    <% } %>
-                    <a href="/index">Home</a></li>
-                    <%  if (audit) { %>
-                    <li>
-                        <a href="#">The audit</a>
-                        <ul>
-                            <li><a href="/toolaudit/toolauditreference?src=tbl">Reference</a></li>
-                            <li><a href="/toolaudit/toolauditplugins">Plug-ins</a></li>
-                            <li><a href="/preassessaudit/auditpreassessment">Preliminary activities</a></li>
-                            <li><a href="/planaudit/auditplanning">Plan</a></li>
-                            <li><a href="/findingaudit/auditfindings">Findings</a></li>
-                            <li><a href="/auditrec/auditrecs">Recommendations</a></li>
-                            <li>
-                                <a href="#">Analytics</a>
-                                <ul>
-                                    <li><a href="/analytics/AuditMap">Audit tree map</a></li>
-                                    <li><a href="/toolaudit/auditstatistics">Domain characterization</a></li>
-                                    <li><a href="/analytics/Recommendations">Hints</a></li>
-                                    <li><a href="/analytics/Findings">Findings analysis</a></li>
-                                    <li><a href="/analytics/SentimentFindings">Sentiment analysis on findings</a></li>
-                                    <li><a href="/analytics/StatsRecommendations">Recommendations tracking</a></li>
-                                </ul>
-                            </li>
-                            <li><a target="_blank" href="/toolaudit/work/download">Download</a></li>
-                            <li><a href="/toolaudit/work/onclose">Close Audit File</a></li>
-                        </ul>
-                    </li>
-                    <% } %>
-                    <%  if (action == 'tool') { %>
-                        <li class="current">
-                    <% } else { %>
-                        <li>
-                    <% } %>
-                    <a href="/portal/tool">Tool</a></li>
-                    <%  if (action == 'project') { %>
-                        <li class="current">
-                    <% } else { %>
-                        <li>
-                    <% } %>
-                    <%  if (rectracking == 'Yes') { %>
-                        <%  if (user == '') { %>
-                            <a href="/portal/rectracking">Recommendations</a>
-                        <% } else { %>
-                            <a href="#">Recommendations</a>
-                            <ul>
-                                <li><a href="/portal/rectracking">Browse</a></li>
-                                <li><a href="/portal/recmanagement">Manages portfolios</a></li>
-                            </ul>
-                        <% } %>
-                    <% } %>
-                    </li>
-                    <li><a href="/portal/project">Project</a></li>
+                    <li><a href="/portal/rectracking">Recommendations Tracking System</a></li>
                     <li><a href="#contact">Get In Touch</a></li>
                 </ul>
             </nav>

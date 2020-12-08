@@ -7,9 +7,9 @@ const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('../credentials.js');
 //email system
-var emailService = require('../lib/email.js')(credentials);
+//var emailService = require('../lib/email.js')(credentials);
 //plugins stats and catalogue
-var pluginsService = require('../lib/catplugins.js')(credentials.PlugInsPath);
+//var pluginsService = require('../lib/catplugins.js')(credentials.PlugInsPath);
 //logging system
 var log = require('../lib/log.js');
 //portfolios

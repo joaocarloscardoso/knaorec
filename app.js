@@ -8,9 +8,9 @@ const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('./credentials.js');
 //email system
-var emailService = require('./lib/email.js')(credentials);
+//var emailService = require('./lib/email.js')(credentials);
 //plugins stats and catalogue
-var pluginsService = require('./lib/catplugins.js')(credentials.PlugInsPath);
+//var pluginsService = require('./lib/catplugins.js')(credentials.PlugInsPath);
 //logging system
 var log = require('./lib/log.js');
 //generation of uuid
@@ -29,32 +29,18 @@ const axios = require('axios');
 const bcrypt = require('bcrypt-nodejs');
 //file uploads
 var formidable = require('formidable');
+const https = require('https');
 var fs = require("fs");
 //garbage collector / file cleaner
 var FileCleaner = require('cron-file-cleaner').FileCleaner;
 
 //graphdb access
-var graphdb = require('./lib/graphdb.js');
+//var graphdb = require('./lib/graphdb.js');
 //issue #110 retain audit id to form downloaded xml file
 var FileAuditID = require('./lib/planning.js');
+//portfolios
+var portfolio = require('./lib/portfolio.js');
 
-var fileWatcher = new FileCleaner(credentials.WorkSetPath, (48 * 3600000),  '* */15 * * * *', {
-    start: true
-});
-
-fileWatcher.on('start', function(info){
-    log.info('garbage collector started on path: ' + info.path);
-});
-
-fileWatcher.on('delete', function(file){
-    log.info('garbage collector deleted  ' + file.name + ' on folder: ' + file.folder  + ', path: ' +file.path); 
-});
-   
-fileWatcher.on('error', function(err){
-    log.info('garbage collector error:  ' + err);
-});
-
-fileWatcher.start();
 
 //routers declaration
 var PortalRouter =require('./routers/portal.js');
@@ -72,6 +58,7 @@ var AnalyticsPortRouter = require('./routers/analyticsportfolio.js');
 
 
 // configure passport.js to use the local strategy
+/*
 passport.use(new LocalStrategy(
     { usernameField: 'email' },
     (email, password, done) => {
@@ -89,7 +76,7 @@ passport.use(new LocalStrategy(
     .catch(error => done(error));
     }
 ));
-
+*/
 // tell passport how to serialize the user
 passport.serializeUser((user, done) => {
     console.log('Inside serializeUser callback. User id is save to the session file store here');
@@ -101,7 +88,7 @@ passport.deserializeUser((id, done) => {
     .then(res => done(null, res.data) )
     .catch(error => done(error, false))
 });
-      
+
 var app = express();
 
 //View Engine
@@ -138,7 +125,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/',function(req,res){
-    graphdb.CreateDictionary();
+    //graphdb.CreateDictionary();
     log.info('Session created received the id:' + req.sessionID);
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
@@ -151,18 +138,34 @@ app.get('/',function(req,res){
         user ='';
     };
 
-    res.render('index', {
-        action: 'home',
-        auditfile: AuditFile,
-        audit: status,
-        rectracking: credentials.portfolio,
-        user: user
-        //persons: persons
+    //console.log(PluginsCatalog.length)
+    portfolio.ListPortfolios(user, '1').then(function(Result){
+        if (Result.length > 0) {
+            LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
+        };
+        res.render('portal/rectracking', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate,
+            catalog: Result,
+            user: user,
+            rectracking: credentials.portfolio,
+            audit: status
+        });  
     });
+
+//    res.render('index', {
+//        action: 'home',
+//        auditfile: AuditFile,
+//        audit: status,
+//        rectracking: credentials.portfolio,
+//        user: user
+//        //persons: persons
+//    });
 });
 
 app.get('/index',function(req,res){
-    graphdb.CreateDictionary();
+    //graphdb.CreateDictionary();
     log.info('Session created received the id:' + req.sessionID);
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
@@ -175,149 +178,30 @@ app.get('/index',function(req,res){
         user ='';
     };
 
-    res.render('index', {
-        action: 'home',
-        auditfile: AuditFile,
-        audit: status,
-        rectracking: credentials.portfolio,
-        user: user
-        //persons: persons
+    //console.log(PluginsCatalog.length)
+    portfolio.ListPortfolios(user, '1').then(function(Result){
+        if (Result.length > 0) {
+            LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
+        };
+        res.render('portal/rectracking', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate,
+            catalog: Result,
+            user: user,
+            rectracking: credentials.portfolio,
+            audit: status
+        });  
     });
-});
 
-app.get(('/portal/' + credentials.urlpaths.plugins + ':name'),function(req,res){
-    //download xml file
-    var file = __dirname + '/' + credentials.urlpaths.plugins + req.params.name
-    var file = file.replace("/","\\");
-    res.download(file); // Set disposition and send it.
-    log.info('plug-in download: ' + file);
-});
-
-app.get(('/portal/' + credentials.urlpaths.audittemplates + ':name'),function(req,res){
-    //download xml file
-    var file = __dirname + '/' + credentials.urlpaths.audittemplates + req.params.name
-    var file = file.replace("/","\\");
-    res.download(file); // Set disposition and send it.
-    log.info('plug-in download: ' + file);
-});
-
-app.post(('/work/delete'),function(req,res){
-    //download xml file
-    var vfile = credentials.WorkSetPath;
-    vfile = vfile + req.sessionID + '.xml'
-    vfile = vfile.replace("/","\\");
-
-    fs.unlink(vfile, (err) => {
-        if (err) throw err;
-        log.info('working audit file closed and deleted : ' + vfile);
-    });
- 
-    var vDocfile = credentials.WorkSetPath;
-    vDocfile = vDocfile + req.sessionID + '.' + credentials.ReportFormat
-    var InitialAudit = require('./lib/initialaudit.js')(vDocfile);
-    var status = InitialAudit.VerifyAuditFile(vDocfile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    if (status) {
-        vDocfile = vDocfile.replace("/","\\");
-
-        fs.unlink(vDocfile, (err) => {
-            if (err) throw err;
-            log.info('document audit file closed and deleted : ' + vDocfile);
-        });
-    };
-    if(req.isAuthenticated()) {
-        res.render('portal/toolindex', {
-            action: 'tool',
-            auditfile: '',
-            audit: '',
-            rectracking: credentials.portfolio,
-            user: user
-        });
-    } else {
-        res.redirect('/login/login');
-    }
-});
-
-app.get(('/toolaudit/work/download'),function(req,res){
-    //download xml file
-    var file = credentials.WorkSetPath + req.sessionID + '.xml'
-    var InitialAudit = require('./lib/initialaudit.js')(file);
-    var status = InitialAudit.VerifyAuditFile(file);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    var newFileName = FileAuditID.GetAuditID(file);
-    if (newFileName == '') {
-        newFileName  = req.sessionID;
-    }
-    newFileName  = newFileName + '.xml'
-    if (status) {
-        var file = file.replace("/","\\");
-        res.download(file, newFileName); // Set disposition and send it.
-        log.info('audit file download: ' + file);
-    } else {
-        res.render('login/login', {
-            action: 'login',
-            //persons: persons,
-            auditfile: '',
-            audit: status,
-            rectracking: credentials.portfolio,
-            user: user
-        });
-    }    
-});
-
-app.get(('/toolaudit/work/onclose'),function(req,res){
-    //download xml file
-    var file = credentials.WorkSetPath + req.sessionID + '.xml'
-    var InitialAudit = require('./lib/initialaudit.js')(file);
-    var status = InitialAudit.VerifyAuditFile(file);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    if (status) {
-        res.render('./portal/onclose', {
-            action: 'home',
-            auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status,
-            rectracking: credentials.portfolio,
-            user: user
-            //persons: persons
-        });
-    } else {
-        res.render('login/login', {
-            action: 'login',
-            //persons: persons,
-            auditfile: '',
-            audit: status,
-            rectracking: credentials.portfolio,
-            user:''
-        });
-    }    
-});
-
-
-app.get(('/document/work/' + ':name'),function(req,res){
-    //download xml file
-    var file = credentials.WorkSetPath + req.params.name
-    var InitialAudit = require('./lib/initialaudit.js')(file);
-    var status = InitialAudit.VerifyAuditFile(file);
-    var file = file.replace("/","\\");
-    res.download(file); // Set disposition and send it.
+//    res.render('index', {
+//        action: 'home',
+//        auditfile: AuditFile,
+//        audit: status,
+//        rectracking: credentials.portfolio,
+//        user: user
+//        //persons: persons
+//    });
 });
 
 app.use('/portal', PortalRouter);
@@ -349,7 +233,14 @@ app.use(function(req,res,next){
     //res.send('500 - Server Error');
 });
 
-app.listen(3000,function(){
-    graphdb.CreateDictionary();
-    console.log('Server started on port 3000...');
-})
+//pass app to https server
+https.createServer({
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem'),
+    passphrase: 'aitam'
+},app).listen(3000);
+
+//app.listen(3000,function(){
+//
+//    console.log('Server started on port 3000...');
+//})
