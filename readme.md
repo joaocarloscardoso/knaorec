@@ -1,15 +1,5 @@
 module.exports = {
     cookieSecret: '',
-    gmail: {
-        user: '',
-        password: '',
-    },
-    neo4j: {
-        uri:'',
-        uriExternal:'',
-        user: '',
-        password: ''
-    },
     mongoDB: {
         urlDB:'',
         user: '',
@@ -17,14 +7,12 @@ module.exports = {
         dbportfolio: '',
         colportfolio: ''
     },
-    AITAMmail: '',
     PlugInsPath: '',
     AuditTemplatesPath: '',
     LogFilesPath: '',
     CoreSetPath: '',
     WorkSetPath: '',
     WorkLang: 'eng',
-    ReportFormat: 'odt',
     portfolio: "Yes",
     urlpaths: {
         plugins: 'public/plugins/',
