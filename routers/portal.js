@@ -213,6 +213,7 @@ portal.get('/rectracking',function(req,res){
         if (Result.length > 0) {
             LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
         };
+
         res.render('portal/rectracking', {
             //action: req.query.action,
             action: req.params.name,
@@ -220,7 +221,8 @@ portal.get('/rectracking',function(req,res){
             catalog: Result,
             user: user,
             rectracking: credentials.portfolio,
-            audit: status
+            audit: status,
+            language:req.query.lang
         });  
     });
 });

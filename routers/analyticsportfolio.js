@@ -60,7 +60,8 @@ analyticsportfolio.get('/portfolio',function(req,res){
             catalog: Result,
             user: user,
             rectracking: credentials.portfolio,
-            audit: status
+            audit: status,
+            language: req.query.lang
         });     
     });
 });
@@ -88,7 +89,8 @@ analyticsportfolio.get('/audit',function(req,res){
             data: Result,
             user: user,
             rectracking: credentials.portfolio,
-            audit: status
+            audit: status,
+            language:req.query.lang
         });     
     });
 

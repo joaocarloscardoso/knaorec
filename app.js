@@ -150,7 +150,8 @@ app.get('/',function(req,res){
             catalog: Result,
             user: user,
             rectracking: credentials.portfolio,
-            audit: status
+            audit: status, 
+            language: credentials.WebLang
         });  
     });
 
@@ -190,7 +191,8 @@ app.get('/index',function(req,res){
             catalog: Result,
             user: user,
             rectracking: credentials.portfolio,
-            audit: status
+            audit: status, 
+            language: credentials.WebLang
         });  
     });
 
