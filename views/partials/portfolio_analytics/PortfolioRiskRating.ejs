@@ -2,7 +2,11 @@
 <canvas id="chartjs-RAI" class="chartjs" width="undefined" height="undefined"></canvas>
 <script>new Chart(document.getElementById("chartjs-RAI"),
     {"type":"polarArea",
+    <% if (language == 'EN') { -%>
         "data":{"labels":[<%- '"' + catalog.risk_label.split('|').join('","') + '"' %>],
+        <% } else { %>
+        "data":{"labels":[<%- '"' + webcontent.Recommendation.RiskCharacterization.split('|').join('","') + '"' %>],
+        <% } %>
         "datasets":[
         {
             "label":"My First Dataset",

@@ -4,7 +4,8 @@ module.exports = {
         RiskCharacterization: 'Governance|Operational|Reputational|Financial|Compliance|Misappropriation of assets',
         RiskEvaluation: 'State|Region|Municipality|Activity Area|Entity',
         Importance: 'Strategic|Important, but not essential',
-        ImplementationStatus: 'Implemented|Started Implementation|Partially implemented|Final Stage Implementation|Not started Implementation|Not addressed|No longer applicable'
+        ImplementationStatus: 'Implemented|Started Implementation|Partially implemented|Final Stage Implementation|Not started Implementation|Not addressed|No longer applicable',
+        Repeated: 'New|Repeated|Partially Rep.'
     },
     weblang: {
         en:{
@@ -14,7 +15,7 @@ module.exports = {
                 module:'Recommendations tracking system',
                 update:'Last update',
                 introduction:'The audits are presented as "collections", aggregated by type, subject, chronological milestones and their recommendations, along with related findings can be tracked and monitored here.',
-                note1: '',
+                note1: 'Note',
                 note2:'Only the audits published and authorized by the KNAO are available in the web version.',
                 portfolio_subject:'Covers',
                 portfolio_sai:'SAI',
@@ -75,6 +76,14 @@ module.exports = {
                 tabreccol4: 'Niveli',
                 tabreccol5: 'Afati kohor',
                 tabreccol6: 'Statusi'
+            },
+            Recommendation: {
+                Priority: 'Urgjente|E rregullt',
+                RiskCharacterization: 'Qeverisja|Operative|Reputacion|Financiar|Pajtueshmëria|Shpërdorimi i pasurive',
+                RiskEvaluation: 'Shteti|rajoni|komuna|zona e veprimtarisë|njësia ekonomike',
+                Importance: 'Strategjik|E rëndësishme, por jo thelbësore',
+                ImplementationStatus: 'Zbatuar|Zbatimi i filluar|Zbatuar pjesërisht|Zbatimi i fazës finale|Zbatimi nuk ka filluar|Nuk adresohet|Nuk zbatohet më',
+                Repeated: 'Gjithsej|E Re|Përsëritur|Pjesërisht e Për.'
             }
         },
         sr:{
@@ -110,6 +119,14 @@ module.exports = {
                 tabreccol4: 'Nivo',
                 tabreccol5: 'Vremenska linija',
                 tabreccol6: 'Status'
+            },
+            Recommendation: {
+                Priority: 'Hitno|Redovno',
+                RiskCharacterization: 'Upravljanje|Operativno|Reputaciono|Finansijsko|Usklađenost|Neprilagodba imovine',
+                RiskEvaluation: 'Država|Regija|Opština|Oblast delatnosti|Entitet',
+                Importance: 'Strateški|Važno, ali ne i bitno',
+                ImplementationStatus: 'Implementirano|Započeta implementacija|Delimično primenjena|Implementacija završne faze|Nije započeta implementacija|Nije adresirano|Više nije primenljivo',
+                Repeated: 'Ukupno|Novo|Ponovljeno|Delimično pon.'
             }
         }
     }

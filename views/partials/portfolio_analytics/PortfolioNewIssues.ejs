@@ -6,7 +6,11 @@
     "type":"horizontalBar",
     "data":{
         "labels":[
+            <% if (language == 'EN') { -%>
             'Total','New', 'Repeated', 'Partially Rep.'
+            <% } else { %>
+            <%- '"' + webcontent.Recommendation.Repeated.split('|').join('","') + '"' %>    
+            <% } %>
         ],
         "datasets":
             [
