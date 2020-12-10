@@ -6,6 +6,7 @@ var path = require('path');
 const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('../credentials.js');
+var globalvalues = require('../globalvalues.js');
 //plugins stats and catalogue
 var portfolio = require('../lib/portfolio.js');
 //logging system
@@ -52,6 +53,15 @@ analyticsportfolio.get('/portfolio',function(req,res){
         user ='';
     };
 
+    var weblang ={};
+    if (req.query.lang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (req.query.lang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (req.query.lang=="SR") {
+        weblang=globalvalues.weblang.sr;
+    };
+
     portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
             //action: req.query.action,
@@ -61,7 +71,8 @@ analyticsportfolio.get('/portfolio',function(req,res){
             user: user,
             rectracking: credentials.portfolio,
             audit: status,
-            language: req.query.lang
+            language: req.query.lang,
+            webcontent: weblang
         });     
     });
 });
@@ -80,6 +91,15 @@ analyticsportfolio.get('/audit',function(req,res){
         user ='';
     };
 
+    var weblang ={};
+    if (req.query.lang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (req.query.lang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (req.query.lang=="SR") {
+        weblang=globalvalues.weblang.sr;
+    };
+
     //var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
     portfolio.LoadPortfolioAudit(req.query.id, req.query.auditid).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
@@ -90,7 +110,8 @@ analyticsportfolio.get('/audit',function(req,res){
             user: user,
             rectracking: credentials.portfolio,
             audit: status,
-            language:req.query.lang
+            language:req.query.lang,
+            webcontent: weblang
         });     
     });
 

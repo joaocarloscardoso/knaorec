@@ -14,6 +14,7 @@ var credentials = require('../credentials.js');
 var log = require('../lib/log.js');
 //portfolios
 var portfolio = require('../lib/portfolio.js');
+var globalvalues = require('../globalvalues.js');
 
 //generation of uuid
 //const uuid = require('uuid/v4');
@@ -34,7 +35,7 @@ var fs = require("fs");
 
 
 var portal = express.Router();
-
+/*
 portal.get('/tool', (req, res) => {
     //console.log('Inside GET /authrequired callback');
     //console.log(`User authenticated? ${req.isAuthenticated()}`);
@@ -194,7 +195,7 @@ portal.get('/catalogplugins',function(req,res){
         user: user
     });  
 });
-
+*/
 portal.get('/rectracking',function(req,res){
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
@@ -206,6 +207,15 @@ portal.get('/rectracking',function(req,res){
         user = req.session.passport.user;
     } catch (error) {
         user ='';
+    };
+
+    var weblang ={};
+    if (req.query.lang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (req.query.lang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (req.query.lang=="SR") {
+        weblang=globalvalues.weblang.sr;
     };
 
     //console.log(PluginsCatalog.length)
@@ -222,11 +232,13 @@ portal.get('/rectracking',function(req,res){
             user: user,
             rectracking: credentials.portfolio,
             audit: status,
-            language:req.query.lang
+            language:req.query.lang,
+            webcontent: weblang
         });  
     });
 });
 
+/*
 portal.get('/recmanagement',function(req,res){
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
@@ -253,7 +265,6 @@ portal.get('/recmanagement',function(req,res){
         });  
     });
 });
-
 
 portal.post('/contactus', [
     // email must be an email
@@ -307,5 +318,5 @@ portal.post('/contactus', [
         //console.log(newMessage);
     }
 });
-
+*/
 module.exports = portal;

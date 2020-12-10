@@ -7,6 +7,7 @@ var path = require('path');
 const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('./credentials.js');
+var globalvalues = require('./globalvalues.js');
 //email system
 //var emailService = require('./lib/email.js')(credentials);
 //plugins stats and catalogue
@@ -137,6 +138,14 @@ app.get('/',function(req,res){
     } catch (error) {
         user ='';
     };
+    var weblang ={};
+    if (credentials.WebLang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (credentials.WebLang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (credentials.WebLang=="SR") {
+        weblang=globalvalues.weblang.sr;
+    };
 
     //console.log(PluginsCatalog.length)
     portfolio.ListPortfolios(user, '1').then(function(Result){
@@ -151,7 +160,8 @@ app.get('/',function(req,res){
             user: user,
             rectracking: credentials.portfolio,
             audit: status, 
-            language: credentials.WebLang
+            language: credentials.WebLang,
+            webcontent: weblang
         });  
     });
 
@@ -178,6 +188,14 @@ app.get('/index',function(req,res){
     } catch (error) {
         user ='';
     };
+    var weblang ={};
+    if (credentials.WebLang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (credentials.WebLang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (credentials.WebLang=="SR") {
+        weblang=globalvalues.weblang.sr;
+    };
 
     //console.log(PluginsCatalog.length)
     portfolio.ListPortfolios(user, '1').then(function(Result){
@@ -192,7 +210,8 @@ app.get('/index',function(req,res){
             user: user,
             rectracking: credentials.portfolio,
             audit: status, 
-            language: credentials.WebLang
+            language: credentials.WebLang,
+            webcontent: weblang
         });  
     });
 
@@ -207,15 +226,15 @@ app.get('/index',function(req,res){
 });
 
 app.use('/portal', PortalRouter);
-app.use('/login', LoginRouter);
+//app.use('/login', LoginRouter);
 app.use('/toolaudit', ToolAuditRouter);
-app.use('/preassessaudit', PreassessmentRouter);
-app.use('/planaudit', PlanRouter);
+//app.use('/preassessaudit', PreassessmentRouter);
+//app.use('/planaudit', PlanRouter);
 app.use('/findingaudit', FindingsRouter);
 app.use('/auditMatrices', MatrixRouter);
 app.use('/generatedocs', DocsRouter);
 app.use('/analytics', AnalyticsRouter);
-app.use('/cube', CubeRouter);
+//app.use('/cube', CubeRouter);
 app.use('/auditrec',AuditRecRouter);
 app.use('/portanalytics', AnalyticsPortRouter);
 

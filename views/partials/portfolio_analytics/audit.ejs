@@ -47,7 +47,7 @@
             <article>
                 <section id="contact" class="col-6 col-12-narrower">
                     <% if(data.NumberOfRecommendations > 0) { %>
-                        Progress of recommendations
+                        <%= webcontent.audit.recprogress %>
                         <table id='tablecatalog'>
                             <thead>
                                 <%- include('../audit_statistics/auditrecstatsheader'); %>

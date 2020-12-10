@@ -20,14 +20,11 @@
 							<!-- Content -->
                             <article>
                                 <header>
-                                    <h2>Recommendations tracking system</h2>
+                                    <h2><%= webcontent.main.module %></h2>
                                     <%- include('../partials/pluginstats'); %>
+                                    <p><%= webcontent.main.introduction %></p>
                                     <p>
-                                        The audits are presented as "collections", aggregated by type, subject, chronological milestones and their recommendations,
-                                        along with related findings can be tracked and monitored here .
-                                    </p>
-                                    <p>
-                                        <b>Note:</b> Only the audits published and authorized by the KNAO are available in the web version.
+                                        <b><%= webcontent.main.note1 %>:</b> <%= webcontent.main.note2 %>
                                     </p>
                                 </header>
                                 <p>
@@ -38,7 +35,7 @@
                                         </div>
                                     </section>
                                     <% } else { %>
-                                    <p>No audits available!</p>
+                                    <p><%= webcontent.main.noaudits %></p>
                                     <% } %>
                                 </p>
                             </article>

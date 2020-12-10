@@ -8,8 +8,8 @@
                     <div class="inner">
                         <h3><a href="/portanalytics/portfolio?id=<%= item._id %>&lang=<%= language %>"><%= item.portfolioid %></a></h3>
                         <p><%= item.description %>
-                        <br/>Covers : <%= item.coverage %>
-                        <br/>SAI: <%= item.org %>
+                        <br/><%= webcontent.main.portfolio_subject %> : <%= item.coverage %>
+                        <br/><%= webcontent.main.portfolio_sai %>: <%= item.org %>
                         <% if (user === item.userid) { -%>
                             <br/>(<a href="/auditMatrices/portfolio?id=<%= item._id %>">Manage</a>)
                         <% } %>
@@ -24,8 +24,8 @@
                     <div class="inner">
                         <h3><a href="/portanalytics/portfolio?id=<%= item._id %>&lang=<%= language %>"><%= item.portfolioid %></a></h3>
                         <p><%= item.description %>
-                        <br/>Covers : <%= item.coverage %>
-                        <br/>SAI: <%= item.org %>
+                        <br/><%= webcontent.main.portfolio_subject %> : <%= item.coverage %>
+                        <br/><%= webcontent.main.portfolio_sai %>: <%= item.org %>
                         <% if (user === item.userid) { -%>
                             <br/>(<a href="/auditMatrices/portfolio?id=<%= item._id %>">Manage</a>)
                         <% } %>

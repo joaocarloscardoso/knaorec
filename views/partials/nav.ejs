@@ -2,7 +2,7 @@
             <nav id="nav">
                 <ul>
                     <!--selected menu item controlled through class="current" in li element -->
-                    <li><a href="/portal/rectracking?lang=<%= language %>">Recommendations Tracking System</a></li>
+                    <li><a href="/portal/rectracking?lang=<%= language %>"><%= webcontent.main.module %></a></li>
                     <li>
                         <select onchange="LangFunction()" style="background-color: black;color:white; " name="sellanguage" id="sellanguage" size="1">
                             <% if (language === 'EN') { %>
