@@ -4,30 +4,12 @@
                     <!--selected menu item controlled through class="current" in li element -->
                     <li><a href="/portal/rectracking?lang=<%= language %>"><%= webcontent.main.module %></a></li>
                     <li>
-                        <select onchange="LangFunction()" style="background-color: black;color:white; " name="sellanguage" id="sellanguage" size="1">
-                            <% if (language === 'EN') { %>
-                                <option value="EN" selected>EN</option>
-                            <% } else { %>
-                                <option value="EN">EN</option>
-                            <% } %>       
-                            <% if (language === 'SQ') { %>
-                                <option value="SQ" selected>SQ</option>
-                            <% } else { %>
-                                <option value="SQ">SQ</option>
-                            <% } %>       
-                            <% if (language === 'SR') { %>
-                                <option value="SR" selected>SR</option>
-                            <% } else { %>
-                                <option value="SR">SR</option>
-                            <% } %>       
-                        </select>
+                        <a href="#">Language</a>
+                        <ul>
+                            <li><a href="/portal/rectracking?lang=EN">English (EN)</a></li>
+                            <li><a href="/portal/rectracking?lang=SQ">Shqiptare (SQ)</a></li>
+                            <li><a href="/portal/rectracking?lang=SR">Srpski (SR)</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
-            <!-- javascript is placed in the body section -->
-            <script>
-                //it takes two parameters: the select control id as well the image control id associated in order to to change display
-                function LangFunction(){
-                    window.open("/portal/rectracking?lang="+document.getElementById("sellanguage").value, "_self");
-                }
-            </script>
