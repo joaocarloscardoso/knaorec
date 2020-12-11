@@ -15,7 +15,11 @@
         "datasets":
             [
                 {
+                    <% if (language == 'EN') { -%>
                     "label":"Number",
+                    <% } else { %>
+                    "label":"<%= webcontent.main.number %>",
+                    <% } %>
                     "data":[
                         <%= catalog.repeated_data.No + catalog.repeated_data.Yes + catalog.repeated_data.Partially %>,
                         <%= catalog.repeated_data.No %>,

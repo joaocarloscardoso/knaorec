@@ -7,19 +7,27 @@
     "data":{
         "labels":[
             <% let i=1 %>
-            <% data.StatStatus.forEach(function(item) { -%>
-                <% if (i == 1) { -%>
-                    "<%= item.Status %>"
-                <% } else { %>
-                    ,"<%= item.Status %>"
-                <% } %>
-                <% i++ %>
-            <% }) -%>
+            <% if (language == 'EN') { -%>
+                <% data.StatStatus.forEach(function(item) { -%>
+                    <% if (i == 1) { -%>
+                        "<%= item.Status %>"
+                    <% } else { %>
+                        ,"<%= item.Status %>"
+                    <% } %>
+                    <% i++ %>
+                <% }) -%>
+            <% } else { %>
+                <%- '"' + webcontent.Recommendation.ImplementationStatus.split('|').join('","') + '"' %>
+            <% } %>
         ],
         "datasets":
             [
                 {
+                    <% if (language == 'EN') { -%>
                     "label":"Number",
+                    <% } else { %>
+                    "label":"<%= webcontent.main.number %>",
+                    <% } %>
                     "data":[
                         <%  i=1 %>
                         <% data.StatStatus.forEach(function(item) { -%>

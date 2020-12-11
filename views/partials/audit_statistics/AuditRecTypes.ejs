@@ -4,14 +4,18 @@
     {"type":"doughnut",
         "data":{"labels":[
             <% let i=1 %>
-            <% data.StatLevel.forEach(function(item) { -%>
-                <% if (i == 1) { -%>
-                    "<%= item.Level %>"
-                <% } else { %>
-                    ,"<%= item.Level %>"
-                <% } %>
-                <% i++ %>
-            <% }) -%>
+            <% if (language == 'EN') { -%>
+                <% data.StatLevel.forEach(function(item) { -%>
+                    <% if (i == 1) { -%>
+                        "<%= item.Level %>"
+                    <% } else { %>
+                        ,"<%= item.Level %>"
+                    <% } %>
+                    <% i++ %>
+                <% }) -%>
+            <% } else { %>
+                <%- '"' + webcontent.Recommendation.RiskEvaluation.split('|').join('","') + '"' %>
+            <% } %>
         ],
         "datasets":[
         {

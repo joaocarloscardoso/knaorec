@@ -20,7 +20,8 @@ module.exports = {
                 portfolio_subject:'Covers',
                 portfolio_sai:'SAI',
                 externallinks:'External Related Links',
-                noaudits:'No audits available!'
+                noaudits:'No audits available!',
+                number: 'Number'
             },
             portfolio:{
                 rectstatus:'Global Recommendations Status',
@@ -55,7 +56,8 @@ module.exports = {
                 portfolio_subject:'Për të përfshirë',
                 portfolio_sai:'ISA',
                 externallinks:'Lidhje të Jashtme të Lidhura',
-                noaudits:'Nuk ka auditime të disponueshme!'
+                noaudits:'Nuk ka auditime të disponueshme!',
+                number: 'Numrin'
             },
             portfolio:{
                 rectstatus:'Statusi i Rekomandimeve Globale',
@@ -98,7 +100,8 @@ module.exports = {
                 portfolio_subject:'Obuhvatiti',
                 portfolio_sai:'VRI',
                 externallinks:'Spoljne povezane veze',
-                noaudits:'Nije dostupna revizija!'
+                noaudits:'Nije dostupna revizija!',
+                number: 'Broj'
             },
             portfolio:{
                 rectstatus:'Status globalnih preporuka',

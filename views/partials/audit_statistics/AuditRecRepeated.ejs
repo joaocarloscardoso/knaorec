@@ -6,12 +6,20 @@
     "type":"horizontalBar",
     "data":{
         "labels":[
+        <% if (language == 'EN') { -%>
             'Total','New', 'Repeated', 'Partially Rep.'
+            <% } else { %>
+            <%- '"' + webcontent.Recommendation.Repeated.split('|').join('","') + '"' %>    
+            <% } %>
         ],
         "datasets":
             [
                 {
+                    <% if (language == 'EN') { -%>
                     "label":"Number",
+                    <% } else { %>
+                    "label":"<%= webcontent.main.number %>",
+                    <% } %>
                     "data":[
                         <%= data.NumberOfRecommendations %>,
                         <%= data.NumberOfNewRecommendations %>,

@@ -7,19 +7,27 @@
     "data":{
         "labels":[
             <% let i=1 %>
-            <% data.StatPriorities.forEach(function(item) { -%>
-                <% if (i == 1) { -%>
-                    "<%= item.Priority %>"
-                <% } else { %>
-                    ,"<%= item.Priority %>"
-                <% } %>
-                <% i++ %>
-            <% }) -%>
+            <% if (language == 'EN') { -%>
+                <% data.StatPriorities.forEach(function(item) { -%>
+                    <% if (i == 1) { -%>
+                        "<%= item.Priority %>"
+                    <% } else { %>
+                        ,"<%= item.Priority %>"
+                    <% } %>
+                    <% i++ %>
+                <% }) -%>
+            <% } else { %>
+                <%- '"' + webcontent.Recommendation.Priority.split('|').join('","') + '"' %>
+            <% } %>
         ],
         "datasets":
             [
                 {
+                    <% if (language == 'EN') { -%>
                     "label":"Number",
+                    <% } else { %>
+                    "label":"<%= webcontent.main.number %>",
+                    <% } %>
                     "data":[
                         <%  i=1 %>
                         <% data.StatPriorities.forEach(function(item) { -%>
