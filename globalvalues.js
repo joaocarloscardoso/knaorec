@@ -21,7 +21,22 @@ module.exports = {
                 portfolio_sai:'SAI',
                 externallinks:'External Related Links',
                 noaudits:'No audits available!',
-                number: 'Number'
+                number: 'Number',
+                search: 'Search'
+            },
+            search: {
+                introduction: 'Search tool on audit recommendations',
+                note1: 'Note',
+                note2: 'Type the search terms in the text box or combine them with the advanced options and press the search button',
+                button: 'Search',
+                option1: 'Any word',
+                option2: 'All words',
+                option3: 'Exact match',
+                priority: 'By priority',
+                riskareas: 'By risk area',
+                rectype: 'By type',
+                recimportance: 'By importance',
+                status: 'By implementatio status'
             },
             portfolio:{
                 rectstatus:'Global Recommendations Status',
@@ -57,7 +72,22 @@ module.exports = {
                 portfolio_sai:'ISA',
                 externallinks:'Lidhje të Jashtme të Lidhura',
                 noaudits:'Nuk ka auditime të disponueshme!',
-                number: 'Numrin'
+                number: 'Numrin',
+                search: 'Kërko'
+            },
+            search: {
+                introduction: 'Mjet kërkimi për rekomandimet e auditimit',
+                note1: 'Shënim',
+                note2: 'Shtypni termat e kërkimit në kutinë e tekstit ose kombinojini ato me opsionet e përparuara dhe shtypni butonin e kërkimit',
+                button: 'Kërko',
+                option1: 'Çdo fjalë',
+                option2: 'Të gjitha fjalët',
+                option3: 'Përputhja e saktë',
+                priority: 'Sipas përparësisë',
+                riskareas: 'Sipas zonës së rrezikut',
+                rectype: 'Sipas llojit',
+                recimportance: 'Nga rëndësia',
+                status: 'Sipas statusit të zbatimit'
             },
             portfolio:{
                 rectstatus:'Statusi i Rekomandimeve Globale',
@@ -101,7 +131,22 @@ module.exports = {
                 portfolio_sai:'VRI',
                 externallinks:'Spoljne povezane veze',
                 noaudits:'Nije dostupna revizija!',
-                number: 'Broj'
+                number: 'Broj',
+                search: 'Pretraga'
+            },
+            search: {
+                introduction: 'Alat za pretragu po preporukama revizije',
+                note1: 'Beleška',
+                note2: 'Unesite pojmove za pretragu u okvir za tekst ili ih kombinirajte sa naprednim opcijama i pritisnite dugme za pretragu',
+                button: 'Pretraga',
+                option1: 'Bilo koja reč',
+                option2: 'Sve reči',
+                option3: 'Tačan meč',
+                priority: 'Prioritetno',
+                riskareas: 'Prema rizičnom području',
+                rectype: 'Po tipu',
+                recimportance: 'Po važnosti',
+                status: 'Po statusu primene'
             },
             portfolio:{
                 rectstatus:'Status globalnih preporuka',

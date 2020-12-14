@@ -238,6 +238,48 @@ portal.get('/rectracking',function(req,res){
     });
 });
 
+portal.get('/search',function(req,res){
+    var AuditFile = credentials.WorkSetPath;
+    AuditFile = AuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
+    var status = InitialAudit.VerifyAuditFile(AuditFile);
+    var LastDate = ''
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    var weblang ={};
+    if (req.query.lang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (req.query.lang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (req.query.lang=="SR") {
+        weblang=globalvalues.weblang.sr;
+    };
+
+    //console.log(PluginsCatalog.length)
+    portfolio.ListPortfolios(user, '1').then(function(Result){
+        if (Result.length > 0) {
+            LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
+        };
+
+        res.render('portal/search', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate,
+            catalog: Result,
+            user: user,
+            rectracking: credentials.portfolio,
+            audit: status,
+            language:req.query.lang,
+            webcontent: weblang
+        });  
+    });
+});
+
 /*
 portal.get('/recmanagement',function(req,res){
     var AuditFile = credentials.WorkSetPath;
