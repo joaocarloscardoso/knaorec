@@ -36,7 +36,9 @@ module.exports = {
                 riskareas: 'By risk area',
                 rectype: 'By type',
                 recimportance: 'By importance',
-                status: 'By implementatio status'
+                status: 'By implementation status',
+                repeated: 'Repeated?',
+                advanced: 'Advanced options'
             },
             portfolio:{
                 rectstatus:'Global Recommendations Status',
@@ -57,7 +59,16 @@ module.exports = {
                 tabreccol4: 'Level',
                 tabreccol5: 'Timeline',
                 tabreccol6: 'Status'
+            },
+            Recommendation: {
+                Priority: 'Urgent|Regular',
+                RiskCharacterization: 'Governance|Operational|Reputational|Financial|Compliance|Misappropriation of assets',
+                RiskEvaluation: 'State|Region|Municipality|Activity Area|Entity',
+                Importance: 'Strategic|Important, but not essential',
+                ImplementationStatus: 'Implemented|Started Implementation|Partially implemented|Final Stage Implementation|Not started Implementation|Not addressed|No longer applicable',
+                Repeated: 'New|Repeated|Partially Rep.'
             }
+
         },
         sq:{
             main:{
@@ -87,7 +98,9 @@ module.exports = {
                 riskareas: 'Sipas zonës së rrezikut',
                 rectype: 'Sipas llojit',
                 recimportance: 'Nga rëndësia',
-                status: 'Sipas statusit të zbatimit'
+                status: 'Sipas statusit të zbatimit',
+                repeated: 'Përsëritet?',
+                advanced: 'Opsione te avancuara'
             },
             portfolio:{
                 rectstatus:'Statusi i Rekomandimeve Globale',
@@ -146,7 +159,9 @@ module.exports = {
                 riskareas: 'Prema rizičnom području',
                 rectype: 'Po tipu',
                 recimportance: 'Po važnosti',
-                status: 'Po statusu primene'
+                status: 'Po statusu primene',
+                repeated: 'Ponovljeno?',
+                advanced: 'Napredne opcije'
             },
             portfolio:{
                 rectstatus:'Status globalnih preporuka',

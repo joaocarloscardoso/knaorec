@@ -20,196 +20,101 @@
 							<!-- Content -->
                             <article>
                                 <header>
-                                    <h2><%= webcontent.main.module %></h2>
-                                    <p><%= webcontent.main.introduction %></p>
+                                    <h2><%= webcontent.search.introduction %></h2>
                                     <p>
-                                        <b><%= webcontent.main.note1 %>:</b> <%= webcontent.main.note2 %>
+                                        <b><%= webcontent.search.note1 %>:</b> <%= webcontent.search.note2 %>
                                     </p>
                                 </header>
-                                <form method="POST" action="/auditMatrices/recMatrix">
+                                <form method="POST" action="/portal/searchresults">
                                     <div class="row gtr-50">
                                         <div class="col-12">
-                                            <ul class="actions">
-                                                <% if (Matrix.RecId != "(New)") { %>
-                                                    <li><a href="/generatedocs/docrecMatrix?id=<%= Matrix.RecId %>" class="button">Generate document</a></li>
-                                                <% } %>
-                                                <% if (source === "map") { %>
-                                                    <li><a href="/analytics/AuditMap" class="button">Close</a></li>
-                                                <% } else { %>
-                                                    <li><a href="/auditrec/auditrecs" class="button">Close</a></li>
-                                                <% } %>
-                                                <li><input type="submit" class="button alt" value="Save" /></li>
-                                            </ul>
+                                            <input type="text" name="textsearch" id="textsearch" maxlength="255" placeholder="<%= webcontent.search.note2 %>" value="" />
+                                            <br/>
+                                            <label class="container2"><%= webcontent.search.option1 %>
+                                                <input type="radio" name="searchtype">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="container2"><%= webcontent.search.option2 %>
+                                                <input type="radio" name="searchtype">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="container2"><%= webcontent.search.option3 %>
+                                                <input type="radio" name="searchtype">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <p></p> 
+                                            <a href="#" onclick="ShowAdvancedOptions();return false;"><%= webcontent.search.advanced %>&nbsp;&nbsp;<img id="AdvancedOptionsImage"  name="AdvancedOptionsImage" src="../images/plus_blue16b.png" alt="<%= webcontent.search.advanced %>" style="vertical-align: middle; display: inline-block;"/></a>
+                                            <hr id='AdvancedOptionshr' name='AdvancedOptionshr' style='display: none;'/>
                                         </div>
-                                        <div class="col-12">
-                                            Recommendation<br/>
-                                            <textarea name="description" id="description" autofocus placeholder="Recommendation description" rows="10"><%= Matrix.Description %></textarea>
-                                            <input type="hidden" id="recid" name="recid" value="<%= Matrix.RecId %>"/>
+                                        <div class="col-6 col-12-mobilep" id='AdvancedOptions1' name='AdvancedOptions1' style='display: none;'>
+                                            <%= webcontent.search.priority %><br/>
+                                            <% let i=1 %>
+                                            <% webcontent.Recommendation.Priority.split("|").forEach(function(item) { -%>
+                                                <label class="container1"><%= item %>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <% i++ %> 
+                                            <% }) -%>         
+                                            <br/>
+                                            <%= webcontent.search.riskareas %><br/>
+                                            <% i=1 %>
+                                            <% webcontent.Recommendation.RiskCharacterization.split("|").forEach(function(item) { -%>
+                                                <label class="container1"><%= item %>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <% i++ %> 
+                                            <% }) -%>         
+                                            <br/>
+                                            <%= webcontent.search.rectype %><br/>
+                                            <% i=1 %>
+                                            <% webcontent.Recommendation.RiskEvaluation.split("|").forEach(function(item) { -%>
+                                                <label class="container1"><%= item %>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <% i++ %> 
+                                            <% }) -%>    
                                         </div>
-                                        <div class="col-12">
-                                            Recommendation number<br/>
-                                            <textarea name="number" id="number" placeholder="Number" rows="1" style="width: 150px;"><%= Matrix.Number %></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            Priority<br/>
-                                            <select name="priority" id="priority" size="1">
-                                                <% Matrix.Priorities.split("|").forEach(function(item) { -%>
-                                                    <% if (Matrix.Priority === item) { %>
-                                                        <option value="<%= item %>" selected><%= item %></option>
-                                                    <% } else { %>
-                                                        <option value="<%= item %>"><%= item %></option>
-                                                    <% } %>       
-                                                <% }) -%>         
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            Risk characterization<br/>
-                                            <select name="risk" id="risk" size="1" data-tooltip-right="(Most relevant category of) Risk faced by organizations directly and indirectly as a result of non-implementation of audit recommendations">
-                                                <% Matrix.Risks.split("|").forEach(function(item) { -%>
-                                                    <% if (Matrix.Risk === item) { %>
-                                                        <option value="<%= item %>" selected><%= item %></option>
-                                                    <% } else { %>
-                                                        <option value="<%= item %>"><%= item %></option>
-                                                    <% } %>       
-                                                <% }) -%>         
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            Risk level<br/>
-                                            <select name="riskevaluation" id="riskevaluation" size="1">
-                                                <% Matrix.RisksEvaluation.split("|").forEach(function(item) { -%>
-                                                    <% if (Matrix.Riskevaluation === item) { %>
-                                                        <option value="<%= item %>" selected><%= item %></option>
-                                                    <% } else { %>
-                                                        <option value="<%= item %>"><%= item %></option>
-                                                    <% } %>       
-                                                <% }) -%>         
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            Importance<br/>
-                                            <select name="importance" id="importance" size="1">
-                                                <% Matrix.ICategories.split("|").forEach(function(item) { -%>
-                                                    <% if (Matrix.Importance === item) { %>
-                                                        <option value="<%= item %>" selected><%= item %></option>
-                                                    <% } else { %>
-                                                        <option value="<%= item %>"><%= item %></option>
-                                                    <% } %>       
-                                                <% }) -%>         
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            Accepted (by the auditee)<br/>
-                                            <select name="accepted" id="accepted" size="1" data-tooltip-right="Recommendation accepted by the auditee">
-                                                <% if (Matrix.Accepted == "Yes") { %>
-                                                    <option value="Yes" selected>Yes</option>
-                                                    <option value="No" >No</option>
-                                                <% } else { %>
-                                                    <option value="Yes">Yes</option>
-                                                    <option value="No" selected>No</option>
-                                                <% } %>
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            Categorizing the audit recommendation<br/>
-                                            <input type="text" name="category" id="category" maxlength="100" placeholder="Categorizing the audit recommendation (max 100 characters)" value="<%= Matrix.Category %>" />
-                                        </div>
-                                        <div class="col-12">
-                                            Repeated in previous audit(s)? (register in remarks field the history)<br/>
-                                            <select name="reapeated" id="reapeated" size="1" data-tooltip-right="Recommendation repeated in previous audit(s)">
-                                                <% if (Matrix.Repeated == "Yes") { %>
-                                                    <option value="Yes" selected>Yes</option>
-                                                    <option value="Partially" >Partially</option>
-                                                    <option value="No" >No</option>
-                                                <% } if (Matrix.Repeated == "Partially") { %>
-                                                    <option value="Yes">Yes</option>
-                                                    <option value="Partially" selected>Partially</option>
-                                                    <option value="No" >No</option>
-                                                <% } if (Matrix.Repeated == "No") { %>
-                                                    <option value="Yes">Yes</option>
-                                                    <option value="Partially">Partially</option>
-                                                    <option value="No" selected>No</option>
-                                                <% } %>
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            Action plan<br/>
-                                            <textarea name="actionplan" id="actionplan" placeholder="Action/remedial plan proposed" rows="4"><%= Matrix.Actionplan %></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            Timeline<br/>
-                                            <textarea name="timeline" id="timeline" placeholder="Timeline planned to implement the action/remedial plan proposed" rows="1"><%= Matrix.Timeline %></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            Desired outcome<br/>
-                                            <textarea name="outcome" id="outcome" placeholder="Description of the outcome desired by the implementation of the recommendation" rows="2"><%= Matrix.Outcome %></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            Responsible<br/>
-                                            <textarea name="responsible" id="responsible" placeholder="Identify and direct recommendation to those who have responsibility and authority to act on them" rows="1"><%= Matrix.Responsible %></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            Remarks<br/>
-                                            <textarea name="remarks" id="remarks" placeholder="(Unstructured) Notes and remarks about recommendation registered by the auditor" rows="2"><%= Matrix.Remarks %></textarea>
-                                        </div>
-                                        <div class="col-12">
-                                            Related reported findings<br/>
-                                                <a href="#" onclick="InsertFindingRow();return false;">
-                                                    <img id="insert_finding" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;" />
-                                                    &nbsp; add new item...
-                                                </a>
-                                                <table id='tablerelfindings'>
-                                                    <thead>
-                                                        <%- include('./submatrices/recrelfindingsheader'); %>
-                                                    </thead>    
-                                                    <tbody>
-                                                        <% if(Matrix.RelFindings.length > 0) { %>
-                                                            <%- include('./submatrices/recrelfindingsrow'); %> 
-                                                        <% } %>
-                                                    </tbody>
-                                                </table>
-                                                <input type="hidden" name="frows_count" id="frows_count" value="<%= Matrix.RelFindings.length %>"/>                
-                                        </div>
-                                        <div class="col-12">
-                                            Monitoring and follow-up activities<br/>
-                                            <a href="#" onclick="InsertMonitoringRow();return false;">
-                                                    <img id="insert_monitoring" src="../../images/plus_blue.png" alt="" style="vertical-align: baseline;height: 16px;"/>
-                                                    &nbsp; add new item...
-                                                </a>
-                                                <table id='tablemonitoring'>
-                                                    <thead>
-                                                        <%- include('./submatrices/recmonitoringheader'); %>
-                                                    </thead>    
-                                                    <tbody>
-                                                        <% if(Matrix.Monitoring.length > 0) { %>
-                                                            <%- include('./submatrices/recmonitoringrow'); %>
-                                                        <% } %>
-                                                    </tbody>
-                                                </table>
-                                                <input type="hidden" name="mrows_count" id="mrows_count" value="<%= Matrix.Monitoring.length %>"/>
+                                        <div class="col-6 col-12-mobilep" id='AdvancedOptions2' name='AdvancedOptions2' style='display: none;'>
+                                            <%= webcontent.search.recimportance %><br/>
+                                            <% i=1 %>
+                                            <% webcontent.Recommendation.Importance.split("|").forEach(function(item) { -%>
+                                                <label class="container1"><%= item %>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <% i++ %> 
+                                            <% }) -%>     
+                                            <br/>    
+                                            <%= webcontent.search.status %><br/>
+                                            <% i=1 %>
+                                            <% webcontent.Recommendation.ImplementationStatus.split("|").forEach(function(item) { -%>
+                                                <label class="container1"><%= item %>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <% i++ %> 
+                                            <% }) -%>         
+                                            <br/>
+                                            <%= webcontent.search.repeated %><br/>
+                                            <% i=1 %>
+                                            <% webcontent.Recommendation.Repeated.split("|").forEach(function(item) { -%>
+                                                <label class="container1"><%= item %>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <% i++ %> 
+                                            <% }) -%>         
                                         </div>
                                         <div class="col-12">
                                             <ul class="actions">
-                                                <% if (Matrix.RecId != "(New)") { %>
-                                                    <li><a href="/generatedocs/docrecMatrix?id=<%= Matrix.RecId %>" class="button">Generate document</a></li>
-                                                <% } %>
-                                                <li><a href="/auditrec/auditrecs" class="button">Close</a></li>
-                                                <li><input type="submit" class="button alt" value="Save" /></li>
+                                                <li><input type="submit" class="button alt" value="<%= webcontent.search.button %>" /></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </form>
-                                <p>
-                                    <% if(catalog.length > 0) { %>
-                                    <section class="wrapper style1">
-                                        <div class="container">
-                                            <%- include('../partials/portfolios'); -%>
-                                        </div>
-                                    </section>
-                                    <% } else { %>
-                                    <p><%= webcontent.main.noaudits %></p>
-                                    <% } %>
-                                </p>
                             </article>
 						</div>
 					</div>
@@ -219,6 +124,22 @@
 			<%- include('../partials/footer'); %>
 
 		</div>
+        <!-- javascript is placed in the body section -->
+        <script>
+            function ShowAdvancedOptions() {
+                if (document.getElementById("AdvancedOptionshr").style.display == "none"){
+                    document.getElementById("AdvancedOptionsImage").src='../images/minus_blue16b.png';
+                    document.getElementById("AdvancedOptionshr").style.display = "block";
+                    document.getElementById("AdvancedOptions1").style.display = "block";
+                    document.getElementById("AdvancedOptions2").style.display = "block";
+                } else {
+                    document.getElementById("AdvancedOptionsImage").src='../images/plus_blue16b.png';
+                    document.getElementById("AdvancedOptionshr").style.display = "none";
+                    document.getElementById("AdvancedOptions1").style.display = "none";
+                    document.getElementById("AdvancedOptions2").style.display = "none";
+                }
+            }
+        </script>   
 
 		<!-- Scripts -->
 		<%- include('../partials/scripts'); -%>
