@@ -33,169 +33,8 @@ const bcrypt = require('bcrypt-nodejs');
 var formidable = require('formidable');
 var fs = require("fs");
 
-
 var portal = express.Router();
-/*
-portal.get('/tool', (req, res) => {
-    //console.log('Inside GET /authrequired callback');
-    //console.log(`User authenticated? ${req.isAuthenticated()}`);
-    if(req.isAuthenticated()) {
-        //console.log('userid2file1: ' + req.session.passport.user);
-        //console.log('sessionid2file2: ' + req.sessionID);
-        res.redirect('/portal/toolindex');
-    } else {
-        res.redirect('/login/login');
-    }
-});
 
-portal.get('/toolindex', (req, res) => {
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    //console.log('Inside GET /authrequired callback');
-    //console.log(`User authenticated? ${req.isAuthenticated()}`);
-    if(req.isAuthenticated()) {
-        res.render('portal/toolindex', {
-            action: 'tool',
-            auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status,
-            rectracking: credentials.portfolio,
-            user: user
-        });
-    } else {
-        res.redirect('/login/login');
-    }
-});  
-
-portal.get('/contactfeedback',function(req,res){
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    //res.send('Hello e-gov');
-    //res.json(persons);
-    res.render('portal/contactfeedback', {
-        action: 'home',
-        auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status,
-        rectracking: credentials.portfolio,
-        user: user
-    });
-});
-
-portal.get('/project',function(req,res){
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    res.render('./portal/project', {
-        //action: req.query.action,
-        action: req.params.name,
-        auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status,
-        rectracking: credentials.portfolio,
-        user: user
-    });  
-});
-
-portal.get('/desktop',function(req,res){
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    res.render('portal/desktop', {
-        //action: req.query.action,
-        action: req.params.name,
-        auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status,
-        rectracking: credentials.portfolio,
-        user: user
-
-    });  
-});
-
-portal.get('/newsdesktopv2',function(req,res){
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    res.render('portal/newsdesktopv2', {
-        //action: req.query.action,
-        action: req.params.name,
-        auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status,
-        rectracking: credentials.portfolio,
-        user: user
-    });  
-});
-
-portal.get('/catalogplugins',function(req,res){
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    var LastDate = pluginsService.getMostRecentFileName();
-    var PluginsCatalog = pluginsService.getListOfPlugins();
-    var AuditTemplatesCatalog = pluginsService.getListOfAuditTemplates(credentials.AuditTemplatesPath);
-    //console.log(PluginsCatalog.length)
-    res.render('portal/catalogplugins', {
-        //action: req.query.action,
-        action: req.params.name,
-        lastupdate: LastDate,
-        catalog: PluginsCatalog,
-        audittemplates: AuditTemplatesCatalog,
-        downloadurl: credentials.urlpaths.plugins,
-        downloadurlTemplates: credentials.urlpaths.audittemplates,
-        auditfile: 'work/' + req.sessionID + '.xml',
-        audit: status,
-        rectracking: credentials.portfolio,
-        user: user
-    });  
-});
-*/
 portal.get('/rectracking',function(req,res){
     var AuditFile = credentials.WorkSetPath;
     AuditFile = AuditFile + req.sessionID + '.xml';
@@ -275,90 +114,70 @@ portal.get('/search',function(req,res){
             rectracking: credentials.portfolio,
             audit: status,
             language:req.query.lang,
-            webcontent: weblang
+            webcontent: weblang,
+            nodes: globalvalues.NodeAttributes
         });  
     });
 });
 
-/*
-portal.get('/recmanagement',function(req,res){
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var LastDate = ''
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
+portal.post('/searchresults', function(req, res){
+    //check if req.body is filled
+    if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+        log.warn('Object req.body missing on search tool');
+    } else {
+        var user = '';
+        try {
+            user = req.session.passport.user;
+        } catch (error) {
+            user ='';
+        };
+        var SearchExpr = '';
+        var weblang ={};
+        if (req.body.lang=="EN") {
+            weblang=globalvalues.weblang.en;
+        }else if (req.body.lang=="SQ") {
+            weblang=globalvalues.weblang.sq;
+        }else if (req.body.lang=="SR") {
+            weblang=globalvalues.weblang.sr;
+        };
 
-    //console.log(PluginsCatalog.length)
-    portfolio.ListPortfoliosFromUser(user).then(function(Result){
-        res.render('portal/recmanagement', {
-            //action: req.query.action,
-            action: req.params.name,
-            lastupdate: LastDate,
-            catalog: Result,
-            user: user,
-            rectracking: credentials.portfolio,
-            audit: status
-        });  
-    });
+        if (req.body.searchtype==1){
+            SearchExpr = req.body.textsearch;
+        } else {
+            SearchExpr = '\"' + req.body.textsearch + '\"';
+        };
+
+        var totalOptions = req.body.options;
+        for ( var i = 1; i < totalOptions; i ++) {
+            if (req.body['option'+ i.toString()] != undefined){
+                SearchExpr = SearchExpr +' \"' + req.body['option'+ i.toString()]+'\"';
+            };
+        }
+        console.log(SearchExpr);
+
+        /*
+        var Catalog = {
+            portfolioid: req.body.portfolioid,
+            description: req.body.description,
+            coverage: req.body.coverage,
+            org: req.body.sai,
+            publish: req.body.published === 'Yes' ? '1' : '0'
+        };
+        */
+        //portfolio.Search(SearchExpr).then(function(Result){
+            res.render('portal/searchresults', {
+                //action: req.query.action,
+                //action: req.params.name,
+                //lastupdate: LastDate,
+                //catalog: Result,
+                user: user,
+                //rectracking: credentials.portfolio,
+                //audit: status,
+                language:req.body.lang,
+                webcontent: weblang
+            });  
+        //});
+    };
 });
 
-portal.post('/contactus', [
-    // email must be an email
-        check('email').isEmail().withMessage('Invalid email!'),
-        // first and last names must be at least 3 chars long
-        check('name').isLength({ min: 3 }).withMessage('Name must be at least 3 chars long!'),
-        check('message').isLength({ min: 3 }).withMessage('Message must be at least 3 chars long!')
-    ], (req, res) => {
-    var AuditFile = credentials.WorkSetPath;
-    AuditFile = AuditFile + req.sessionID + '.xml';
-    var InitialAudit = require('../lib/initialaudit.js')(AuditFile);
-    var status = InitialAudit.VerifyAuditFile(AuditFile);
-    var user = '';
-    try {
-        user = req.session.passport.user;
-    } catch (error) {
-        user ='';
-    };
-
-    // Get content
-    var newMessage = {
-        name: req.body.name,
-        message: req.body.message,
-        email: req.body.email
-    };
-    // Finds the validation errors in this request and wraps them in an object with handy functions
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        //return res.status(422).json({ errors: errors.array() });
-        res.render('/index', {
-            action: '#contact',
-            message: newMessage,
-            errors: errors.array(),
-            auditfile: 'work/' + req.sessionID + '.xml',
-            audit: status,
-            rectracking: credentials.portfolio,
-            user: user
-        });
-    }
-    else {
-        res.render('templates/mailcontact', 
-            { layout: null, message: newMessage }, function(err,html){
-                if( err ) console.log('error in email template');
-
-                emailService.send(credentials.AITAMmail,
-                    'Information request from AITAM website',
-                    html);
-            }
-        );        
-        res.redirect(303,'contactfeedback')
-        //console.log(newMessage);
-    }
-});
-*/
 module.exports = portal;

@@ -612,7 +612,7 @@ matricesaudit.post('/portfolio', function(req, res){
                     });
                 }else{
                     portfolio.UpdatePortfolio(req.body.portid, Catalog, user).then(function(Result){
-                       portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
+                        portfolio.LoadPortfolioOverview(req.body.portid).then(function(Result){
                             res.render('toolaudit/supportmatrix', {
                                 //action: req.query.action,
                                 action: 'portfolio',

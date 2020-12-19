@@ -28,18 +28,15 @@
                                 <form method="POST" action="/portal/searchresults">
                                     <div class="row gtr-50">
                                         <div class="col-12">
+                                            <input type="hidden" id="lang" name="lang" value="<%= language %>"/>
                                             <input type="text" name="textsearch" id="textsearch" maxlength="255" placeholder="<%= webcontent.search.note2 %>" value="" />
                                             <br/>
                                             <label class="container2"><%= webcontent.search.option1 %>
-                                                <input type="radio" name="searchtype">
+                                                <input type="radio" name="searchtype" id="searchtype" value="1" checked>
                                                 <span class="checkmark"></span>
                                             </label>
                                             <label class="container2"><%= webcontent.search.option2 %>
-                                                <input type="radio" name="searchtype">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <label class="container2"><%= webcontent.search.option3 %>
-                                                <input type="radio" name="searchtype">
+                                                <input type="radio" name="searchtype" id="searchtype" value="2">
                                                 <span class="checkmark"></span>
                                             </label>
                                             <p></p> 
@@ -51,27 +48,25 @@
                                             <% let i=1 %>
                                             <% webcontent.Recommendation.Priority.split("|").forEach(function(item) { -%>
                                                 <label class="container1"><%= item %>
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" id="option<%= i %>" name="option<%= i %>" value="<%= nodes.Priority %>=\u0022<%= item %>\u0022">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <% i++ %> 
                                             <% }) -%>         
                                             <br/>
                                             <%= webcontent.search.riskareas %><br/>
-                                            <% i=1 %>
                                             <% webcontent.Recommendation.RiskCharacterization.split("|").forEach(function(item) { -%>
                                                 <label class="container1"><%= item %>
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" id="option<%= i %>" name="option<%= i %>" value="<%= nodes.RiskCharacterization %>=\u0022<%= item %>\u0022">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <% i++ %> 
                                             <% }) -%>         
                                             <br/>
                                             <%= webcontent.search.rectype %><br/>
-                                            <% i=1 %>
                                             <% webcontent.Recommendation.RiskEvaluation.split("|").forEach(function(item) { -%>
                                                 <label class="container1"><%= item %>
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" id="option<%= i %>" name="option<%= i %>" value="<%= nodes.RiskEvaluation %>=\u0022<%= item %>\u0022">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <% i++ %> 
@@ -79,34 +74,32 @@
                                         </div>
                                         <div class="col-6 col-12-mobilep" id='AdvancedOptions2' name='AdvancedOptions2' style='display: none;'>
                                             <%= webcontent.search.recimportance %><br/>
-                                            <% i=1 %>
                                             <% webcontent.Recommendation.Importance.split("|").forEach(function(item) { -%>
                                                 <label class="container1"><%= item %>
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" id="option<%= i %>" name="option<%= i %>" value="<%= nodes.Importance %>=\u0022<%= item %>\u0022">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <% i++ %> 
                                             <% }) -%>     
                                             <br/>    
                                             <%= webcontent.search.status %><br/>
-                                            <% i=1 %>
                                             <% webcontent.Recommendation.ImplementationStatus.split("|").forEach(function(item) { -%>
                                                 <label class="container1"><%= item %>
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" id="option<%= i %>" name="option<%= i %>" value="<%= nodes.ImplementationStatus %>=\u0022<%= item %>\u0022">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <% i++ %> 
                                             <% }) -%>         
                                             <br/>
                                             <%= webcontent.search.repeated %><br/>
-                                            <% i=1 %>
                                             <% webcontent.Recommendation.Repeated.split("|").forEach(function(item) { -%>
                                                 <label class="container1"><%= item %>
-                                                    <input type="checkbox">
+                                                    <input type="checkbox" id="option<%= i %>" name="option<%= i %>" value="<%= nodes.Repeated %>=\u0022<%= item %>\u0022">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <% i++ %> 
                                             <% }) -%>         
+                                            <input type="hidden" id="options" name="options" value="<%= i %>"/>
                                         </div>
                                         <div class="col-12">
                                             <ul class="actions">

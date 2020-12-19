@@ -7,6 +7,14 @@ module.exports = {
         ImplementationStatus: 'Implemented|Started Implementation|Partially implemented|Final Stage Implementation|Not started Implementation|Not addressed|No longer applicable',
         Repeated: 'New|Repeated|Partially Rep.'
     },
+    NodeAttributes:{
+        Priority: 'priority',
+        RiskCharacterization: 'risk',
+        RiskEvaluation: 'riskevaluation',
+        Importance: 'importance',
+        ImplementationStatus: 'status',
+        Repeated: 'repeated'
+    },
     weblang: {
         en:{
             main:{
@@ -30,8 +38,7 @@ module.exports = {
                 note2: 'Type the search terms in the text box or combine them with the advanced options and press the search button',
                 button: 'Search',
                 option1: 'Any word',
-                option2: 'All words',
-                option3: 'Exact match',
+                option2: 'Exact match',
                 priority: 'By priority',
                 riskareas: 'By risk area',
                 rectype: 'By type',
@@ -92,8 +99,7 @@ module.exports = {
                 note2: 'Shtypni termat e kërkimit në kutinë e tekstit ose kombinojini ato me opsionet e përparuara dhe shtypni butonin e kërkimit',
                 button: 'Kërko',
                 option1: 'Çdo fjalë',
-                option2: 'Të gjitha fjalët',
-                option3: 'Përputhja e saktë',
+                option2: 'Përputhja e saktë',
                 priority: 'Sipas përparësisë',
                 riskareas: 'Sipas zonës së rrezikut',
                 rectype: 'Sipas llojit',
@@ -153,8 +159,7 @@ module.exports = {
                 note2: 'Unesite pojmove za pretragu u okvir za tekst ili ih kombinirajte sa naprednim opcijama i pritisnite dugme za pretragu',
                 button: 'Pretraga',
                 option1: 'Bilo koja reč',
-                option2: 'Sve reči',
-                option3: 'Tačan meč',
+                option2: 'Tačan meč',
                 priority: 'Prioritetno',
                 riskareas: 'Prema rizičnom području',
                 rectype: 'Po tipu',
