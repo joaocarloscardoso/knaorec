@@ -153,30 +153,21 @@ portal.post('/searchresults', function(req, res){
                 SearchExpr = SearchExpr +' \"' + req.body['option'+ i.toString()]+'\"';
             };
         }
-        console.log(SearchExpr);
-
-        /*
-        var Catalog = {
-            portfolioid: req.body.portfolioid,
-            description: req.body.description,
-            coverage: req.body.coverage,
-            org: req.body.sai,
-            publish: req.body.published === 'Yes' ? '1' : '0'
-        };
-        */
-        //portfolio.Search(SearchExpr).then(function(Result){
+        
+        portfolio.Search(SearchExpr).then(function(Result){
+            console.log(Result);
             res.render('portal/searchresults', {
                 //action: req.query.action,
                 //action: req.params.name,
                 //lastupdate: LastDate,
-                //catalog: Result,
+                catalog: Result,
                 user: user,
                 //rectracking: credentials.portfolio,
                 //audit: status,
                 language:req.body.lang,
                 webcontent: weblang
             });  
-        //});
+        });
     };
 });
 
