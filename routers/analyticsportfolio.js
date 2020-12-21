@@ -117,4 +117,78 @@ analyticsportfolio.get('/audit',function(req,res){
 
 });
 
+analyticsportfolio.get('/auditsearch',function(req,res){
+    //res.send('Hello e-gov');
+    //res.json(persons);
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    var weblang ={};
+    if (req.query.lang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (req.query.lang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (req.query.lang=="SR") {
+        weblang=globalvalues.weblang.sr;
+    };
+
+    //var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
+    portfolio.LoadSearchAudit(req.query.id, req.query.auditid).then(function(Result){
+        res.render('toolaudit/portfolioanalytics', {
+            //action: req.query.action,
+            action: 'audit',
+            operation: 'audit',
+            data: Result,
+            user: user,
+            rectracking: credentials.portfolio,
+            audit: status,
+            language:req.query.lang,
+            webcontent: weblang
+        });     
+    });
+});
+
+analyticsportfolio.get('/portfoliosearch',function(req,res){
+    var NewAuditFile = credentials.WorkSetPath;
+    NewAuditFile = NewAuditFile + req.sessionID + '.xml';
+    var InitialAudit = require('../lib/initialaudit.js')(NewAuditFile);
+    var status = InitialAudit.VerifyAuditFile(NewAuditFile);
+    var user = '';
+    try {
+        user = req.session.passport.user;
+    } catch (error) {
+        user ='';
+    };
+
+    var weblang ={};
+    if (req.query.lang=="EN") {
+        weblang=globalvalues.weblang.en;
+    }else if (req.query.lang=="SQ") {
+        weblang=globalvalues.weblang.sq;
+    }else if (req.query.lang=="SR") {
+        weblang=globalvalues.weblang.sr;
+    };
+
+    portfolio.SearchPortfolioOverview(req.query.id).then(function(Result){
+        res.render('toolaudit/portfolioanalytics', {
+            //action: req.query.action,
+            action: 'audit',
+            operation: 'portfolio',
+            catalog: Result,
+            user: user,
+            rectracking: credentials.portfolio,
+            audit: status,
+            language: req.query.lang,
+            webcontent: weblang
+        });     
+    });
+});
 module.exports = analyticsportfolio;

@@ -150,12 +150,11 @@ portal.post('/searchresults', function(req, res){
         var totalOptions = req.body.options;
         for ( var i = 1; i < totalOptions; i ++) {
             if (req.body['option'+ i.toString()] != undefined){
-                SearchExpr = SearchExpr +' \"' + req.body['option'+ i.toString()]+'\"';
+                SearchExpr = SearchExpr +' \"' + req.body['option'+ i.toString()].replace(/u0022/g, '\"') +'\"';
             };
         }
         
         portfolio.Search(SearchExpr).then(function(Result){
-            console.log(Result);
             res.render('portal/searchresults', {
                 //action: req.query.action,
                 //action: req.params.name,

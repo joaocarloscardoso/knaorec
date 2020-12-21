@@ -30,7 +30,12 @@ module.exports = {
                 externallinks:'External Related Links',
                 noaudits:'No audits available!',
                 number: 'Number',
-                search: 'Search'
+                search: 'Search',
+                searchresults: 'Search results',
+                numberresults:'$$$ Audit(s) were found. The results are ordered by relevance.',
+                noteresults: 'In order to avoid excessive consumption of system resources only the first 100 results were retrieved. Try to be more specific in the search criteria!',
+                presentin:'Present in: ',
+                noresults: 'The search did not return audits!'
             },
             search: {
                 introduction: 'Search tool on audit recommendations',
@@ -91,7 +96,12 @@ module.exports = {
                 externallinks:'Lidhje të Jashtme të Lidhura',
                 noaudits:'Nuk ka auditime të disponueshme!',
                 number: 'Numrin',
-                search: 'Kërko'
+                search: 'Kërko',
+                searchresults: 'Rezultatet e kërkimit',
+                numberresults:'U gjetën $$$ auditime. Rezultatet renditen sipas rëndësisë.',
+                noteresults: 'Në mënyrë që të shmanget konsumi i tepërt i burimeve të sistemit u morën vetëm 100 rezultatet e para. Mundohuni të jeni më specifik në kriteret e kërkimit!',
+                presentin:'Të pranishëm në: ',
+                noresults: 'Kërkimi nuk i ktheu kontrollet!'
             },
             search: {
                 introduction: 'Mjet kërkimi për rekomandimet e auditimit',
@@ -151,7 +161,12 @@ module.exports = {
                 externallinks:'Spoljne povezane veze',
                 noaudits:'Nije dostupna revizija!',
                 number: 'Broj',
-                search: 'Pretraga'
+                search: 'Pretraga',
+                searchresults: 'Rezultati pretrage',
+                numberresults:'Pronađene su $$$ revizije. Rezultati su poredani po važnosti.',
+                noteresults: 'Da bi se izbegla prekomerna potrošnja sistemskih resursa, pronađeno je samo prvih 100 rezultata. Pokušajte da budete precizniji u kriterijumima pretrage!',
+                presentin:'Prisutan na: ',
+                noresults: 'Pretraga nije vratila revizije!'
             },
             search: {
                 introduction: 'Alat za pretragu po preporukama revizije',

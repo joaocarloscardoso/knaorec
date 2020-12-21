@@ -1,5 +1,66 @@
-<h1>ok: <%= language %></h1>
-<% catalog.forEach(function(item) { -%>
-    <h3><a href="audit?id=<%= item.PortfolioId %>&auditid=<%= item.AuditId %>&lang=<%= language %>"><%= item.Title %></a></h3>
-    <p><%= item.Background %></p>
-<% }) -%>  
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <!-- based on no-side bar template -->
+    <%- include('../partials/head'); %>
+    <body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<%- include('../partials/header'); %>
+
+			<!-- Main -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div id="content">
+							<!-- Content -->
+                            <article>
+                                <header>
+                                    <h2><%= webcontent.main.searchresults %></h2>
+                                    <p>
+                                        <%  if (catalog.length > 0) { %>
+                                            <b><%= webcontent.search.note1 %>:</b> <%= webcontent.main.numberresults.replace("$$$", catalog.length.toString()) %>
+                                            <%  if (catalog.length === 100) { %>
+                                                <br/>
+                                                <%= webcontent.main.noteresults %>
+                                            <% } %>
+                                        <% } else { %>
+                                            <b><%= webcontent.main.noresults %></b>
+                                        <% } %>
+                                        </p>
+                                </header>
+                                <div class="container">
+                                    <div id="content">
+                                        <article>
+                                            <%  if (catalog.length > 0) { %>
+                                                <% catalog.forEach(function(item) { -%>
+                                                    <h3><a href="/portanalytics/auditsearch?id=<%= item.PortfolioId %>&auditid=<%= item.AuditId %>&lang=<%= language %>"><%= item.Title %></a></h3>
+                                                    <h3><%= webcontent.main.presentin %><a href="/portanalytics/portfoliosearch?id=<%= item.PortfolioId %>&lang=<%= language %>""><%= item.PortfolioId %></a></h3>
+                                                    <p><%= item.Background %></p>
+                                                <% }) -%>  
+                                            <% } %>
+                                        </article>
+                                    </div>
+                                </div>                           
+                            </article>
+						</div>
+					</div>
+				</section>
+
+			<!-- Footer -->
+			<%- include('../partials/footer'); %>
+
+		</div>
+
+		<!-- Scripts -->
+		<%- include('../partials/scripts'); -%>
+
+	</body>
+</html>
+
+
+
