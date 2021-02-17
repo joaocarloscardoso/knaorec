@@ -152,17 +152,20 @@ app.get('/',function(req,res){
         if (Result.length > 0) {
             LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
         };
-        res.render('portal/rectracking', {
-            //action: req.query.action,
-            action: req.params.name,
-            lastupdate: LastDate,
-            catalog: Result,
-            user: user,
-            rectracking: credentials.portfolio,
-            audit: status, 
-            language: credentials.WebLang,
-            webcontent: weblang
-        });  
+        portfolio.LoadColPortfoliosOverview().then(function(ResultStat){
+            res.render('portal/rectracking', {
+                //action: req.query.action,
+                action: req.params.name,
+                lastupdate: LastDate,
+                catalog: Result,
+                catalogStat:ResultStat,
+                user: user,
+                rectracking: credentials.portfolio,
+                audit: status, 
+                language: credentials.WebLang,
+                webcontent: weblang
+            });  
+        });
     });
 
 //    res.render('index', {
@@ -202,17 +205,20 @@ app.get('/index',function(req,res){
         if (Result.length > 0) {
             LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
         };
-        res.render('portal/rectracking', {
-            //action: req.query.action,
-            action: req.params.name,
-            lastupdate: LastDate,
-            catalog: Result,
-            user: user,
-            rectracking: credentials.portfolio,
-            audit: status, 
-            language: credentials.WebLang,
-            webcontent: weblang
-        });  
+        portfolio.LoadColPortfoliosOverview().then(function(ResultStat){
+            res.render('portal/rectracking', {
+                //action: req.query.action,
+                action: req.params.name,
+                lastupdate: LastDate,
+                catalog: Result,
+                catalogStat:ResultStat,
+                user: user,
+                rectracking: credentials.portfolio,
+                audit: status, 
+                language: credentials.WebLang,
+                webcontent: weblang
+            });  
+        });
     });
 
 //    res.render('index', {

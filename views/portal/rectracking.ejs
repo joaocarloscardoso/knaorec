@@ -13,6 +13,9 @@
 			<!-- Header -->
 			<%- include('../partials/header'); %>
 
+            <script src="/assets/js/Chart.js"></script>
+            <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
 			<!-- Main -->
 				<section class="wrapper style1">
 					<div class="container">
@@ -29,13 +32,33 @@
                                 </header>
                                 <p>
                                     <% if(catalog.length > 0) { %>
-                                    <section class="wrapper style1">
                                         <div class="container">
-                                            <%- include('../partials/portfolios'); -%>
+                                            <div class="row gtr-200">
+                                                <div class="col-4 col-12-narrower" style="width: 600px; height: 400px;">
+                                                    <%- include('../partials/portfolio_analytics/ColPortfolioStatus'); %>
+                                                </div>    
+                                                <div class="col-4 col-12-narrower" style="width: 600px; height: 400px;">
+                                                    <%- include('../partials/portfolio_analytics/ColPortfolioNewIssues'); %>
+                                                </div>    
+                                            </div>
+                                            <p>&nbsp;</p>
+                                            <div class="row gtr-200">    
+                                                <div class="col-4 col-12-narrower" style="width: 600px; height: 400px;">
+                                                    <%- include('../partials/portfolio_analytics/ColPortfolioRiskRating'); %>
+                                                </div>    
+                                                <div class="col-4 col-12-narrower" style="width: 600px; height: 400px;">
+                                                </div>    
+                                                <p>&nbsp;</p>
+                                            </div>
                                         </div>
-                                    </section>
+                                        <hr/>
+                                        <section class="wrapper style1">
+                                            <div class="container">
+                                                <%- include('../partials/portfolios'); -%>
+                                            </div>
+                                        </section>
                                     <% } else { %>
-                                    <p><%= webcontent.main.noaudits %></p>
+                                        <p><%= webcontent.main.noaudits %></p>
                                     <% } %>
                                 </p>
                             </article>

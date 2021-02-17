@@ -1,0 +1,30 @@
+<h1><%= webcontent.portfolio.riskareas %></h1>
+<canvas id="chartjs-RAI" class="chartjs" width="undefined" height="undefined"></canvas>
+<script>new Chart(document.getElementById("chartjs-RAI"),
+    {"type":"polarArea",
+        <% if (language == 'EN') { -%>
+        "data":{"labels":[<%- '"' + catalogStat.risk_label.split('|').join('","') + '"' %>],
+        <% } else { %>
+        "data":{"labels":[<%- '"' + webcontent.Recommendation.RiskCharacterization.split('|').join('","') + '"' %>],
+        <% } %>
+        "datasets":[
+        {
+            "label":"My First Dataset",
+            "data":[
+            <% colRisk =  catalogStat.risk_label.split(" ").join("_").split("|") -%>
+            <% for (var i=0; i<colRisk.length; i++) { -%>
+                <% if (i == 0) { -%>
+                    <%= catalogStat.risk_data[colRisk[i]] %>
+                <% } else { %>
+                    ,<%= catalogStat.risk_data[colRisk[i]] %>
+                <% } %>
+            <% } -%>  
+            ],
+            "backgroundColor":["rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(255, 99, 132)",
+                "rgb(34, 177, 76)","rgb(255, 128, 0)", "rgb(0, 64, 128)", "rgb(128, 128, 128)"
+            ]
+        }
+        ]}
+    }
+);
+</script>
