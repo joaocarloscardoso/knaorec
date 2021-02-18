@@ -62,7 +62,7 @@ analyticsportfolio.get('/portfolio',function(req,res){
         weblang=globalvalues.weblang.sr;
     };
 
-    portfolio.LoadPortfolioOverview(req.query.id).then(function(Result){
+    portfolio.LoadPortfolioOverview(req.query.id, req.query.lang).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
             //action: req.query.action,
             action: 'audit',
@@ -101,7 +101,7 @@ analyticsportfolio.get('/audit',function(req,res){
     };
 
     //var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
-    portfolio.LoadPortfolioAudit(req.query.id, req.query.auditid).then(function(Result){
+    portfolio.LoadPortfolioAudit(req.query.id, req.query.auditid, req.query.lang).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
             //action: req.query.action,
             action: 'audit',
@@ -141,7 +141,7 @@ analyticsportfolio.get('/auditsearch',function(req,res){
     };
 
     //var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
-    portfolio.LoadSearchAudit(req.query.id, req.query.auditid).then(function(Result){
+    portfolio.LoadSearchAudit(req.query.id, req.query.auditid, req.query.lang).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
             //action: req.query.action,
             action: 'audit',
@@ -177,7 +177,7 @@ analyticsportfolio.get('/portfoliosearch',function(req,res){
         weblang=globalvalues.weblang.sr;
     };
 
-    portfolio.SearchPortfolioOverview(req.query.id).then(function(Result){
+    portfolio.SearchPortfolioOverview(req.query.id, req.query.lang).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
             //action: req.query.action,
             action: 'audit',

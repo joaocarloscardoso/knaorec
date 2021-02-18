@@ -72,7 +72,7 @@ portal.get('/rectracking',function(req,res){
                 user: user,
                 rectracking: credentials.portfolio,
                 audit: status, 
-                language: credentials.WebLang,
+                language: req.query.lang,
                 webcontent: weblang
             });  
         });
@@ -106,19 +106,17 @@ portal.get('/search',function(req,res){
         if (Result.length > 0) {
             LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
         };
-        portfolio.LoadColPortfoliosOverview().then(function(ResultStat){
-            res.render('portal/rectracking', {
-                //action: req.query.action,
-                action: req.params.name,
-                lastupdate: LastDate,
-                catalog: Result,
-                catalogStat:ResultStat,
-                user: user,
-                rectracking: credentials.portfolio,
-                audit: status, 
-                language: credentials.WebLang,
-                webcontent: weblang
-            });  
+        res.render('portal/search', {
+            //action: req.query.action,
+            action: req.params.name,
+            lastupdate: LastDate,
+            catalog: Result,
+            user: user,
+            rectracking: credentials.portfolio,
+            audit: status,
+            language:req.query.lang,
+            webcontent: weblang,
+            nodes: globalvalues.NodeAttributes
         });
     });
 });
