@@ -32,10 +32,10 @@ module.exports = {
                 number: 'Number',
                 search: 'Search',
                 searchresults: 'Search results',
-                numberresults:'$$$ Audit(s) were found. The results are ordered by relevance.',
+                numberresults:'$$$ Recommendation(s) were found. The results are ordered by relevance.',
                 noteresults: 'In order to avoid excessive consumption of system resources only the first 100 results were retrieved. Try to be more specific in the search criteria!',
                 presentin:'Present in: ',
-                noresults: 'The search did not return audits!'
+                noresults: 'The search did not return recommendations!'
             },
             search: {
                 introduction: 'Search tool on audit recommendations',
@@ -51,8 +51,8 @@ module.exports = {
                 status: 'By implementation status',
                 repeated: 'Repeated?',
                 advanced: 'Advanced options',
-                ShowRec:'Show recommendations...',
-                HideRec:'Hide recommendations'
+                ShowRec:'More information...',
+                HideRec:'Less information'
             },
             portfolio:{
                 rectstatus:'Global Recommendations Status',
@@ -72,7 +72,11 @@ module.exports = {
                 tabreccol3: 'Area',
                 tabreccol4: 'Level',
                 tabreccol5: 'Timeline',
-                tabreccol6: 'Status'
+                tabreccol6: 'Status',
+                audit: 'Audit',
+                year: 'year',
+                background: 'Audit background',
+                scope: 'Audit scope'
             },
             Recommendation: {
                 Priority: 'Urgent|Regular',
@@ -100,10 +104,10 @@ module.exports = {
                 number: 'Numrin',
                 search: 'Kërko',
                 searchresults: 'Rezultatet e kërkimit',
-                numberresults:'U gjetën $$$ auditime. Rezultatet renditen sipas rëndësisë.',
+                numberresults:'U gjetën $$$ rekomandimet. Rezultatet renditen sipas rëndësisë.',
                 noteresults: 'Në mënyrë që të shmanget konsumi i tepërt i burimeve të sistemit u morën vetëm 100 rezultatet e para. Mundohuni të jeni më specifik në kriteret e kërkimit!',
                 presentin:'Të pranishëm në: ',
-                noresults: 'Kërkimi nuk i ktheu kontrollet!'
+                noresults: 'Kërkimi nuk i ktheu rekomandimet!'
             },
             search: {
                 introduction: 'Mjet kërkimi për rekomandimet e auditimit',
@@ -119,8 +123,8 @@ module.exports = {
                 status: 'Sipas statusit të zbatimit',
                 repeated: 'Përsëritet?',
                 advanced: 'Opsione te avancuara',
-                ShowRec:'Shfaq rekomandimet ...',
-                HideRec:'Fshih rekomandimet'
+                ShowRec:'Më shumë informacion ...',
+                HideRec:'Më pak informacion'
             },
             portfolio:{
                 rectstatus:'Statusi i Rekomandimeve Globale',
@@ -140,7 +144,11 @@ module.exports = {
                 tabreccol3: 'Zona',
                 tabreccol4: 'Niveli',
                 tabreccol5: 'Afati kohor',
-                tabreccol6: 'Statusi'
+                tabreccol6: 'Statusi',
+                audit: 'Kontrolli',
+                year: 'viti',
+                background: 'Sfondi i auditimit',
+                scope: 'Fusha e auditimit'
             },
             Recommendation: {
                 Priority: 'Urgjente|E rregullt',
@@ -167,10 +175,10 @@ module.exports = {
                 number: 'Broj',
                 search: 'Pretraga',
                 searchresults: 'Rezultati pretrage',
-                numberresults:'Pronađene su $$$ revizije. Rezultati su poredani po važnosti.',
+                numberresults:'Pronađene su $$$ preporuke. Rezultati su poredani po važnosti.',
                 noteresults: 'Da bi se izbegla prekomerna potrošnja sistemskih resursa, pronađeno je samo prvih 100 rezultata. Pokušajte da budete precizniji u kriterijumima pretrage!',
                 presentin:'Prisutan na: ',
-                noresults: 'Pretraga nije vratila revizije!'
+                noresults: 'Pretraga nije vratila preporuke!'
             },
             search: {
                 introduction: 'Alat za pretragu po preporukama revizije',
@@ -186,8 +194,8 @@ module.exports = {
                 status: 'Po statusu primene',
                 repeated: 'Ponovljeno?',
                 advanced: 'Napredne opcije',
-                ShowRec:'Prikaži preporuke ...',
-                HideRec:'Sakrij preporuke'
+                ShowRec:'Više informacija ...',
+                HideRec:'Manje informacija'
             },
             portfolio:{
                 rectstatus:'Status globalnih preporuka',
@@ -207,7 +215,11 @@ module.exports = {
                 tabreccol3: 'Površina',
                 tabreccol4: 'Nivo',
                 tabreccol5: 'Vremenska linija',
-                tabreccol6: 'Status'
+                tabreccol6: 'Status',
+                audit: 'Revizija',
+                year: 'godina',
+                background: 'Pozadina revizije',
+                scope: 'Obim revizije'
             },
             Recommendation: {
                 Priority: 'Hitno|Redovno',

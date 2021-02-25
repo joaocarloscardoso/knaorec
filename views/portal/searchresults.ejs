@@ -39,9 +39,9 @@
                                             <%  if (catalog.length > 0) { %>
                                                 <% let i=1 %>
                                                 <% catalog.forEach(function(item) { -%>
-                                                    <h3><a href="/portanalytics/auditsearch?id=<%= item.PortfolioId %>&auditid=<%= item.AuditId %>&lang=<%= language %>"><%= item.Title %></a></h3>
-                                                    <h3><%= webcontent.main.presentin %><a href="/portanalytics/portfoliosearch?id=<%= item.PortfolioId %>&lang=<%= language %>""><%= item.PortfolioId %></a></h3>
-                                                    <p><%= item.Background %><br/>
+                                                    <p>
+                                                    <b><%= webcontent.audit.tabreccol1 %>:</b><br/><%= item.Recommendation %><br/>
+                                                    (<b><%= webcontent.audit.audit %>:</b> <a href="/portanalytics/auditsearch?id=<%= item.PortfolioId %>&auditid=<%= item.AuditId %>&lang=<%= language %>"><%= item.AuditTitle %></a>, <%= webcontent.audit.year %>: <%= item.AuditYear %>)
                                                     <div id="divShow<%= i %>" name="divShow<%= i %>" style="display:block;">
                                                         <a href="#" onclick="ShowRecommendations('<%= i %>');return false;">
                                                             <img id="insert_monitoring" src="../../images/plus_blue16b.png" alt="" style="vertical-align: baseline;height: 16px;"/>
@@ -54,12 +54,30 @@
                                                             &nbsp; <%= webcontent.search.HideRec %>
                                                         </a>
                                                     </div>
-                                                    <div id="divResults<%= i %>" name="divResults<%= i %>" style="display:none;">
-                                                            <table id='tablecatalog'>
-                                                                <thead>
-                                                                    <%- include('../partials/audit_statistics/auditrecstatsheader'); %>
-                                                                </thead>    
-                                                            </table>
+                                                    <div id="divResults<%= i %>" name="divResults<%= i %>" style="display:none; background-color:#F3F3F3">
+                                                        <table>
+                                                            <tr>
+                                                                <td><b><%= webcontent.audit.recimportance %>:</b> <%= item.importance %></td>
+                                                                <td><b><%= webcontent.audit.tabreccol3 %>:</b> <%= item.riskarea %></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b><%= webcontent.audit.tabreccol2 %>:</b> <%= item.priority %></td>
+                                                                <td><b><%= webcontent.audit.tabreccol4 %>:</b> <%= item.level %></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b><%= webcontent.audit.status %>:</b> <%= item.status %></td>
+                                                                <td><b><%= webcontent.audit.repeated %>:</b> <%= item.repeated %></td>
+                                                            </tr>
+                                                        </table>
+                                                        <p>
+                                                            <b><%= webcontent.audit.background %>:</b><br/>
+                                                            <%= item.AuditBackground %>
+                                                        </p>
+                                                        <p>
+                                                            <b><%= webcontent.audit.scope %>:</b><br/>
+                                                            <%= item.AuditScope %>
+                                                        </p>
+                                                        <b><%= webcontent.main.presentin %></b> <a href="/portanalytics/portfoliosearch?id=<%= item.PortfolioId %>&lang=<%= language %>""><%= item.PortfolioId %></a>
                                                     </div>
                                                 </p>
                                                 <% i++ %>
