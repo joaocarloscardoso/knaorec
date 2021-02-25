@@ -37,10 +37,32 @@
                                     <div id="content">
                                         <article>
                                             <%  if (catalog.length > 0) { %>
+                                                <% let i=1 %>
                                                 <% catalog.forEach(function(item) { -%>
                                                     <h3><a href="/portanalytics/auditsearch?id=<%= item.PortfolioId %>&auditid=<%= item.AuditId %>&lang=<%= language %>"><%= item.Title %></a></h3>
                                                     <h3><%= webcontent.main.presentin %><a href="/portanalytics/portfoliosearch?id=<%= item.PortfolioId %>&lang=<%= language %>""><%= item.PortfolioId %></a></h3>
-                                                    <p><%= item.Background %></p>
+                                                    <p><%= item.Background %><br/>
+                                                    <div id="divShow<%= i %>" name="divShow<%= i %>" style="display:block;">
+                                                        <a href="#" onclick="ShowRecommendations('<%= i %>');return false;">
+                                                            <img id="insert_monitoring" src="../../images/plus_blue16b.png" alt="" style="vertical-align: baseline;height: 16px;"/>
+                                                            &nbsp; <%= webcontent.search.ShowRec %>
+                                                        </a>
+                                                    </div>
+                                                    <div id="divHide<%= i %>" name="divHide<%= i %>" style="display:none;">
+                                                        <a href="#" onclick="HideRecommendations('<%= i %>');return false;">
+                                                            <img id="insert_monitoring" src="../../images/minus_blue16b.png" alt="" style="vertical-align: baseline;height: 16px;"/>
+                                                            &nbsp; <%= webcontent.search.HideRec %>
+                                                        </a>
+                                                    </div>
+                                                    <div id="divResults<%= i %>" name="divResults<%= i %>" style="display:none;">
+                                                            <table id='tablecatalog'>
+                                                                <thead>
+                                                                    <%- include('../partials/audit_statistics/auditrecstatsheader'); %>
+                                                                </thead>    
+                                                            </table>
+                                                    </div>
+                                                </p>
+                                                <% i++ %>
                                                 <% }) -%>  
                                             <% } %>
                                         </article>
@@ -51,8 +73,28 @@
 					</div>
 				</section>
 
+            <!-- javascript is placed in the body section -->
+            <script>
+                function ShowRecommendations(r){
+                    var x = document.getElementById("divShow" + r);
+                    x.style.display = "none";
+                    var x1 = document.getElementById("divHide" + r);
+                    x1.style.display = "block";
+                    var x2 = document.getElementById("divResults" + r);
+                    x2.style.display = "block";
+                };
+                function HideRecommendations(r){
+                    var x2 = document.getElementById("divResults" + r);
+                    x2.style.display = "none";
+                    var x = document.getElementById("divHide" + r);
+                    x.style.display = "none";
+                    var x1 = document.getElementById("divShow" + r);
+                    x1.style.display = "block";
+                };
+            </script>                
 			<!-- Footer -->
 			<%- include('../partials/footer'); %>
+
 
 		</div>
 

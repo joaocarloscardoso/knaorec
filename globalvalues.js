@@ -46,11 +46,13 @@ module.exports = {
                 option2: 'Exact match',
                 priority: 'By priority',
                 riskareas: 'By risk area',
-                rectype: 'By type',
+                rectype: 'By level',
                 recimportance: 'By importance',
                 status: 'By implementation status',
                 repeated: 'Repeated?',
-                advanced: 'Advanced options'
+                advanced: 'Advanced options',
+                ShowRec:'Show recommendations...',
+                HideRec:'Hide recommendations'
             },
             portfolio:{
                 rectstatus:'Global Recommendations Status',
@@ -112,11 +114,13 @@ module.exports = {
                 option2: 'Përputhja e saktë',
                 priority: 'Sipas përparësisë',
                 riskareas: 'Sipas zonës së rrezikut',
-                rectype: 'Sipas llojit',
+                rectype: 'Sipas nivelit',
                 recimportance: 'Nga rëndësia',
                 status: 'Sipas statusit të zbatimit',
                 repeated: 'Përsëritet?',
-                advanced: 'Opsione te avancuara'
+                advanced: 'Opsione te avancuara',
+                ShowRec:'Shfaq rekomandimet ...',
+                HideRec:'Fshih rekomandimet'
             },
             portfolio:{
                 rectstatus:'Statusi i Rekomandimeve Globale',
@@ -177,11 +181,13 @@ module.exports = {
                 option2: 'Tačan meč',
                 priority: 'Prioritetno',
                 riskareas: 'Prema rizičnom području',
-                rectype: 'Po tipu',
+                rectype: 'Po nivou',
                 recimportance: 'Po važnosti',
                 status: 'Po statusu primene',
                 repeated: 'Ponovljeno?',
-                advanced: 'Napredne opcije'
+                advanced: 'Napredne opcije',
+                ShowRec:'Prikaži preporuke ...',
+                HideRec:'Sakrij preporuke'
             },
             portfolio:{
                 rectstatus:'Status globalnih preporuka',

@@ -1,0 +1,32 @@
+<% item.Recommendations.forEach(function(itemX) { %>
+    <tr id="<%= itemX.RowId %>Row" style="display: table-row;">
+        <td>
+            <span><%= itemX.Description %></span>
+            <p><span><b>Related findings:&nbsp;</b>
+                <% if(itemX.Findings.length > 0) { %>
+                    <% itemX.Findings.split("|").forEach(function(finding) { -%>
+                        <% subitemX = finding.split("#") -%>
+                        <a  target="_blank" href="/auditMatrices/FindingData?id=<%= subitemX[0] %>" data-tooltip-bottom="Use hyperlink on finding #number to visualize it">#<%= subitemX[1] %></a> - 
+                    <% }) -%>
+                <% } else { %>
+                    <span>(none so far)</span>
+                <% } %>   
+            </span></p>
+        </td>
+        <td>
+            <span><b><%= itemX.Priority %></b></span>
+        </td>
+        <td>
+            <span><%= itemX.Risk %></span>
+        </td>
+        <td>
+            <span><%= itemX.Riskevaluation %></span>            
+        </td>
+        <td>
+            <span><%= itemX.Timeline %></span>
+        </td>
+        <td>
+            <span data-tooltip-right="Current status is collected from last assessment, otherwise the value (not yet accessed) is displayed!"><%= itemX.Status %></span>
+        </td>
+    </tr>
+<% }) %>
