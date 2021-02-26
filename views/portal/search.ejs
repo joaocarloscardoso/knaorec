@@ -43,6 +43,12 @@
                                             <a href="#" onclick="ShowAdvancedOptions();return false;"><%= webcontent.search.advanced %>&nbsp;&nbsp;<img id="AdvancedOptionsImage"  name="AdvancedOptionsImage" src="../images/plus_blue16b.png" alt="<%= webcontent.search.advanced %>" style="vertical-align: middle; display: inline-block;"/></a>
                                             <hr id='AdvancedOptionshr' name='AdvancedOptionshr' style='display: none;'/>
                                         </div>
+                                        <div class="col-12" id='AdvancedOptions3' name='AdvancedOptions3' style='display: none;'>
+                                            <p>
+                                                <b><%= webcontent.audit.year %>: </b>
+                                                <input type="text" name="textyear" id="textyear" maxlength="4" placeholder="<%= webcontent.audit.year %>" value="" />
+                                            </p>
+                                        </div>
                                         <div class="col-6 col-12-mobilep" id='AdvancedOptions1' name='AdvancedOptions1' style='display: none;'>
                                             <%= webcontent.search.priority %><br/>
                                             <% let i=1 %>
@@ -125,11 +131,13 @@
                     document.getElementById("AdvancedOptionshr").style.display = "block";
                     document.getElementById("AdvancedOptions1").style.display = "block";
                     document.getElementById("AdvancedOptions2").style.display = "block";
+                    document.getElementById("AdvancedOptions3").style.display = "block";
                 } else {
                     document.getElementById("AdvancedOptionsImage").src='../images/plus_blue16b.png';
                     document.getElementById("AdvancedOptionshr").style.display = "none";
                     document.getElementById("AdvancedOptions1").style.display = "none";
                     document.getElementById("AdvancedOptions2").style.display = "none";
+                    document.getElementById("AdvancedOptions3").style.display = "block";
                 }
             }
         </script>   

@@ -45,15 +45,15 @@ var portfolio = require('./lib/portfolio.js');
 
 //routers declaration
 var PortalRouter =require('./routers/portal.js');
-var LoginRouter =require('./routers/login.js');
+//var LoginRouter =require('./routers/login.js');
 var ToolAuditRouter =require('./routers/toolaudit.js');
-var PreassessmentRouter =require('./routers/preassessaudit.js');
-var PlanRouter =require('./routers/planaudit.js');
+//var PreassessmentRouter =require('./routers/preassessaudit.js');
+//var PlanRouter =require('./routers/planaudit.js');
 var FindingsRouter =require('./routers/findingaudit.js');
 var MatrixRouter = require('./routers/matricesaudit.js');
 var DocsRouter = require('./routers/generatedocs.js');
 var AnalyticsRouter = require('./routers/analyticsaudit.js');
-var CubeRouter = require('./routers/cube.js');
+//var CubeRouter = require('./routers/cube.js');
 var AuditRecRouter = require('./routers/auditrec.js');
 var AnalyticsPortRouter = require('./routers/analyticsportfolio.js');
 

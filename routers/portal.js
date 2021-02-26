@@ -148,11 +148,18 @@ portal.post('/searchresults', function(req, res){
             SearchExpr = '\"' + req.body.textsearch + '\"';
         };
 
+        if (req.body.textyear!=''){
+            SearchExpr = req.body.textyear;
+        // } else {
+        //     SearchExpr = SearchExpr +' \"year=\"' + req.body.textyear + '\"\"';
+        };
+
         var totalOptions = req.body.options;
         for ( var i = 1; i < totalOptions; i ++) {
             if (req.body['option'+ i.toString()] != undefined){
                 SearchExpr = SearchExpr +' \"' + req.body['option'+ i.toString()].replace(/u0022/g, '\"') +'\"';
             };
+
         }
         
         portfolio.Search(SearchExpr).then(function(Result){

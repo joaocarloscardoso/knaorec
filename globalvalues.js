@@ -76,7 +76,9 @@ module.exports = {
                 audit: 'Audit',
                 year: 'year',
                 background: 'Audit background',
-                scope: 'Audit scope'
+                scope: 'Audit scope',
+                importance: 'Strategic',
+                priority: 'Urgent'
             },
             Recommendation: {
                 Priority: 'Urgent|Regular',
@@ -148,7 +150,9 @@ module.exports = {
                 audit: 'Kontrolli',
                 year: 'viti',
                 background: 'Sfondi i auditimit',
-                scope: 'Fusha e auditimit'
+                scope: 'Fusha e auditimit',
+                importance: 'Strategjik',
+                priority: 'Urgjente'
             },
             Recommendation: {
                 Priority: 'Urgjente|E rregullt',
@@ -219,7 +223,9 @@ module.exports = {
                 audit: 'Revizija',
                 year: 'godina',
                 background: 'Pozadina revizije',
-                scope: 'Obim revizije'
+                scope: 'Obim revizije',
+                importance: 'Strateški',
+                priority: 'Hitno'
             },
             Recommendation: {
                 Priority: 'Hitno|Redovno',

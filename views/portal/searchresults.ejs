@@ -57,16 +57,28 @@
                                                     <div id="divResults<%= i %>" name="divResults<%= i %>" style="display:none; background-color:#F3F3F3">
                                                         <table>
                                                             <tr>
-                                                                <td><b><%= webcontent.audit.recimportance %>:</b> <%= item.importance %></td>
-                                                                <td><b><%= webcontent.audit.tabreccol3 %>:</b> <%= item.riskarea %></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><b><%= webcontent.audit.tabreccol2 %>:</b> <%= item.priority %></td>
+                                                                <td><b><%= webcontent.audit.status %>:</b> <%= item.status %></td>
                                                                 <td><b><%= webcontent.audit.tabreccol4 %>:</b> <%= item.level %></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b><%= webcontent.audit.status %>:</b> <%= item.status %></td>
+                                                                <td><b><%= webcontent.audit.tabreccol3 %>:</b> <%= item.riskarea %></td>
+                                                                <td>
+                                                                    <%if (item.importance == webcontent.audit.importance) { %>
+                                                                        <b><%= webcontent.audit.recimportance %>: <span style="color:rgba(255, 0, 0, 0.582)"><%= item.importance %></span></b>
+                                                                    <% } else { %>
+                                                                        &nbsp;
+                                                                    <% } %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td><b><%= webcontent.audit.repeated %>:</b> <%= item.repeated %></td>
+                                                                <td>
+                                                                    <%if (item.priority == webcontent.audit.priority) { %>
+                                                                        <b><%= webcontent.audit.tabreccol2 %>: <span style="color:rgba(255, 0, 0, 0.582)"><%= item.priority %></span></b>
+                                                                    <% } else { %>
+                                                                        &nbsp;
+                                                                    <% } %>                                                                    
+                                                                </td>
                                                             </tr>
                                                         </table>
                                                         <p>
@@ -77,6 +89,9 @@
                                                             <b><%= webcontent.audit.scope %>:</b><br/>
                                                             <%= item.AuditScope %>
                                                         </p>
+                                                        <ul class="actions">
+                                                            <li><input type="button" class="button alt" value="Load related findings" /></li>
+                                                        </ul>                                    
                                                         <b><%= webcontent.main.presentin %></b> <a href="/portanalytics/portfoliosearch?id=<%= item.PortfolioId %>&lang=<%= language %>""><%= item.PortfolioId %></a>
                                                     </div>
                                                 </p>
