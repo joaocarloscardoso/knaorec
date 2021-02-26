@@ -178,4 +178,13 @@ portal.post('/searchresults', function(req, res){
     };
 });
 
+portal.get('/searchresults/relfindings',function(req,res){
+    //console.log(req.query.id + " | " + req.query.auditid + " | " + req.query.recid);
+    portfolio.LoadFindingsOfRecommendation(req.query.id, req.query.auditid, req.query.recid).then(function(Result){
+        //request parameters:  id, auditid, rec
+        //console.log(Result);
+        return res.send(Result);
+    });
+});
+
 module.exports = portal;

@@ -7,6 +7,39 @@
 <html>
     <!-- based on no-side bar template -->
     <%- include('../partials/head'); %>
+    <script>
+        $( document ).ready(function() {
+            <%  if (catalog.length > 0) { %>
+                <% let k=1 %>
+                <% catalog.forEach(function(item) { -%>            
+                    // GET REQUEST
+                    $("#btnfindings<%= k %>").click(function(event){
+                        event.preventDefault();
+                        ajaxGet('#divFindings<%= k %>','#btnfindings<%= k %>','<%= item.PortfolioId %>', '<%= item.AuditId %>', '<%= item.RecId %>');
+                    });
+                    //hide button
+                    <% k++ %>
+                <% }) -%>  
+            <% } %>
+                
+            // DO GET
+            function ajaxGet(target, ulButton, portfolioid, auditid, recid){
+                $(ulButton).hide();
+                $(target).html("<span style='color:blue'>Loading data...</span>");
+                var urlGet = window.location + "/relfindings?id="  + portfolioid + "&auditid=" + auditid + "&recid=" + recid;
+                $.ajax({
+                    type : "GET",
+                    url : urlGet,
+                    success: function(result){
+                        $(target).html("<strong>Related findings:</strong><br/><hr/>" + result);
+                    },
+                    error : function(e) {
+                        $(target).html("<span style='color:red'>Error accessing findings!</span>");
+                    }
+                });	
+            }
+        })        
+    </script>
     <body class="is-preload">
 		<div id="page-wrapper">
 
@@ -89,9 +122,11 @@
                                                             <b><%= webcontent.audit.scope %>:</b><br/>
                                                             <%= item.AuditScope %>
                                                         </p>
-                                                        <ul class="actions">
-                                                            <li><input type="button" class="button alt" value="Load related findings" /></li>
-                                                        </ul>                                    
+                                                        <ul class="actions" id="ulfindings<%= i %>">
+                                                            <li><input id="btnfindings<%= i %>" type="button" class="button alt" value="Load related findings" /></li>
+                                                        </ul>
+                                                        <div id="divFindings<%= i %>"></div>
+                                                        <br/>                                    
                                                         <b><%= webcontent.main.presentin %></b> <a href="/portanalytics/portfoliosearch?id=<%= item.PortfolioId %>&lang=<%= language %>""><%= item.PortfolioId %></a>
                                                     </div>
                                                 </p>
