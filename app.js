@@ -264,7 +264,7 @@ app.use(function(req,res,next){
 https.createServer({
     key: fs.readFileSync('./key.pem'),
     cert: fs.readFileSync('./cert.pem'),
-    passphrase: 'aitam'
+    passphrase: credentials.passphrase
 },app).listen(3000);
 
 //app.listen(3000,function(){

@@ -1,4 +1,4 @@
-<% data.Recommendations.forEach(function(item) { %>
+
     <tr id="<%= item.RowId %>Row" style="display: table-row;">
         <td>
             <span><%= item.Description %></span>
@@ -29,4 +29,4 @@
             <span data-tooltip-right="Current status is collected from last assessment, otherwise the value (not yet accessed) is displayed!"><%= item.Status %></span>
         </td>
     </tr>
-<% }) %>
+

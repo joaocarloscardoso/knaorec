@@ -3748,3 +3748,34 @@ hr {
 	border-radius: 50%;
 	background: white;
 }
+
+#recTable {
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100%;
+	border-collapse:separate;
+    border:1px solid #ddd;
+    border-radius:25px;
+    -moz-border-radius:25px;
+	background-color: #4e76a1;
+}
+
+#recTable td {
+	background-color: #f5f5f5;
+}
+
+#recTable td, #recTable th {
+	border-left:1px solid #ddd;
+	padding: 8px;
+}
+
+#recTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#recTable th {
+	color: white;
+}
+
+
+
+#recTable td:first-child, #recTable th:first-child {
+	border-left: none;
+}

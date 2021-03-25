@@ -48,18 +48,72 @@
                 <section id="contact" class="col-6 col-12-narrower">
                     <% if(data.NumberOfRecommendations > 0) { %>
                         <%= webcontent.audit.recprogress %>
-                        <table id='tablecatalog'>
-                            <thead>
-                                <%- include('../audit_statistics/auditrecstatsheader'); %>
-                            </thead>    
-                            <tbody>
-                                <%- include('./auditrecstatsrow'); %>
-                            </tbody>
-                        </table>
+                        <% data.Recommendations.forEach(function(item) { %>
+                            <table id='recTable'>
+                                <thead>
+                                    <%- include('../audit_statistics/auditrecstatsheader'); %>
+                                </thead>    
+                                <tbody>
+                                    <tr id="<%= item.RowId %>Row" style="display: table-row;">
+                                        <td>
+                                            <span><%= item.Description %></span>
+                                            <p><span><b>Related findings:&nbsp;</b><br/>
+                                                <% if(item.Findings.length > 0) { %>
+                                                    <% item.Findings.forEach(function(subitem) { %>
+                                                            <div style="margin-left: 30px;"><b><%= subitem.Number %>&nbsp;<%= subitem.Name %></b><br/></div>
+                                                            <div style="margin-left: 30px;"><span style="white-space: pre-line"><%= subitem.Description %></span></div><br/>
+                                                    <% }) %>
+                                                <% } else { %>
+                                                    <span style="margin-left: 30px;">(none so far)</span>
+                                                <% } %>   
+                                            </span></p>
+                                        </td>
+                                        <td style="width:150px;">
+                                            <span>
+                                                
+                                                <img src="../../images/<%= item.Priority %>.png" alt="" style="vertical-align: text-bottom;"/>
+                                            &nbsp;
+                                            <b><%= item.Priority %></b></span>
+                                        </td>
+                                        <td>
+                                            <span><%= item.Risk %></span>
+                                        </td>
+                                        <td>
+                                            <span><%= item.Riskevaluation %></span>            
+                                        </td>
+                                        <td>
+                                            <span><%= item.Timeline %></span>
+                                        </td>
+                                        <td>
+                                            <span data-tooltip-left="Current status is collected from last assessment, otherwise the value (not yet accessed) is displayed!">
+                                                <%= item.Status %>
+                                            </span>
+                                            <p>
+                                                <img src="../../images/task-completed.png" alt="" style="display:block; margin:0 auto; width:32px;height:32px"/>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tfoot>
+                                        <tr style="height: 30px;">
+                                            <td style="background-color: transparent"></td>
+                                            <td style="background-color: transparent"></td>
+                                            <td style="background-color: transparent"></td>
+                                            <td style="background-color: transparent"></td>
+                                            <td style="background-color: transparent"></td>
+                                            <td style="background-color: transparent"></td>
+                                        </tr>
+                                    </tfoot>
+                                </tbody>
+                            </table>
+                            <br/>
+                        <% }) %>
                     <% } %>
                 </section>    
             </article>
         </div>
+
+
+
     </div>
     <p></p>
 </section>
