@@ -70,8 +70,17 @@
                                         </td>
                                         <td style="width:150px;">
                                             <span>
-                                                
-                                                <img src="../../images/<%= item.Priority %>.png" alt="" style="vertical-align: text-bottom;"/>
+                                                <% resPriority = webcontent.Recommendation.Priority.split("|") -%>
+                                                    <% for(j=0; j < resPriority.length; j++) { -%>
+                                                    <% if (resPriority[j] === item.Priority) { %>
+                                                        <% break; -%>
+                                                    <% } %>    
+                                                <% } %>
+                                                <% if (j < resPriority.length) { %>
+                                                    <img src="../../images/priority_<%= j %>.png" alt="" style="vertical-align: text-bottom;"/>
+                                                <% } else { %>
+                                                    <img src="../../images/priority.png" alt="" style="vertical-align: text-bottom;"/>                                                        
+                                                <% } %>
                                             &nbsp;
                                             <b><%= item.Priority %></b></span>
                                         </td>
@@ -89,7 +98,17 @@
                                                 <%= item.Status %>
                                             </span>
                                             <p>
-                                                <img src="../../images/task-completed.png" alt="" style="display:block; margin:0 auto; width:32px;height:32px"/>
+                                                <% resImplementation = webcontent.Recommendation.ImplementationStatus.split("|") -%>
+                                                    <% for(k=0; k < resImplementation.length; k++) { -%>
+                                                    <% if (resImplementation[k] === item.Status) { %>
+                                                        <% break; -%>
+                                                    <% } %>    
+                                                <% } %>
+                                                <% if (k < resImplementation.length) { %>
+                                                    <img src="../../images/implementation_<%= k %>.png" alt="" style="display:block; margin:0 auto; width:32px;height:32px"/>
+                                                <% } else { %>
+                                                    <img src="../../images/implementation.png" alt="" style="display:block; margin:0 auto; width:32px;height:32px"/>                                                        
+                                                <% } %>
                                             </p>
                                         </td>
                                     </tr>
