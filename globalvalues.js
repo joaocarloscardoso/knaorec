@@ -96,25 +96,25 @@ module.exports = {
                 sai:'ZYRA KOMBËTARE E AUDITIMIT',
                 module:'Sistemi i ndjekjes së rekomandimeve',
                 update:'Përditësimi i fundit',
-                introduction:'Auditimet paraqiten si "koleksione", të grumbulluara sipas llojit, lëndës, pikave kronologjike dhe rekomandimet e tyre, së bashku me gjetjet përkatëse mund të gjurmohen dhe monitorohen këtu.',
+                introduction:'Auditimet paraqiten si "koleksione", të grumbulluara sipas llojit, lëndës, pikave kronologjike dhe rekomandimet e tyre, së bashku me gjetjet përkatëse, mund të gjurmohen dhe monitorohen këtu.',
                 note1: 'Shënim',
-                note2:'Vetëm auditimet e publikuara dhe të autorizuara nga KNAO janë në dispozicion në versionin në internet.',
+                note2:'Vetëm auditimet e publikuara dhe të autorizuara nga ZAK janë në dispozicion në versionin në internet.',
                 portfolio_subject:'Për të përfshirë',
                 portfolio_sai:'ISA',
-                externallinks:'Lidhje të Jashtme të Lidhura',
+                externallinks:'Lidhje të jashtme të lidhura',
                 noaudits:'Nuk ka auditime të disponueshme!',
-                number: 'Numrin',
+                number: 'Numri',
                 search: 'Kërko',
                 searchresults: 'Rezultatet e kërkimit',
-                numberresults:'U gjetën $$$ rekomandimet. Rezultatet renditen sipas rëndësisë.',
-                noteresults: 'Në mënyrë që të shmanget konsumi i tepërt i burimeve të sistemit u morën vetëm 100 rezultatet e para. Mundohuni të jeni më specifik në kriteret e kërkimit!',
+                numberresults:'U gjetën $$$ rekomandime. Rezultatet renditen sipas rëndësisë.',
+                noteresults: 'Për të shmangur konsumin e tepërt të burimeve të sistemit, paraqiten vetëm 100 rezultatet e para. Përpiquni të jeni më specifik në kriteret e kërkimit!',
                 presentin:'Të pranishëm në: ',
-                noresults: 'Kërkimi nuk i ktheu rekomandimet!'
+                noresults: 'Kërkimi nuk solli rekomandime!'
             },
             search: {
                 introduction: 'Mjet kërkimi për rekomandimet e auditimit',
                 note1: 'Shënim',
-                note2: 'Shtypni termat e kërkimit në kutinë e tekstit ose kombinojini ato me opsionet e përparuara dhe shtypni butonin e kërkimit',
+                note2: 'Shtypni kushtet e kërkimit në kutinë e tekstit ose kombinoni ato me mundësitë e përparuara dhe shtypni butonin e kërkimit',
                 button: 'Kërko',
                 option1: 'Çdo fjalë',
                 option2: 'Përputhja e saktë',
@@ -131,7 +131,7 @@ module.exports = {
             portfolio:{
                 rectstatus:'Statusi i Rekomandimeve Globale',
                 newissues: 'Çështje të reja',
-                riskareas: 'Zonat e rrezikut të identifikuara'
+                riskareas: 'Zonat e identifikuara të rrezikut'
             },
             audit:{
                 recprogress: 'Progresi i rekomandimeve',
@@ -163,25 +163,25 @@ module.exports = {
                 Repeated: 'Gjithsej|E Re|Përsëritur|Pjesërisht e Për.'
             }
         },
-        sr:{
+       sr:{
             main:{
-                country:'REPUBLIKA KOSOVA',
-                sai:'NATIONALNA KANCELARIJA REVIZIJE',
+                country:'REPUBLIKA KOSOVO',
+                sai:'NACIONALNA KANCELARIJA REVIZIJE',
                 module:'Sistem praćenja preporuka',
                 update:'Poslednje ažuriranje',
-                introduction:'Revizije su predstavljene kao „zbirke“, objedinjene po tipu, predmetu, hronološkim prekretnicama i njihove preporuke, zajedno sa srodnim nalazima mogu se ovde pratiti i nadgledati.',
+                introduction:'Revizije su predstavljene kao „zbirke“, objedinjene prema tipu, predmetu, hronološkim prekretnicama i njihovim preporukama, zajedno sa srodnim nalazima mogu se pratiti i nadgledati ovde.',
                 note1: 'Beleška',
-                note2:'Samo revizije objavljene i odobrene od strane KNAO su dostupne u veb verziji.',
-                portfolio_subject:'Obuhvatiti',
+                note2:'Samo revizije objavljene i odobrene od strane NKRK su dostupne u veb verziji.',
+                portfolio_subject:'Obuhvata',
                 portfolio_sai:'VRI',
-                externallinks:'Spoljne povezane veze',
-                noaudits:'Nije dostupna revizija!',
+                externallinks:'Spoljne srodne veze',
+                noaudits:'Revizije nisu dostupne!',
                 number: 'Broj',
                 search: 'Pretraga',
                 searchresults: 'Rezultati pretrage',
-                numberresults:'Pronađene su $$$ preporuke. Rezultati su poredani po važnosti.',
+                numberresults:'Pronađene su $$$ preporuke. Rezultati su poređani po važnosti.',
                 noteresults: 'Da bi se izbegla prekomerna potrošnja sistemskih resursa, pronađeno je samo prvih 100 rezultata. Pokušajte da budete precizniji u kriterijumima pretrage!',
-                presentin:'Prisutan na: ',
+                presentin:'Prisutno na: ',
                 noresults: 'Pretraga nije vratila preporuke!'
             },
             search: {
@@ -190,12 +190,12 @@ module.exports = {
                 note2: 'Unesite pojmove za pretragu u okvir za tekst ili ih kombinirajte sa naprednim opcijama i pritisnite dugme za pretragu',
                 button: 'Pretraga',
                 option1: 'Bilo koja reč',
-                option2: 'Tačan meč',
-                priority: 'Prioritetno',
+                option2: 'Tačno poklapanje',
+                priority: 'Prema prioritetu',
                 riskareas: 'Prema rizičnom području',
-                rectype: 'Po nivou',
-                recimportance: 'Po važnosti',
-                status: 'Po statusu primene',
+                rectype: 'Prema nivou',
+                recimportance: 'Prema važnosti',
+                status: 'Prema statusu primene',
                 repeated: 'Ponovljeno?',
                 advanced: 'Napredne opcije',
                 ShowRec:'Više informacija ...',
@@ -204,36 +204,36 @@ module.exports = {
             portfolio:{
                 rectstatus:'Status globalnih preporuka',
                 newissues: 'Nova izdanja',
-                riskareas: 'Identifikovana područja rizika'
+                riskareas: 'Utvrđena područja rizika'
             },
             audit:{
                 recprogress: 'Napredak preporuka',
                 priority: 'Prioritet',
-                riskareas: 'Identifikovana područja rizika',
+                riskareas: 'Utvrđena područja rizika',
                 rectype: 'Preporuke prema tipu',
                 recimportance: 'Značaj preporuka',
                 status: 'Status (sveukupno)',
                 repeated: 'Ponovljeno?',
                 tabreccol1: 'Preporuka',
                 tabreccol2: 'Prioritet',
-                tabreccol3: 'Površina',
+                tabreccol3: 'Područje',
                 tabreccol4: 'Nivo',
                 tabreccol5: 'Vremenska linija',
                 tabreccol6: 'Status',
                 audit: 'Revizija',
                 year: 'godina',
                 background: 'Pozadina revizije',
-                scope: 'Obim revizije',
+                scope: 'Delokrug revizije',
                 importance: 'Strateški',
                 priority: 'Hitno'
             },
             Recommendation: {
                 Priority: 'Hitno|Redovno',
-                RiskCharacterization: 'Upravljanje|Operativno|Reputaciono|Finansijsko|Usklađenost|Neprilagodba imovine',
+                RiskCharacterization: 'Upravljanje|Operativni|Reputacioni|Finansijski|Usklađenost|Pronevera imovine',
                 RiskEvaluation: 'Država|Regija|Opština|Oblast delatnosti|Entitet',
-                Importance: 'Strateški|Važno, ali ne i bitno',
-                ImplementationStatus: 'Implementirano|Započeta implementacija|Delimično primenjena|Implementacija završne faze|Nije započeta implementacija|Nije adresirano|Više nije primenljivo',
-                Repeated: 'Ukupno|Novo|Ponovljeno|Delimično pon.'
+                Importance: 'Strateški|Važno, ali ne i suštinski',
+                ImplementationStatus: 'Realizovano|Realizacija započeta|Delimično realizovano|Realizacija završne faze|Realizacija nije započeta|Nije rešeno|Nije više važeće',
+                Repeated: 'Novo|Ponovljeno|Delim. ponovljeno'
             }
         }
     }
