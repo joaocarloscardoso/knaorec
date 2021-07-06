@@ -163,7 +163,7 @@ module.exports = {
                 Repeated: 'Gjithsej|E Re|Përsëritur|Pjesërisht e Për.'
             }
         },
-       sr:{
+        sr:{
             main:{
                 country:'REPUBLIKA KOSOVO',
                 sai:'NACIONALNA KANCELARIJA REVIZIJE',

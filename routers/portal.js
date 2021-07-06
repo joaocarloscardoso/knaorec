@@ -49,6 +49,7 @@ portal.get('/rectracking',function(req,res){
     };
 
     var weblang ={};
+    credentials.WorkLang = req.query.lang.toLowerCase();
     if (req.query.lang=="EN") {
         weblang=globalvalues.weblang.en;
     }else if (req.query.lang=="SQ") {
@@ -93,6 +94,7 @@ portal.get('/search',function(req,res){
     };
 
     var weblang ={};
+    credentials.WorkLang = req.query.lang.toLowerCase();
     if (req.query.lang=="EN") {
         weblang=globalvalues.weblang.en;
     }else if (req.query.lang=="SQ") {
@@ -134,6 +136,7 @@ portal.post('/searchresults', function(req, res){
         };
         var SearchExpr = '';
         var weblang ={};
+        credentials.WorkLang = req.body.lang.toLowerCase();
         if (req.body.lang=="EN") {
             weblang=globalvalues.weblang.en;
         }else if (req.body.lang=="SQ") {

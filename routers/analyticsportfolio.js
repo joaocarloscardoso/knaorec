@@ -54,6 +54,7 @@ analyticsportfolio.get('/portfolio',function(req,res){
     };
 
     var weblang ={};
+    credentials.WorkLang = req.query.lang.toLowerCase();
     if (req.query.lang=="EN") {
         weblang=globalvalues.weblang.en;
     }else if (req.query.lang=="SQ") {
@@ -92,6 +93,7 @@ analyticsportfolio.get('/audit',function(req,res){
     };
 
     var weblang ={};
+    credentials.WorkLang = req.query.lang.toLowerCase();
     if (req.query.lang=="EN") {
         weblang=globalvalues.weblang.en;
     }else if (req.query.lang=="SQ") {
@@ -99,7 +101,7 @@ analyticsportfolio.get('/audit',function(req,res){
     }else if (req.query.lang=="SR") {
         weblang=globalvalues.weblang.sr;
     };
-
+console.log('www');
     //var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
     portfolio.LoadPortfolioAudit(req.query.id, req.query.auditid, req.query.lang).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
@@ -132,6 +134,7 @@ analyticsportfolio.get('/auditsearch',function(req,res){
     };
 
     var weblang ={};
+    credentials.WorkLang = req.query.lang.toLowerCase();
     if (req.query.lang=="EN") {
         weblang=globalvalues.weblang.en;
     }else if (req.query.lang=="SQ") {
@@ -169,6 +172,7 @@ analyticsportfolio.get('/portfoliosearch',function(req,res){
     };
 
     var weblang ={};
+    credentials.WorkLang = req.query.lang.toLowerCase();
     if (req.query.lang=="EN") {
         weblang=globalvalues.weblang.en;
     }else if (req.query.lang=="SQ") {

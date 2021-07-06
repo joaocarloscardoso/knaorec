@@ -148,16 +148,16 @@ app.get('/',function(req,res){
     };
 
     //console.log(PluginsCatalog.length)
-    portfolio.ListPortfolios(user, '1').then(function(Result){
-        if (Result.length > 0) {
-            LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
+    portfolio.ListPortfolios(user, '1').then(function(colPortfolios){
+        if (colPortfolios.length > 0) {
+            LastDate = colPortfolios[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
         };
         portfolio.LoadColPortfoliosOverview().then(function(ResultStat){
             res.render('portal/rectracking', {
                 //action: req.query.action,
                 action: req.params.name,
                 lastupdate: LastDate,
-                catalog: Result,
+                catalog: colPortfolios,
                 catalogStat:ResultStat,
                 user: user,
                 rectracking: credentials.portfolio,
@@ -201,16 +201,16 @@ app.get('/index',function(req,res){
     };
 
     //console.log(PluginsCatalog.length)
-    portfolio.ListPortfolios(user, '1').then(function(Result){
-        if (Result.length > 0) {
-            LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
+    portfolio.ListPortfolios(user, '1').then(function(colPortfolios){
+        if (colPortfolios.length > 0) {
+            LastDate = colPortfolios[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
         };
         portfolio.LoadColPortfoliosOverview().then(function(ResultStat){
             res.render('portal/rectracking', {
                 //action: req.query.action,
                 action: req.params.name,
                 lastupdate: LastDate,
-                catalog: Result,
+                catalog: colPortfolios,
                 catalogStat:ResultStat,
                 user: user,
                 rectracking: credentials.portfolio,
