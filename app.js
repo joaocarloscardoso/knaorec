@@ -8,6 +8,7 @@ const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('./credentials.js');
 var globalvalues = require('./globalvalues.js');
+var colors = require('./colors.js');
 //email system
 //var emailService = require('./lib/email.js')(credentials);
 //plugins stats and catalogue
@@ -159,6 +160,7 @@ app.get('/',function(req,res){
                 lastupdate: LastDate,
                 catalog: colPortfolios,
                 catalogStat:ResultStat,
+                colors: colors,
                 user: user,
                 rectracking: credentials.portfolio,
                 audit: status, 

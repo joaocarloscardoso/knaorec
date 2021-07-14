@@ -15,6 +15,7 @@ var log = require('../lib/log.js');
 //portfolios
 var portfolio = require('../lib/portfolio.js');
 var globalvalues = require('../globalvalues.js');
+var colors = require('../colors.js');
 
 //generation of uuid
 //const uuid = require('uuid/v4');
@@ -64,12 +65,14 @@ portal.get('/rectracking',function(req,res){
             LastDate = Result[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
         };
         portfolio.LoadColPortfoliosOverview().then(function(ResultStat){
+            console.log(colors[0]);
             res.render('portal/rectracking', {
                 //action: req.query.action,
                 action: req.params.name,
                 lastupdate: LastDate,
                 catalog: Result,
                 catalogStat:ResultStat,
+                colors: colors,
                 user: user,
                 rectracking: credentials.portfolio,
                 audit: status, 

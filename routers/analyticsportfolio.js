@@ -7,6 +7,7 @@ const { check, validationResult } = require('express-validator');
 //credentials used in the app
 var credentials = require('../credentials.js');
 var globalvalues = require('../globalvalues.js');
+var colors = require('../colors.js');
 //plugins stats and catalogue
 var portfolio = require('../lib/portfolio.js');
 //logging system
@@ -69,6 +70,7 @@ analyticsportfolio.get('/portfolio',function(req,res){
             action: 'audit',
             operation: 'portfolio',
             catalog: Result,
+            colors:colors,
             user: user,
             rectracking: credentials.portfolio,
             audit: status,
@@ -101,7 +103,7 @@ analyticsportfolio.get('/audit',function(req,res){
     }else if (req.query.lang=="SR") {
         weblang=globalvalues.weblang.sr;
     };
-console.log('www');
+
     //var DataRecommendations = Recommendations.LoadAuditRecommendationsForAnalysis(NewAuditFile);
     portfolio.LoadPortfolioAudit(req.query.id, req.query.auditid, req.query.lang).then(function(Result){
         res.render('toolaudit/portfolioanalytics', {
@@ -109,6 +111,7 @@ console.log('www');
             action: 'audit',
             operation: 'audit',
             data: Result,
+            colors:colors,
             user: user,
             rectracking: credentials.portfolio,
             audit: status,
