@@ -6,19 +6,7 @@
     "type":"horizontalBar",
     "data":{
         "labels":[
-            <% let i=1 %>
-            <% if (language == 'EN') { -%>
-                <% data.StatStatus.forEach(function(item) { -%>
-                    <% if (i == 1) { -%>
-                        "<%= item.Status %>"
-                    <% } else { %>
-                        ,"<%= item.Status %>"
-                    <% } %>
-                    <% i++ %>
-                <% }) -%>
-            <% } else { %>
-                <%- '"' + webcontent.Recommendation.ImplementationStatus.split('|').join('","') + '"' %>
-            <% } %>
+            <%- '"' + data.status_label.split('|').join('","') + '"' %>
         ],
         "datasets":
             [
@@ -29,38 +17,33 @@
                     "label":"<%= webcontent.main.number %>",
                     <% } %>
                     "data":[
-                        <%  i=1 %>
-                        <% data.StatStatus.forEach(function(item) { -%>
-                            <% if (i == 1) { -%>
-                                <%= item.Number %>
+                        <% colStat =  data.status_label.split(" ").join("_").split("|") -%>
+                        <% for (var i=0; i<colStat.length; i++) { -%>
+                            <% if (i == 0) { -%>
+                                <%= data.StatStatus[colStat[i]] %>
                             <% } else { %>
-                                ,<%= item.Number %>
+                                ,<%= data.StatStatus[colStat[i]] %>
                             <% } %>
-                            <% i++ %>
-                        <% }) -%>
+                        <% } -%>  
                     ],
                     "fill":false,
                     "backgroundColor":[
-                        <%  i=1 %>
-                        <% data.StatStatus.forEach(function(item) { -%>
-                            <% if (i == 1) { -%>
-                                "rgba(255, 159, 64, 1)"
+                        <% for (var i=0; i<colStat.length; i++) { -%>
+                            <% if (i == 0) { -%>
+                                "<%= colors[i] %>"
                             <% } else { %>
-                                ,"rgba(255, 159, 64, 1)"
+                                ,"<%= colors[i] %>"
                             <% } %>
-                            <% i++ %>
-                        <% }) -%>
+                        <% } -%>  
                     ],
                     "borderColor":[
-                        <%  i=1 %>
-                        <% data.StatStatus.forEach(function(item) { -%>
-                            <% if (i == 1) { -%>
-                                "rgb(255, 159, 64)"
+                        <% for (var i=0; i<colStat.length; i++) { -%>
+                            <% if (i == 0) { -%>
+                                "<%= colors[i] %>"
                             <% } else { %>
-                                ,"rgb(255, 159, 64)"
+                                ,"<%= colors[i] %>"
                             <% } %>
-                            <% i++ %>
-                        <% }) -%>
+                        <% } -%>  
                     ],
                     "borderWidth":1
                 }

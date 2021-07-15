@@ -6,11 +6,7 @@
     "type":"horizontalBar",
     "data":{
         "labels":[
-        <% if (language == 'EN') { -%>
-            'Total','New', 'Repeated', 'Partially Rep.'
-            <% } else { %>
-            <%- '"' + webcontent.Recommendation.Repeated.split('|').join('","') + '"' %>    
-            <% } %>
+            <%- '"' + data.repeated_label.split('|').join('","') + '"' %>
         ],
         "datasets":
             [
@@ -21,23 +17,33 @@
                     "label":"<%= webcontent.main.number %>",
                     <% } %>
                     "data":[
-                        <%= data.NumberOfRecommendations %>,
-                        <%= data.NumberOfNewRecommendations %>,
-                        <%= data.NumberOfRepRecommendations %>,
-                        <%= data.NumberOfPartRecommendations %>
+                        <% colStat =  data.repeated_label.split(" ").join("_").split("|") -%>
+                        <% for (var i=0; i<colStat.length; i++) { -%>
+                            <% if (i == 0) { -%>
+                                <%= data.repeated_data[colStat[i]] %>
+                            <% } else { %>
+                                ,<%= data.repeated_data[colStat[i]] %>
+                            <% } %>
+                        <% } -%>  
                     ],
                     "fill":false,
                     "backgroundColor":[
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(25, 159, 64, 1)"
+                        <% for (var i=0; i<colStat.length; i++) { -%>
+                            <% if (i == 0) { -%>
+                                "<%= colors[i] %>"
+                            <% } else { %>
+                                ,"<%= colors[i] %>"
+                            <% } %>
+                        <% } -%>  
                     ],
                     "borderColor":[
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(25, 159, 64, 1)"
+                        <% for (var i=0; i<colStat.length; i++) { -%>
+                            <% if (i == 0) { -%>
+                                "<%= colors[i] %>"
+                            <% } else { %>
+                                ,"<%= colors[i] %>"
+                            <% } %>
+                        <% } -%>  
                     ],
                     "borderWidth":1
                 }

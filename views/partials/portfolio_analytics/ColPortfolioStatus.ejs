@@ -3,11 +3,7 @@
 <canvas id="chartjs-GRC" class="chartjs" width="undefined" height="undefined"></canvas>
 <script>new Chart(document.getElementById("chartjs-GRC"),
 {"type":"doughnut",
-<% if (language == 'EN') { -%>
 "data":{"labels":[<%- '"' + catalogStat.status_label.split('|').join('","') + '"' %>],
-<% } else { %>
-"data":{"labels":[<%- '"' + webcontent.Recommendation.ImplementationStatus.split('|').join('","') + '"' %>],
-<% } %>
 "datasets":[
 {
 "label":"My First Dataset",
