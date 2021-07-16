@@ -156,6 +156,7 @@ analyticsportfolio.get('/auditsearch',function(req,res){
             user: user,
             rectracking: credentials.portfolio,
             audit: status,
+            colors:colors,
             language:req.query.lang,
             webcontent: weblang
         });     
@@ -193,6 +194,7 @@ analyticsportfolio.get('/portfoliosearch',function(req,res){
             user: user,
             rectracking: credentials.portfolio,
             audit: status,
+            colors:colors,
             language: req.query.lang,
             webcontent: weblang
         });     
