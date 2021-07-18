@@ -1,11 +1,11 @@
 module.exports = {
     Recommendation: {
         Priority: 'Urgent|Regular',
-        RiskCharacterization: 'Governance|Operational|Reputational|Financial|Compliance|Misappropriation of assets',
-        RiskEvaluation: 'State|Region|Municipality|Activity Area|Entity',
+        RiskCharacterization: 'mission|accountability|information|life / health|penalties|reputation|wasted resources|lost benefits|operations|compliance',
+        RiskEvaluation: 'State|Region|Municipality|Sector|Entity',
         Importance: 'Strategic|Important, but not essential',
-        ImplementationStatus: 'Implemented|Started Implementation|Partially implemented|Final Stage Implementation|Not started Implementation|Not addressed|No longer applicable',
-        Repeated: 'New|Repeated|Partially Rep.'
+        ImplementationStatus: 'Implemented|Partially implemented|Not started Implementation|Not addressed|No longer applicable|Partially no longer applicable|Assessment has not started yet',
+        Repeated: 'New reccomendation (A)|Repeated reccomendation (B)|Partialy repeated Reccomendation (C)|In Process (D)|Solved (E)|New status (F)'
     },
     NodeAttributes:{
         Priority: 'priority',
@@ -82,11 +82,11 @@ module.exports = {
             },
             Recommendation: {
                 Priority: 'Urgent|Regular',
-                RiskCharacterization: 'Governance|Operational|Reputational|Financial|Compliance|Misappropriation of assets',
-                RiskEvaluation: 'State|Region|Municipality|Activity Area|Entity',
+                RiskCharacterization: 'mission|accountability|information|life / health|penalties|reputation|wasted resources|lost benefits|operations|compliance',
+                RiskEvaluation: 'State|Region|Municipality|Sector|Entity',
                 Importance: 'Strategic|Important, but not essential',
-                ImplementationStatus: 'Implemented|Started Implementation|Partially implemented|Final Stage Implementation|Not started Implementation|Not addressed|No longer applicable',
-                Repeated: 'New|Repeated|Partially Rep.'
+                ImplementationStatus: 'Implemented|Partially implemented|Not started Implementation|Not addressed|No longer applicable|Partially no longer applicable|Assessment has not started yet',
+                Repeated: 'New reccomendation (A)|Repeated reccomendation (B)|Partialy repeated Reccomendation (C)|In Process (D)|Solved (E)|New status (F)'
             }
 
         },
@@ -156,11 +156,11 @@ module.exports = {
             },
             Recommendation: {
                 Priority: 'Urgjente|E rregullt',
-                RiskCharacterization: 'Qeverisja|Operative|Reputacion|Financiar|Pajtueshmëria|Shpërdorimi i pasurive',
-                RiskEvaluation: 'Shteti|rajoni|komuna|zona e veprimtarisë|njësia ekonomike',
+                RiskCharacterization: 'misioni|llogaridhënia|informacioni|jeta /shëndeti|ndëshkimet|reputacioni|resurset e humbura|përfitimet e humbura|operacionet|pajtueshmëria',
+                RiskEvaluation: 'Shteti|Regjioni|komuna|Sektori|Entiteti',
                 Importance: 'Strategjik|E rëndësishme, por jo thelbësore',
-                ImplementationStatus: 'Zbatuar|Zbatimi i filluar|Zbatuar pjesërisht|Zbatimi i fazës finale|Zbatimi nuk ka filluar|Nuk adresohet|Nuk zbatohet më',
-                Repeated: 'Gjithsej|E Re|Përsëritur|Pjesërisht e Për.'
+                ImplementationStatus: 'I zbatuar|Pjesërisht i zbatuar|Nuk ka filluar zbatimi|Nuk është adresuar|Nuk është i aplikueshëm më|Pjesërisht nuk është i aplikueshëm më|Nuk ka filluar vlerësimi',
+                Repeated: 'Rekomandimet e reja (A)|Rekomandimet e përsëritura (B)|Rekomandimet pjesërisht të përsëritura (C)|Në proçes (D)|Zgjidhur (E)|Statusi i ri (F)'
             }
         },
         sr:{
@@ -229,11 +229,11 @@ module.exports = {
             },
             Recommendation: {
                 Priority: 'Hitno|Redovno',
-                RiskCharacterization: 'Upravljanje|Operativni|Reputacioni|Finansijski|Usklađenost|Pronevera imovine',
-                RiskEvaluation: 'Država|Regija|Opština|Oblast delatnosti|Entitet',
+                RiskCharacterization: 'misija|odgovornost|informacije|život / zdravlje|kazne|reputacija|rasipanje resursa|izgubljene koristi|operacije|usklađenost',
+                RiskEvaluation: 'Država|Regija|Opština|Sektor|Entitet',
                 Importance: 'Strateški|Važno, ali ne i suštinski',
-                ImplementationStatus: 'Realizovano|Realizacija započeta|Delimično realizovano|Realizacija završne faze|Realizacija nije započeta|Nije rešeno|Nije više važeće',
-                Repeated: 'Novo|Ponovljeno|Delim. ponovljeno'
+                ImplementationStatus: 'Sproveden|Delimično sproveden|Nije počela primena|Nije adresirana|Nije više primenljiv|Delimično nije više primenljiv|Assessment has not started yet',
+                Repeated: 'Nova Preporuka (A)|Ponovljena Preporuka (B)|Delomično ponovljene preporuke (C)|U procesu (D)|Rešeno (E)|Novi status (F)'
             }
         }
     }

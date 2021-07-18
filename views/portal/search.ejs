@@ -79,15 +79,6 @@
                                             <% }) -%>    
                                         </div>
                                         <div class="col-6 col-12-mobilep" id='AdvancedOptions2' name='AdvancedOptions2' style='display: none;'>
-                                            <%= webcontent.search.recimportance %><br/>
-                                            <% webcontent.Recommendation.Importance.split("|").forEach(function(item) { -%>
-                                                <label class="container1"><%= item %>
-                                                    <input type="checkbox" id="option<%= i %>" name="option<%= i %>" value="<%= nodes.Importance %>=u0022<%= item %>u0022">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <% i++ %> 
-                                            <% }) -%>     
-                                            <br/>    
                                             <%= webcontent.search.status %><br/>
                                             <% webcontent.Recommendation.ImplementationStatus.split("|").forEach(function(item) { -%>
                                                 <label class="container1"><%= item %>
