@@ -163,7 +163,10 @@ portal.post('/searchresults', function(req, res){
         var totalOptions = req.body.options;
         for ( var i = 1; i < totalOptions; i ++) {
             if (req.body['option'+ i.toString()] != undefined){
-                SearchExpr = SearchExpr +' \"' + req.body['option'+ i.toString()].replace(/u0022/g, '\"') +'\"';
+                var searchAttribute = portfolio.GetRecommendationSearchAttribute(req.body['option'+ i.toString()].replace(/u0022/g, '\"'), req.body.lang);
+                //SearchExpr = SearchExpr +' \"' + req.body['option'+ i.toString()].replace(/u0022/g, '\"') +'\"';
+                SearchExpr = SearchExpr +' \"' + searchAttribute +'\"';
+                //console.log(SearchExpr)
             };
 
         }

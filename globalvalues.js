@@ -4,7 +4,7 @@ module.exports = {
         RiskCharacterization: 'mission|accountability|information|life / health|penalties|reputation|wasted resources|lost benefits|operations|compliance',
         RiskEvaluation: 'State|Region|Municipality|Sector|Entity',
         Importance: 'Strategic|Important, but not essential',
-        ImplementationStatus: 'Implemented|Partially implemented|Not started Implementation|Not addressed|No longer applicable|Partially no longer applicable|Assessment has not started yet',
+        ImplementationStatus: 'I zbatuar|Pjesërisht i zbatuar|Nuk ka filluar zbatimi|Nuk është adresuar|Nuk është i aplikueshëm më|Pjesërisht nuk është i aplikueshëm më|Nuk ka filluar vlerësimi',
         Repeated: 'New reccomendation (A)|Repeated reccomendation (B)|Partialy repeated Reccomendation (C)|In Process (D)|Solved (E)|New status (F)'
     },
     NodeAttributes:{
