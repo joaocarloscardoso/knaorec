@@ -150,23 +150,32 @@ app.get('/',function(req,res){
 
     //console.log(PluginsCatalog.length)
     portfolio.ListPortfolios(user, '1').then(function(colPortfolios){
-        if (colPortfolios.length > 0) {
+        if (colPortfolios[0] != undefined) {
             LastDate = colPortfolios[0].datepub.replace(/T/, ' ').replace(/\.\w*/, '');
+        } else {
+            LastDate = new Date();
         };
         portfolio.LoadColPortfoliosOverview().then(function(ResultStat){
-            res.render('portal/rectracking', {
-                //action: req.query.action,
-                action: req.params.name,
-                lastupdate: LastDate,
-                catalog: colPortfolios,
-                catalogStat:ResultStat,
-                colors: colors,
-                user: user,
-                rectracking: credentials.portfolio,
-                audit: status, 
-                language: credentials.WebLang,
-                webcontent: weblang
-            });  
+            if (colPortfolios[0] != undefined) {
+                res.render('portal/rectracking', {
+                    //action: req.query.action,
+                    action: req.params.name,
+                    lastupdate: LastDate,
+                    catalog: colPortfolios,
+                    catalogStat:ResultStat,
+                    colors: colors,
+                    user: user,
+                    rectracking: credentials.portfolio,
+                    audit: status, 
+                    language: credentials.WebLang,
+                    webcontent: weblang
+                });
+            } else {
+                log.warn('No data in database');
+                res.type('text/html');
+                res.render('NoData');
+            
+            };
         });
     });
 
