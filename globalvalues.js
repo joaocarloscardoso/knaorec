@@ -78,7 +78,8 @@ module.exports = {
                 background: 'Audit background',
                 scope: 'Audit scope',
                 importance: 'Strategic',
-                priority: 'Urgent'
+                priority: 'Urgent',
+                report: 'Published report'
             },
             Recommendation: {
                 Priority: 'Urgent|Regular',
@@ -152,7 +153,8 @@ module.exports = {
                 background: 'Sfondi i auditimit',
                 scope: 'Fusha e auditimit',
                 importance: 'Strategjik',
-                priority: 'Urgjente'
+                priority: 'Urgjente',
+                report: 'Raporti i publikuar'
             },
             Recommendation: {
                 Priority: 'Urgjente|E rregullt',
@@ -225,7 +227,8 @@ module.exports = {
                 background: 'Pozadina revizije',
                 scope: 'Delokrug revizije',
                 importance: 'Strateški',
-                priority: 'Hitno'
+                priority: 'Hitno',
+                report: 'Objavljen izveštaj'
             },
             Recommendation: {
                 Priority: 'Hitno|Redovno',

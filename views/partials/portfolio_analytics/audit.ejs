@@ -43,6 +43,12 @@
         </div>
         <hr/>
         <div id="content">
+            <% if(data.AuditURL != '') { %>
+                <ul class="links">
+                    <!--max entries: 7-->
+                    <li><a target="_blank" href="<%= data.AuditURL %>"><%= webcontent.audit.report %></a></li>
+                </ul>
+            <% } %>
             <!-- Content -->
             <article>
                 <section id="contact" class="col-6 col-12-narrower">
