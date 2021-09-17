@@ -45,7 +45,7 @@ auditrec.get('/auditrecs',function(req,res){
     };
 
     if (status) {
-        var reccatalog = AuditRecommendations.LoadAuditRecommendations(NewAuditFile);
+        var reccatalog = AuditRecommendations.LoadAuditRecommendations(NewAuditFile, credentials.WorkLang.toLowerCase());
         //var teste = Findings.FindingsForGeneralDomainsAnalysis(NewAuditFile);
         res.render('toolaudit/toolwork', {
             action: 'audit',
@@ -87,7 +87,7 @@ auditrec.get('/deleteauditrec/:auditrecId',function(req,res){
 
     if (status) {
         var status = AuditRecommendations.DeleteAuditRecommendation(NewAuditFile, req.params.auditrecId);
-        var reccatalog = AuditRecommendations.LoadAuditRecommendations(NewAuditFile);
+        var reccatalog = AuditRecommendations.LoadAuditRecommendations(NewAuditFile, credentials.WorkLang);
         res.render('toolaudit/toolwork', {
             action: 'audit',
             operation: 'audit_recommendations',
